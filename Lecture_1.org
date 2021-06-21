@@ -1,0 +1,66 @@
+#+title: Introduction to R
+#+author: Daniel Ballesteros-Chávez
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 26.1 (Org mode 9.3.6)
+
+
+* Introduction to R
+
+- What is R?
+
+R is an open source statistical software.
+
+- How to get it?
+
+You can get R directly on their website [[https://www.r-project.org/]]
+
+- What is RStudio?
+
+RStudio is an integrated development environment (IDE) for R. 
+
+It is a good tool to get started if you are not used to scripting programming. It has very helpful visual messages. 
+
+I use [[https://www.gnu.org/software/emacs/][emacs]] and it is difficult for me to get used to Rstudio. My advice: use whatever you find more comfortable. 
+
+- Installation and packages
+
+The Packages are sets of tools that can be downloaded from different
+servers around the world. Different packages have different R functions for specific purposes.
+
+For example, the foreign package allows R to read different data set files like .sav, .dbf, and other file extensions.
+
+In order to install the package foreign we type in the console
+#+begin_example R
+install.packages("foreign")
+#+end_example
+
+this will provide a list of possible servers to choose from, and you
+can select one close to your location.
+
+ - Basic commands
+
+* Summary of commands
+
+1) getwd()
+2) setwd()
+3) install.packages()
+4) library()
+5) df <- read.dbf()
+6) df$NAME
+7) dim(df)
+8) class(df)
+9) ls()
+10) rm(list=ls())
+11) sum(df$NAME)
+12) as.numeric()
+13) as.character()
+14) df$NEWVAR <- df$NAME
+15) table()
+16) tapply, sapply, lapply, etc.
+
+
+ - Graphics
+ - Reading data
+ - Markdown
