@@ -4,7 +4,7 @@
 #+select_tags: export
 #+exclude_tags: noexport
 #+creator: Emacs 26.1 (Org mode 9.3.6)
-#+PROPERTY: header-args :R :exports both
+#+PROPERTY: header-args :R+ :exports both
 #+PROPERTY: header-args :R+ :session *R*
 
 * Introduction to R
