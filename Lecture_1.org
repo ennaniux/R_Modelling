@@ -105,6 +105,20 @@ df
 
 
 
+What is the dimension of the data frame?
+#+begin_src R :exports both  results: output
+dim(df)
+#+end_src
+
+#+RESULTS:
+
+What are te variable names of the data frame?
+#+begin_src R :exports both  results: output
+names(df)
+#+end_src
+
+#+RESULTS:
+
 
  - Graphics
  - Reading data
