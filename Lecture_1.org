@@ -26,23 +26,23 @@ I use [[https://www.gnu.org/software/emacs/][emacs]] and it is difficult for me 
 
 
 
- - Basic commands
-   1. getwd()
-   2. setwd()
-   3. install.packages()
-   4. library()
-   5. df <- read.dbf()
-   6. df$NAME
-   7. dim(df)
-   8. class(df)
-   9. ls()
-   10. rm(list=ls())
-   11. sum(df$NAME)
-   12. as.numeric()
-   13. as.character()
-   14. df$NEWVAR <- df$NAME
-   15. table()
-   16. tapply, sapply, lapply, etc.
+ + Basic commands
+   + getwd()
+   + setwd()
+   + install.packages()
+   + library()
+   + df <- read.dbf()
+   + df$NAME
+   + dim(df)
+   + class(df)
+   + ls()
+   + rm(list=ls())
+   + sum(df$NAME)
+   + as.numeric()
+   + as.character()
+   + df$NEWVAR <- df$NAME
+   + table()
+   + tapply, sapply, lapply, etc.
 
 
 * The Working Directory
@@ -58,7 +58,7 @@ Set my Working Directory (a.k.a. change directory)
 setwd("/home/ennaniux/Documents/R_Modelling")
 #+end_example
 
-How does this workd in Windows?
+How does this work in Windows?
 #+begin_example R
 setwd("C:/home/ennaniux/Documents/R_Modelling")
 #+end_example
