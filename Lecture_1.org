@@ -58,9 +58,18 @@ Set my Working Directory (a.k.a. change directory)
 setwd("/home/ennaniux/Documents/R_Modelling")
 #+end_example
 
+How does this workd in Windows?
+#+begin_example R
+setwd("C:/home/ennaniux/Documents/R_Modelling")
+#+end_example
+
+or maybe 
+#+begin_example R
+setwd("C:\\home\\ennaniux\\Documents\\R_Modelling")
+#+end_example
 
 
-- Installation and packages
+* Installing packages
 
 The Packages are sets of tools that can be downloaded from different
 servers around the world. Different packages have different R functions for specific purposes.
@@ -75,6 +84,21 @@ install.packages("foreign")
 this will provide a list of possible servers to choose from, and you
 can select one close to your location.
 
+
+* Writing a data frame
+
+Write a data frame by specifying the columns:
+
+#+begin_src R :exports both
+df <- data.frame(
+"NAME" =  c("Aleksandra", "Hugo", "Piotr", "Ewa"),
+"AGE"  =  c(29,35, 39, 33),
+"HEIGHT"= c(1.68, 1.83, 2.03, 1.66) )
+
+df
+#+end_src
+
+#+RESULTS:
 
  - Graphics
  - Reading data
