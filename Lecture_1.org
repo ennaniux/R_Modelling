@@ -89,12 +89,11 @@ can select one close to your location.
 
 Write a data frame by specifying the columns:
 
-#+begin_src R :exports both 
+#+begin_src R :exports both  results: output
 df <- data.frame(
 "NAME" =  c("Aleksandra", "Hugo", "Piotr", "Ewa"),
 "AGE"  =  c(29,35, 39, 33),
 "HEIGHT"= c(1.68, 1.83, 2.03, 1.66) )
-
 df
 #+end_src
 
@@ -103,6 +102,9 @@ df
 | Hugo       | 35 | 1.83 |
 | Piotr      | 39 | 2.03 |
 | Ewa        | 33 | 1.66 |
+
+
+
 
  - Graphics
  - Reading data
