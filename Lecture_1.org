@@ -150,7 +150,10 @@ library(foreign)
 #+end_example
 
 
-
+From the clipboard
+#+begin_example R
+df2 <- read.table(file = "clipboard", sep = "\t", header=TRUE)
+#+end_example
 
  - Graphics
  - Reading data
