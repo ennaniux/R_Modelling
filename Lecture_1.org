@@ -55,7 +55,7 @@ getwd()
 
 Set my Working Directory (a.k.a. change directory)
 #+begin_example R
-setwd("/home/daniel/Documents/GitRepos/R_Modelling")
+setwd("/home/ennaniux/Documents/R_Modelling")
 #+end_example
 
 
