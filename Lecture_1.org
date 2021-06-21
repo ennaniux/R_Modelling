@@ -20,30 +20,43 @@ You can get R directly on their website [[https://www.r-project.org/]]
 
 RStudio is an integrated development environment (IDE) for R. 
 
-It is a good tool to get started if you are not used to scripting programming. It has very helpful visual messages. 
+It is a good tool to get started if you are not used to scripting programming. It has very helpful visual features.
 
 I use [[https://www.gnu.org/software/emacs/][emacs]] and it is difficult for me to get used to Rstudio. My advice: use whatever you find more comfortable. 
 
 
 
  - Basic commands
-   1) getwd()
-   2) setwd()
-   3) install.packages()
-   4) library()
-   5) df <- read.dbf()
-   6) df$NAME
-   7) dim(df)
-   8) class(df)
-   9) ls()
-   10) rm(list=ls())
-   11) sum(df$NAME)
-   12) as.numeric()
-   13) as.character()
-   14) df$NEWVAR <- df$NAME
-   15) table()
-   16) tapply, sapply, lapply, etc.
+   1. getwd()
+   2. setwd()
+   3. install.packages()
+   4. library()
+   5. df <- read.dbf()
+   6. df$NAME
+   7. dim(df)
+   8. class(df)
+   9. ls()
+   10. rm(list=ls())
+   11. sum(df$NAME)
+   12. as.numeric()
+   13. as.character()
+   14. df$NEWVAR <- df$NAME
+   15. table()
+   16. tapply, sapply, lapply, etc.
 
+
+* The Working Directory
+
+Get my Working Directory (a.k.a. where am I?)
+#+begin_example R
+getwd()
+#+end_example
+
+
+Set my Working Directory (a.k.a. change directory)
+#+begin_example R
+setwd("/home/daniel/Documents/GitRepos/R_Modelling")
+#+end_example
 
 
 
