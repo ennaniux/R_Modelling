@@ -145,8 +145,8 @@ df <- read.csv('./path/to/file.dbf')
 From a .sav file
 #+begin_example R
 library(foreign)
-     dat <- read.spss(file='./path/to/file.sav', to.data.frame=TRUE) 
-     str(dat)   # now a data.frame
+     df <- read.spss(file='./path/to/file.sav', to.data.frame=TRUE) 
+     str(df)   # now a data.frame
 #+end_example
 
 
