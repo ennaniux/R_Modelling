@@ -5,7 +5,7 @@
 #+exclude_tags: noexport
 #+creator: Emacs 26.1 (Org mode 9.3.6)
 #+PROPERTY: header-args :R :exports both
-#+PROPERTY: header-args :R+ :session
+#+PROPERTY: header-args :R+ :session *R*
 
 * Introduction to R
 
@@ -112,6 +112,8 @@ dim(df)
 #+end_src
 
 #+RESULTS:
+| 4 |
+| 3 |
 
 What are te variable names of the data frame?
 #+begin_src R 
@@ -119,6 +121,35 @@ names(df)
 #+end_src
 
 #+RESULTS:
+| NAME   |
+| AGE    |
+| HEIGHT |
+
+
+* Reading a data frame
+
+From a CSV
+
+#+begin_example R
+df <- read.csv('./path_to/file.csv')
+#+end_example
+
+
+
+From a DBF
+#+begin_example R
+library(foreign)
+df <- read.csv('./path/to/file.dbf')
+#+end_example
+
+From a .sav file
+#+begin_example R
+library(foreign)
+     dat <- read.spss(file='./path/to/file.sav', to.data.frame=TRUE) 
+     str(dat)   # now a data.frame
+#+end_example
+
+
 
 
  - Graphics
