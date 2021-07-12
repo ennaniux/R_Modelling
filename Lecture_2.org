@@ -35,8 +35,8 @@ where this is the product of a $1\times n$ matrix with a $n \times 1$ matrix, re
 
 With all this considerations we are able to write the linear model as 
 \begin{equatoin}
-\label{lm01}
  \hat{Y}  = \hat{\beta}_0 + X^T \hat{\beta}.
+\label{lm01}
 \end{equation}
 
 In this case $(X^T, \hat{Y}) is an affine hyperplane cutting the $Y$-axis at the point $(0,\hat{\beta}_0)$.
@@ -44,10 +44,12 @@ In this case $(X^T, \hat{Y}) is an affine hyperplane cutting the $Y$-axis at the
 We can simplyfy a bit more. Instead of considering vectors in $\mathbb{R}^p$, we can add one more coordinate and work in $\mathbb{R}^{p+1}$. If 
 we write $\bar{X}^T = (1, X^T) = (1, x_1, \ldots, x_p)$ and $\hat{\beta} = (\beta_0, \beta_1, \ldots, \beta_p)$, then the linear model can be 
 expressed simply as
-\begin{equaiton}
-\label{lm02}
+
+#+begin_export latex
  \hat{Y} = \bar{X}^T \hat{\beta}. 
-\end{equation}
+\label{lm02}
+#+end_export
+
 
 In this case $(X^T, \hat{Y})$ is a hyperplane including the origin.
 
