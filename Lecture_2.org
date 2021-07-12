@@ -12,7 +12,7 @@
 The linear model and the least squares is a very simple and powerful prediction method.
 In this section we will aim to fully understand it and how the data can fit the best possible linear equation by minimising a suitable error function.
 
-Through out the discussion, all vectors in $\mathbb{R}^n$ will be thought of as a column vector, and if $X\in \mathbb{R}^n$, then
+Through out the discussion, all vectors in $`\mathbb{R}^n`$ will be thought of as a column vector, and if $X\in \mathbb{R}^n$, then
 $X^T$ denotes its transpose, i.e., $X^T = (x_1, x_2, \ldots, x_n)$, where $x_i\in \mathbb{R}$.
 
 * The Linear Model
