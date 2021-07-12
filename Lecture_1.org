@@ -115,7 +115,7 @@ dim(df)
 | 4 |
 | 3 |
 
-What are te variable names of the data frame?
+What are the variable names of the data frame?
 #+begin_src R 
 names(df)
 #+end_src
@@ -128,7 +128,7 @@ names(df)
 
 * Reading a data frame
 
-From a CSV
+From a .csv file
 
 #+begin_example R
 df <- read.csv('./path_to/file.csv')
@@ -136,7 +136,7 @@ df <- read.csv('./path_to/file.csv')
 
 
 
-From a DBF
+From a .dbf file
 #+begin_example R
 library(foreign)
 df <- read.csv('./path/to/file.dbf')
@@ -146,7 +146,7 @@ From a .sav file
 #+begin_example R
 library(foreign)
      df <- read.spss(file='./path/to/file.sav', to.data.frame=TRUE) 
-     str(df)   # now a data.frame
+     str(df)   # show the structure of the data frame
 #+end_example
 
 
@@ -154,6 +154,8 @@ From the clipboard
 #+begin_example R
 df2 <- read.table(file = "clipboard", sep = "\t", header=TRUE)
 #+end_example
+
+* Creating a new variable
 
  - Graphics
  - Reading data

@@ -1,0 +1,60 @@
+#+title: Lecture 2: Simple Linear Regression and Multiple Linear Regression
+#+author: Daniel Ballesteros-Chávez
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 26.1 (Org mode 9.3.6)
+#+PROPERTY: header-args :R+ :exports both
+#+PROPERTY: header-args :R+ :session *R*
+
+* Introduction.
+
+The linear model and the least squares is a very simple and powerful prediction method.
+In this section we will aim to fully understand it and how the data can fit the best possible linear equation by minimising a suitable error function.
+
+Through out the discussion, all vectors in $\mathbb{R}^n$ will be thought of as a column vector, and if $X\in \mathbb{R}^n$, then
+$X^T$ denotes its transpose, i.e., $X^T = (x_1, x_2, \ldots, x_n)$, where $x_i\in \mathbb{R}$.
+
+* The Linear Model
+
+Given a *vector* $X^T = (x_1, x_2, \ldots, x_p)$, we want to predict the *real value* $Y$, using the linear model
+\[ \hat(Y)  = \hat{\beta}_0 + \sum_{j = 1}^p x_j\hat{\beta}_j,\]
+where
++ $\hat{Y}$ is the estimated value of $Y$.
+
++ $\hat{\beta}_0$ is called the /intercept/.
+
+It is possible to write this equation in terms of the usual inner product in $\mathbb{R}^{p}$, for instance, consider the vectors
+$X^T = (x_1,\ldtos,x_p)$ and $\hat{\beta} = (\beta_1,\dots,\beta_p)$, then the inner product is defined as the sum of the product of the same entries of the vectors:
+\[ \langle X, \hat{\beta} \rangle = x_1 \beta_1 + x_2 \beta_2 + \cdots \x_p \beta_p. \]
+Note that in matrix notation it is equivalent to the expression
+\[\hat{Y}= X^T \hat{\beta}, \] 
+where this is the product of a $1\times n$ matrix with a $n \times 1$ matrix, resulting into a real number.
+
+** Geometric Interpretation
+
+With all this considerations we are able to write the linear model as 
+\begin{equatoin}
+\label{lm01}
+ \hat{Y}  = \hat{\beta}_0 + X^T \hat{\beta}.
+\end{equation}
+
+In this case $(X^T, \hat{Y}) is an affine hyperplane cutting the $Y$-axis at the point $(0,\hat{\beta}_0)$.
+
+We can simplyfy a bit more. Instead of considering vectors in $\mathbb{R}^p$, we can add one more coordinate and work in $\mathbb{R}^{p+1}$. If 
+we write $\bar{X}^T = (1, X^T) = (1, x_1, \ldots, x_p)$ and $\hat{\beta} = (\beta_0, \beta_1, \ldots, \beta_p)$, then the linear model can be 
+expressed simply as
+\begin{equaiton}
+\label{lm02}
+ \hat{Y} = \bar{X}^T \hat{\beta}. 
+\end{equation}
+
+In this case $(X^T, \hat{Y}) is a hyperplane including the origin.
+
+
+
+
+  - Estimating the Coefficients 
+  - Assessing the Accuracy of the Coefficient Estimates 
+  - Assessing the Accuracy of the Model
+  - Comparison of Linear Regression with K-Nearest neighbours
