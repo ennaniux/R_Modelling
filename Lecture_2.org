@@ -49,7 +49,7 @@ expressed simply as
  \hat{Y} = \bar{X}^T \hat{\beta}. 
 \end{equation}
 
-In this case $(X^T, \hat{Y}) is a hyperplane including the origin.
+In this case $(X^T, \hat{Y})$ is a hyperplane including the origin.
 
 
 
