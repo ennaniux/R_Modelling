@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-25 Sat 18:38 -->
+<!-- 2021-09-25 Sat 18:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lecture 1</title>
@@ -239,6 +239,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -247,21 +269,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgadc11f7">1. Introduction to R</a></li>
-<li><a href="#org4a7777e">2. The Working Directory</a></li>
-<li><a href="#org25a1e2e">3. Installing packages</a></li>
-<li><a href="#orgac8a887">4. Simple manipulations; numbers and vectors</a></li>
-<li><a href="#org196771a">5. Writing a data frame</a></li>
-<li><a href="#orgfccb71a">6. Reading a data frame</a></li>
-<li><a href="#org5833530">7. Creating a new variable</a></li>
+<li><a href="#orgd64fc52">1. Introduction to R</a></li>
+<li><a href="#org55b4d1d">2. The Working Directory</a></li>
+<li><a href="#orgeb52bd4">3. Installing packages</a></li>
+<li><a href="#orgbc5af39">4. Simple manipulations; numbers and vectors</a></li>
+<li><a href="#org61f0d9f">5. Writing a data frame</a></li>
+<li><a href="#orge10cec1">6. Reading a data frame</a></li>
+<li><a href="#org6b364c0">7. Creating a new variable</a></li>
 </ul>
 </div>
 </div>
 
 
 
-<div id="outline-container-orgadc11f7" class="outline-2">
-<h2 id="orgadc11f7"><span class="section-number-2">1</span> Introduction to R</h2>
+<div id="outline-container-orgd64fc52" class="outline-2">
+<h2 id="orgd64fc52"><span class="section-number-2">1</span> Introduction to R</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>What is R?</li>
@@ -322,8 +344,8 @@ I use <a href="https://www.gnu.org/software/emacs/">emacs</a> and it is difficul
 </div>
 
 
-<div id="outline-container-org4a7777e" class="outline-2">
-<h2 id="org4a7777e"><span class="section-number-2">2</span> The Working Directory</h2>
+<div id="outline-container-org55b4d1d" class="outline-2">
+<h2 id="org55b4d1d"><span class="section-number-2">2</span> The Working Directory</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Get my Working Directory (a.k.a. where am I?)
@@ -357,8 +379,8 @@ setwd("C:\\home\\ennaniux\\Documents\\R_Modelling")
 </div>
 
 
-<div id="outline-container-org25a1e2e" class="outline-2">
-<h2 id="org25a1e2e"><span class="section-number-2">3</span> Installing packages</h2>
+<div id="outline-container-orgeb52bd4" class="outline-2">
+<h2 id="orgeb52bd4"><span class="section-number-2">3</span> Installing packages</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The Packages are sets of tools that can be downloaded from different
@@ -383,8 +405,8 @@ can select one close to your location.
 </div>
 </div>
 
-<div id="outline-container-orgac8a887" class="outline-2">
-<h2 id="orgac8a887"><span class="section-number-2">4</span> Simple manipulations; numbers and vectors</h2>
+<div id="outline-container-orgbc5af39" class="outline-2">
+<h2 id="orgbc5af39"><span class="section-number-2">4</span> Simple manipulations; numbers and vectors</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The simplest data structure R operates on is the <b>numeric vector</b>, which
@@ -526,12 +548,15 @@ Linear operations:
 
 
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" title="\sum_{i=1}^n (x_i - \bar{x})^2" /></a>
+<p>
+&lt;a href="<a href="https://www.codecogs.com/eqnedit.php?latex=%5Csum_%7Bi=1%7D%5En&amp;space">https://www.codecogs.com/eqnedit.php?latex=%5Csum_%7Bi=1%7D%5En&amp;space</a>;(x<sub>i</sub>&amp;space;-&amp;space;\bar{x})<sup>2</sup>" target="<sub>blank</sub>"&gt;&lt;img src="<a href="https://latex.codecogs.com/gif.latex?%5Csum_%7Bi=1%7D%5En&amp;space">https://latex.codecogs.com/gif.latex?%5Csum_%7Bi=1%7D%5En&amp;space</a>;(x<sub>i</sub>&amp;space;-&amp;space;\bar{x})<sup>2</sup>" title="&sum;<sub>i=1</sub><sup>n</sup> (x<sub>i</sub> - \bar{x})<sup>2</sup>" /&gt;&lt;/a&gt;
+</p>
 </div>
 </div>
 
-<div id="outline-container-org196771a" class="outline-2">
-<h2 id="org196771a"><span class="section-number-2">5</span> Writing a data frame</h2>
+
+<div id="outline-container-org61f0d9f" class="outline-2">
+<h2 id="org61f0d9f"><span class="section-number-2">5</span> Writing a data frame</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Write a data frame by specifying the columns:
@@ -611,8 +636,8 @@ What are the variable names of the data frame?
 </div>
 
 
-<div id="outline-container-orgfccb71a" class="outline-2">
-<h2 id="orgfccb71a"><span class="section-number-2">6</span> Reading a data frame</h2>
+<div id="outline-container-orge10cec1" class="outline-2">
+<h2 id="orge10cec1"><span class="section-number-2">6</span> Reading a data frame</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 From a .csv file
@@ -651,8 +676,8 @@ df2 &lt;- read.table(file = "clipboard", sep = "\t", header=TRUE)
 </div>
 </div>
 
-<div id="outline-container-org5833530" class="outline-2">
-<h2 id="org5833530"><span class="section-number-2">7</span> Creating a new variable</h2>
+<div id="outline-container-org6b364c0" class="outline-2">
+<h2 id="org6b364c0"><span class="section-number-2">7</span> Creating a new variable</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Graphics</li>
@@ -664,7 +689,7 @@ df2 &lt;- read.table(file = "clipboard", sep = "\t", header=TRUE)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Daniel Ballesteros-Chávez</p>
-<p class="date">Created: 2021-09-25 Sat 18:38</p>
+<p class="date">Created: 2021-09-25 Sat 18:59</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

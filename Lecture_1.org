@@ -129,9 +129,8 @@ z * y + x
 
 
 
-#+begin_export html
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" title="\sum_{i=1}^n (x_i - \bar{x})^2" /></a>
-#+end_export
+
 
 * Writing a data frame
 
