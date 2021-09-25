@@ -135,7 +135,7 @@ z * y + x
 
 #+html: <p align="left"> <img src="https://render.githubusercontent.com/render/math?math= \sin^2(x) + \cos^2(x) =1"></p>
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=sin^2(x)&space;&plus;&space;\cos^2(x)&space;=1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?sin^2(x)&space;&plus;&space;\cos^2(x)&space;=1" title="sin^2(x) + \cos^2(x) =1" /></a>
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\sin^2(x)&space;&plus;&space;\cos^2(x)&space;=1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sin^2(x)&space;&plus;&space;\cos^2(x)&space;=1" title="\sin^2(x) + \cos^2(x) =1" /></a>
 
 * Writing a data frame
 
