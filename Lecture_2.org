@@ -23,10 +23,9 @@ In this lecture we will recall some basic concepts from probability and statisti
 
 Given a set of real values ={x_1,x_2, ... x_n}=, the aritmetic mean is defined as
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i" title="\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i" /></a>
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}" title="\Large{\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i}" /></a>
 
-or
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i{\color{DarkBlue}&space;}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i{\color{DarkBlue}&space;}" title="\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i{\color{DarkBlue} }" /></a>
+
 
 Given a *vector* $X^T = (x_1, x_2, \ldots, x_p)$, we want to predict the *real value* $Y$, using the linear model
 \[ \hat(Y)  = \hat{\beta}_0 + \sum_{j = 1}^p x_j\hat{\beta}_j,\]
