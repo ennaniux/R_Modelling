@@ -7,6 +7,8 @@
 #+PROPERTY: header-args :R+ :exports both
 #+PROPERTY: header-args :R+ :session *R*
 
+
+
 * Introduction to R
 
 - What is R?
@@ -85,12 +87,57 @@ install.packages("foreign")
 this will provide a list of possible servers to choose from, and you
 can select one close to your location.
 
+* Simple manipulations; numbers and vectors
+
+The simplest data structure R operates on is the *numeric vector*, which
+is a single entity consisting of an ordered collection of numbers.
+
+#+begin_src R :results value :exports both
+x <- c(1,3,5,9)
+x
+#+end_src
+
+#+RESULTS:
+| 1 | 3 | 5 | 9 |
+
+The syntax is equivalent to 
+#+begin_src R :results value :exports both
+c(11,31,15,19) -> y
+y
+#+end_src
+
+#+RESULTS:
+| 1 | 3 | 5 | 9 |
+
+and 
+#+begin_src R :results value :exports both
+assign("z",c(-1,33,2.5,9) )
+z
+#+end_src
+
+#+RESULTS:
+| 1 | 3 | 5 | 9 |
+
+
+Linear operations:
+#+begin_src R :results value :exports both
+z * y + x
+#+end_src
+
+#+RESULTS:
+| -10 | 1026 | 42.5 | 180 |
+
+
+
+#+begin_export html
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" title="\sum_{i=1}^n (x_i - \bar{x})^2" /></a>
+#+end_export
 
 * Writing a data frame
 
 Write a data frame by specifying the columns:
 
-#+begin_src R 
+#+begin_src R :exports both :colnames yes
 df <- data.frame(
 "NAME" =  c("Aleksandra", "Hugo", "Piotr", "Ewa"),
 "AGE"  =  c(29,35, 39, 33),
@@ -99,10 +146,12 @@ df
 #+end_src
 
 #+RESULTS:
-| Aleksandra | 29 | 1.68 |
-| Hugo       | 35 | 1.83 |
-| Piotr      | 39 | 2.03 |
-| Ewa        | 33 | 1.66 |
+| NAME       | AGE | HEIGHT |
+|------------+-----+--------|
+| Aleksandra |  29 |   1.68 |
+| Hugo       |  35 |   1.83 |
+| Piotr      |  39 |   2.03 |
+| Ewa        |  33 |   1.66 |
 
 
 
