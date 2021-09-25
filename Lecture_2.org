@@ -7,11 +7,24 @@
 #+PROPERTY: header-args :R+ :exports both
 #+PROPERTY: header-args :R+ :session *R*
 
+
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" title="\sum_{i=1}^n (x_i - \bar{x})^2" /></a>
+# #+html: <p align="center"> <img src="https://render.githubusercontent.com/render/math?math=x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}"></p>
+# #+html: <p align="left"> <img src="https://render.githubusercontent.com/render/math?math= \sin^2(x) + \cos^2(x) =1"></p>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\sin^2(x)&space;&plus;&space;\cos^2(x)&space;=1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sin^2(x)&space;&plus;&space;\cos^2(x)&space;=1" title="\sin^2(x) + \cos^2(x) =1" /></a>
+
+
 * Introduction.
 
 In this lecture we will recall some basic concepts from probability and statistics. 
 
-* 
+
+* Mean
+
+Given a set of real values ={x_1,x_2, ... x_n}=, the aritmetic mean is defined as
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i" title="\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i" /></a>
+
 
 Given a *vector* $X^T = (x_1, x_2, \ldots, x_p)$, we want to predict the *real value* $Y$, using the linear model
 \[ \hat(Y)  = \hat{\beta}_0 + \sum_{j = 1}^p x_j\hat{\beta}_j,\]
