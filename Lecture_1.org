@@ -128,9 +128,12 @@ z * y + x
 | -10 | 1026 | 42.5 | 180 |
 
 
+
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" title="\sum_{i=1}^n (x_i - \bar{x})^2" /></a>
 
-#+html: <a <img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" title="\sin^2(x) + \cos^2(x) = 1" /></a>
+#+html: <p align="center"> <img src="https://render.githubusercontent.com/render/math?math=x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}"></p>
+
+#+html: <p align="center"> <img src="https://render.githubusercontent.com/render/math?math= \sin^2(x) + \cos^2(x) = 1"></p>
 
 * Writing a data frame
 
