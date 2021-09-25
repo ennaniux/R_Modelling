@@ -25,6 +25,7 @@ Given a set of real values ={x_1,x_2, ... x_n}=, the aritmetic mean is defined a
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i" title="\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i" /></a>
 
+
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i{\color{DarkBlue}&space;}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i{\color{DarkBlue}&space;}" title="\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i{\color{DarkBlue} }" /></a>
 
 Given a *vector* $X^T = (x_1, x_2, \ldots, x_p)$, we want to predict the *real value* $Y$, using the linear model
