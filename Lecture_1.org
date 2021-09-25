@@ -131,8 +131,7 @@ z * y + x
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2" title="\sum_{i=1}^n (x_i - \bar{x})^2" /></a>
 
-(x_i&space;-&space;\bar{x})^2" title="\sum_{i=1}^n (x_i - \bar{x})^2
-
+![](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a})
 
 * Writing a data frame
 
