@@ -39,7 +39,7 @@ The probability that X takes on a value in a measurable set S ⊆ E is written a
 
 It is also known as (a.k.a) average, or mean.
 
-Given a set of real values, usually representing a set of observations,  {x<sub>1</sub>, x_2, ... ,x_n} , the aritmetic mean is defined as
+Given a set of real values, usually representing a set of observations,  {x_{1}, x_2, ... ,x_n} , the aritmetic mean is defined as
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" title="\Large{{\color{DarkBlue} \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i}}" /></a>
 
