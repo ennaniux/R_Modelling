@@ -73,7 +73,7 @@ When working with samples (subsets) of a given population, the /unbiased sample 
 
 https://en.wikipedia.org/wiki/Geometric_mean#/media/File:QM_AM_GM_HM_inequality_visual_proof.svg
 
-#+html: <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/QM_AM_GM_HM_inequality_visual_proof.svg/1280px-QM_AM_GM_HM_inequality_visual_proof.svg.png"  width="300"  height="300"/></p>
+#+html: <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/QM_AM_GM_HM_inequality_visual_proof.svg/1280px-QM_AM_GM_HM_inequality_visual_proof.svg.png"  width="300"  height="200"/></p>
 
   - Estimating the Coefficients 
   - Assessing the Accuracy of the Coefficient Estimates 
