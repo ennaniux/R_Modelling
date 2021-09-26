@@ -71,9 +71,6 @@ When working with samples (subsets) of a given population, the /unbiased sample 
 
 ** Geometric Interpretation
 
-#+html: <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/QM_AM_GM_HM_inequality_visual_proof.svg/1280px-QM_AM_GM_HM_inequality_visual_proof.svg.png"  width="300"  height="250"/></p>
-
-
 #+html: <a title="Cmglee, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:QM_AM_GM_HM_inequality_visual_proof.svg"><img width="512" alt="QM AM GM HM inequality visual proof" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/QM_AM_GM_HM_inequality_visual_proof.svg/512px-QM_AM_GM_HM_inequality_visual_proof.svg.png"></a>
 
   - Estimating the Coefficients 
