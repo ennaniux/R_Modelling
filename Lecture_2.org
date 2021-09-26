@@ -77,6 +77,20 @@ The mode is the most frequently occurring value a in data set.
 
 It is possible to have more than one modal value.
 
+* Median
+
+Middle value separating the greater and lesser halves of a data set 
+
+For example if one wants to get the median from the data set: 0, 20, 9, 1, 5:
+1) Sort the data: 0, 1, 5, 9, 20.
+2) Identify the element exactly in the middle: 0, 1, *5*, 9, 20.
+3) Then the median is 5.
+
+On the other hand if the data set is: 5, 11, 1, 3, 15, 20, then
+1) Sort the data: 1, 3, 5, 11, 15, 20.
+2) Identify the elements in the middle:  1, 3, *5*, *11*, 15, 20.
+3) Then the median is 8, which  is the average between 5 and 11: (5 + 11) /2 = 8.
+
 * Variance
 
 Given a set of real values (x_{1}, x_{2}, ... ,x_{n}), the /variance/ is defined as 
