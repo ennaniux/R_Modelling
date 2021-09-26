@@ -39,9 +39,15 @@ The probability that X takes on a value in a measurable set S ⊆ E is written a
 
 It is also known as (a.k.a) average, or mean.
 
-Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the aritmetic mean is defined as
+Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the /aritmetic mean/ is defined as
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" title="\Large{{\color{DarkBlue} \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i}}" /></a>
+
+* Geometric Mean
+
+Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the /geometric mean/ is defined as
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{\bar{x}_{\mbox{geo}}&space;=&space;\left(\Pi_{i=1}^n&space;x_i\right&space;)^{\frac{1}{n}}}&space;=&space;\sqrt[n]{x_1\cdot&space;x_2&space;\cdots&space;x_n}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{\bar{x}_{\mbox{geo}}&space;=&space;\left(\Pi_{i=1}^n&space;x_i\right&space;)^{\frac{1}{n}}}&space;=&space;\sqrt[n]{x_1\cdot&space;x_2&space;\cdots&space;x_n}}" title="\Large{\color{DarkBlue} {\bar{x}_{\mbox{geo}} = \left(\Pi_{i=1}^n x_i\right )^{\frac{1}{n}}} = \sqrt[n]{x_1\cdot x_2 \cdots x_n}}" /></a>
 
 * Mode
 
