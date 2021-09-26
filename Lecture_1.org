@@ -1,0 +1,208 @@
+#+title: Lecture 1
+#+author: Daniel Ballesteros-Chávez
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 26.1 (Org mode 9.3.6)
+#+PROPERTY: header-args :R :exports both
+#+PROPERTY: header-args :R :session *R*
+
+
+
+* Introduction to R
+
+- What is R?
+
+R is an open source statistical software.
+
+- How to get it?
+
+You can get R directly on their website [[https://www.r-project.org/]]
+
+- What is RStudio?
+
+RStudio is an integrated development environment (IDE) for R. 
+
+It is a good tool to get started if you are not used to scripting programming. It has very helpful visual features.
+
+I use [[https://www.gnu.org/software/emacs/][emacs]] and it is difficult for me to get used to Rstudio. My advice: use whatever you find more comfortable. 
+
+
+
+ + Basic commands
+   + getwd()
+   + setwd()
+   + install.packages()
+   + library()
+   + df <- read.dbf()
+   + df$NAME
+   + dim(df)
+   + class(df)
+   + ls()
+   + rm(list=ls())
+   + sum(df$NAME)
+   + as.numeric()
+   + as.character()
+   + df$NEWVAR <- df$NAME
+   + table()
+   + tapply, sapply, lapply, etc.
+
+
+* The Working Directory
+
+Get my Working Directory (a.k.a. where am I?)
+#+begin_example R
+getwd()
+#+end_example
+
+
+Set my Working Directory (a.k.a. change directory)
+#+begin_example R
+setwd("/home/ennaniux/Documents/R_Modelling")
+#+end_example
+
+How does this work in Windows?
+#+begin_example R
+setwd("C:/home/ennaniux/Documents/R_Modelling")
+#+end_example
+
+or maybe 
+#+begin_example R
+setwd("C:\\home\\ennaniux\\Documents\\R_Modelling")
+#+end_example
+
+
+* Installing packages
+
+The Packages are sets of tools that can be downloaded from different
+servers around the world. Different packages have different R functions for specific purposes.
+
+For example, the foreign package allows R to read different data set files like .sav, .dbf, and other file extensions.
+
+In order to install the package foreign we type in the console
+#+begin_example R
+install.packages("foreign")
+#+end_example
+
+this will provide a list of possible servers to choose from, and you
+can select one close to your location.
+
+* Simple manipulations; numbers and vectors
+
+The simplest data structure R operates on is the *numeric vector*, which
+is a single entity consisting of an ordered collection of numbers.
+
+#+begin_src R :results value :exports both
+x <- c(1,3,5,9)
+x
+#+end_src
+
+#+RESULTS:
+| 1 | 3 | 5 | 9 |
+
+The syntax is equivalent to 
+#+begin_src R :results value :exports both
+c(11,31,15,19) -> y
+y
+#+end_src
+
+#+RESULTS:
+| 11 | 31 | 15 | 19 |
+
+and 
+#+begin_src R :results value :exports both
+assign("z",c(-1,33,2.5,9) )
+z
+#+end_src
+
+#+RESULTS:
+| -1 | 33 | 2.5 | 9 |
+
+
+Linear operations:
+#+begin_src R :results value :exports both
+z * y + x
+#+end_src
+
+#+RESULTS:
+| -10 | 1026 | 42.5 | 180 |
+
+
+
+
+* Writing a data frame
+
+Write a data frame by specifying the columns:
+
+#+begin_src R :exports both :colnames yes
+df <- data.frame(
+"NAME" =  c("Aleksandra", "Hugo", "Piotr", "Ewa"),
+"AGE"  =  c(29,35, 39, 33),
+"HEIGHT"= c(1.68, 1.83, 2.03, 1.66) )
+df
+#+end_src
+
+#+RESULTS:
+| NAME       | AGE | HEIGHT |
+|------------+-----+--------|
+| Aleksandra |  29 |   1.68 |
+| Hugo       |  35 |   1.83 |
+| Piotr      |  39 |   2.03 |
+| Ewa        |  33 |   1.66 |
+
+
+
+What is the dimension of the data frame?
+#+begin_src R 
+dim(df)
+#+end_src
+
+#+RESULTS:
+| 4 |
+| 3 |
+
+What are the variable names of the data frame?
+#+begin_src R 
+names(df)
+#+end_src
+
+#+RESULTS:
+| NAME   |
+| AGE    |
+| HEIGHT |
+
+
+* Reading a data frame
+
+From a .csv file
+
+#+begin_example R
+df <- read.csv('./path_to/file.csv')
+#+end_example
+
+
+
+From a .dbf file
+#+begin_example R
+library(foreign)
+df <- read.csv('./path/to/file.dbf')
+#+end_example
+
+From a .sav file
+#+begin_example R
+library(foreign)
+     df <- read.spss(file='./path/to/file.sav', to.data.frame=TRUE) 
+     str(df)   # show the structure of the data frame
+#+end_example
+
+
+From the clipboard
+#+begin_example R
+df2 <- read.table(file = "clipboard", sep = "\t", header=TRUE)
+#+end_example
+
+* Creating a new variable
+
+ - Graphics
+ - Reading data
+ - Markdown
