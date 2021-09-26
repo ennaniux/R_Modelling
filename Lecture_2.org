@@ -53,13 +53,12 @@ The mode is the most frequently occurring value a data set.
 
 Given a set of real values ={x_1,x_2, ... x_n}=, the variance is defined as 
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{\sigma_x^{2}={\frac&space;{1}{n}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{\sigma_x^{2}={\frac&space;{1}{n}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" title="\Large{\color{DarkBlue} {\sigma_x^{2}={\frac {1}{n}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}}" /></a>
-
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{\sigma_X^{2}={\frac&space;{1}{n}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{\sigma_X^{2}={\frac&space;{1}{n}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" title="\Large{\color{DarkBlue} {\sigma_X^{2}={\frac {1}{n}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}}" /></a>
 
 Unbiased sample variance
 Correcting for this bias yields the unbiased sample variance
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{{\color{DarkBlue}&space;\mbox{s^2}_{X}&space;=&space;\frac{1}{n-1}\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{{\color{DarkBlue}&space;\mbox{s^2}_{X}&space;=&space;\frac{1}{n-1}\sum_{i=1}^n&space;(x_i&space;-&space;\bar{x})^2}}" title="\Large{{\color{DarkBlue} \mbox{s^2}_{X} = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2}}" /></a>
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{s_X^{2}={\frac&space;{1}{n-1}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{s_X^{2}={\frac&space;{1}{n-1}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" title="\Large{\color{DarkBlue} {s_X^{2}={\frac {1}{n-1}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}}" /></a>
 
 Given a *vector* $X^T = (x_1, x_2, \ldots, x_p)$, we want to predict the *real value* $Y$, using the linear model
 \[ \hat(Y)  = \hat{\beta}_0 + \sum_{j = 1}^p x_j\hat{\beta}_j,\]
