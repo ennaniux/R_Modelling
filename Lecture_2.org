@@ -1,4 +1,4 @@
-#+title: Lecture 2: Recap of Statistics and Probability
+#+title: Lecture 2
 #+author: Daniel Ballesteros-Chávez
 #+language: en
 #+select_tags: export

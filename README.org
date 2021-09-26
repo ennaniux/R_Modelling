@@ -1,2 +1,7 @@
 # NotesV01
-Some informal maths' discussions.
+
+These are some notes for the course R Modelling.
+
+1) [[./Lecture_1.org][Lecture 1. Introduction to R]]
+2) [[./Lecture_2.org][Lecture 2. Recap of Statistics and Probability]]
+
