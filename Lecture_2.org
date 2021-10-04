@@ -65,6 +65,7 @@ Given a set of real values, usually representing a set of observations,  (x_{1},
 
 A well known inequality concerning arithmetic, geometric, and harmonic means for any set of positive numbers is
 
+
     AM ≥ GM ≥ HM 
 
 Geometric proof without words that max (a,b) > root mean square (RMS) or quadratic mean (QM) > arithmetic mean (AM) > geometric mean (GM) > harmonic mean (HM) > min (a,b) of two positive numbers a and b 
@@ -90,6 +91,14 @@ On the other hand if the data set is: 5, 11, 1, 3, 15, 20, then
 1) Sort the data: 1, 3, 5, 11, 15, 20.
 2) Identify the elements in the middle:  1, 3, *5*, *11*, 15, 20.
 3) Then the median is 8, which  is the average between 5 and 11: (5 + 11) /2 = 8.
+
+
+* Minimum and maximum
+
+The minumum and maximum value in a set of observed values and its comparison, is a first approach for the analysis of the dispersion of the data.
+Note also that teh Range of the data is defined as:
+
+Range = max - min.
 
 * Variance
 
