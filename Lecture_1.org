@@ -168,7 +168,7 @@ x^2
 
 The sum of the first 100 natural numbers, if we want to perform the sum
 
-#+html <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;\sum_{k=1}^{100}&space;k&space;}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;\sum_{k=1}^{100}&space;k&space;}" title="\Large{\color{DarkBlue} \sum_{k=1}^{100} k }" /></a>
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;\sum_{k=1}^{100}&space;k&space;}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;\sum_{k=1}^{100}&space;k&space;}" title="\Large{\color{DarkBlue} \sum_{k=1}^{100} k }" /></a>
 
 one can do for instance
 #+begin_src R :results value :exports both
