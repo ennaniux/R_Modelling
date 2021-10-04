@@ -21,6 +21,7 @@ In this lecture we will recall some basic concepts from probability and statisti
 + Measures of central tendency.
 + Measures of dispersion.
 
+
 * Random Variables
 
 A random variable /X/ is a measurable function /X : \Omega \rightarrow E/ from a set of possible outcomes \Omega to a measurable space /E/. 
@@ -43,17 +44,20 @@ Given a set of real values, usually representing a set of observations,  (x_{1},
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" title="\Large{{\color{DarkBlue} \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i}}" /></a>
 
+
 * Geometric Mean (GM)
 
 Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the /geometric mean/ is defined as
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{\bar{x}_{\mbox{geo}}&space;=&space;\left(\Pi_{i=1}^n&space;x_i\right&space;)^{\frac{1}{n}}}&space;=&space;\sqrt[n]{x_1\cdot&space;x_2&space;\cdots&space;x_n}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{\bar{x}_{\mbox{geo}}&space;=&space;\left(\Pi_{i=1}^n&space;x_i\right&space;)^{\frac{1}{n}}}&space;=&space;\sqrt[n]{x_1\cdot&space;x_2&space;\cdots&space;x_n}}" title="\Large{\color{DarkBlue} {\bar{x}_{\mbox{geo}} = \left(\Pi_{i=1}^n x_i\right )^{\frac{1}{n}}} = \sqrt[n]{x_1\cdot x_2 \cdots x_n}}" /></a>
 
+
 * Harmonic mean (HM)
 
 Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the /geometric mean/ is defined as
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}{&space;\bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n}&space;\sum_{i=1}^{n}\frac{1}{x_{i}}}}&space;=&space;\frac{n}{\frac{1}{x_1}&space;&plus;&space;\frac{1}{x_2}&space;&plus;&space;\cdots&space;&plus;&space;\frac{1}{x_n}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}{&space;\bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n}&space;\sum_{i=1}^{n}\frac{1}{x_{i}}}}&space;=&space;\frac{n}{\frac{1}{x_1}&space;&plus;&space;\frac{1}{x_2}&space;&plus;&space;\cdots&space;&plus;&space;\frac{1}{x_n}}}" title="\Large{\color{DarkBlue}{ \bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n} \sum_{i=1}^{n}\frac{1}{x_{i}}}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}}}" /></a>
+
 
 * Weighted mean (WM)
 
@@ -72,11 +76,13 @@ Geometric proof without words that max (a,b) > root mean square (RMS) or quadr
 
 #+html: <a title="Cmglee, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:QM_AM_GM_HM_inequality_visual_proof.svg"><img width="512" alt="QM AM GM HM inequality visual proof" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/QM_AM_GM_HM_inequality_visual_proof.svg/512px-QM_AM_GM_HM_inequality_visual_proof.svg.png"></a>
 
+
 * Mode
 
 The mode is the most frequently occurring value a in data set.
 
 It is possible to have more than one modal value.
+
 
 * Median
 
@@ -99,6 +105,7 @@ The minumum and maximum value in a set of observed values and its comparison, is
 Note also that teh Range of the data is defined as:
 
 Range = max - min.
+
 
 * Variance
 

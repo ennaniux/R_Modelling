@@ -21,11 +21,13 @@ You can get R directly on their website [[https://www.r-project.org/]]
 
 - What is RStudio?
 
-RStudio is an integrated development environment (IDE) for R. 
+RStudio is an integrated development environment (IDE) for R.
 
-It is a good tool to get started if you are not used to scripting programming. It has very helpful visual features.
+It is a good tool to get started if you are not used to scripting
+programming. It has very helpful visual features.
 
-I use [[https://www.gnu.org/software/emacs/][emacs]] and it is difficult for me to get used to Rstudio. My advice: use whatever you find more comfortable. 
+I use [[https://www.gnu.org/software/emacs/][emacs]] and it is difficult for me to get used to Rstudio. My
+advice: use whatever you find more comfortable.
 
 
 
@@ -75,12 +77,17 @@ setwd("C:\\home\\ennaniux\\Documents\\R_Modelling")
 * Installing packages
 
 The Packages are sets of tools that can be downloaded from different
-servers around the world. Different packages have different R functions for specific purposes.
+servers around the world. Different packages have different R
+functions for specific purposes.
 
 
-The Comprehensive R Archive Network (CRAN) https://cran.r-project.org/. CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R. 
+The Comprehensive R Archive Network (CRAN)
+https://cran.r-project.org/. CRAN is a network of ftp and web servers
+around the world that store identical, up-to-date, versions of code
+and documentation for R.
 
-For example, the foreign package allows R to read different data set files like .sav, .dbf, and other file extensions.
+For example, the foreign package allows R to read different data set
+files like .sav, .dbf, and other file extensions.
 
 In order to install the package foreign we type in the console
 #+begin_example R
@@ -132,15 +139,93 @@ z * y + x
 #+RESULTS:
 | -10 | 1026 | 42.5 | 180 |
 
+Definition of a sequence
 
-* Preloaded data
+#+begin_src R :results value :exports both
+3:10
+#+end_src
+
+#+RESULTS:
+| 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+
+If we want to know the number of entries in our vector, then we use the function =length=
+#+begin_src R :results value :exports both
+length(c(3:10))
+#+end_src
+
+#+RESULTS:
+: 8
+
+
+R tries to apply operations on vectors
+#+begin_src R :results value :exports both
+x <- c(3:10)
+x^2
+#+end_src
+
+#+RESULTS:
+| 9 | 16 | 25 | 36 | 49 | 64 | 81 | 100 |
+
+The sum of the first 100 natural numbers, if we want to perform the sum
+
+#+html <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;\sum_{k=1}^{100}&space;k&space;}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;\sum_{k=1}^{100}&space;k&space;}" title="\Large{\color{DarkBlue} \sum_{k=1}^{100} k }" /></a>
+
+one can do for instance
+#+begin_src R :results value :exports both
+x <- c(1:100)
+sum(x)
+#+end_src
+
+#+RESULTS:
+: 5050
+
+
+Missing values are denoted by =NA=. Whenever there is a missing value, the default behaviour is to be reminded:
+#+begin_src R :results value :exports both
+x <- c(4, 4, NA, 2, 3, NA, 5)
+sum(x)
+#+end_src
+
+#+RESULTS:
+: nil
+
+Then, if you want to omit the missing values in the operation you have to specify it
+#+begin_src R :results value :exports both
+x <- c(4, 4, NA, 2, 3, NA, 5)
+sum(x, na.rm=TRUE)
+#+end_src
+
+#+RESULTS:
+: 18
+
+A vector can also consists of strings or character type entries:
+#+begin_src R :results value :exports both
+x <- c("Uno", "Dos", NA, "Cuatro", "Dos", "Cuatro")
+unique(x)
+#+end_src
+
+#+RESULTS:
+| Uno | Dos | nil | Cuatro |
+
+
+How to we know if we have a missing value?
+#+begin_src R :results value :exports both
+x <- c(4, 4, NA, 2, 3, NA, 5)
+is.na(x)
+#+end_src
+
+#+RESULTS:
+| FALSE | FALSE | TRUE | FALSE | FALSE | TRUE | FALSE |
+
+
+* Pre-loaded data
 
 In R there are several pre-loaded data
 
 #+begin_src R :exports both :colnames yes
 ## In case the code below does not work
 ## you may need to install the package dataset
-## For a full list of these datasets, type library(help = "datasets")
+## For a list of available  datasets, type library(help = "datasets")
 head(iris)
 #+end_src
 
@@ -171,6 +256,7 @@ summary(iris)
 | Max.   :7.900 | Max.   :4.400 | Max.   :6.900 | Max.   :2.500 | nil           |
 
 
+
 * Writing a data frame
 
 Write a data frame by specifying the columns:
@@ -192,15 +278,13 @@ df
 | Ewa        |  33 |   1.66 |
 
 
-
 What is the dimension of the data frame?
 #+begin_src R 
 dim(df)
 #+end_src
 
 #+RESULTS:
-| 4 |
-| 3 |
+| 4 | 3 |
 
 What are the variable names of the data frame?
 #+begin_src R 
@@ -208,9 +292,8 @@ names(df)
 #+end_src
 
 #+RESULTS:
-| NAME   |
-| AGE    |
-| HEIGHT |
+| NAME | AGE | HEIGHT |
+
 
 
 * Reading a data frame
@@ -220,8 +303,6 @@ From a .csv file
 #+begin_example R
 df <- read.csv('./path_to/file.csv')
 #+end_example
-
-
 
 From a .dbf file
 #+begin_example R
@@ -236,11 +317,11 @@ library(foreign)
      str(df)   # show the structure of the data frame
 #+end_example
 
-
 From the clipboard
 #+begin_example R
 df2 <- read.table(file = "clipboard", sep = "\t", header=TRUE)
 #+end_example
+
 
 * Creating a new variable
 
