@@ -54,7 +54,7 @@ Given a set of real values, usually representing a set of observations,  (x_{1},
 
 * Harmonic mean (HM)
 
-Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the /geometric mean/ is defined as
+Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the /harmonic mean/ is defined as
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}{&space;\bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n}&space;\sum_{i=1}^{n}\frac{1}{x_{i}}}}&space;=&space;\frac{n}{\frac{1}{x_1}&space;&plus;&space;\frac{1}{x_2}&space;&plus;&space;\cdots&space;&plus;&space;\frac{1}{x_n}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}{&space;\bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n}&space;\sum_{i=1}^{n}\frac{1}{x_{i}}}}&space;=&space;\frac{n}{\frac{1}{x_1}&space;&plus;&space;\frac{1}{x_2}&space;&plus;&space;\cdots&space;&plus;&space;\frac{1}{x_n}}}" title="\Large{\color{DarkBlue}{ \bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n} \sum_{i=1}^{n}\frac{1}{x_{i}}}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}}}" /></a>
 

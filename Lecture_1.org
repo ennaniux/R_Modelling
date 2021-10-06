@@ -26,6 +26,8 @@ RStudio is an integrated development environment (IDE) for R.
 It is a good tool to get started if you are not used to scripting
 programming. It has very helpful visual features.
 
+https://www.rstudio.com/
+
 I use [[https://www.gnu.org/software/emacs/][emacs]] and it is difficult for me to get used to Rstudio. My
 advice: use whatever you find more comfortable.
 
@@ -140,7 +142,6 @@ z * y + x
 | -10 | 1026 | 42.5 | 180 |
 
 Definition of a sequence
-
 #+begin_src R :results value :exports both
 3:10
 #+end_src
@@ -156,6 +157,14 @@ length(c(3:10))
 #+RESULTS:
 : 8
 
+If we want to know what value is in the i-th position we use square brackets
+#+begin_src R :results value :exports both
+x <- c("Uno", "Dos", NA, "Cuatro", "Dos", "Cuatro")
+x[5]
+#+end_src
+
+#+RESULTS:
+: Dos
 
 R tries to apply operations on vectors
 #+begin_src R :results value :exports both
@@ -208,7 +217,7 @@ unique(x)
 | Uno | Dos | nil | Cuatro |
 
 
-How to we know if we have a missing value?
+How do we know if ther are missing values?
 #+begin_src R :results value :exports both
 x <- c(4, 4, NA, 2, 3, NA, 5)
 is.na(x)
@@ -216,6 +225,7 @@ is.na(x)
 
 #+RESULTS:
 | FALSE | FALSE | TRUE | FALSE | FALSE | TRUE | FALSE |
+
 
 
 * Pre-loaded data
@@ -323,8 +333,41 @@ df2 <- read.table(file = "clipboard", sep = "\t", header=TRUE)
 #+end_example
 
 
-* Creating a new variable
+* Operations with data frames
+
+Select a column/field/variable from a data frame
+#+begin_src R :exports both :colnames yes
+df <- iris
+head(df$Species)
+#+end_src
+
+#+RESULTS:
+| x      |
+|--------|
+| setosa |
+| setosa |
+| setosa |
+| setosa |
+| setosa |
+| setosa |
+
+
+A table of frequences for a variable in a data frame 
+#+begin_src R :exports both :colnames yes
+df <- iris
+table(df$Species)
+#+end_src
+
+#+RESULTS:
+| Var1       | Freq |
+|------------+------|
+| setosa     |   50 |
+| versicolor |   50 |
+| virginica  |   50 |
+
+
 
  - Graphics
- - Reading data
+
+
  - Markdown
