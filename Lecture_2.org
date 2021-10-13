@@ -22,18 +22,18 @@ In this lecture we will recall some basic concepts from probability and statisti
 + Measures of dispersion.
 
 
-* Random Variables
+# * Random Variables
 
-A random variable /X/ is a measurable function /X : \Omega \rightarrow E/ from a set of possible outcomes \Omega to a measurable space /E/. 
+# A random variable /X/ is a measurable function /X : \Omega \rightarrow E/ from a set of possible outcomes \Omega to a measurable space /E/. 
 
-The technical axiomatic definition requires \Omega to be a sample space of a probability triple ( Ω , F , P ) (see the measure-theoretic definition). 
+# The technical axiomatic definition requires \Omega to be a sample space of a probability triple ( Ω , F , P ) (see the measure-theoretic definition). 
 
-A random variable is often denoted by capital roman letters such as /X, Y, Z, T/.
+# A random variable is often denoted by capital roman letters such as /X, Y, Z, T/.
 
-The probability that X takes on a value in a measurable set S ⊆ E is written as
+# The probability that X takes on a value in a measurable set S ⊆ E is written as
 
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{P(&space;X&space;\in&space;S&space;)=&space;P\left(\{\omega&space;\in\Omega&space;\,|\,&space;X(\omega)&space;\in&space;S&space;\}\right)}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{P(&space;X&space;\in&space;S&space;)=&space;P\left(\{\omega&space;\in\Omega&space;\,|\,&space;X(\omega)&space;\in&space;S&space;\}\right)}}" title="\Large{\color{DarkBlue} {P( X \in S )= P\left(\{\omega \in\Omega \,|\, X(\omega) \in S \}\right)}}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{P(&space;X&space;\in&space;S&space;)=&space;P\left(\{\omega&space;\in\Omega&space;\,|\,&space;X(\omega)&space;\in&space;S&space;\}\right)}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{P(&space;X&space;\in&space;S&space;)=&space;P\left(\{\omega&space;\in\Omega&space;\,|\,&space;X(\omega)&space;\in&space;S&space;\}\right)}}" title="\Large{\color{DarkBlue} {P( X \in S )= P\left(\{\omega \in\Omega \,|\, X(\omega) \in S \}\right)}}" /></a>
 
 
 * Arithmetic Mean (AM)
@@ -98,7 +98,6 @@ On the other hand if the data set is: 5, 11, 1, 3, 15, 20, then
 2) Identify the elements in the middle:  1, 3, *5*, *11*, 15, 20.
 3) Then the median is 8, which  is the average between 5 and 11: (5 + 11) /2 = 8.
 
-
 * Minimum and maximum
 
 The minumum and maximum value in a set of observed values and its comparison, is a first approach for the analysis of the dispersion of the data.
@@ -106,6 +105,29 @@ Note also that teh Range of the data is defined as:
 
 Range = max - min.
 
+
+* Quartiles
+
+The quartiles are cut points which divides the number of data points into four parts, or quarters, of more-or-less equal size.
+
++ The first quartile (Q1) is defined as the middle number between the smallest number (minimum) and the median of the data set. Then,  25% of the data is below this point.
+
++ The second quartile (Q2) is the median of a data set; thus 50% of the data lies below this point.
+
++ The third quartile (Q3) is the middle value between the median and the highest value (maximum) of the data set. Then, 75% of the data lies below this point.
+
+Example: Find the quarttiles for
+
+56, 60, 65, 65, 67, 69, 70, 72, 75, 75, 76, 77, 81, 82, 84, 90, 90, 95, 99
+
+First: Check that the set is increasingly ordered.
+Second: Since this data set contains even number of observations, we pick the 10th value: 75 as the median.
+Third: split the data into two halves including the median
+ 56, 60, 65, 65, 67, 69, 70, 72, 75, 75
+ 75, 76, 77, 81, 82, 84, 90, 90, 95, 99
+Fourth: In each half compute the median and we will have: Q1 = 68 and Q3=83
+
+/Note/. There are other methods (algorithms) to compute the quartiles, although when the data sets are big, the difference between the outcomes is small. How does R computes the quartiles when using the function =summary=? 
 
 * Variance
 
@@ -118,5 +140,125 @@ When working with samples (subsets) of a given population, the /unbiased sample 
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{s_X^{2}={\frac&space;{1}{n-1}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{s_X^{2}={\frac&space;{1}{n-1}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" title="\Large{\color{DarkBlue} {s_X^{2}={\frac {1}{n-1}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}}" /></a>
 
+
+
+* Probability space
+
+A probability space is a special case of a measurable space. This concepts are beyond the scope of this course, but it is worth trying to understand the definition.
+
+Then probability space is a triple (\Omega, F, P) consisting of:
+
+    + the sample space \Omega — an arbitrary non-empty set,
+    + the σ-algebra F ⊆ 2^Ω (also called σ-field) — a set of subsets of \Omega , called events, such that:
+       + F  contains the sample space: Ω ∈ F 
+       + F  is closed under complements: if A ∈ F, then also ( Ω ∖ A ) ∈ F.
+       + F  is closed under countable unions: if A i ∈ F, for i = 1 , 2 ,..., then also ( ⋃^{∞}_{i = 1} A_i ) ∈ F.
+    + the probability measure P : F → [ 0 , 1 ]  — a function on F such that:
+        + P is countably additive (also called σ-additive): if A_i ∩ A_j = ∅, for i ≠ j, then P(∪^{∞}_{i = 1} A_i) = \Sigma^{∞}_{i = 1} P(A_i)
+        + the measure of entire sample space is equal to one: P ( Ω ) = 1.
+
+* Random Variables
+
+A random variable X is a variable whose value is a numerical outcome of a random event.
+There are two types of random variables:
++ Discrete: The possible values of X are separated and individually distinct, e.g. X ∈ {0, 1, 2, . . .}
++ Continuous: Possible values of X from some continuous set, e.g. X ∈ (0, ∞), X ∈ (-∞, ∞), etc.
+
+Formally, a random variable X is a measurable function X : Ω → E, from a set of possible outcomes Ω to a measurable space E, which is usually the Real numbers or a subset of it. Then, the probability that X takes on a value in a measurable set S ⊆ E is written as
+    P ⁡ ( X ∈ S ) = P ⁡ ( { ω ∈ Ω ∣ X ( ω ) ∈ S } ) 
+
+Examples:
+Discrete random variables: 
+outcome of a roll of a 6-sided die, that is X ∈ {1, 2, 3, 4, 5, 6},
+number of tails in 3 flips of a coin, that is X ∈ {0, 1, 2, 3}, . . .
+
+Continuous random variables: 
+The lifetime X of a light bulb component with X ∈ [0, ∞),
+
+* Cumulative distribution function
+
+For any random variable X, the cumulative distribution function F (x) is
+F (x) = Pr(X ≤ x).
+
+The following properties are easy to establish
+Properties:
+1) 0 ≤ F (x) ≤ 1 for all x
+2) F (x) is non-decreasing
+3) lim_{x→−∞} F (x) = 0
+4) lim_{x→+∞} F (x) = 1
+
+
+* Probability density function
+
+For a continuous random variable X, the probability density function f (x) is the derivative of the cummulative distribution function
+ f (x) = dF/dx
+
+By the Fundamental Theorem of Calculus,
+F (x) =∫_{-∞}^{x} f (t) dt.
+
+
+
+Proposition. If f is a probability density function then
+1) f (x) ≥ 0
+2) ∫_{-∞}^{∞} f (t) dt = 1.
+
+* Probabilities
+
+For any pair of real numbers such that a ≦ b, the probability that the random variable X lies between a and b is 
+
+P(a ≦ X ≦ b) = P(X ≦ b) - P( X ≦ a) = F(b) - F(a) =  ∫_{a}^{b} f (t) dt
+
+
+* The normal distribution
+
+For real values -∞ ≦ x ≦ ∞, -∞ ≦ \mu ≦ ∞ and  0 ≦ \sigma ≦ ∞ we have the normal distribution function:
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sigma\sqrt{2\pi}}e ^{-\frac{1}{2}\left( \frac{x - \mu}{\sigma}\right )^2}" /></a>
+
+
+In the special case that \sigma = 1 and \mu = 0, then we write the */standard normal distribution/* as
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sqrt{2\pi}}e ^{-\frac{x^2}{2}}" /></a>
+
+
+Theorem. If X ∼ N (μ, σ^{2} ) and Y = aX + b for constants a, b, then Y is also normally distributed and 
+
+Y ~ N( a \mu + b, a^2 sigma^2).
+
+In the particular case that a = 1/\sigma and b =  -\mu / \sigma then we actually have
+Y ~ N( 0, 1).
+
+
+* Mean and variance revisited.
+
+Population mean or expectation of a continuous random variable X is defined as
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;E[X]&space;=&space;\int_{-\infty}^{\infty}&space;x&space;f(x)dx" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;E[X]&space;=&space;\int_{-\infty}^{\infty}&space;x&space;f(x)dx" title="\Large\color{DarkBlue} E[X] = \int_{-\infty}^{\infty} x f(x)dx" /></a>
+
+The variance of the random variable X with mean \mu = E[X], is given by
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\mbox{Var}[X]&space;=&space;E[(X-\mu)^2]&space;=&space;\int_{-\infty}^{\infty}(x-\mu)^2f(x)dx" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\mbox{Var}[X]&space;=&space;E[(X-\mu)^2]&space;=&space;\int_{-\infty}^{\infty}(x-\mu)^2f(x)dx" title="\Large\color{DarkBlue} \mbox{Var}[X] = E[(X-\mu)^2] = \int_{-\infty}^{\infty}(x-\mu)^2f(x)dx" /></a>
+
+The standard deviation is defined by the value 
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\mbox{s.d}[X]&space;=&space;\sqrt{\mbox{Var}[X]}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\mbox{s.d}[X]&space;=&space;\sqrt{\mbox{Var}[X]}" title="\Large\color{DarkBlue} \mbox{s.d}[X] = \sqrt{\mbox{Var}[X]}" /></a>
+
+
+We say that two *random variables are independent* if the realization of one does not affect the probability distribution of the other. 
+
+Proposition: Let a, b, c be contant real numbers, and X, Y be random variables. Then the following identities hold
+
+1) If f is the porbability density funciton for X, and g is any funciton from the real numbers to the real number, then E[g(X)] = ∫_{-∞}^{∞} g(x) f (x) dx.
+2) E[aX + bY + c] = aE[X] + b E[Y] + c
+3) Var[ aX + b] = a^2 Var[X]
+4) If X and Y are two independent variables then E[XY] = E[X]E[Y]
+5) If X and Y are two independent variables then Var[X + Y] = Var[X] + Var[Y]
+6) Var[X] = E[X^2] - (E[X])^2
+
+
+Example
+
+For X ~ N(2,9), find P( 2 < X < 5).
+
+Solution: P( 2 < X < 5) =  0.34
 
 
