@@ -226,7 +226,7 @@ In the special case that \sigma = 1 and \mu = 0, then we write the */standard no
 
 Theorem. If X ∼ N (μ, σ^{2} ) and Y = aX + b for constants a, b, then Y is also normally distributed and 
 
-Y ~ N( a \mu + b, a^{2} sigma^2).
+Y ~ N( a \mu + b, a^{2} sigma^{2}).
 
 In the particular case that a = 1/\sigma and b =  -\mu / \sigma then we actually have
 Y ~ N( 0, 1).
@@ -262,6 +262,11 @@ Example
 
 For X ~ N(2,9), find P( 2 < X < 5).
 
+[[https://en.wikipedia.org/wiki/Standard_normal_table][table of values may be found here]]
+
 Solution: P( 2 < X < 5) =  0.34
 
 
+Example
+
+Suppose that Z ∼ N(0, 1). Using the probability density function and the definition, show that Var[Z] = 1. 
