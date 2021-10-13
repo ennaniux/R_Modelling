@@ -169,10 +169,13 @@ Formally, a random variable X is a measurable function X : Ω → E, from a set 
 
 Examples:
 Discrete random variables: 
+
 outcome of a roll of a 6-sided die, that is X ∈ {1, 2, 3, 4, 5, 6},
+
 number of tails in 3 flips of a coin, that is X ∈ {0, 1, 2, 3}, . . .
 
 Continuous random variables: 
+
 The lifetime X of a light bulb component with X ∈ [0, ∞),
 
 * Cumulative distribution function
