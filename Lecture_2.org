@@ -181,7 +181,7 @@ The lifetime X of a light bulb component with X ∈ [0, ∞),
 * Cumulative distribution function
 
 For any random variable X, the cumulative distribution function F (x) is
-F (x) = Pr(X ≤ x).
+F (x) = P(X ≤ x).
 
 The following properties are easy to establish
 Properties:
@@ -226,7 +226,7 @@ In the special case that \sigma = 1 and \mu = 0, then we write the */standard no
 
 Theorem. If X ∼ N (μ, σ^{2} ) and Y = aX + b for constants a, b, then Y is also normally distributed and 
 
-Y ~ N( a \mu + b, a^2 sigma^2).
+Y ~ N( a \mu + b, a^{2} sigma^2).
 
 In the particular case that a = 1/\sigma and b =  -\mu / \sigma then we actually have
 Y ~ N( 0, 1).
@@ -252,10 +252,10 @@ Proposition: Let a, b, c be contant real numbers, and X, Y be random variables. 
 
 1) If f is the porbability density funciton for X, and g is any funciton from the real numbers to the real number, then E[g(X)] = ∫_{-∞}^{∞} g(x) f (x) dx.
 2) E[aX + bY + c] = aE[X] + b E[Y] + c
-3) Var[ aX + b] = a^2 Var[X]
+3) Var[ aX + b] = a^{2} Var[X]
 4) If X and Y are two independent variables then E[XY] = E[X]E[Y]
 5) If X and Y are two independent variables then Var[X + Y] = Var[X] + Var[Y]
-6) Var[X] = E[X^2] - (E[X])^2
+6) Var[X] = E[X^{2}] - (E[X])^{2}
 
 
 Example
