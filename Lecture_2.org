@@ -149,12 +149,12 @@ A probability space is a special case of a measurable space. This concepts are b
 Then probability space is a triple (\Omega, F, P) consisting of:
 
     + the sample space \Omega — an arbitrary non-empty set,
-    + the σ-algebra F ⊆ 2^Ω (also called σ-field) — a set of subsets of \Omega , called events, such that:
+    + the σ-algebra F ⊆ 2^{Ω} (also called σ-field) — a set of subsets of \Omega , called events, such that:
        + F  contains the sample space: Ω ∈ F 
        + F  is closed under complements: if A ∈ F, then also ( Ω ∖ A ) ∈ F.
-       + F  is closed under countable unions: if A i ∈ F, for i = 1 , 2 ,..., then also ( ⋃^{∞}_{i = 1} A_i ) ∈ F.
+       + F  is closed under countable unions: if A i ∈ F, for i = 1 , 2 ,..., then also ( ⋃^{∞}_{i = 1} A_{i} ) ∈ F.
     + the probability measure P : F → [ 0 , 1 ]  — a function on F such that:
-        + P is countably additive (also called σ-additive): if A_i ∩ A_j = ∅, for i ≠ j, then P(∪^{∞}_{i = 1} A_i) = \Sigma^{∞}_{i = 1} P(A_i)
+        + P is countably additive (also called σ-additive): if A_{i ∩ A_{j} = ∅, for i ≠ j, then P(∪^{∞}_{i = 1} A_{i}) = \Sigma^{∞}_{i = 1} P(A_{i})
         + the measure of entire sample space is equal to one: P ( Ω ) = 1.
 
 * Random Variables
