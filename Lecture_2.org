@@ -214,7 +214,7 @@ P(a ≦ X ≦ b) = P(X ≦ b) - P( X ≦ a) = F(b) - F(a) =  ∫_{a}^{b} f (t) d
 
 * The normal distribution
 
-For real values -∞ ≦ x ≦ ∞, -∞ ≦ \mu ≦ ∞ and  0 ≦ \sigma ≦ ∞ we have the normal distribution function:
+For real values -∞ ≦ x ≦ ∞, -∞ ≦ \mu ≦ ∞ and  0 ≦ \sigma ≦ ∞, the normal distribution has probability density function:
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sigma\sqrt{2\pi}}e ^{-\frac{1}{2}\left( \frac{x - \mu}{\sigma}\right )^2}" /></a>
 
@@ -222,6 +222,12 @@ For real values -∞ ≦ x ≦ ∞, -∞ ≦ \mu ≦ ∞ and  0 ≦ \sigma ≦ �
 In the special case that \sigma = 1 and \mu = 0, then we write the */standard normal distribution/* as
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sqrt{2\pi}}e ^{-\frac{x^2}{2}}" /></a>
+
+#+begin_example R
+curve(dnorm(x),-3,3)
+
+curve(pnorm(x),-3,3)
+#+end_example
 
 
 Theorem. If X ∼ N (μ, σ^{2} ) and Y = aX + b for constants a, b, then Y is also normally distributed and 
@@ -267,6 +273,49 @@ For X ~ N(2,9), find P( 2 < X < 5).
 Solution: P( 2 < X < 5) =  0.34
 
 
-Example
+*Example*
 
 Suppose that Z ∼ N(0, 1). Using the probability density function and the definition, show that Var[Z] = 1. 
+
+
+*Example* 
+
+This example is taken from "The R book" by Michael J. Crawley.
+Suppose we have measured the heights of 100 people. The mean height was 170 cm and the standard
+deviation was 8 cm. We can ask three sorts of questions about data like these: what is the probability that a
+randomly selected individual will be:
+
++ shorter than a particular height?
++ taller than a particular height?
++ between one specified height and another?
+
+The area under the whole curve is exactly 1; everybody has a height between minus infinity and plus infinity.
+True, but not particularly helpful. Suppose we want to know the probability that one of our people, selected
+at random from the group, will be less than 160 cm tall. We need to convert this height into a value of z; that
+is to say, we need to convert 160 cm into a number of standard deviations from the mean. What do we know
+about the standard normal distribution? It has a mean of 0 and a standard deviation of 1. So we can convert
+any value y, from a distribution with mean ȳ and standard deviation s very simply by calculating
+
+z = (y − ȳ) / s
+
+So we convert 160 cm into a number of standard deviations. It is less than the mean height (170 cm) so its
+value will be negative:
+
+z = −1.25.
+
+
+Now we need to find the probability of a value of the standard normal taking a value of –1.25 or smaller.
+This is the area under the left-hand tail (the integral) of the density function. The function we need for this
+is pnorm: we provide it with a value of z (or, more generally, with a quantile) and it provides us with the
+probability we want:
+
+#+begin_src R :exports both :colnames yes
+pnorm(-1.25)
+#+end_src
+
+#+RESULTS:
+|                 x |
+|-------------------|
+| 0.105649773666855 |
+
+So the answer to our first question (the shaded area, top left) is just over 10%
