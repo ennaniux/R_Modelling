@@ -357,3 +357,8 @@ barplot(dbinom(0:4, 4, 0.1))
 
 Compare this plot with the one obtained for the normal distribution.
 
+
+Example:
+
+Suppose a biased coin comes up heads with probability 0.3 when tossed. The probability of seeing exactly 4 heads in 6 tosses is 
+=f(4) = 0.0595=
