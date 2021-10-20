@@ -238,6 +238,34 @@ Proposition: Let a, b, c be contant real numbers, and X, Y be random variables. 
 6) Var[X] = E[X^{2}] - (E[X])^{2}
 
 
+
+
+* The normal distribution
+
+For real values -∞ ≦ x ≦ ∞, -∞ ≦ \mu ≦ ∞ and  0 ≦ \sigma ≦ ∞, the normal distribution has probability density function:
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sigma\sqrt{2\pi}}e ^{-\frac{1}{2}\left( \frac{x - \mu}{\sigma}\right )^2}" /></a>
+
+
+In the special case that \sigma = 1 and \mu = 0, then we write the *standard normal distribution* as
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sqrt{2\pi}}e ^{-\frac{x^2}{2}}" /></a>
+
+#+begin_example R
+curve(dnorm(x),-3,3)
+
+curve(pnorm(x),-3,3)
+#+end_example
+
+
+Theorem. If X ∼ N (μ, σ^{2} ) and Y = aX + b for constants a, b, then Y is also normally distributed and 
+
+Y ~ N( a \mu + b, a^{2} sigma^{2}).
+
+In the particular case that a = 1/\sigma and b =  -\mu / \sigma then we actually have
+Y ~ N( 0, 1).
+
+
 Example
 
 For X ~ N(2,9), find P( 2 < X < 5).
@@ -293,32 +321,6 @@ pnorm(-1.25)
 | 0.105649773666855 |
 
 So the answer to our first question (the shaded area, top left) is just over 10%
-
-
-* The normal distribution
-
-For real values -∞ ≦ x ≦ ∞, -∞ ≦ \mu ≦ ∞ and  0 ≦ \sigma ≦ ∞, the normal distribution has probability density function:
-
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sigma\sqrt{2\pi}}e ^{-\frac{1}{2}\left( \frac{x - \mu}{\sigma}\right )^2}" /></a>
-
-
-In the special case that \sigma = 1 and \mu = 0, then we write the *standard normal distribution* as
-
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sqrt{2\pi}}e ^{-\frac{x^2}{2}}" /></a>
-
-#+begin_example R
-curve(dnorm(x),-3,3)
-
-curve(pnorm(x),-3,3)
-#+end_example
-
-
-Theorem. If X ∼ N (μ, σ^{2} ) and Y = aX + b for constants a, b, then Y is also normally distributed and 
-
-Y ~ N( a \mu + b, a^{2} sigma^{2}).
-
-In the particular case that a = 1/\sigma and b =  -\mu / \sigma then we actually have
-Y ~ N( 0, 1).
 
 
 * The Bernoulli distribution
