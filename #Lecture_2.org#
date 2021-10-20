@@ -323,7 +323,7 @@ So the answer to our first question (the shaded area, top left) is just over 10%
 
 ** The Bernoulli distribution
 
-This is the probanility distribution  a binary random variable X. The response takes one of only two
+This is the probability distribution  a binary random variable X. The response takes one of only two
 values: it is 1 with probability p  and is 0 with probability 1 – p (probability of success and failure respectively). The density function
 is given by:
 
