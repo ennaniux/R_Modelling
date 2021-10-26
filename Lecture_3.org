@@ -72,7 +72,7 @@ Lets plot the sine function.
 First we need to provide a range ov values for the domain of the function. In this case, we will plot the function from -2\pi to 2\pi.
 
 #+begin_src R 
-XX <- seq(-2*pi, 2*pi, by = 0.2)
+X <- seq(-2*pi, 2*pi, by = 0.2)
 #+end_src
 
 
@@ -234,6 +234,14 @@ abline(v=0,h=0,col="grey10")
 
 Can we go further?
 
+
+     #+begin_example
+     ‘par’ can be used to set or query graphical parameters.
+     Parameters can be set by specifying them as arguments to ‘par’ in
+     ‘tag = value’ form, or by passing them as a list of tagged values.
+     #+end_example
+
+
 Yes, we can change for instance the default font
 
 #+begin_example R
@@ -250,6 +258,7 @@ lwd="3"
 abline(v=X,col="grey80",lty=3)
 abline(h=seq(min(sin(X)),max(sin(X)),length.out=length(X)),col="grey80",lty=3)
 abline(v=0,h=0,col="grey10")
+
 dev.off() ## this will reset the default values changed in par()
 #+end_example
 
