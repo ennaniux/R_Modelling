@@ -7,54 +7,252 @@
 #+PROPERTY: header-args :R+ :exports both
 #+PROPERTY: header-args :R+ :session *R*
 
-* Introduction.
+# * Introduction.
 
-The linear model and the least squares is a very simple and powerful prediction method.
-In this section we will aim to fully understand it and how the data can fit the best possible linear equation by minimising a suitable error function.
+# The linear model and the least squares is a very simple and powerful prediction method.
+# In this section we will aim to fully understand it and how the data can fit the best possible linear equation by minimising a suitable error function.
 
-Through out the discussion, all vectors in $\mathbb{R}^n$ will be thought of as a column vector, and if $X\in \mathbb{R}^n$, then
-$X^T$ denotes its transpose, i.e., $X^T = (x_1, x_2, \ldots, x_n)$, where $x_i\in \mathbb{R}$.
+# Through out the discussion, all vectors in $\mathbb{R}^n$ will be thought of as a column vector, and if $X\in \mathbb{R}^n$, then
+# $X^T$ denotes its transpose, i.e., $X^T = (x_1, x_2, \ldots, x_n)$, where $x_i\in \mathbb{R}$.
 
-* The Linear Model
+# * The Linear Model
 
-Given a *vector* $X^T = (x_1, x_2, \ldots, x_p)$, we want to predict the *real value* $Y$, using the linear model
-\[ \hat(Y)  = \hat{\beta}_0 + \sum_{j = 1}^p x_j\hat{\beta}_j,\]
-where
-+ $\hat{Y}$ is the estimated value of $Y$.
+# Given a *vector* $X^T = (x_1, x_2, \ldots, x_p)$, we want to predict the *real value* $Y$, using the linear model
+# \[ \hat(Y)  = \hat{\beta}_0 + \sum_{j = 1}^p x_j\hat{\beta}_j,\]
+# where
+# + $\hat{Y}$ is the estimated value of $Y$.
 
-+ $\hat{\beta}_0$ is called the /intercept/.
+# + $\hat{\beta}_0$ is called the /intercept/.
 
-It is possible to write this equation in terms of the usual inner product in $\mathbb{R}^{p}$, for instance, consider the vectors
-$X^T = (x_1,\ldtos,x_p)$ and $\hat{\beta} = (\beta_1,\dots,\beta_p)$, then the inner product is defined as the sum of the product of the same entries of the vectors:
-\[ \langle X, \hat{\beta} \rangle = x_1 \beta_1 + x_2 \beta_2 + \cdots \x_p \beta_p. \]
-Note that in matrix notation it is equivalent to the expression
-\[\hat{Y}= X^T \hat{\beta}, \] 
-where this is the product of a $1\times n$ matrix with a $n \times 1$ matrix, resulting into a real number.
+# It is possible to write this equation in terms of the usual inner product in $\mathbb{R}^{p}$, for instance, consider the vectors
+# $X^T = (x_1,\ldtos,x_p)$ and $\hat{\beta} = (\beta_1,\dots,\beta_p)$, then the inner product is defined as the sum of the product of the same entries of the vectors:
+# \[ \langle X, \hat{\beta} \rangle = x_1 \beta_1 + x_2 \beta_2 + \cdots \x_p \beta_p. \]
+# Note that in matrix notation it is equivalent to the expression
+# \[\hat{Y}= X^T \hat{\beta}, \] 
+# where this is the product of a $1\times n$ matrix with a $n \times 1$ matrix, resulting into a real number.
 
-** Geometric Interpretation
+# ** Geometric Interpretation
 
-With all this considerations we are able to write the linear model as 
-\begin{equatoin}
- \hat{Y}  = \hat{\beta}_0 + X^T \hat{\beta}.
-\label{lm01}
-\end{equation}
+# With all this considerations we are able to write the linear model as 
+# \begin{equatoin}
+#  \hat{Y}  = \hat{\beta}_0 + X^T \hat{\beta}.
+# \label{lm01}
+# \end{equation}
 
-In this case $(X^T, \hat{Y}) is an affine hyperplane cutting the $Y$-axis at the point $(0,\hat{\beta}_0)$.
+# In this case $(X^T, \hat{Y}) is an affine hyperplane cutting the $Y$-axis at the point $(0,\hat{\beta}_0)$.
 
-We can simplyfy a bit more. Instead of considering vectors in $\mathbb{R}^p$, we can add one more coordinate and work in $\mathbb{R}^{p+1}$. If 
-we write $\bar{X}^T = (1, X^T) = (1, x_1, \ldots, x_p)$ and $\hat{\beta} = (\beta_0, \beta_1, \ldots, \beta_p)$, then the linear model can be 
-expressed simply as
-\begin{equaiton}
- \hat{Y} = \bar{X}^T \hat{\beta}. 
-\label{lm02}
-\end{equation}
+# We can simplyfy a bit more. Instead of considering vectors in $\mathbb{R}^p$, we can add one more coordinate and work in $\mathbb{R}^{p+1}$. If 
+# we write $\bar{X}^T = (1, X^T) = (1, x_1, \ldots, x_p)$ and $\hat{\beta} = (\beta_0, \beta_1, \ldots, \beta_p)$, then the linear model can be 
+# expressed simply as
+# \begin{equaiton}
+#  \hat{Y} = \bar{X}^T \hat{\beta}. 
+# \label{lm02}
+# \end{equation}
 
-In this case $(X^T, \hat{Y})$ is a hyperplane including the origin.
-
-
+# In this case $(X^T, \hat{Y})$ is a hyperplane including the origin.
 
 
-  - Estimating the Coefficients 
-  - Assessing the Accuracy of the Coefficient Estimates 
-  - Assessing the Accuracy of the Model
-  - Comparison of Linear Regression with K-Nearest neighbours
+
+
+#   - Estimating the Coefficients 
+#   - Assessing the Accuracy of the Coefficient Estimates 
+#   - Assessing the Accuracy of the Model
+#   - Comparison of Linear Regression with K-Nearest neighbours
+
+
+* Plotting in R
+
+
+** Plot a function
+
+Now we will use the basic plot function oin R to plot graphs.
+
+Lets plot the sine function.
+
+First we need to provide a range ov values for the domain of the function. In this case, we will plot the function from -2\pi to 2\pi.
+
+#+begin_src R 
+XX <- seq(-2*pi, 2*pi, by = 0.2)
+#+end_src
+
+
+Then we run the plot command as follows:
+
+#+begin_src R 
+X <- seq(-2*pi, 2*pi, by = 0.2)
+plot(sin,X)
+#+end_src
+
+Then the plot is shown in a different window.
+
+
+What if the function we want to plot is not a built in function?
+
+Suppose we want to plot the function
+
+f(x) = 2x^2 / (x^2 + 1),
+
+Then we have
+
+#+begin_src R 
+F <- function(x){ 
+2*x^2 / (x^2 + 1)}
+
+X <- seq(-10, 10, by = 0.2)
+plot(F,X)
+#+end_src
+
+
+* Plot from data frame (scatter plot)
+
+It may happen that the function is not given, and instead we are given the corresponding values in a data frame:
+
+#+begin_src R 
+df <- data.frame(
+"x-axis" = c(
+-5.0 ,-4.8, -4.6 ,-4.4 ,-4.2 ,-4.0 ,-3.8 ,-3.6 ,-3.4 ,-3.2 ,-3.0 ,-2.8 ,-2.6 ,-2.4 ,-2.2,
+-2.0 ,-1.8, -1.6 ,-1.4 ,-1.2 ,-1.0 ,-0.8 ,-0.6 ,-0.4 ,-0.2 , 0.0 , 0.2 , 0.4 , 0.6 , 0.8,
+ 1.0 , 1.2,  1.4 , 1.6 , 1.8 , 2.0 , 2.2 , 2.4 , 2.6 , 2.8 , 3.0 , 3.2 , 3.4 , 3.6 , 3.8,
+ 4.0 , 4.2,  4.4 , 4.6 , 4.8 , 5.0),
+"f_x" = c(
+-6.73076923 ,-6.51713810 ,-6.30216606 ,-6.08565815 ,-5.86738197 ,-5.64705882,
+-5.42435233 ,-5.19885387 ,-4.97006369 ,-4.73736655 ,-4.50000000 ,-4.25701357,
+-4.00721649 ,-3.74911243 ,-3.48082192 ,-3.20000000 ,-2.90377358 ,-2.58876404,
+-2.25135135 ,-1.88852459 ,-1.50000000 ,-1.09268293 ,-0.68823529 ,-0.33103448,
+-0.08461538 , 0.00000000 ,-0.06923077 ,-0.22068966 ,-0.37058824 ,-0.46829268,
+-0.50000000 ,-0.47213115 ,-0.39729730 ,-0.28764045 ,-0.15283019 , 0.00000000,
+ 0.16575342 , 0.34082840 , 0.52268041 , 0.70950226 , 0.90000000 , 1.09323843,
+ 1.28853503 , 1.48538682 , 1.68341969 , 1.88235294 , 2.08197425 , 2.28212181,
+ 2.48267148 , 2.68352745 , 2.88461538)
+)
+
+plot(df)
+#+end_src
+
+
+In this case, a line is not drawn, in order to include the line and to modify it we can use the parameters =type= and =lwd=
+
+#+begin_src 
+plot(df, type="l", lwd=4)
+#+end_src
+
+
+One can read a bit more of this on the help page for plot:
+
+  #+begin_example
+  ‘type’ what type of plot should be drawn.  Possible types are
+
+                • ‘"p"’ for *p*oints,
+
+                • ‘"l"’ for *l*ines,
+
+                • ‘"b"’ for *b*oth,
+
+                • ‘"c"’ for the lines part alone of ‘"b"’,
+
+                • ‘"o"’ for both ‘*o*verplotted’,
+
+                • ‘"h"’ for ‘*h*istogram’ like (or ‘high-density’)
+                  vertical lines,
+
+                • ‘"s"’ for stair *s*teps,
+
+                • ‘"S"’ for other *s*teps, see ‘Details’ below,
+
+                • ‘"n"’ for no plotting.
+
+              All other ‘type’s give a warning or an error; using,
+              e.g., ‘type = "punkte"’ being equivalent to ‘type = "p"’
+              for S compatibility.  Note that some methods, e.g.
+              ‘plot.factor’, do not accept this.
+
+          ‘main’ an overall title for the plot: see ‘title’.
+
+          ‘sub’ a sub title for the plot: see ‘title’.
+
+          ‘xlab’ a title for the x axis: see ‘title’.
+
+          ‘ylab’ a title for the y axis: see ‘title’.
+
+          ‘asp’ the y/x aspect ratio, see ‘plot.window’.
+  #+end_example
+
+
+
+To add color we can use the following syntax
+
+#+begin_src 
+plot(df, type="l", lwd=4, col="#3498db")
+#+end_src
+
+If we want to add a title then we write
+
+=plot(df, type="l", lwd=4, col="#3498db", main="Graph of the function from a table")=
+
+
+
+If we come back to the sine function, and take a look at the following commmands
+
+#+begin_example R
+X <- seq(-pi, pi, by = 0.2)
+plot(sin,X)
+plot(X,sin(X))
+plot(sin(X),X)
+#+end_example
+
+
+Now we can define the following plot function
+#+begin_src 
+X <- seq(-pi, pi, by = 0.2)
+plot(X,sin(X),
+main="The graph of Sine function",
+ylab = "sin(x)",
+xlab = "x",
+col="#3498db",
+type="l",
+lwd="3"
+)
+#+end_src
+
+
+Maybe a useful thing is to define the grid
+
+#+begin_example R
+X <- seq(-pi, pi, by = 0.2)
+plot(X,sin(X),
+main="The graph of Sine function",
+ylab = "sin(x)",
+xlab = "x",
+col="#3498db",
+type="l",
+lwd="3"
+)
+abline(v=X,col="grey80",lty=3)
+abline(h=seq(min(sin(X)),max(sin(X)),length.out=length(X)),col="grey80",lty=3)
+abline(v=0,h=0,col="grey10")
+#+end_example
+
+Can we go further?
+
+Yes, we can change for instance the default font
+
+#+begin_example R
+X <- seq(-pi, pi, by = 0.2)
+par(family="mono")
+plot(X,sin(X),
+main="The graph of Sine function",
+ylab = "sin(x)",
+xlab = "x",
+col="#3498db",
+type="l",
+lwd="3"
+)
+abline(v=X,col="grey80",lty=3)
+abline(h=seq(min(sin(X)),max(sin(X)),length.out=length(X)),col="grey80",lty=3)
+abline(v=0,h=0,col="grey10")
+dev.off() ## this will reset the default values changed in par()
+#+end_example
+
+
+
+
