@@ -188,11 +188,11 @@ plot(df, type="l", lwd=4, col="#3498db")
 
 If we want to add a title then we write
 
-=plot(df, type="l", lwd=4, col="#3498db", main="Graph of the function from a table")=
+=plot(df, type ="l", lwd = 4, col = "#3498db", main = "Graph of the function from a table")=
 
 
 
-If we come back to the sine function, and take a look at the following commmands
+If we come back to the sine function, and take a look at the following commands
 
 #+begin_example R
 X <- seq(-pi, pi, by = 0.2)
@@ -316,7 +316,7 @@ abline(v=0,h=0,col="grey10")
 
 + Create the function my_plot1, my_plot2, my_plot3 for plot of functions, histograms and boxplots. Save them in to an R file called my_Rtools.R
 + A good source of examples can be found here: https://r-coder.com/plot-r/
-+ There is a popular package for nice plots names ggplot2. Download
-  the package and try to do some plots there too.
++ There is a popular package for nice plots named ggplot2. Download
+  the package and try to do some plots there too. Note that the syntax is way different, for instance, you can try: =ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()=
 
 
