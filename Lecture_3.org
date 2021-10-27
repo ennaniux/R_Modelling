@@ -1,4 +1,4 @@
-#+title: Lecture 3: Simple Linear Regression and Multiple Linear Regression
+#+title: Lecture 3: Simple Plots
 #+author: Daniel Ballesteros-Chávez
 #+language: en
 #+select_tags: export
@@ -179,6 +179,7 @@ One can read a bit more of this on the help page for plot:
 
 
 
+
 To add color we can use the following syntax
 
 #+begin_src 
@@ -200,6 +201,35 @@ plot(X,sin(X))
 plot(sin(X),X)
 #+end_example
 
+
+Here and illustration of different types
+#+begin_src R
+par(mfrow = c(1, 3))
+plot(X, sin(X), type = "l", main = "type = 'l'")
+plot(X, sin(X), type = "s", main = "type = 's'")
+plot(X, sin(X), type = "p", main = "type = 'p'")
+
+par(mfrow = c(1, 1)) ## set it back to the default value
+#+end_src
+
+And here we have an example of different =pch=. The pch argument
+allows to modify the symbol of the points in the plot. The main
+symbols can be selected passing numbers 1 to 25 as parameters. You can
+also change the symbols size with the cex argument and the line width
+of the symbols (except 15 to 18) with the lwd argument
+
+     #+begin_example R
+X <- seq(-pi, pi, by = 0.2)
+plot(X,sin(X), pch=1:25, cex=2)
+     #+end_example
+
+The symbols 21 to 25 allow you to set border width and
+background color with the lwd and bg arguments.
+
+     #+begin_example R
+X <- seq(-pi, pi, by = 0.2)
+plot(X,sin(X), pch=21:25, cex=2, lwd=1:3,bg=c("blue","red","green"))
+     #+end_example
 
 Now we can define the following plot function
 #+begin_src 
@@ -246,7 +276,7 @@ Yes, we can change for instance the default font
 
 #+begin_example R
 X <- seq(-pi, pi, by = 0.2)
-par(family="mono")
+par(family="mono",fg="grey10")
 plot(X,sin(X),
 main="The graph of Sine function",
 ylab = "sin(x)",
@@ -263,5 +293,30 @@ dev.off() ## this will reset the default values changed in par()
 #+end_example
 
 
+finally when we like one particular plot type we can save it as a personal function
+
+#+begin_example R
+my_plot1 <- function(x,y,color="#3498db",ylabel="f(x)",xlabel="x",my.title="Plot title",...){
+par(family="mono",fg="grey10") 
+plot(x,y,
+main=my.title,
+ylab = ylabel,
+xlab = xlabel,
+col= color,
+type= "l",
+lwd="3"
+)
+abline(v=x,col="grey80",lty=3)
+abline(h=seq(min(y),max(y),length.out=length(x)),col="grey80",lty=3)
+abline(v=0,h=0,col="grey10")
+}
+#+end_example
+
+
+
++ Create the function my_plot1, my_plot2, my_plot3 for plot of functions, histograms and boxplots. Save them in to an R file called my_Rtools.R
++ A good source of examples can be found here: https://r-coder.com/plot-r/
++ There is a popular package for nice plots names ggplot2. Download
+  the package and try to do some plots there too.
 
 
