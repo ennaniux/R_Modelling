@@ -45,12 +45,32 @@ an unknown parameter is called an *estimator*. One can see estimators also as ra
 Let us select a random sample {X_{1} , . . . , X_{n} } from a population with mean μ and variance σ^{2}, in other words, let
 X_{1} , . . . , X_{n} are independent, identically distributed random variables with E [X_{i} ] = μ and Var [X_{i} ] =σ^{2} .
 
+
 An estimator for the population mean \mu is given by 
+
 
 Ŷ = \Sigma_{i =1}^{n} X_{i} / n.
 
+
 Note that the expected value is 
 
+
 E[Ŷ] = \mu.
+
+
+Var[Ŷ]  = \sigma^{2} / n.
+
+
+The *standard error* is the standard deviation of the estimator, i.e. s.e. =  √Var[Ŷ] = \sigma / √n.
+
+
+If the X_{i} ~ N(\mu, \sigma^{2}) then Ŷ ~ N(\mu , \sigma^{2} / n).
+
+
+Even if the X i have some other distribution, for large n, the distribution of X̄ is
+approximately normal. This is known as the Central Limit Theorem and it is one of the
+most famous facts of probability theory.
+
+* The central limit theorem
 
 [fn:1] https://en.wikipedia.org/wiki/Statistical_inference
