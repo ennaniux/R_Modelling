@@ -1,0 +1,17 @@
+#+title: Lecture 4: Statistical inference
+#+author: Daniel Ballesteros-Chávez
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 26.1 (Org mode 9.3.6)
+#+PROPERTY: header-args :R+ :exports both
+#+PROPERTY: header-args :R+ :session *R*
+
+
+* Introduction.
+
+Statistical inference is the process of using data analysis to infer properties of an underlying distribution of probability.[1] Inferential statistical analysis infers properties of a population, for example by testing hypotheses and deriving estimates. It is assumed that the observed data set is sampled from a larger population.[1]
+
+
+
+[1] https://en.wikipedia.org/wiki/Statistical_inference
