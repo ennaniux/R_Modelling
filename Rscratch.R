@@ -55,3 +55,13 @@ pnorm(160,170,8)
 ## my_plot1(x,dnorm(x),type="l",ylab="probability density",xlab="height")
 ## axis(1,at=-3:3,labels=c("146","154","162","170","178","186","192"))
 ## polygon(c(z,-1.25,-3),c(p,min(p),min(p)),col="red")
+
+
+
+means <- numeric(10000)
+for (i in 1:10000){
+means[i] <- mean(runif(5,0,10))
+}
+
+
+hist(means)

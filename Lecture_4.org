@@ -67,10 +67,52 @@ The *standard error* is the standard deviation of the estimator, i.e. s.e. =  �
 If the X_{i} ~ N(\mu, \sigma^{2}) then Ŷ ~ N(\mu , \sigma^{2} / n).
 
 
-Even if the X i have some other distribution, for large n, the distribution of X̄ is
-approximately normal. This is known as the Central Limit Theorem and it is one of the
+Even if the X_{i} have some other distribution, for large n, the distribution of Ŷ is
+approximately normal. This is known as the *Central Limit Theorem* and it is one of the
 most famous facts of probability theory.
 
 * The central limit theorem
+
+The Central Limit Theorem of probability states that the sum of many small inde-
+pendent random variables will be a random variable with an approximate normal distribution.
+
+
+For example, the heights of women in the United States follow an approximate
+normal distribution. The Central Limit Theorem applies here because height is
+affected by many small additive factors. In contrast, the distribution of heights
+of all adults in the United States is not so close to normality. The Central Limit
+Theorem does not apply here because there is a single large factor—sex—that
+represents much of the total variation.
+
+Example 1. Uniform distribution. 
+
+A. Take five uniformly distributed random numbers between 0 and 10 and work out the
+average.
+
+#+begin_src R
+mean(runif(5,0,10))
+#+end_src
+
+#+RESULTS:
+: 3.94939380558208
+
+Typically, of course, the average will be close to 5.
+
+B. Let us do this 10,000 times and look at the distribution of the 10,000
+means.
+
+#+begin_example R
+
+#Distribution of the raw data
+runif(10000,0,10))
+
+#Distribution of the means
+means <- numeric(10000)
+for (i in 1:10000){
+means[i] <- mean(runif(5,0,10))
+}
+#+end_example
+
+#+RESULTS:
 
 [fn:1] https://en.wikipedia.org/wiki/Statistical_inference
