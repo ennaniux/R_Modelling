@@ -12,6 +12,45 @@
 
 Statistical inference is the process of using data analysis to infer properties of an underlying distribution of probability. Inferential statistical analysis infers properties of a population, for example by testing hypotheses and deriving estimates. It is assumed that the observed data set is sampled from a larger population.[fn:1]
 
+* Sampling and measurement error models
 
+There are two standard paradigms for inference:
+
++ Sampling model
++ Measurement error model.
+
+
+Two most common methods of statistical inference are:
+
++ Confidence intervals
++ Hypotesis testing
+  + Paramtetric
+  + Non paramtetric
+
+
+
+
+
+
+* Estimators and Sampling Distributions
+
+
+A *parameters* is any value that describe properties of the whole population.    
+A function of the random sample {X_1 , . . . , X_n } which is used to estimate the value of
+an unknown parameter is called an *estimator*. One can see estimators also as random variables with its own distribution called the *sampling distribution*, and this shows how an estimator would change if we draw repeatedly new samples
+
+
+** Sampling distribution of the sample mean
+
+Let us select a random sample {X_1 , . . . , X_n } from a population with mean μ and variance σ^{2}, in other words, let
+X_1 , . . . , X_n are independent, identically distributed random variables with E [X_i ] = μ and Var [X_i ] =σ^{2} .
+
+An estimator for the population mean \mu is given by 
+
+Ŷ^{} = \Sigma_{i =1}^{n} X_{i} / n.
+
+Note that the expected value is 
+
+E[Ŷ] = \mu.
 
 [fn:1] https://en.wikipedia.org/wiki/Statistical_inference
