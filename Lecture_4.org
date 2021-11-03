@@ -36,9 +36,9 @@ Two most common methods of statistical inference are:
 
 The collection of random variables X_{1}, X_{2}, X_{3}, ..., X_{n} is said to be a random sample of size n
 if they are independent and identically distributed (i.i.d.), i.e.,
-X1 , X2, X3, ..., Xn are independent random variables, and
+X_{1} , X_{2}, X_{3}, ..., Xn are independent random variables, and
 they have the same distribution, i.e,
-F_{X1}(x)=F_{X2}(x)=...=F_{Xn}(x), for all x∈R.
+F_{X_{1}}(x)=F_{X_{2}}(x)=...=F_{X_{n}}(x), for all x∈R.
 
 
 A *parameters* is any value that describe properties of the whole population.    
@@ -157,13 +157,13 @@ Is an unbiased estimator for the mean \mu.
 
 Show that the sample variance
 
-ŝ^2 = 1/(n-1) \Sigma_{i=1}^{n} (X_{i} - Ŷ)^2,
+ŝ^2 = 1/(n-1) \Sigma_{i=1}^{n} (X_{i} - Ŷ)^{2},
 
-is an unbiased estimator of \sigma^2.
+is an unbiased estimator of \sigma^{2}.
 
 On the other hand, the sample standard deviation ŝ, is biased.
 to see this, note that ŝ is random, so Var(ŝ)>0, and 
-Var(ŝ) = E[ŝ^2] - E[ŝ]^2.
+Var(ŝ) = E[ŝ^{2}] - E[ŝ]^{2}.
 
 
 * Maximum Likelihood Estimation
@@ -180,8 +180,8 @@ blue balls, call it θ, might be 0, 1, 2, or 3. I am allowed to choose
 4 balls at random from the bag with replacement. We define the random
 variables X_{1}, X_{2}, X_{3}, and X_{4}
 as follows
-Xi= 1 if the ith chosen ball is blue, and X_{i} = 0 if it is red.
-Note that Xi's are i.i.d. and Xi∼Bernoulli(\Theta / 3). Lets work out the most likely value for
+X_{i}= 1 if the ith chosen ball is blue, and X_{i} = 0 if it is red.
+Note that X{i}'s are i.i.d. and X_{i}∼Bernoulli(\Theta / 3). Lets work out the most likely value for
 \Theta.
 
 [fn:1] https://en.wikipedia.org/wiki/Statistical_inference
