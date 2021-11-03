@@ -182,7 +182,19 @@ blue balls, call it θ, might be 0, 1, 2, or 3. I am allowed to choose
 variables X_{1}, X_{2}, X_{3}, and X_{4}
 as follows
 X_{i}= 1 if the ith chosen ball is blue, and X_{i} = 0 if it is red.
-Note that X{i}'s are i.i.d. and X_{i}∼Bernoulli(\Theta / 3). Lets work out the most likely value for
-\Theta.
+Note that X{i}'s are i.i.d. and X_{i}∼Bernoulli(\theta / 3). Lets work out the most likely value for
+\theta.
 
+
+If after the experiment I obtain the values X_{1} = 1, X_{2} = 0, X_{3}=1, X_{4} = 1, i.e., three blues and 2 reds, then 
++ For each posible value of \Theta, find the probability of the observed sample.
++ For whic value of \Theta is the probability of the sample the largest?
+
+
+ Let X_{1}, X_{2}, X_{3}, ..., X_{n} be a random sample from a distribution with a
+ parameter θ (In general, θ might be a vector, θ=(θ_{1},θ_{2},⋯,θ_{k}).)
+ Suppose that x1, x2, x3, ..., xn are the observed values of X1, X2,
+ X3, ..., Xn. If Xi's are discrete random variables, we define the
+ likelihood function as the probability of the observed sample as a
+ function of θ
 
