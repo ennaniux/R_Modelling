@@ -10,7 +10,11 @@
 
 * Introduction.
 
-Statistical inference is the process of using data analysis to infer properties of an underlying distribution of probability. Inferential statistical analysis infers properties of a population, for example by testing hypotheses and deriving estimates. It is assumed that the observed data set is sampled from a larger population.[fn:1]
+Statistical inference is the process of using data analysis to infer
+properties of an underlying distribution of probability. Inferential
+statistical analysis infers properties of a population, for example by
+testing hypotheses and deriving estimates. It is assumed that the
+observed data set is sampled from a larger population.
 
 * Sampling and measurement error models
 
@@ -26,9 +30,6 @@ Two most common methods of statistical inference are:
 + Hypotesis testing
   + Paramtetric
   + Non paramtetric
-
-
-
 
 
 
@@ -184,4 +185,4 @@ X_{i}= 1 if the ith chosen ball is blue, and X_{i} = 0 if it is red.
 Note that X{i}'s are i.i.d. and X_{i}∼Bernoulli(\Theta / 3). Lets work out the most likely value for
 \Theta.
 
-[fn:1] https://en.wikipedia.org/wiki/Statistical_inference
+
