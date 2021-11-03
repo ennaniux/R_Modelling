@@ -39,11 +39,11 @@ The collection of random variables X_{1}, X_{2}, X_{3}, ..., X_{n} is said to be
 if they are independent and identically distributed (i.i.d.), i.e.,
 X_{1} , X_{2}, X_{3}, ..., Xn are independent random variables, and
 they have the same distribution, i.e,
-F_{X_{1}}(x)=F_{X_{2}}(x)=...=F_{X_{n}}(x), for all x∈R.
+F_{X_1}(x)=F_{X_{2}}(x)=...=F_{X_{n}}(x), for all x∈R.
 
 
 A *parameters* is any value that describe properties of the whole population.    
-A function of the random sample {X_1 , . . . , X_n } which is used to estimate the value of
+A function of the random sample {X_{1} , . . . , X_{n} } which is used to estimate the value of
 an unknown parameter is called an *estimator*. One can see estimators also as random variables with its own distribution called the *sampling distribution*, and this shows how an estimator would change if we draw repeatedly new samples
 
 
