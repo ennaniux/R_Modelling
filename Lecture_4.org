@@ -220,4 +220,9 @@ Generalised to several variables.
 
 Example 
 
-Suppose that we have observed the random sample X_{1}, X_{2}, X_{3}, ..., X_{n}, where X_{i} ∼ N(θ_{1},θ_{2}). Find the maximum likelihood estimators for θ_{1} and θ_{2}. 
+Suppose that we have observed the random sample X_{1}, X_{2}, X_{3},
+..., X_{n}, where X_{i} ∼ N(θ_{1},θ_{2}). Find the maximum likelihood
+estimators for θ_{1} and θ_{2}.
+
+
+
