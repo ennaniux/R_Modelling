@@ -34,6 +34,12 @@ Two most common methods of statistical inference are:
 
 * Estimators and Sampling Distributions
 
+The collection of random variables X_{1}, X_{2}, X_{3}, ..., X_{n} is said to be a random sample of size n
+if they are independent and identically distributed (i.i.d.), i.e.,
+X1 , X2, X3, ..., Xn are independent random variables, and
+they have the same distribution, i.e,
+F_{X1}(x)=F_{X2}(x)=...=F_{Xn}(x), for all x∈R.
+
 
 A *parameters* is any value that describe properties of the whole population.    
 A function of the random sample {X_1 , . . . , X_n } which is used to estimate the value of
@@ -111,8 +117,71 @@ means <- numeric(10000)
 for (i in 1:10000){
 means[i] <- mean(runif(5,0,10))
 }
+
+hist(means)
 #+end_example
 
-#+RESULTS:
+Now let's take a look at the normal distribution
+
+#+begin_example R
+mm  <- mean(means)
+ssdd <-  sd(means)
+xx  <-  seq(0,10,0.1)
+yy  <-  dnorm(xx, mm, ssdd)
+
+plot(xx,yy)
+#+end_example
+
+The height that gives the right scale, depends on the chosen bin widths, note that if we doubled with width of the bin there would be (close to) twice
+as many numbers in the bin and the bar would be in principle twice as high too. Then get the height of the bars
+on our frequency scale we multiply the total frequency, 10 000 by the bin width, 0.5 to get 5000.
+
+#+begin_example R
+hist(means)
+lines(xx,yy*5000)
+#+end_example
+
+* Bias of an estimator
+
+If Ŷ is an estimator of a parameter Y, then Ŷ is called *unbiased* if E[Ŷ] = Y. In general, the value
+E[Ŷ] - Y is called the bias of the estimator and if it is different from zero, the estimator is said to be *biased*.
+
+
+Example. For a random sample {X_{1} , . . . , X_{n} } from a population with E [X_{i} ] = μ and Var [X_{i} ] =σ^{2} .
+
+Se have seen that the estimator
+
+Ŷ = \Sigma_{i =1}^{n} X_{i} / n.
+
+Is an unbiased estimator for the mean \mu.
+
+Show that the sample variance
+
+ŝ^2 = 1/(n-1) \Sigma_{i=1}^{n} (X_{i} - Ŷ)^2,
+
+is an unbiased estimator of \sigma^2.
+
+On the other hand, the sample standard deviation ŝ, is biased.
+to see this, note that ŝ is random, so Var(ŝ)>0, and 
+Var(ŝ) = E[ŝ^2] - E[ŝ]^2.
+
+
+* Maximum Likelihood Estimation
+
+Appart from the mean and variance estimators, it is not clear how we can estimate other parameters. 
+We now would like to talk about a systematic way of parameter estimation. 
+Specifically, we would like to introduce an estimation method, called maximum likelihood estimation (MLE). 
+
+Example
+
+I have a bag that contains 3 balls. Each ball is either red or blue,
+but I have no information in addition to this. Thus, the number of
+blue balls, call it θ, might be 0, 1, 2, or 3. I am allowed to choose
+4 balls at random from the bag with replacement. We define the random
+variables X_{1}, X_{2}, X_{3}, and X_{4}
+as follows
+Xi= 1 if the ith chosen ball is blue, and X_{i} = 0 if it is red.
+Note that Xi's are i.i.d. and Xi∼Bernoulli(\Theta / 3). Lets work out the most likely value for
+\Theta.
 
 [fn:1] https://en.wikipedia.org/wiki/Statistical_inference

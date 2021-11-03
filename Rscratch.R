@@ -63,5 +63,13 @@ for (i in 1:10000){
 means[i] <- mean(runif(5,0,10))
 }
 
+mm  <- mean(means)
+ssdd <-  sd(means)
+xx  <-  seq(0,10,0.1)
+yy  <-  dnorm(xx, mm, ssdd)
+
 
 hist(means)
+lines(xx,yy*5000)
+
+plot(xx,yy)
