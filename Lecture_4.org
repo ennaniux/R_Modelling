@@ -187,14 +187,31 @@ Note that X{i}'s are i.i.d. and X_{i}∼Bernoulli(\theta / 3). Lets work out the
 
 
 If after the experiment I obtain the values X_{1} = 1, X_{2} = 0, X_{3}=1, X_{4} = 1, i.e., three blues and 2 reds, then 
-+ For each posible value of \Theta, find the probability of the observed sample.
-+ For whic value of \Theta is the probability of the sample the largest?
++ For each posible value of \theta, find the probability of the observed sample.
++ For whic value of \theta is the probability of the sample the largest?
 
 
  Let X_{1}, X_{2}, X_{3}, ..., X_{n} be a random sample from a distribution with a
  parameter θ (In general, θ might be a vector, θ=(θ_{1},θ_{2},⋯,θ_{k}).)
- Suppose that x1, x2, x3, ..., xn are the observed values of X1, X2,
- X3, ..., Xn. If Xi's are discrete random variables, we define the
+ Suppose that x_{1}, x_{2}, x_{3}, ..., x_{n} are the observed values of X_{1}, X_{2},
+, X_{n}. We define the
  likelihood function as the probability of the observed sample as a
- function of θ
+ function of θ:
+
+L(x_{1},...,x_{n} ; \theta ) = P(X_{1} = x_{1}, X_{2} = x_{2}, ..., X_{n} = x_{n};\theta )
+
+A maximum likelihood estimate of θ, is a value of θ that maximizes the likelihood function.
+
+A maximum likelihood estimator (MLE) of the parameter θ is a random variable whose value when
+X_{i} = x_{i}, equals the maximum likelihood estimave of \theta.
+
+
+Examples:
+
+For X_{i} ~ Binom(3,\theta), and obseved values (x_{1}, x_{2}, x_{3},
+x_{4}) = (1, 3, 2, 2), find the likelihood function, find the maximum
+likelihood estimate of θ
+
+
+For X_{i} ~ Exponential(\theta) and observed values x_{1}, x_{2}, ..., x_{n}, find the maximum likelihood estimator (MLE) of θ
 
