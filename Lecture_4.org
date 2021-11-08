@@ -251,6 +251,6 @@ Solution: x_{l} = -1.96, and x_{h}  = 1.96
 
 Example
 
-Given a random sample $X_1, X_2, \ldots, X_n$ from a standard normal distribution. Find the confidence interval for the parameter $\theta$ with a confidence level of 95%.
+Given a random sample $X_1, X_2, \ldots, X_n$ from a normal distribution N(\theta, \sigma^2). Find the confidence interval for the parameter $\theta$ with a confidence level of (1-\alpha)%.
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\overline{X}&space;-&space;\frac{1.96}{\sqrt{n}}&space;,&space;\overline{X}&space;&plus;&space;\frac{1.96}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\overline{X}&space;-&space;\frac{1.96}{\sqrt{n}}&space;,&space;\overline{X}&space;&plus;&space;\frac{1.96}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \overline{X} - \frac{1.96}{\sqrt{n}} , \overline{X} + \frac{1.96}{\sqrt{n}} \right]" /></a>

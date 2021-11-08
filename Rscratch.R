@@ -73,3 +73,9 @@ hist(means)
 lines(xx,yy*5000)
 
 plot(xx,yy)
+
+
+## Find the confidence interval for the normal distribution at 95%
+
+
+
