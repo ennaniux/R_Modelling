@@ -254,3 +254,20 @@ Example
 Given a random sample $X_1, X_2, \ldots, X_n$ from a normal distribution N(\theta, \sigma^2). Find the confidence interval for the parameter $\theta$ with a confidence level of (1-\alpha)%.
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right]" /></a>
+
+** Confidence intervals If we do not know the standard deviation \sigma 
+
+So far we  have discussed how to get the Confidence Interval with a confidence level of (1-\alpha) when the parameter of the population we want to measure is the mean \theta of certain characteristic, using $\hat{\theta}$ as an estimator, assuming X_{i} ~ N(\Theta,\sigma^{2}), with a large sample size n.
+
+Usually the problem is that we do not know the real value of \sigma. For this, we have two options:
+
++ We can try to find and estimate for the maximum value of \sigma:  0 \leq \sigma \leq max \sigma.
++ Use the sample variance estimator for the standar deviation.
+
+In the first case, if we have 0 \leq \sigma \leq max \sigma, then it is clear that the interval
+
+#+hmtl: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]&space;\subseteq&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{max\sigma}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]&space;\subseteq&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{max\sigma}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right] \subseteq \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{max\sigma}{\sqrt{n}} \right]" /></a>
+
+and hence the inequality
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;P\left(&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{max\sigma}{\sqrt{n}}&space;\right]\right&space;)&space;\geq&space;(1-\alpha)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;P\left(&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{max\sigma}{\sqrt{n}}&space;\right]\right&space;)&space;\geq&space;(1-\alpha)" title="\Large\color{DarkBlue} P\left( \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{max\sigma}{\sqrt{n}} \right]\right ) \geq (1-\alpha)" /></a>
