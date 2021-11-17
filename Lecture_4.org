@@ -275,4 +275,21 @@ and hence the following inequality holds:
 
 In the second case, one can estimate the variance using
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;S^2&space;=&space;\frac{1}{n-1}&space;=&space;\sum_{i=1}^{n}&space;\left(&space;X_i&space;-&space;\hat{\Theta}\right&space;)^2&space;\\&space;=&space;\frac{1}{n-1}&space;\left(&space;\sum_{i=1}^{n}&space;X_i^2&space;-&space;n\hat{\Theta}&space;^2&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;S^2&space;=&space;\frac{1}{n-1}&space;=&space;\sum_{i=1}^{n}&space;\left(&space;X_i&space;-&space;\hat{\Theta}\right&space;)^2&space;\\&space;=&space;\frac{1}{n-1}&space;\left(&space;\sum_{i=1}^{n}&space;X_i^2&space;-&space;n\hat{\Theta}&space;^2&space;\right&space;)" title="\Large\color{DarkBlue} S^2 = \frac{1}{n-1} = \sum_{i=1}^{n} \left( X_i - \hat{\Theta}\right )^2 \\ = \frac{1}{n-1} \left( \sum_{i=1}^{n} X_i^2 - n\hat{\Theta} ^2 \right )" /></a>
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;S^2&space;=&space;\frac{1}{n-1}&space;\sum_{i=1}^{n}&space;\left(&space;X_i&space;-&space;\hat{\theta}\right&space;)^2&space;\\&space;=&space;\frac{1}{n-1}&space;\left(&space;\sum_{i=1}^{n}&space;X_i^2&space;-&space;n\hat{\theta}&space;^2&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;S^2&space;=&space;\frac{1}{n-1}&space;\sum_{i=1}^{n}&space;\left(&space;X_i&space;-&space;\hat{\theta}\right&space;)^2&space;\\&space;=&space;\frac{1}{n-1}&space;\left(&space;\sum_{i=1}^{n}&space;X_i^2&space;-&space;n\hat{\theta}&space;^2&space;\right&space;)" title="\Large\color{DarkBlue} S^2 = \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \hat{\theta}\right )^2 \\ = \frac{1}{n-1} \left( \sum_{i=1}^{n} X_i^2 - n\hat{\theta} ^2 \right )" /></a>
+equivalently 
+
+
+** Confidence intervales if the sample size is small.
+
+In this case, we cannot apply the Central Limit Theorem. 
+We then relay on the follwoing properties. Recall that we are interested
+in estimating the population mean \mu using our sample estimator $\hat{\theta}$.
+
+Then
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\hat{\theta}&space;\sim&space;N(\mu,&space;\sigma^2/n),\\&space;\\&space;\frac{n-1}{\sigma^2}S^2&space;\sim&space;\chi^2_{n-1},\\&space;\\&space;\frac{\hat{\theta}-&space;\mu}{\sigma/\sqrt{n}}&space;\sim&space;t_{n-1}." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\hat{\theta}&space;\sim&space;N(\mu,&space;\sigma^2/n),\\&space;\\&space;\frac{n-1}{\sigma^2}S^2&space;\sim&space;\chi^2_{n-1},\\&space;\\&space;\frac{\hat{\theta}-&space;\mu}{\sigma/\sqrt{n}}&space;\sim&space;t_{n-1}." title="\Large\color{DarkBlue} \hat{\theta} \sim N(\mu, \sigma^2/n),\\ \\ \frac{n-1}{\sigma^2}S^2 \sim \chi^2_{n-1},\\ \\ \frac{\hat{\theta}- \mu}{\sigma/\sqrt{n}} \sim t_{n-1}." /></a>
+
+
+Hence the confidence interval is 
+
+#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;t_{n-1}\left({\frac{\alpha}{2}}&space;\right&space;)\frac{S}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;t_{n-1}\left(&space;{\frac{\alpha}{2}}\right&space;)\frac{S}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;t_{n-1}\left({\frac{\alpha}{2}}&space;\right&space;)\frac{S}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;t_{n-1}\left(&space;{\frac{\alpha}{2}}\right&space;)\frac{S}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - t_{n-1}\left({\frac{\alpha}{2}} \right )\frac{S}{\sqrt{n}} , \hat{\theta} + t_{n-1}\left( {\frac{\alpha}{2}}\right )\frac{S}{\sqrt{n}} \right]" /></a>
