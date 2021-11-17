@@ -293,3 +293,7 @@ Then
 Hence the confidence interval is 
 
 #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;t_{n-1}\left({\frac{\alpha}{2}}&space;\right&space;)\frac{S}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;t_{n-1}\left(&space;{\frac{\alpha}{2}}\right&space;)\frac{S}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;t_{n-1}\left({\frac{\alpha}{2}}&space;\right&space;)\frac{S}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;t_{n-1}\left(&space;{\frac{\alpha}{2}}\right&space;)\frac{S}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - t_{n-1}\left({\frac{\alpha}{2}} \right )\frac{S}{\sqrt{n}} , \hat{\theta} + t_{n-1}\left( {\frac{\alpha}{2}}\right )\frac{S}{\sqrt{n}} \right]" /></a>
+
+where t_{n-1}(\alpha/2) is defined in a simmilar way to z_{\alpha/2}, using now the t_{n-1} distribution.
+
+
