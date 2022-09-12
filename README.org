@@ -3,7 +3,7 @@
 These are some notes for the course R Modelling.
 
 1) [[https://ennaniux.github.io/LectureNotes/Notes_I2R/Lecture_1.html][Lecture 1. Introduction to R]]
-2) [[./Lecture_2.org][Lecture 2. Recap of Statistics and Probability]]
+2) [[https://ennaniux.github.io/LectureNotes/Notes_I2R/Lecture_2.html][Lecture 2. Recap of Statistics and Probability]]
 3) [[./Lecture_3.org][Lecture 3. Simple Plots]]
 3) [[./Lecture_4.org][Lecture 4. Statistical inference]]
 
