@@ -42,28 +42,44 @@ It is also known as (a.k.a) average, or mean.
 
 Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the /aritmetic mean/ is defined as
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" title="\Large{{\color{DarkBlue} \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i}}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{{\color{DarkBlue}&space;\bar{x}&space;=&space;\frac{1}{n}\sum_{i=1}^n&space;x_i}}" title="\Large{{\color{DarkBlue} \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i}}" /></a>
 
+\begin{equation}
+\frac{1}{n}\sum_{i=1}^n \, x_i
+\end{equation}
 
 * Geometric Mean (GM)
 
 Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the /geometric mean/ is defined as
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{\bar{x}_{\mbox{geo}}&space;=&space;\left(\Pi_{i=1}^n&space;x_i\right&space;)^{\frac{1}{n}}}&space;=&space;\sqrt[n]{x_1\cdot&space;x_2&space;\cdots&space;x_n}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{\bar{x}_{\mbox{geo}}&space;=&space;\left(\Pi_{i=1}^n&space;x_i\right&space;)^{\frac{1}{n}}}&space;=&space;\sqrt[n]{x_1\cdot&space;x_2&space;\cdots&space;x_n}}" title="\Large{\color{DarkBlue} {\bar{x}_{\mbox{geo}} = \left(\Pi_{i=1}^n x_i\right )^{\frac{1}{n}}} = \sqrt[n]{x_1\cdot x_2 \cdots x_n}}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{\bar{x}_{\mbox{geo}}&space;=&space;\left(\Pi_{i=1}^n&space;x_i\right&space;)^{\frac{1}{n}}}&space;=&space;\sqrt[n]{x_1\cdot&space;x_2&space;\cdots&space;x_n}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{\bar{x}_{\mbox{geo}}&space;=&space;\left(\Pi_{i=1}^n&space;x_i\right&space;)^{\frac{1}{n}}}&space;=&space;\sqrt[n]{x_1\cdot&space;x_2&space;\cdots&space;x_n}}" title="\Large{\color{DarkBlue} {\bar{x}_{\mbox{geo}} = \left(\Pi_{i=1}^n x_i\right )^{\frac{1}{n}}} = \sqrt[n]{x_1\cdot x_2 \cdots x_n}}" /></a>
+
+\begin{equation}
+\bar{x}_{\mbox{geo}}= \left( \Pi_{i=1}^n x_i \right)^{\frac{1}{n}} = \sqrt[n]{x_1\cdot x_2 \cdots x_n}
+\end{equation}
 
 
 * Harmonic mean (HM)
 
 Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) , the /harmonic mean/ is defined as
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}{&space;\bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n}&space;\sum_{i=1}^{n}\frac{1}{x_{i}}}}&space;=&space;\frac{n}{\frac{1}{x_1}&space;&plus;&space;\frac{1}{x_2}&space;&plus;&space;\cdots&space;&plus;&space;\frac{1}{x_n}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}{&space;\bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n}&space;\sum_{i=1}^{n}\frac{1}{x_{i}}}}&space;=&space;\frac{n}{\frac{1}{x_1}&space;&plus;&space;\frac{1}{x_2}&space;&plus;&space;\cdots&space;&plus;&space;\frac{1}{x_n}}}" title="\Large{\color{DarkBlue}{ \bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n} \sum_{i=1}^{n}\frac{1}{x_{i}}}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}}}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}{&space;\bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n}&space;\sum_{i=1}^{n}\frac{1}{x_{i}}}}&space;=&space;\frac{n}{\frac{1}{x_1}&space;&plus;&space;\frac{1}{x_2}&space;&plus;&space;\cdots&space;&plus;&space;\frac{1}{x_n}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}{&space;\bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n}&space;\sum_{i=1}^{n}\frac{1}{x_{i}}}}&space;=&space;\frac{n}{\frac{1}{x_1}&space;&plus;&space;\frac{1}{x_2}&space;&plus;&space;\cdots&space;&plus;&space;\frac{1}{x_n}}}" title="\Large{\color{DarkBlue}{ \bar{x}_{\mbox{hm}}=\frac{1}{\frac{1}{n} \sum_{i=1}^{n}\frac{1}{x_{i}}}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}}}" /></a>
+
+\begin{equation}
+\bar{x}_{\mbox{hm}} = \frac{1}{\frac{1}{n} \sum_{i=1}^{n}\frac{1}{x_{i}}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}}
+\end{equation}
 
 
 * Weighted mean (WM)
 
 Given a set of real values, usually representing a set of observations,  (x_{1}, x_{2}, ... ,x_{n}) with assosiated weigths (w_{1}, w_{2}, ... ,w_{n}), the /weighted mean/ is defined as
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\overline{x}_{w}=\frac{&space;\sum_{i=1}^n&space;w_i&space;x_i}{\sum_{i=1}^n&space;w_i}&space;=&space;\frac{w_1&space;x_1&space;&plus;&space;w_2&space;x_2&space;&plus;&space;\cdots&space;&plus;&space;w_n&space;x_n}{w_1&space;&plus;&space;w_2&space;&plus;&space;\cdots&space;&plus;&space;w_n}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\overline{x}_{w}=\frac{&space;\sum_{i=1}^n&space;w_i&space;x_i}{\sum_{i=1}^n&space;w_i}&space;=&space;\frac{w_1&space;x_1&space;&plus;&space;w_2&space;x_2&space;&plus;&space;\cdots&space;&plus;&space;w_n&space;x_n}{w_1&space;&plus;&space;w_2&space;&plus;&space;\cdots&space;&plus;&space;w_n}" title="\Large\color{DarkBlue} \overline{x}_{w}=\frac{ \sum_{i=1}^n w_i x_i}{\sum_{i=1}^n w_i} = \frac{w_1 x_1 + w_2 x_2 + \cdots + w_n x_n}{w_1 + w_2 + \cdots + w_n}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\overline{x}_{w}=\frac{&space;\sum_{i=1}^n&space;w_i&space;x_i}{\sum_{i=1}^n&space;w_i}&space;=&space;\frac{w_1&space;x_1&space;&plus;&space;w_2&space;x_2&space;&plus;&space;\cdots&space;&plus;&space;w_n&space;x_n}{w_1&space;&plus;&space;w_2&space;&plus;&space;\cdots&space;&plus;&space;w_n}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\overline{x}_{w}=\frac{&space;\sum_{i=1}^n&space;w_i&space;x_i}{\sum_{i=1}^n&space;w_i}&space;=&space;\frac{w_1&space;x_1&space;&plus;&space;w_2&space;x_2&space;&plus;&space;\cdots&space;&plus;&space;w_n&space;x_n}{w_1&space;&plus;&space;w_2&space;&plus;&space;\cdots&space;&plus;&space;w_n}" title="\Large\color{DarkBlue} \overline{x}_{w}=\frac{ \sum_{i=1}^n w_i x_i}{\sum_{i=1}^n w_i} = \frac{w_1 x_1 + w_2 x_2 + \cdots + w_n x_n}{w_1 + w_2 + \cdots + w_n}" /></a>
+
+\begin{equation}
+\overline{x}_{w}=\frac{\sum_{i=1}^n w_i x_i}{\sum_{i=1}^n w_i} = \frac{w_1 x_1 + w_2x_2 + \cdots + w_n x_n}{w_1 + w_2 + \cdots + w_n}
+\end{equation}
+
 
 ** Geometric Interpretation
 
@@ -74,7 +90,8 @@ A well known inequality concerning arithmetic, geometric, and harmonic means for
 
 Geometric proof without words that max (a,b) > root mean square (RMS) or quadratic mean (QM) > arithmetic mean (AM) > geometric mean (GM) > harmonic mean (HM) > min (a,b) of two positive numbers a and b 
 
-#+html: <a title="Cmglee, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:QM_AM_GM_HM_inequality_visual_proof.svg"><img width="512" alt="QM AM GM HM inequality visual proof" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/QM_AM_GM_HM_inequality_visual_proof.svg/512px-QM_AM_GM_HM_inequality_visual_proof.svg.png"></a>
+# #+html: <a title="Cmglee, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:QM_AM_GM_HM_inequality_visual_proof.svg"><img width="512" alt="QM AM GM HM inequality visual proof" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/QM_AM_GM_HM_inequality_visual_proof.svg/512px-QM_AM_GM_HM_inequality_visual_proof.svg.png"></a>
+
 
 
 * Mode
@@ -131,125 +148,158 @@ Fourth: In each half compute the median and we will have: Q1 = 68 and Q3=83
 
 * Variance
 
-Given a set of real values (x_{1}, x_{2}, ... ,x_{n}), the /variance/ is defined as 
+Given a set of real values (x_{1}, x_{2}, ... ,x_{n}), the "population" /variance/ is defined as 
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{\sigma_X^{2}={\frac&space;{1}{n}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{\sigma_X^{2}={\frac&space;{1}{n}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" title="\Large{\color{DarkBlue} {\sigma_X^{2}={\frac {1}{n}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{\sigma_X^{2}={\frac&space;{1}{n}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{\sigma_X^{2}={\frac&space;{1}{n}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" title="\Large{\color{DarkBlue} {\sigma_X^{2}={\frac {1}{n}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}}" /></a>
+
+\begin{equation}
+\sigma_X^{2}={\frac{1}{n}}\sum_{i=1}^{n}\left(x_{i}-{\overline{x}}\right)^{2}.
+\end{equation}
 
 
-When working with samples (subsets) of a given population, the /unbiased sample variance/ is given as
+When working with samples (subsets) of a given population, the "sample" variance/ is given as
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{s_X^{2}={\frac&space;{1}{n-1}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{s_X^{2}={\frac&space;{1}{n-1}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" title="\Large{\color{DarkBlue} {s_X^{2}={\frac {1}{n-1}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large{\color{DarkBlue}&space;{s_X^{2}={\frac&space;{1}{n-1}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large{\color{DarkBlue}&space;{s_X^{2}={\frac&space;{1}{n-1}}\sum&space;_{i=1}^{n}\left(x_{i}-{\overline&space;{x}}\right)^{2}}}" title="\Large{\color{DarkBlue} {s_X^{2}={\frac {1}{n-1}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}}" /></a>
 
+\begin{equation}
+s_X^{2}={\frac{1}{n-1}}\sum_{i=1}^{n}\left(x_{i}-{\overline{x}}\right)^{2}.
+\end{equation}
 
 
 * Probability space
 
 A probability space is a special case of a measurable space. This concepts are beyond the scope of this course, but it is worth trying to understand the definition.
 
-Then probability space is a triple (\Omega, F, P) consisting of:
+Then probability space is a triple $(\Omega, F, P)$ consisting of:
 
-    + the sample space \Omega — an arbitrary non-empty set,
-    + the σ-algebra F ⊆ 2^{Ω} (also called σ-field) — a set of subsets of \Omega , called events, such that:
-       + F  contains the sample space: Ω ∈ F 
-       + F  is closed under complements: if A ∈ F, then also ( Ω ∖ A ) ∈ F.
-       + F  is closed under countable unions: if A i ∈ F, for i = 1 , 2 ,..., then also ( ⋃^{∞}_{i = 1} A_{i} ) ∈ F.
-    + the probability measure P : F → [ 0 , 1 ]  — a function on F such that:
-        + P is countably additive (also called σ-additive): if A_{i} ∩ A_{j} = ∅, for i ≠ j, then P(∪^{∞}_{i = 1} A_{i}) = \Sigma^{∞}_{i = 1} P(A_{i})
-        + the measure of entire sample space is equal to one: P ( Ω ) = 1.
+    + The sample space $\Omega$ — an arbitrary non-empty set,
+    + The σ-algebra $F \subset 2^{\Omega}$ (also called σ-field), that is, $F$ is a set of subsets of \Omega , called events, with the following properties:
+       + $F$  contains the sample space: $\Omega \in F$.
+       + $F$  is closed under complements: if $A \in F$, then also $( \Omega \setminus A ) \in F$.
+       + $F$  is closed under countable unions: if $A_i \in F$, for $i = 1 , 2 ,\ldots$, then also $( \cup^{\infty}_{i = 1} A_{i} ) \in F$.
+    + The probability measure $P : F \to [ 0 , 1 ]$,  a function on F such that with the following properties:
+        + $P$ is countably additive (also called σ-additive): if $A_{i} \cap A_{j} = \emptyset$, for $i \neq j$, then $P(\cup^{\infty}_{i = 1} A_{i}) = \Sigma^{\infty}_{i = 1} P(A_{i})$.
+        + The measure of entire sample space is equal to one: $P ( \Omega ) = 1$.
 
 * Random Variables
 
-A random variable X is a variable whose value is a numerical outcome of a random event.
+A random variable $X$ is a variable whose value is a numerical outcome of a random event.
 There are two types of random variables:
-+ Discrete: The possible values of X are separated and individually distinct, e.g. X ∈ {0, 1, 2, . . .}
-+ Continuous: Possible values of X from some continuous set, e.g. X ∈ (0, ∞), X ∈ (-∞, ∞), etc.
++ Discrete: The possible values of $X$ are separated and individually distinct, e.g. $X \in \{0, 1, 2, . . .\}$.
++ Continuous: Possible values of $X$ from some continuous set, e.g. $X \in (0, \infty), X \in (-\infty, \infty)$, etc.
 
-Formally, a random variable X is a measurable function X : Ω → E, from a set of possible outcomes Ω to a measurable space E, which is usually the Real numbers or a subset of it. Then, the probability that X takes on a value in a measurable set S ⊆ E is written as
-    P ⁡ ( X ∈ S ) = P ⁡ ( { ω ∈ Ω ∣ X ( ω ) ∈ S } ) 
+Formally, a random variable $X$ is a measurable function $X : \Omega
+    \to E$, from a set of possible outcomes $\Omega$ to a measurable
+    space $E$, which is usually the Real numbers or a subset of
+    it. Then, the probability that $X$ takes on a value in a measurable
+    set $S \subseteq E$ is written as 
+
+\begin{equation}
+P ⁡ ( X ∈ S ) = P ⁡ ( \{ ω ∈ Ω ∣ X ( ω ) ∈ S    \} )
+\end{equation}
 
 Examples:
+
 Discrete random variables: 
-
-outcome of a roll of a 6-sided die, that is X ∈ {1, 2, 3, 4, 5, 6},
-
-number of tails in 3 flips of a coin, that is X ∈ {0, 1, 2, 3}, . . .
++ Outcome of a roll of a 6-sided die, that is $X \in \{1, 2, 3, 4, 5, 6\}$.
++ Number of tails in 3 flips of a coin, that is $X \in \{0, 1, 2, 3\}$.
 
 Continuous random variables: 
-
-The lifetime X of a light bulb component with X ∈ [0, ∞),
++ The lifetime $X$ of a light bulb component with $X \in [0, \infty)$.
 
 * Cumulative distribution function
 
-For any random variable X, the cumulative distribution function F (x) is
-F (x) = P(X ≤ x).
+For any random variable $X$, the cumulative distribution function $F (x)$ is given by
+\begin{equation}
+F (x) = P(X \leq x).
+\end{equation}
+
 
 The following properties are easy to establish
+
 Properties:
-1) 0 ≤ F (x) ≤ 1 for all x
-2) F (x) is non-decreasing
-3) lim_{x→−∞} F (x) = 0
-4) lim_{x→+∞} F (x) = 1
+1) $0 \leq F(x) \leq 1$ for all $x$.
+2) $F(x)$ is non-decreasing.
+3) $\lim_{x\to - \infty} F(x) = 0$.
+4) $\lim_{x\to + \infty} F(x) = 1$.
 
 
 * Probability density function
 
-For a continuous random variable X, the probability density function f (x) is the derivative of the cummulative distribution function
- f (x) = dF/dx
+For a continuous random variable $X$, the probability density function $f(x)$ is the derivative of the cumulative distribution function
+\begin{equation}
+ f(x) = \frac{dF}{dx}.
+\end{equation}
 
 By the Fundamental Theorem of Calculus,
-F (x) =∫_{-∞}^{x} f (t) dt.
 
+\begin{equation}
+F(x) =\int_{-\infty}^{x} f(t) dt.
+\end{equation}
 
-
-Proposition. If f is a probability density function then
-1) f (x) ≥ 0
-2) ∫_{-∞}^{∞} f (t) dt = 1.
+#+begin_prop
+If $f$ is a probability density function then
+1) $f(x) \geq 0$.
+2) $\int_{-\infty}^{\infty} f(t) dt = 1$.
+#+end_prop
 
 * Probabilities
 
-For any pair of real numbers such that a ≦ b, the probability that the random variable X lies between a and b is 
+For any pair of real numbers such that $a \leq b$, the probability that the random variable $X$ lies between $a$ and $b$ is 
 
-P(a ≦ X ≦ b) = P(X ≦ b) - P( X ≦ a) = F(b) - F(a) =  ∫_{a}^{b} f (t) dt
-
+\begin{equation}
+P(a \leq X \leq b) = P(X \leq b) - P( X \leq a) = F(b) - F(a) =  \int_{a}^{b} f(t) dt
+\end{equation}
 
 * Mean and variance revisited.
 
 Population mean or expectation of a continuous random variable X is defined as
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;E[X]&space;=&space;\int_{-\infty}^{\infty}&space;x&space;f(x)dx" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;E[X]&space;=&space;\int_{-\infty}^{\infty}&space;x&space;f(x)dx" title="\Large\color{DarkBlue} E[X] = \int_{-\infty}^{\infty} x f(x)dx" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;E[X]&space;=&space;\int_{-\infty}^{\infty}&space;x&space;f(x)dx" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;E[X]&space;=&space;\int_{-\infty}^{\infty}&space;x&space;f(x)dx" title="\Large\color{DarkBlue} E[X] = \int_{-\infty}^{\infty} x f(x)dx" /></a>
+\begin{equation}
+E[X] = \int_{-\infty}^{\infty} xf(x) dx.
+\end{equation}
 
 The variance of the random variable X with mean \mu = E[X], is given by
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\mbox{Var}[X]&space;=&space;E[(X-\mu)^2]&space;=&space;\int_{-\infty}^{\infty}(x-\mu)^2f(x)dx" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\mbox{Var}[X]&space;=&space;E[(X-\mu)^2]&space;=&space;\int_{-\infty}^{\infty}(x-\mu)^2f(x)dx" title="\Large\color{DarkBlue} \mbox{Var}[X] = E[(X-\mu)^2] = \int_{-\infty}^{\infty}(x-\mu)^2f(x)dx" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\mbox{Var}[X]&space;=&space;E[(X-\mu)^2]&space;=&space;\int_{-\infty}^{\infty}(x-\mu)^2f(x)dx" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\mbox{Var}[X]&space;=&space;E[(X-\mu)^2]&space;=&space;\int_{-\infty}^{\infty}(x-\mu)^2f(x)dx" title="\Large\color{DarkBlue} \mbox{Var}[X] = E[(X-\mu)^2] = \int_{-\infty}^{\infty}(x-\mu)^2f(x)dx" /></a>
+
+\begin{equation}
+\mbox{Var}[X] = E[(X-\mu)^2] = \int_{-\infty}^{\infty} (x-\mu)^2 f(x) dx.
+\end{equation}
+
 
 The standard deviation is defined by the value 
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\mbox{s.d}[X]&space;=&space;\sqrt{\mbox{Var}[X]}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\mbox{s.d}[X]&space;=&space;\sqrt{\mbox{Var}[X]}" title="\Large\color{DarkBlue} \mbox{s.d}[X] = \sqrt{\mbox{Var}[X]}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\mbox{s.d}[X]&space;=&space;\sqrt{\mbox{Var}[X]}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\mbox{s.d}[X]&space;=&space;\sqrt{\mbox{Var}[X]}" title="\Large\color{DarkBlue} \mbox{s.d}[X] = \sqrt{\mbox{Var}[X]}" /></a>
+\begin{equation}
+\mbox{s.d.}[X] = \sqrt{\mbox{Var}[X]}.
+\end{equation}
 
 
-We say that two *random variables are independent* if the realization of one does not affect the probability distribution of the other. 
+We say that two *random variables are independent* if the realisation of one does not affect the probability distribution of the other. 
 
-Proposition: Let a, b, c be contant real numbers, and X, Y be random variables. Then the following identities hold
+Proposition: Let $a, b, c$ be constant real numbers, and $X$, $Y$ be random variables. Then the following identities hold:
 
-1) If f is the porbability density funciton for X, and g is any funciton from the real numbers to the real number, then E[g(X)] = ∫_{-∞}^{∞} g(x) f (x) dx.
-2) E[aX + bY + c] = aE[X] + b E[Y] + c
-3) Var[ aX + b] = a^{2} Var[X]
-4) If X and Y are two independent variables then E[XY] = E[X]E[Y]
-5) If X and Y are two independent variables then Var[X + Y] = Var[X] + Var[Y]
-6) Var[X] = E[X^{2}] - (E[X])^{2}
+1) If $f$ is the probability density function for $X$, and $g$ is any function from the real numbers to the real number, then $E[g(X)] = \int_{-\infty}^{\infty} g(x) f (x) dx$.
+2) $E[aX + bY + c] = aE[X] + b E[Y] + c$.
+3) $\mbox{Var}[ aX + b] = a^{2} \mbox{Var}[X]$.
+4) If $X$ and $Y$ are two independent variables then $E[XY] = E[X]E[Y]$.
+5) If $X$ and $Y$ are two independent variables then $\mbox{Var}[X + Y] = \mbox{Var}[X] + \mbox{Var}[Y]$.
+6) $\mbox{Var}[X] = E[X^{2}] - (E[X])^{2}$.
 
 
 
 
 * The normal distribution
 
-For real values -∞ ≦ x ≦ ∞, -∞ ≦ \mu ≦ ∞ and  0 ≦ \sigma ≦ ∞, the normal distribution has probability density function:
+For real values $-\infty \leq x \leq \infty$, $-\infty \leq \mu \leq \infty$ and  $0 \leq \sigma \leq \infty$, the normal distribution has probability density function:
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sigma\sqrt{2\pi}}e ^{-\frac{1}{2}\left( \frac{x - \mu}{\sigma}\right )^2}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sigma\sqrt{2\pi}}e&space;^{-\frac{1}{2}\left(&space;\frac{x&space;-&space;\mu}{\sigma}\right&space;)^2}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sigma\sqrt{2\pi}}e ^{-\frac{1}{2}\left( \frac{x - \mu}{\sigma}\right )^2}" /></a>
 
 
 In the special case that \sigma = 1 and \mu = 0, then we write the *standard normal distribution* as
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sqrt{2\pi}}e ^{-\frac{x^2}{2}}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(x)&space;=&space;\frac{1}{\sqrt{2\pi}}e&space;^{-\frac{x^2}{2}}" title="\Large\color{DarkBlue} f(x) = \frac{1}{\sqrt{2\pi}}e ^{-\frac{x^2}{2}}" /></a>
 
 #+begin_example R
 curve(dnorm(x),-3,3)
@@ -258,26 +308,30 @@ curve(pnorm(x),-3,3)
 #+end_example
 
 
-Theorem. If X ∼ N (μ, σ^{2} ) and Y = aX + b for constants a, b, then Y is also normally distributed and 
+*Theorem*. If $X ∼ N (\mu, \sigma^{2} )$ and $Y = aX + b$ for constants $a, b\in \mathbb{R}$, then $Y$ is also normally distributed and 
 
-Y ~ N( a \mu + b, a^{2} sigma^{2}).
+\begin{equation}
+Y \sim N( a \mu + b, a^{2} \sigma^{2})
+\end{equation}
 
-In the particular case that a = 1/\sigma and b =  -\mu / \sigma then we actually have
-Y ~ N( 0, 1).
+In the particular case that $a = 1/\sigma$ and $b =  -\mu / \sigma$, then we actually have
 
+\begin{equation}
+Y \sim N( 0, 1).
+\end{equation}
 
 Example
 
-For X ~ N(2,9), find P( 2 < X < 5).
+For $X \sim N(2,9)$, find $P( 2 < X < 5)$.
 
 [[https://en.wikipedia.org/wiki/Standard_normal_table][table of values may be found here]]
 
-Solution: P( 2 < X < 5) =  0.34
+Solution: $P( 2 < X < 5) =  0.34$.
 
 
 *Example*
 
-Suppose that Z ∼ N(0, 1). Using the probability density function and the definition, show that Var[Z] = 1. 
+Suppose that $Z ∼ N(0, 1)$. Using the probability density function and the definition, show that $\mbox{Var}[Z] = 1$. 
 
 
 *Example* 
@@ -296,14 +350,18 @@ True, but not particularly helpful. Suppose we want to know the probability that
 at random from the group, will be less than 160 cm tall. We need to convert this height into a value of z; that
 is to say, we need to convert 160 cm into a number of standard deviations from the mean. What do we know
 about the standard normal distribution? It has a mean of 0 and a standard deviation of 1. So we can convert
-any value y, from a distribution with mean ȳ and standard deviation s very simply by calculating
+any value $y$, from a distribution with mean $ȳ$ and standard deviation $s$ very simply by calculating
 
-z = (y − ȳ) / s
+\begin{equation}
+z = \frac{y − ȳ}{s}
+\end{equation}
 
-So we convert 160 cm into a number of standard deviations. It is less than the mean height (170 cm) so its
+So we convert $160$ cm into a number of standard deviations. It is less than the mean height ($170$ cm) so its
 value will be negative:
 
+\begin{equation}
 z = −1.25.
+\end{equation}
 
 
 Now we need to find the probability of a value of the standard normal taking a value of –1.25 or smaller.
@@ -325,23 +383,30 @@ So the answer to our first question (the shaded area, top left) is just over 10%
 
 * The Bernoulli distribution
 
-This is the probability distribution  a binary random variable X. The response takes one of only two
-values: it is 1 with probability p  and is 0 with probability 1 – p (probability of success and failure respectively). The density function
+This is the probability distribution  a binary random variable $X$. The response takes one of only two
+values: it is 1 with probability p  and is 0 with probability $1 – p$ (probability of success and failure respectively). The density function
 is given by:
 
-f(x) = p^{x}(1-p)^{1-x}
+\begin{equation}
+f(x) = p^{x}(1-p)^{1-x}.
+\end{equation}
 
 Verify that
 
-+ E[X] = p
-+ Var[X] = pq
++ $E[X] = p$.
++ $\mbox{V}ar[X] = pq$.
 
 
 * The binomial distribution
 
 The general form of the density of the  binomial distribution is given by
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(k)&space;=&space;\binom{n}{k}p^k&space;(1-p)^{n-k}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(k)&space;=&space;\binom{n}{k}p^k&space;(1-p)^{n-k}" title="\Large\color{DarkBlue} f(k) = \binom{n}{k}p^k (1-p)^{n-k}" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;f(k)&space;=&space;\binom{n}{k}p^k&space;(1-p)^{n-k}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;f(k)&space;=&space;\binom{n}{k}p^k&space;(1-p)^{n-k}" title="\Large\color{DarkBlue} f(k) = \binom{n}{k}p^k (1-p)^{n-k}" /></a>
+
+\begin{equation}
+f(k) =  \binom{n}{k} p^{k} (1 - p  )^k.
+\end{equation}
+
 
 The mean of the binomial distribution is np and the variance is np(1 – p).
 
