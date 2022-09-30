@@ -51,6 +51,25 @@ advice: use whatever you find more comfortable.
    + table()
    + tapply, sapply, lapply, etc.
 
+* Help and Documentation
+
+The =help()= function and =?= help operator in R provide access to the
+documentation pages for R functions, data sets, and other objects,
+both for packages in the standard R distribution and for contributed
+packages.
+
+You may also use the =help()= function to access information about a
+package in your library — for example, ~help(package="MASS")~
+
+To access help for a function in a package that’s not currently
+loaded, specify in addition the name of the package: For example, to
+obtain documentation for the ~rlm()~ (robust linear model) function in
+the MASS package, ~help(rlm, package="MASS")~.
+
+You can read mor about getting help in 
+
+https://www.r-project.org/help.html
+
 
 * The Working Directory
 
