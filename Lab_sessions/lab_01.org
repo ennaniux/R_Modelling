@@ -1,0 +1,152 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: R modelling. Lab session 01
+#+date: <2022-09-30 Fri>
+#+author: Daniel Ballesteros Chávez.
+#+email: daniel@linuxdeb.home
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.1 (Org mode 9.3.6)
+# +OPTIONS: html-style:nil
+
+# Daniel Ballesteros - Chávez
+
+
+:results:
+#+HTML_HEAD:<style> /* Daniel Ballesteros-Chavez */
+#+HTML_HEAD: 
+#+HTML_HEAD: :root {
+#+HTML_HEAD:   --col0: #2b2d42;		/*Top bar*/
+#+HTML_HEAD:   --col1: #8d99ae;		/* Section header bg*/
+#+HTML_HEAD:   --col2: #edf2f4;		/*body bg*/
+#+HTML_HEAD:   --col3: #ef233c;		/*Active top bar*/
+#+HTML_HEAD:   --col4: #d90429;		/*Home botton bg*/
+#+HTML_HEAD:   --col5: #173f5f; 		/*H2 header*/
+#+HTML_HEAD: 
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: body {
+#+HTML_HEAD:     /*    background-image: url('./Images/bgpic.jpg'); */
+#+HTML_HEAD:     background-size: cover;
+#+HTML_HEAD:     background-attachment: fixed;
+#+HTML_HEAD: 	font-family: Helvetica;
+#+HTML_HEAD:     /* background-position: left top; */
+#+HTML_HEAD:     /* background-repeat: no-repeat; */
+#+HTML_HEAD:     background: var(--col2);
+#+HTML_HEAD:     margin: 20px auto; /* "auto" for centering */
+#+HTML_HEAD:     max-width: 768px;
+#+HTML_HEAD:     /* max-width: 800px; */
+#+HTML_HEAD:     /* font-family: monospace; */
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: h1 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1.5em;
+#+HTML_HEAD:     /* margin-top: 0.67em; */
+#+HTML_HEAD:     /* margin-bottom: 0.67em; */
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     padding: 5px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD:     /*text-align: center; */
+#+HTML_HEAD:     /*text-shadow: 3px 2px gray;*/
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: h2 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1em;
+#+HTML_HEAD:     margin-top: 0.67em;
+#+HTML_HEAD:     margin-bottom: 0.67em;
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     background-color: var(--col1);
+#+HTML_HEAD:     border-radius: 10px 10px;
+#+HTML_HEAD:     padding: 10px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-2 {
+#+HTML_HEAD:     background-color: var(--col2);
+#+HTML_HEAD:     /* border:3px solid #f2f6f9; */
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-2 h2 {
+#+HTML_HEAD:     color: var(--col5);
+#+HTML_HEAD:     font-size: 20px; /* arial, sans-serif; */
+#+HTML_HEAD:     /* font-family: 'Fredoka One', cursive; */
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-text-2 {
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-text-2 p {
+#+HTML_HEAD:     text-align: justify;
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: </style>
+:end:
+
+* Practice 01
+
+The main goal of this practice is that you develop your own work-flow. 
+For instance should become comfortable with the functions ~getwd()~ and ~setwd()~.
+If you are using Rstudio, identify the text editor, the console, and the output windows (buffers)
+
+Please, go through the following check-box:
+
+1) [ ] Install R
+2) [ ] Install Rstudio or emacs or vim...
+3) [ ] Install forecast package
+
+4) [ ] Create a Folder for the course. /home/Documents/R\under{}Modelling/.
+5) [ ] In the folder write a file p1\under{}1\under{}rhello.R with the hello world program print("Hello world"). 
+6) [ ] Run your hello program using source("...path/to/file.R") from an R session.
+7) [ ] In a file p1\under{}2\under{}iris\under{}summary.R  write 
+   1) [ ] head(iris)
+   2) [ ] summary(iris)
+8) [ ] Go to https://stat.gov.pl/, click on Bank Danych Lokalnych then
+    click on Data for year 2022 (short-term data) and download the full
+    data set for: Population projection by sex and 5-year age groups
+    (prepared on the basis of 2011 Census).
+   + [ ]  Load this into an R session as a data frame.
+   + [ ]  Print the dimensions of the table and compare with others.
+
+# * Solutions
+# 
+# Getting the data set is really unpleasant, it is not clear where one should click. One should looks for any of these names:
+# 
+# Prognozy ludności wg płci i 5-letnich grup wieku (opracowane na bazie NSP 2011)
+# 
+# Population projection by sex and 5-year age groups (prepared on the basis of 2011 Census)
+# 
+# Once you have downloaded the file, note that one has to specify the file separator to ~;~.
+# 
+# #+begin_example R
+# df <- read.csv(".../R_modelling/file.csv", sep=";")
+# #+end_example
+# 
+# And we all should get a data frame with 814247 rows and 11 columns.
+# 
+# #+begin_example R
+# dim(df)
+# [1] 814247     11
+# #+end_example
+# 
+# 
+# Once you are in this page, click in the 'data' symbol and then it all should be clear.
+# 
+# #+ATTR_HTML: :width 100px
+# [[ ./Lab_pics/pic1_l1.png]]
+# 
+# 
+
