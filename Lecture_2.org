@@ -18,8 +18,11 @@
 
 In this lecture we will recall some basic concepts from probability and statistics. These can be grouped as
 
-+ Measures of central tendency.
-+ Measures of dispersion.
++ Measures of central tendency :: This is a real value that measures a
+  "typical value" for a set of observations (more accurately for a
+  probability distribution, see below). The most common measures of
+  central tendency are the arithmetic mean, the median, and the mode.
++ Measures of dispersion :: 
 
 
 # * Random Variables
