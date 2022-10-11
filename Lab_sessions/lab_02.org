@@ -1,0 +1,348 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: R modelling. Lab session 02
+#+date:
+#+author: Daniel Ballesteros Chávez.
+#+email: daniel@linuxdeb.home
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.1 (Org mode 9.3.6)
+# +OPTIONS: html-style:nil
+
+# Daniel Ballesteros-Chávez
+
+#+HTML_HEAD: <style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+#+HTML_HEAD: <style> pre.src { overflow: auto; }</style>
+
+:results:
+#+HTML_HEAD:<style> /* Daniel Ballesteros-Chavez */
+#+HTML_HEAD: 
+#+HTML_HEAD: :root {
+#+HTML_HEAD:   --col0: #2b2d42;		/*Top bar*/
+#+HTML_HEAD:   --col1: #8d99ae;		/* Section header bg*/
+#+HTML_HEAD:   --col2: #edf2f4;		/*body bg*/
+#+HTML_HEAD:   --col3: #ef233c;		/*Active top bar*/
+#+HTML_HEAD:   --col4: #d90429;		/*Home botton bg*/
+#+HTML_HEAD:   --col5: #173f5f; 		/*H2 header*/
+#+HTML_HEAD: 
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: body {
+#+HTML_HEAD:     /*    background-image: url('./Images/bgpic.jpg'); */
+#+HTML_HEAD:     background-size: cover;
+#+HTML_HEAD:     background-attachment: fixed;
+#+HTML_HEAD: 	font-family: Helvetica;
+#+HTML_HEAD:     /* background-position: left top; */
+#+HTML_HEAD:     /* background-repeat: no-repeat; */
+#+HTML_HEAD:     background: var(--col2);
+#+HTML_HEAD:     margin: 20px auto; /* "auto" for centering */
+#+HTML_HEAD:     max-width: 768px;
+#+HTML_HEAD:     /* max-width: 800px; */
+#+HTML_HEAD:     /* font-family: monospace; */
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: h1 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1.5em;
+#+HTML_HEAD:     /* margin-top: 0.67em; */
+#+HTML_HEAD:     /* margin-bottom: 0.67em; */
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     padding: 5px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD:     /*text-align: center; */
+#+HTML_HEAD:     /*text-shadow: 3px 2px gray;*/
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: h2 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1em;
+#+HTML_HEAD:     margin-top: 0.67em;
+#+HTML_HEAD:     margin-bottom: 0.67em;
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     background-color: var(--col1);
+#+HTML_HEAD:     border-radius: 10px 10px;
+#+HTML_HEAD:     padding: 10px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-2 {
+#+HTML_HEAD:     background-color: var(--col2);
+#+HTML_HEAD:     /* border:3px solid #f2f6f9; */
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-2 h2 {
+#+HTML_HEAD:     color: var(--col5);
+#+HTML_HEAD:     font-size: 20px; /* arial, sans-serif; */
+#+HTML_HEAD:     /* font-family: 'Fredoka One', cursive; */
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-text-2 {
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-text-2 p {
+#+HTML_HEAD:     text-align: justify;
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: </style>
+:end:
+
+
+* Review from last session:
+
++ Do I feel comfortable Starting a New R session?
+  + [ ] Yes
+  + [ ] No
++ Do I know how to Install a package?
+  + [ ] Yes
+  + [ ] No
++ to know my current working directory
+  + [ ] getwd()
+  + [ ] setwd()
++ To change the working directory?
+  + [ ] getwd()
+  + [ ] setwd()
++ Loading a package
+  + [ ] load("packagename")
+  + [ ] library("packagename")
++ Loading a csv file into an R session
+  + [ ] df <- read.csv("path/to/file.csv", header=TRUE, sep=",")
+  + [ ] df <- save.csv("path/to/file.csv", header=TRUE, sep=",")
++ Loading a csv file into an R session
+  + [ ] df <- read.csv("path/to/file.csv", header=TRUE, sep=",")
+  + [ ] df <- save.csv("path/to/file.csv", header=TRUE, sep=",")
+
+* Instructions:
+
+Write a file lab2\under{}solutions.R with your code with your solutions.
+You can use ~apropos()~, ~?~, or google in case you are looking for available functions.
+Try to solve this using built-in functions a
+
+* Practice 1. Use R to perform calculations. 
+
+This part is about the =seq= function. You can display the help for the function =seq= in your R session.
+
+   + Create the sequence 0.0, 0.2, 0.4, 0.6, 0.8, 1.0, first using the option by=, and then using the option =length.out=.
+
+   + Create the sequence of all even numbers from 0 to 100
+
+   + Create the sequence of all odd numbers from 1 to 100
+
+   + Recall that 1:5 is the sequence 1 2 3 4 5. Verify with a few examples (n=10,15 and 60) that  \[ \sum_{k=1}^n k^3 = \left( \frac{n (n+1)}{2}\right)^2 \]
+
+   + To generate the sequence  5 5 5 5 5 5 5 5 5 , we use
+     1) [ ] rep(1:9, 2)
+     2) [ ] rep(1:4, each = 2)
+     3) [ ] rep(5,9)
+     4) [ ] rep(1:5, each = 2, times = 3)
+
+   + To generate the sequence 1 1 2 2 3 3 4 4, we use
+     1) [ ] rep(5,5)
+     2) [ ] rep(1:9, 2)
+     3) [ ] rep(1:5, each = 2, times = 3)
+     4) [ ] rep(1:4, each = 2)
+
+   + To generate the sequence 1 1 2 2 3 3 1 1 2 2 3 3 1 1 2 2 3 3, we use
+     1) [ ] rep(3,5)
+     2) [ ] rep(1:9, 2)
+     3) [ ] rep(1:3, each = 2, times = 3)
+     4) [ ] rep(1:3, each = 2)
+
+
+* Practice 2. Subsets of data sets
+
+Recall that the names of the variables in a data frame can be obtained using
+
+#+begin_example R
+names(df)
+#+end_example
+
+The unique values of the variable ~var1~ are obtained by using
+
+#+begin_example R
+unique(df$var1)
+#+end_example
+
+If we have a data frame ~df~, then we can use the following syntax to obtain a subsets:
+#+begin_example R
+df[c(1,5), c(4,5)]
+#+end_example
+
+#+begin_example R
+df[c(1,5), c("var4", "var5")]
+#+end_example
+
+#+begin_example R
+df[df$var1%in%condition1 & df$var2==condition2 | df$var3%in%condition3, c("colname1","colname2")]
+#+end_example
+
+In order to create a new variable (column) in data frame, we can use the following syntax
+
+#+begin_example R
+df$NEWVAR <- 1   #this will create a column with the constant value 1
+#+end_example
+
+#+begin_example R
+df$NEWVAR <- df$var1 + df$var2   #this will create a new column out of existing ones.
+#+end_example
+
+
+*A) From the data set /Population projection by sex and 5-year age groups/, reproduce the following table which contains the information of the projected population in Poland for the year 2035*
+
+
+#+begin_src R :exports results :results table :colnames yes
+df <-  read.csv("../Data_sets/LUDN_3560_CREL_20220930132437.csv",sep=";")
+x  <-  unique(df$Projection.for.year)
+x[9]
+df2 <-  df[df$Name%in%"POLAND"&df$Projection.for.year%in%x[9]&df$Sex%in%"total"&df$Domicile%in%"total", c("Name","Projection.for.year","Sex","Age","Domicile","Value")]
+#+end_src
+
+#+RESULTS:
+| Name   | Projection.for.year      | Sex   |         Age | Domicile |    Value |
+|--------+--------------------------+-------+-------------+----------+----------|
+| POLAND | projection for year 2035 | total |       total | total    | 36476771 |
+| POLAND | projection for year 2035 | total |         0-4 | total    |  1406012 |
+| POLAND | projection for year 2035 | total |         5-9 | total    |  1497932 |
+| POLAND | projection for year 2035 | total |       10-14 | total    |  1632310 |
+| POLAND | projection for year 2035 | total |       15-19 | total    |  1727721 |
+| POLAND | projection for year 2035 | total |       20-24 | total    |  1854110 |
+| POLAND | projection for year 2035 | total |       25-29 | total    |  2050648 |
+| POLAND | projection for year 2035 | total |       30-34 | total    |  1790869 |
+| POLAND | projection for year 2035 | total |       35-39 | total    |  1962681 |
+| POLAND | projection for year 2035 | total |       40-44 | total    |  2371138 |
+| POLAND | projection for year 2035 | total |       45-49 | total    |  2752420 |
+| POLAND | projection for year 2035 | total |       50-54 | total    |  3106617 |
+| POLAND | projection for year 2035 | total |       55-59 | total    |  2913513 |
+| POLAND | projection for year 2035 | total |       60-64 | total    |  2493897 |
+| POLAND | projection for year 2035 | total |       65-69 | total    |  2041149 |
+| POLAND | projection for year 2035 | total |       70-74 | total    |  1959820 |
+| POLAND | projection for year 2035 | total |       75-79 | total    |  2046625 |
+| POLAND | projection for year 2035 | total |       80-84 | total    |  1599863 |
+| POLAND | projection for year 2035 | total | 85 and more | total    |  1269446 |
+
+
+
+*B) Form the last data frame, create a new variable to get the percentage of each population age range with respect to the total population for 2035*
+
+Reproduce the following table
+
+#+begin_src R :exports results :results table :colnames yes
+df <-  read.csv("../Data_sets/LUDN_3560_CREL_20220930132437.csv",sep=";")
+x  <-  unique(df$Projection.for.year)
+x[9]
+df2 <-  df[df$Name%in%"POLAND"&df$Projection.for.year%in%x[9]&df$Sex%in%"total"&df$Domicile%in%"total", c("Name","Projection.for.year","Sex","Age","Domicile","Value")]
+df3  <-  df2
+df3$Share  <- round( 100 * df3$Value / df3$Value[1],2)
+df3[,c(1,2,4,6,7)]
+#+end_src
+
+#+RESULTS:
+| Name   | Projection.for.year      |         Age |    Value | Share |
+|--------+--------------------------+-------------+----------+-------|
+| POLAND | projection for year 2035 |       total | 36476771 |   100 |
+| POLAND | projection for year 2035 |         0-4 |  1406012 |  3.85 |
+| POLAND | projection for year 2035 |         5-9 |  1497932 |  4.11 |
+| POLAND | projection for year 2035 |       10-14 |  1632310 |  4.47 |
+| POLAND | projection for year 2035 |       15-19 |  1727721 |  4.74 |
+| POLAND | projection for year 2035 |       20-24 |  1854110 |  5.08 |
+| POLAND | projection for year 2035 |       25-29 |  2050648 |  5.62 |
+| POLAND | projection for year 2035 |       30-34 |  1790869 |  4.91 |
+| POLAND | projection for year 2035 |       35-39 |  1962681 |  5.38 |
+| POLAND | projection for year 2035 |       40-44 |  2371138 |   6.5 |
+| POLAND | projection for year 2035 |       45-49 |  2752420 |  7.55 |
+| POLAND | projection for year 2035 |       50-54 |  3106617 |  8.52 |
+| POLAND | projection for year 2035 |       55-59 |  2913513 |  7.99 |
+| POLAND | projection for year 2035 |       60-64 |  2493897 |  6.84 |
+| POLAND | projection for year 2035 |       65-69 |  2041149 |   5.6 |
+| POLAND | projection for year 2035 |       70-74 |  1959820 |  5.37 |
+| POLAND | projection for year 2035 |       75-79 |  2046625 |  5.61 |
+| POLAND | projection for year 2035 |       80-84 |  1599863 |  4.39 |
+| POLAND | projection for year 2035 | 85 and more |  1269446 |  3.48 |
+
+
+
+
+* Practice 3. Matrices
+
+Define the following matrices (use ?matrix)
+\begin{equation}
+A = \left( \begin{array}{ccc}
+  1  &  0 &   3 \\
+  0  &  2 &   1 \\
+  2  &  4 &   3 
+\end{array}\right)
+\end{equation}
+
+\begin{equation}
+B = \left( \begin{array}{ccc}
+  3  &  3 &   6 \\
+ -1  &  2 &   2 \\
+  3  &  1 &   3 
+\end{array}\right)
+\end{equation}
+
+perform the product $C = AB$, where $C$ is the matrix 
+
+\begin{equation}
+C_{ij} = \sum_{k=1}^{3} A_{ik}B_{kj}.
+\end{equation}
+
+
+* Practice 4:  table, apply, tapply, ...
+
+Suppose that ~df~ is the data set containing the table ~iris~.
+
+Run the following and discuss the outputs
+
+#+begin_example
+table(df$Species)
+apply(df[,1:4],1,sum)
+apply(df[,1:4],2,sum)
+tapply(df$Sepal.Length, df$Species, sum)
+aggregate(df$Sepal.Length, list(df$Species), sum)
+#+end_example
+
+Use these examples for the following exercise:
+
+The file diamondsCSV.csv contains the  data set
+     of 53940 diamonds and 10 other attributes:
+     + *price:* price in US dollars (\$326-\$18,823)
+     + *carat:* weight of the diamond (0.2-5.01)
+     + *cut:* quality of the cut (Fair, Good, Very Good, Premium, Ideal)
+     + *color:* diamond colour, from D (best) to J (worst)
+     + *clarity:* a measurement of how clear the diamond is (I1 (worst), SI2, SI1, VS2, VS1, VVS2, VVS1, IF (best))
+     + *x:* length in mm (0-10.74)
+     + *y:* width in mm (0-58.9)
+     + *z:* depth in mm (0-31.8)
+     + *depth:* total depth percentage (43-79) = 100 * z / mean(x, y) = 100 * 2 * z / (x + y)
+     + *table:* width of top of diamond relative to widest point (43-95)
+
+We would like to verify the values in the column "depth", by directly applying the formula given in the description.
+
+a) Are they the same? If not, discuss in the class if one can conclude that the variable depth is wrong or not.
+/hint./ A useful way to compare two variables is ~table(df$var1 == df$var2)~.
+
+b) Verify the values of the following table containing the sum of prices grouped by the quality of the cut of the diamonds:
+
+|---------+----------+-----------+----------+----------|
+|    Fair |     Good | Very Good |  Premium |    Ideal |
+|---------+----------+-----------+----------+----------|
+| 7017600 | 19275009 |  48107623 | 63221498 | 74513487 |
+|---------+----------+-----------+----------+----------|
+
+c) Use the function tapply to reproduce the previous table.
+
+
+
+
