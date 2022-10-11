@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-10-06 Thu 18:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>R modelling. Lab session 02</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Daniel Ballesteros Chávez." />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+<style> pre.src { overflow: auto; }</style>
+<style> /* Daniel Ballesteros-Chavez */
+:root {
+--col0: #2b2d42;		/*Top bar*/
+--col1: #8d99ae;		/* Section header bg*/
+--col2: #edf2f4;		/*body bg*/
+--col3: #ef233c;		/*Active top bar*/
+--col4: #d90429;		/*Home botton bg*/
+--col5: #173f5f; 		/*H2 header*/
+}
+body {
+/*    background-image: url('./Images/bgpic.jpg'); */
+background-size: cover;
+background-attachment: fixed;
+font-family: Helvetica;
+/* background-position: left top; */
+/* background-repeat: no-repeat; */
+background: var(--col2);
+margin: 20px auto; /* "auto" for centering */
+max-width: 768px;
+/* max-width: 800px; */
+/* font-family: monospace; */
+}
+h1 {
+display: block;
+font-size: 1.5em;
+/* margin-top: 0.67em; */
+/* margin-bottom: 0.67em; */
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;
+color: var(--col0);
+padding: 5px 20px;
+/*    background-color:#092B39;*/
+/*text-align: center; */
+/*text-shadow: 3px 2px gray;*/
+}
+h2 {
+display: block;
+font-size: 1em;
+margin-top: 0.67em;
+margin-bottom: 0.67em;
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;
+color: var(--col0);
+background-color: var(--col1);
+border-radius: 10px 10px;
+padding: 10px 20px;
+/*    background-color:#092B39;*/
+}
+div.outline-2 {
+background-color: var(--col2);
+/* border:3px solid #f2f6f9; */
+color: var(--col0);
+}
+div.outline-2 h2 {
+color: var(--col5);
+font-size: 20px; /* arial, sans-serif; */
+/* font-family: 'Fredoka One', cursive; */
+}
+div.outline-text-2 {
+}
+div.outline-text-2 p {
+text-align: justify;
+}
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">R modelling. Lab session 02</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgbf418cd">Review from last session:</a></li>
+<li><a href="#org9bea410">Instructions:</a></li>
+<li><a href="#org9949675">Practice 1. Use R to perform calculations.</a></li>
+<li><a href="#org738e85e">Practice 2. Subsets of data sets</a></li>
+<li><a href="#org5d9627c">Practice 3. Matrices</a></li>
+<li><a href="#org0740476">Practice 4:  table, apply, tapply, &#x2026;</a></li>
+<li><a href="#org13cbc49">Solutions</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgbf418cd" class="outline-2">
+<h2 id="orgbf418cd">Review from last session:</h2>
+<div class="outline-text-2" id="text-orgbf418cd">
+<ul class="org-ul">
+<li>Do I feel comfortable Starting a New R session?
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> Yes</li>
+<li class="off"><code>[&#xa0;]</code> No</li>
+</ul></li>
+<li>Do I know how to Install a package?
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> Yes</li>
+<li class="off"><code>[&#xa0;]</code> No</li>
+</ul></li>
+<li>to know my current working directory
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> getwd()</li>
+<li class="off"><code>[&#xa0;]</code> setwd()</li>
+</ul></li>
+<li>To change the working directory?
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> getwd()</li>
+<li class="off"><code>[&#xa0;]</code> setwd()</li>
+</ul></li>
+<li>Loading a package
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> load("packagename")</li>
+<li class="off"><code>[&#xa0;]</code> library("packagename")</li>
+</ul></li>
+<li>Loading a csv file into an R session
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> df &lt;- read.csv("path/to/file.csv", header=TRUE, sep=",")</li>
+<li class="off"><code>[&#xa0;]</code> df &lt;- save.csv("path/to/file.csv", header=TRUE, sep=",")</li>
+</ul></li>
+<li>Loading a csv file into an R session
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> df &lt;- read.csv("path/to/file.csv", header=TRUE, sep=",")</li>
+<li class="off"><code>[&#xa0;]</code> df &lt;- save.csv("path/to/file.csv", header=TRUE, sep=",")</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9bea410" class="outline-2">
+<h2 id="org9bea410">Instructions:</h2>
+<div class="outline-text-2" id="text-org9bea410">
+<p>
+Write a file lab2_solutions.R with your code with your solutions.
+You can use <code>apropos()</code>, <code>?</code>, or google in case you are looking for available functions.
+Try to solve this using built-in functions a
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9949675" class="outline-2">
+<h2 id="org9949675">Practice 1. Use R to perform calculations.</h2>
+<div class="outline-text-2" id="text-org9949675">
+<p>
+This part is about the <code>seq</code> function. You can display the help for the function <code>seq</code> in your R session.
+</p>
+
+<ul class="org-ul">
+<li>Create the sequence 0.0, 0.2, 0.4, 0.6, 0.8, 1.0, first using the option by=, and then using the option <code>length.out</code>.</li>
+
+<li>Create the sequence of all even numbers from 0 to 100</li>
+
+<li>Create the sequence of all odd numbers from 1 to 100</li>
+
+<li>Recall that 1:5 is the sequence 1 2 3 4 5. Verify with a few examples (n=10,15 and 60) that  \[ \sum_{k=1}^n k^3 = \left( \frac{n (n+1)}{2}\right)^2 \]</li>
+
+<li>To generate the sequence  5 5 5 5 5 5 5 5 5 , we use
+<ol class="org-ol">
+<li class="off"><code>[&#xa0;]</code> rep(1:9, 2)</li>
+<li class="off"><code>[&#xa0;]</code> rep(1:4, each = 2)</li>
+<li class="off"><code>[&#xa0;]</code> rep(5,9)</li>
+<li class="off"><code>[&#xa0;]</code> rep(1:5, each = 2, times = 3)</li>
+</ol></li>
+
+<li>To generate the sequence 1 1 2 2 3 3 4 4, we use
+<ol class="org-ol">
+<li class="off"><code>[&#xa0;]</code> rep(5,5)</li>
+<li class="off"><code>[&#xa0;]</code> rep(1:9, 2)</li>
+<li class="off"><code>[&#xa0;]</code> rep(1:5, each = 2, times = 3)</li>
+<li class="off"><code>[&#xa0;]</code> rep(1:4, each = 2)</li>
+</ol></li>
+
+<li>To generate the sequence 1 1 2 2 3 3 1 1 2 2 3 3 1 1 2 2 3 3, we use
+<ol class="org-ol">
+<li class="off"><code>[&#xa0;]</code> rep(3,5)</li>
+<li class="off"><code>[&#xa0;]</code> rep(1:9, 2)</li>
+<li class="off"><code>[&#xa0;]</code> rep(1:3, each = 2, times = 3)</li>
+<li class="off"><code>[&#xa0;]</code> rep(1:3, each = 2)</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org738e85e" class="outline-2">
+<h2 id="org738e85e">Practice 2. Subsets of data sets</h2>
+<div class="outline-text-2" id="text-org738e85e">
+<p>
+Recall that the names of the variables in a data frame can be obtained using
+</p>
+
+<pre class="example">
+names(df)
+</pre>
+
+<p>
+The unique values of the variable <code>var1</code> are obtained by using
+</p>
+
+<pre class="example">
+unique(df$var1)
+</pre>
+
+<p>
+If we have a data frame <code>df</code>, then we can use the following syntax to obtain a subsets:
+</p>
+<pre class="example">
+df[c(1,5), c(4,5)]
+</pre>
+
+<pre class="example">
+df[c(1,5), c("var4", "var5")]
+</pre>
+
+<pre class="example">
+df[df$var1%in%condition1 &amp; df$var2==condition2 | df$var3%in%condition3, c("colname1","colname2")]
+</pre>
+
+<p>
+In order to create a new variable (column) in data frame, we can use the following syntax
+</p>
+
+<pre class="example">
+df$NEWVAR &lt;- 1   #this will create a column with the constant value 1
+</pre>
+
+<pre class="example">
+df$NEWVAR &lt;- df$var1 + df$var2   #this will create a new column out of existing ones.
+</pre>
+
+
+<p>
+<b>A) From the data set <i>Population projection by sex and 5-year age groups</i>, reproduce the following table which contains the information of the projected population in Poland for the year 2035</b>
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Projection.for.year</th>
+<th scope="col" class="org-left">Sex</th>
+<th scope="col" class="org-right">Age</th>
+<th scope="col" class="org-left">Domicile</th>
+<th scope="col" class="org-right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">total</td>
+<td class="org-left">total</td>
+<td class="org-right">36476771</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">0-4</td>
+<td class="org-left">total</td>
+<td class="org-right">1406012</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">5-9</td>
+<td class="org-left">total</td>
+<td class="org-right">1497932</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">10-14</td>
+<td class="org-left">total</td>
+<td class="org-right">1632310</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">15-19</td>
+<td class="org-left">total</td>
+<td class="org-right">1727721</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">20-24</td>
+<td class="org-left">total</td>
+<td class="org-right">1854110</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">25-29</td>
+<td class="org-left">total</td>
+<td class="org-right">2050648</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">30-34</td>
+<td class="org-left">total</td>
+<td class="org-right">1790869</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">35-39</td>
+<td class="org-left">total</td>
+<td class="org-right">1962681</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">40-44</td>
+<td class="org-left">total</td>
+<td class="org-right">2371138</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">45-49</td>
+<td class="org-left">total</td>
+<td class="org-right">2752420</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">50-54</td>
+<td class="org-left">total</td>
+<td class="org-right">3106617</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">55-59</td>
+<td class="org-left">total</td>
+<td class="org-right">2913513</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">60-64</td>
+<td class="org-left">total</td>
+<td class="org-right">2493897</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">65-69</td>
+<td class="org-left">total</td>
+<td class="org-right">2041149</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">70-74</td>
+<td class="org-left">total</td>
+<td class="org-right">1959820</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">75-79</td>
+<td class="org-left">total</td>
+<td class="org-right">2046625</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">80-84</td>
+<td class="org-left">total</td>
+<td class="org-right">1599863</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-left">total</td>
+<td class="org-right">85 and more</td>
+<td class="org-left">total</td>
+<td class="org-right">1269446</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<p>
+<b>B) Form the last data frame, create a new variable to get the percentage of each population age range with respect to the total population for 2035</b>
+</p>
+
+<p>
+Reproduce the following table
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Projection.for.year</th>
+<th scope="col" class="org-right">Age</th>
+<th scope="col" class="org-right">Value</th>
+<th scope="col" class="org-right">Share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">total</td>
+<td class="org-right">36476771</td>
+<td class="org-right">100</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">0-4</td>
+<td class="org-right">1406012</td>
+<td class="org-right">3.85</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">5-9</td>
+<td class="org-right">1497932</td>
+<td class="org-right">4.11</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">10-14</td>
+<td class="org-right">1632310</td>
+<td class="org-right">4.47</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">15-19</td>
+<td class="org-right">1727721</td>
+<td class="org-right">4.74</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">20-24</td>
+<td class="org-right">1854110</td>
+<td class="org-right">5.08</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">25-29</td>
+<td class="org-right">2050648</td>
+<td class="org-right">5.62</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">30-34</td>
+<td class="org-right">1790869</td>
+<td class="org-right">4.91</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">35-39</td>
+<td class="org-right">1962681</td>
+<td class="org-right">5.38</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">40-44</td>
+<td class="org-right">2371138</td>
+<td class="org-right">6.5</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">45-49</td>
+<td class="org-right">2752420</td>
+<td class="org-right">7.55</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">50-54</td>
+<td class="org-right">3106617</td>
+<td class="org-right">8.52</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">55-59</td>
+<td class="org-right">2913513</td>
+<td class="org-right">7.99</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">60-64</td>
+<td class="org-right">2493897</td>
+<td class="org-right">6.84</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">65-69</td>
+<td class="org-right">2041149</td>
+<td class="org-right">5.6</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">70-74</td>
+<td class="org-right">1959820</td>
+<td class="org-right">5.37</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">75-79</td>
+<td class="org-right">2046625</td>
+<td class="org-right">5.61</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">80-84</td>
+<td class="org-right">1599863</td>
+<td class="org-right">4.39</td>
+</tr>
+
+<tr>
+<td class="org-left">POLAND</td>
+<td class="org-left">projection for year 2035</td>
+<td class="org-right">85 and more</td>
+<td class="org-right">1269446</td>
+<td class="org-right">3.48</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org5d9627c" class="outline-2">
+<h2 id="org5d9627c">Practice 3. Matrices</h2>
+<div class="outline-text-2" id="text-org5d9627c">
+<p>
+Define the following matrices (use ?matrix)
+</p>
+\begin{equation}
+A = \left( \begin{array}{ccc}
+  1  &  0 &   3 \\
+  0  &  2 &   1 \\
+  2  &  4 &   3 
+\end{array}\right)
+\end{equation}
+
+\begin{equation}
+B = \left( \begin{array}{ccc}
+  3  &  3 &   6 \\
+ -1  &  2 &   2 \\
+  3  &  1 &   3 
+\end{array}\right)
+\end{equation}
+
+<p>
+perform the product \(C = AB\), where \(C\) is the matrix 
+</p>
+
+\begin{equation}
+C_{ij} = \sum_{k=1}^{3} A_{ik}B_{kj}.
+\end{equation}
+</div>
+</div>
+
+
+<div id="outline-container-org0740476" class="outline-2">
+<h2 id="org0740476">Practice 4:  table, apply, tapply, &#x2026;</h2>
+<div class="outline-text-2" id="text-org0740476">
+<p>
+Suppose that <code>df</code> is the data set containing the table <code>iris</code>.
+</p>
+
+<p>
+Run the following and discuss the outputs
+</p>
+
+<pre class="example">
+table(df$Species)
+apply(df[,1:4],1,sum)
+apply(df[,1:4],2,sum)
+tapply(df$Sepal.Length, df$Species, sum)
+aggregate(df$Sepal.Length, list(df$Species), sum)
+</pre>
+
+<p>
+Use these examples for the following exercise:
+</p>
+
+<p>
+The file diamondsCSV.csv contains the  data set
+     of 53940 diamonds and 10 other attributes:
+</p>
+<ul class="org-ul">
+<li><b>price:</b> price in US dollars (\$326-\$18,823)</li>
+<li><b>carat:</b> weight of the diamond (0.2-5.01)</li>
+<li><b>cut:</b> quality of the cut (Fair, Good, Very Good, Premium, Ideal)</li>
+<li><b>color:</b> diamond colour, from D (best) to J (worst)</li>
+<li><b>clarity:</b> a measurement of how clear the diamond is (I1 (worst), SI2, SI1, VS2, VS1, VVS2, VVS1, IF (best))</li>
+<li><b>x:</b> length in mm (0-10.74)</li>
+<li><b>y:</b> width in mm (0-58.9)</li>
+<li><b>z:</b> depth in mm (0-31.8)</li>
+<li><b>depth:</b> total depth percentage (43-79) = 100 * z / mean(x, y) = 100 * 2 * z / (x + y)</li>
+<li><b>table:</b> width of top of diamond relative to widest point (43-95)</li>
+</ul>
+
+<p>
+We would like to verify the values in the column "depth", by directly applying the formula given in the description.
+</p>
+
+<p>
+a) Are they the same? If not, discuss in the class if one can conclude that the variable depth is wrong or not.
+<i>hint.</i> A useful way to compare two variables is <code>table(df$var1 == df$var2)</code>.
+</p>
+
+<p>
+b) Verify the values of the following table containing the sum of prices grouped by the quality of the cut of the diamonds:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Fair</th>
+<th scope="col" class="org-right">Good</th>
+<th scope="col" class="org-right">Very Good</th>
+<th scope="col" class="org-right">Premium</th>
+<th scope="col" class="org-right">Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">7017600</td>
+<td class="org-right">19275009</td>
+<td class="org-right">48107623</td>
+<td class="org-right">63221498</td>
+<td class="org-right">74513487</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+c) Use the function tapply to reproduce the previous table.
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
