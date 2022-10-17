@@ -1,0 +1,285 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: R modelling. Lab session 03
+#+date:
+#+author: Daniel Ballesteros Chávez.
+#+email: daniel@linuxdeb.home
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.1 (Org mode 9.3.6)
+# +OPTIONS: html-style:nil
+
+# Daniel Ballesteros-Chávez
+
+#+HTML_HEAD: <style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+#+HTML_HEAD: <style> pre.src { overflow: auto; }</style>
+#+HTML_HEAD: <style> .mmbox {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
+#+HTML_HEAD_EXTRA: <style>code {background-color: #ccc}</style>
+
+:results:
+#+HTML_HEAD:<style> /* Daniel Ballesteros-Chavez */
+#+HTML_HEAD: 
+#+HTML_HEAD: :root {
+#+HTML_HEAD:   --col0: #2b2d42;		/*Top bar*/
+#+HTML_HEAD:   --col1: #8d99ae;		/* Section header bg*/
+#+HTML_HEAD:   --col2: #edf2f4;		/*body bg*/
+#+HTML_HEAD:   --col3: #ef233c;		/*Active top bar*/
+#+HTML_HEAD:   --col4: #d90429;		/*Home botton bg*/
+#+HTML_HEAD:   --col5: #173f5f; 		/*H2 header*/
+#+HTML_HEAD: 
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: body {
+#+HTML_HEAD:     /*    background-image: url('./Images/bgpic.jpg'); */
+#+HTML_HEAD:     background-size: cover;
+#+HTML_HEAD:     background-attachment: fixed;
+#+HTML_HEAD: 	font-family: Helvetica;
+#+HTML_HEAD:     /* background-position: left top; */
+#+HTML_HEAD:     /* background-repeat: no-repeat; */
+#+HTML_HEAD:     background: var(--col2);
+#+HTML_HEAD:     margin: 20px auto; /* "auto" for centering */
+#+HTML_HEAD:     max-width: 768px;
+#+HTML_HEAD:     /* max-width: 800px; */
+#+HTML_HEAD:     /* font-family: monospace; */
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: h1 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1.5em;
+#+HTML_HEAD:     /* margin-top: 0.67em; */
+#+HTML_HEAD:     /* margin-bottom: 0.67em; */
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     padding: 5px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD:     /*text-align: center; */
+#+HTML_HEAD:     /*text-shadow: 3px 2px gray;*/
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: h2 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1em;
+#+HTML_HEAD:     margin-top: 0.67em;
+#+HTML_HEAD:     margin-bottom: 0.67em;
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     background-color: var(--col1);
+#+HTML_HEAD:     border-radius: 10px 10px;
+#+HTML_HEAD:     padding: 10px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-2 {
+#+HTML_HEAD:     background-color: var(--col2);
+#+HTML_HEAD:     /* border:3px solid #f2f6f9; */
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-2 h2 {
+#+HTML_HEAD:     color: var(--col5);
+#+HTML_HEAD:     font-size: 20px; /* arial, sans-serif; */
+#+HTML_HEAD:     /* font-family: 'Fredoka One', cursive; */
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-text-2 {
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: div.outline-text-2 p {
+#+HTML_HEAD:     text-align: justify;
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: </style>
+:end:
+
+In this practice you will find useful to know a bit more on types of objects on which R opearates.
+
+A quick jump into the manual says the following:
+
+#+begin_mmbox
+[[https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Other-types-of-objects][2.8 Other types of objects]]
+
+Vectors are the most important type of object in R, but there are several others which we will meet more formally in later sections.
+
+    + *matrices* or more generally arrays are multi-dimensional generalisations of vectors. In fact, they are vectors that can be indexed by two or more indices and will be printed in special ways. See Arrays and matrices.
+    + *factors* provide compact ways to handle categorical data. See Ordered and unordered factors.
+    + *lists* are a general form of vector in which the various elements need not be of the same type, and are often themselves vectors or lists. Lists provide a convenient way to return the results of a statistical computation. See Lists.
+    + *data frames* are matrix-like structures, in which the columns can be of different types. Think of data frames as ‘data matrices’ with one row per observational unit but with (possibly) both numerical and categorical variables. Many experiments are best described by data frames: the treatments are categorical but the response is numeric. See Data frames.
+    + *functions* are themselves objects in R which can be stored in the project’s workspace. This provides a simple and convenient way to extend R. See Writing your own functions. 
+#+end_mmbox
+
+Some useful functions are
+#+begin_example R
+length(object) # gives the number of elements or components
+str(object)    # describes the structure of an object
+class(object)  # print the class or type of an object
+names(object)  # names
+
+cbind(object, object, ...) # combine objects as columns (specially data.frames)
+rbind(object, object, ...) # combine objects as rows (specially data.frames)
+
+ls()       # list current objects
+rm(object) # delete an object
+#+end_example
+
+* Practice 1
+
++ Recall from the previous practical using the diamonds data set, that the sum of the prices by 
+type of cut is given by.
+
+|---------+----------+-----------+----------+----------|
+|    Fair |     Good | Very Good |  Premium |    Ideal |
+|---------+----------+-----------+----------+----------|
+| 7017600 | 19275009 |  48107623 | 63221498 | 74513487 |
+|---------+----------+-----------+----------+----------|
+
+
+1. Verify that the average price by cut is 
+
+|----------+----------+-----------+----------+----------|
+|     Fair |     Good | Very Good |  Premium |    Ideal |
+|----------+----------+-----------+----------+----------|
+| 4358.758 | 3928.864 |  3981.760 | 4584.258 | 3457.542 |
+|----------+----------+-----------+----------+----------|
+
+2) [@2] Add another dimension to obtained the average prices by cut and colour:
+
+|-----------+----------+----------+----------+----------+----------+----------+----------|
+|           |       D  |        E |        F |        G |        H |        I |        J |
+|-----------+----------+----------+----------+----------+----------+----------+----------|
+| Fair      | 4291.061 | 3682.312 | 3827.003 | 4239.255 | 5135.683 | 4685.446 | 4975.655 |
+| Good      | 3405.382 | 3423.644 | 3495.750 | 4123.482 | 4276.255 | 5078.533 | 4574.173 |
+| Very Good | 3470.467 | 3214.652 | 3778.820 | 3872.754 | 4535.390 | 5255.880 | 5103.513 |
+| Premium   | 3631.293 | 3538.914 | 4324.890 | 4500.742 | 5216.707 | 5946.181 | 6294.592 |
+| Ideal     | 2629.095 | 2597.550 | 3374.939 | 3720.706 | 3889.335 | 4451.970 | 4918.186 |
+|-----------+----------+----------+----------+----------+----------+----------+----------|
+
+* Practice 2
+
+This exercise illustrates an application of the concept of weighted mean.
+
+In the data set:
+conjunto\under{}de\under{}datos\under{}CB\under{}ENSU\under{}06\under{}2022.csv
+
+you will find the results of a recent survey applied in Mexico. The main objective of this survey is
+to measure the perception of feeling safe or not, in different cities of the country.
+
+Each person responding the survey is selected with a given probability, which assigns a weight to
+each of their answers, and the sum of this weight gives the estimate of the population of interests for the survey ( in this case, people over 18 years old)
+
+In the questionnaire one reads:
+
+#+begin_mmbox
+
+*B1.1 In terms of crime. How do you consider living in your CITY is best described*
+
++ Safe ... 1
+
++ Not Safe ... 2
+
++ I don't know/no response ... 9
+#+end_mmbox
+
+A quick description of some variables in the data base:
+
+/BP1\under{}1/: question B1.1 of the questionnaire.
+
+/FAC\under{}SEL/: weight due to the probability design. 
+
+/NOM\under{}CD/: Name of the CITY
+
+/SEXO/: Sex of the respondent
+
+
+1. Read the data in to an R session.
+2. Using tapply, create a data frame (DF) with the estimate of
+   the population according to the answers given in B1.1 in each city.
+3. How would you use the function rbind to include the totals for each answer in DF? (this may give you a matrix type object, use ~class~ to check, and the function ~data.frame()~ if necessary.
+4. Change the names of the variables to "Safe", "Not.Safe", "No.response".
+5. Create the new variable DF$DEN, using the apply function (by rows), to include the value of the sum of the three options.
+6. Compute the weighted mean for the "Not.Safe" option into a new data frame DF2 that looks like the following:
+
+|------------------------+----------+---------------------|
+|                        | Not.Safe | Not.Safe.percentage |
+|------------------------+----------+---------------------|
+| All                    | 29624292 |                67.4 |
+| Acapulco\n             |   421548 |                81.1 |
+| Aguascalientes\n       |   356101 |                54.2 |
+| Alvaro Obregon\n       |   438818 |                71.6 |
+| Apodaca\n              |   227677 |                52.0 |
+| Atizapan de Zaragoza\n |   298761 |                70.3 |
+|------------------------+----------+---------------------|
+
+
+
+7. [@7] To omit the n-th row in a data frame, one can write =df[-n,]=, and
+   to order a data frame with respect to a variable one can write
+   =df[order(df$VAR),]=. Try to Order the previous data frame with
+   respect to the percentages, but keeping the row "All" on top.
+
+8. Use =write.csv= to create a csv file with this information.
+
+9. Using the function =aggregate(x ~ y + z , data, sum)=,  where x,y,z are variables of a data frame data, obtain the follwoing summary table, and compare with a multi-dimensional tapply.
+
+|--------------+------+----------------|
+| BP1\under{}1 | SEXO | FAC\under{}SEL |
+|--------------+------+----------------|
+|            1 |    1 |        7758493 |
+|            2 |    1 |       12114046 |
+|            9 |    1 |          27814 |
+|            1 |    2 |        6488810 |
+|            2 |    2 |       17510246 |
+|            9 |    2 |          30766 |
+|--------------+------+----------------|
+
+
+
+* Practice 3
+
+Using the data set Iris, perform a summary of all their variables and
+
+1) A histogram is an approximate representation of the distribution
+     of numerical data. Its purpose is to roughly assess the
+     probability distribution of a given variable by depicting the
+     frequencies of observations occurring in certain ranges of
+     values. Do a *histogram* of the variable *Sepal.Length* and analyse it.
+
+2) Do the boxplot of iris and identify graphically the elements from
+   summary that appear. The interquartile range IQR = Q3 - Q1, is often
+   use to find Outliers in the data. Outliers here are defined as
+   observations that fall below Q1 − 1.5 IQR or above Q3 + 1.5 IQR. What are the Outlier values for the variable *Sepal Width*?
+
+
+* Practice 4
+
+Generating factor levels
+The function gl (‘generate levels’) is useful when you want to encode long vectors of factor levels. The
+syntax for the three arguments is: ‘up to’, ‘with repeats of’, ‘to total length’. Here is the simplest case where
+we want factor levels up to 4 with repeats of 3 repeated only once (i.e. to total length 12):
+=gl(4,3)=.
+
+Create the following data frame:
+
+#+begin_example R
+Temp <- gl(2, 2, 24, labels = c("Low", "High"))
+Price <- gl(3, 8, 24, labels = c("0010","0055","0005"))
+M.user <- gl(2, 4, 24, labels = c("N", "Y"))
+Brand <- gl(2, 1, 24, labels = c("X", "M"))
+
+df  <-  data.frame(Temp,Price,M.user,Brand)
+#+end_example
+
+What class of variable is Price? 
+How can we perform =sum(df$Price)= assuming the values correspond to numbers?
+
+
+
+

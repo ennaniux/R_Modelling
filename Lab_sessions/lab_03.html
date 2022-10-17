@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-10-17 Mon 08:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>R modelling. Lab session 03</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Daniel Ballesteros Chávez." />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+<style> pre.src { overflow: auto; }</style>
+<style> .mmbox {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
+<style> /* Daniel Ballesteros-Chavez */
+:root {
+--col0: #2b2d42;		/*Top bar*/
+--col1: #8d99ae;		/* Section header bg*/
+--col2: #edf2f4;		/*body bg*/
+--col3: #ef233c;		/*Active top bar*/
+--col4: #d90429;		/*Home botton bg*/
+--col5: #173f5f; 		/*H2 header*/
+}
+body {
+/*    background-image: url('./Images/bgpic.jpg'); */
+background-size: cover;
+background-attachment: fixed;
+font-family: Helvetica;
+/* background-position: left top; */
+/* background-repeat: no-repeat; */
+background: var(--col2);
+margin: 20px auto; /* "auto" for centering */
+max-width: 768px;
+/* max-width: 800px; */
+/* font-family: monospace; */
+}
+h1 {
+display: block;
+font-size: 1.5em;
+/* margin-top: 0.67em; */
+/* margin-bottom: 0.67em; */
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;
+color: var(--col0);
+padding: 5px 20px;
+/*    background-color:#092B39;*/
+/*text-align: center; */
+/*text-shadow: 3px 2px gray;*/
+}
+h2 {
+display: block;
+font-size: 1em;
+margin-top: 0.67em;
+margin-bottom: 0.67em;
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;
+color: var(--col0);
+background-color: var(--col1);
+border-radius: 10px 10px;
+padding: 10px 20px;
+/*    background-color:#092B39;*/
+}
+div.outline-2 {
+background-color: var(--col2);
+/* border:3px solid #f2f6f9; */
+color: var(--col0);
+}
+div.outline-2 h2 {
+color: var(--col5);
+font-size: 20px; /* arial, sans-serif; */
+/* font-family: 'Fredoka One', cursive; */
+}
+div.outline-text-2 {
+}
+div.outline-text-2 p {
+text-align: justify;
+}
+</style>
+<style>code {background-color: #ccc}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">R modelling. Lab session 03</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org80df83d">Practice 1</a></li>
+<li><a href="#org6ce9413">Practice 2</a></li>
+<li><a href="#orgc244ad7">Practice 3</a></li>
+<li><a href="#orgb37cc01">Practice 4</a></li>
+</ul>
+</div>
+</div>
+
+<p>
+In this practice you will find useful to know a bit more on types of objects on which R opearates.
+</p>
+
+<p>
+A quick jump into the manual says the following:
+</p>
+
+<div class="mmbox">
+<p>
+<a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Other-types-of-objects">2.8 Other types of objects</a>
+</p>
+
+<p>
+Vectors are the most important type of object in R, but there are several others which we will meet more formally in later sections.
+</p>
+
+<ul class="org-ul">
+<li><b>matrices</b> or more generally arrays are multi-dimensional generalisations of vectors. In fact, they are vectors that can be indexed by two or more indices and will be printed in special ways. See Arrays and matrices.</li>
+<li><b>factors</b> provide compact ways to handle categorical data. See Ordered and unordered factors.</li>
+<li><b>lists</b> are a general form of vector in which the various elements need not be of the same type, and are often themselves vectors or lists. Lists provide a convenient way to return the results of a statistical computation. See Lists.</li>
+<li><b>data frames</b> are matrix-like structures, in which the columns can be of different types. Think of data frames as ‘data matrices’ with one row per observational unit but with (possibly) both numerical and categorical variables. Many experiments are best described by data frames: the treatments are categorical but the response is numeric. See Data frames.</li>
+<li><b>functions</b> are themselves objects in R which can be stored in the project’s workspace. This provides a simple and convenient way to extend R. See Writing your own functions.</li>
+</ul>
+
+</div>
+
+<p>
+Some useful functions are
+</p>
+<pre class="example">
+length(object) # gives the number of elements or components
+str(object)    # describes the structure of an object
+class(object)  # print the class or type of an object
+names(object)  # names
+
+cbind(object, object, ...) # combine objects as columns (specially data.frames)
+rbind(object, object, ...) # combine objects as rows (specially data.frames)
+
+ls()       # list current objects
+rm(object) # delete an object
+</pre>
+
+<div id="outline-container-org80df83d" class="outline-2">
+<h2 id="org80df83d">Practice 1</h2>
+<div class="outline-text-2" id="text-org80df83d">
+<ul class="org-ul">
+<li>Recall from the previous practical using the diamonds data set, that the sum of the prices by</li>
+</ul>
+<p>
+type of cut is given by.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Fair</th>
+<th scope="col" class="org-right">Good</th>
+<th scope="col" class="org-right">Very Good</th>
+<th scope="col" class="org-right">Premium</th>
+<th scope="col" class="org-right">Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">7017600</td>
+<td class="org-right">19275009</td>
+<td class="org-right">48107623</td>
+<td class="org-right">63221498</td>
+<td class="org-right">74513487</td>
+</tr>
+</tbody>
+</table>
+
+
+<ol class="org-ol">
+<li>Verify that the average price by cut is</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Fair</th>
+<th scope="col" class="org-right">Good</th>
+<th scope="col" class="org-right">Very Good</th>
+<th scope="col" class="org-right">Premium</th>
+<th scope="col" class="org-right">Ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">4358.758</td>
+<td class="org-right">3928.864</td>
+<td class="org-right">3981.760</td>
+<td class="org-right">4584.258</td>
+<td class="org-right">3457.542</td>
+</tr>
+</tbody>
+</table>
+
+<ol class="org-ol">
+<li value="2">Add another dimension to obtained the average prices by cut and colour:</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">D</th>
+<th scope="col" class="org-right">E</th>
+<th scope="col" class="org-right">F</th>
+<th scope="col" class="org-right">G</th>
+<th scope="col" class="org-right">H</th>
+<th scope="col" class="org-right">I</th>
+<th scope="col" class="org-right">J</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Fair</td>
+<td class="org-right">4291.061</td>
+<td class="org-right">3682.312</td>
+<td class="org-right">3827.003</td>
+<td class="org-right">4239.255</td>
+<td class="org-right">5135.683</td>
+<td class="org-right">4685.446</td>
+<td class="org-right">4975.655</td>
+</tr>
+
+<tr>
+<td class="org-left">Good</td>
+<td class="org-right">3405.382</td>
+<td class="org-right">3423.644</td>
+<td class="org-right">3495.750</td>
+<td class="org-right">4123.482</td>
+<td class="org-right">4276.255</td>
+<td class="org-right">5078.533</td>
+<td class="org-right">4574.173</td>
+</tr>
+
+<tr>
+<td class="org-left">Very Good</td>
+<td class="org-right">3470.467</td>
+<td class="org-right">3214.652</td>
+<td class="org-right">3778.820</td>
+<td class="org-right">3872.754</td>
+<td class="org-right">4535.390</td>
+<td class="org-right">5255.880</td>
+<td class="org-right">5103.513</td>
+</tr>
+
+<tr>
+<td class="org-left">Premium</td>
+<td class="org-right">3631.293</td>
+<td class="org-right">3538.914</td>
+<td class="org-right">4324.890</td>
+<td class="org-right">4500.742</td>
+<td class="org-right">5216.707</td>
+<td class="org-right">5946.181</td>
+<td class="org-right">6294.592</td>
+</tr>
+
+<tr>
+<td class="org-left">Ideal</td>
+<td class="org-right">2629.095</td>
+<td class="org-right">2597.550</td>
+<td class="org-right">3374.939</td>
+<td class="org-right">3720.706</td>
+<td class="org-right">3889.335</td>
+<td class="org-right">4451.970</td>
+<td class="org-right">4918.186</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org6ce9413" class="outline-2">
+<h2 id="org6ce9413">Practice 2</h2>
+<div class="outline-text-2" id="text-org6ce9413">
+<p>
+This exercise illustrates an application of the concept of weighted mean.
+</p>
+
+<p>
+In the data set:
+conjunto_de_datos_CB_ENSU_06_2022.csv
+</p>
+
+<p>
+you will find the results of a recent survey applied in Mexico. The main objective of this survey is
+to measure the perception of feeling safe or not, in different cities of the country.
+</p>
+
+<p>
+Each person responding the survey is selected with a given probability, which assigns a weight to
+each of their answers, and the sum of this weight gives the estimate of the population of interests for the survey ( in this case, people over 18 years old)
+</p>
+
+<p>
+In the questionnaire one reads:
+</p>
+
+<div class="mmbox">
+<p>
+
+</p>
+
+<p>
+<b>B1.1 In terms of crime. How do you consider living in your CITY is best described</b>
+</p>
+
+<ul class="org-ul">
+<li>Safe &#x2026; 1</li>
+
+<li>Not Safe &#x2026; 2</li>
+
+<li>I don't know/no response &#x2026; 9</li>
+</ul>
+
+</div>
+
+<p>
+A quick description of some variables in the data base:
+</p>
+
+<p>
+<i>BP1_1</i>: question B1.1 of the questionnaire.
+</p>
+
+<p>
+<i>FAC_SEL</i>: weight due to the probability design. 
+</p>
+
+<p>
+<i>NOM_CD</i>: Name of the CITY
+</p>
+
+<p>
+<i>SEXO</i>: Sex of the respondent
+</p>
+
+
+<ol class="org-ol">
+<li>Read the data in to an R session.</li>
+<li>Using tapply, create a data frame (DF) with the estimate of
+the population according to the answers given in B1.1 in each city.</li>
+<li>How would you use the function rbind to include the totals for each answer in DF? (this may give you a matrix type object, use <code>class</code> to check, and the function <code>data.frame()</code> if necessary.</li>
+<li>Change the names of the variables to "Safe", "Not.Safe", "No.response".</li>
+<li>Create the new variable DF$DEN, using the apply function (by rows), to include the value of the sum of the three options.</li>
+<li>Compute the weighted mean for the "Not.Safe" option into a new data frame DF2 that looks like the following:</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Not.Safe</th>
+<th scope="col" class="org-right">Not.Safe.percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">All</td>
+<td class="org-right">29624292</td>
+<td class="org-right">67.4</td>
+</tr>
+
+<tr>
+<td class="org-left">Acapulco\n</td>
+<td class="org-right">421548</td>
+<td class="org-right">81.1</td>
+</tr>
+
+<tr>
+<td class="org-left">Aguascalientes\n</td>
+<td class="org-right">356101</td>
+<td class="org-right">54.2</td>
+</tr>
+
+<tr>
+<td class="org-left">Alvaro Obregon\n</td>
+<td class="org-right">438818</td>
+<td class="org-right">71.6</td>
+</tr>
+
+<tr>
+<td class="org-left">Apodaca\n</td>
+<td class="org-right">227677</td>
+<td class="org-right">52.0</td>
+</tr>
+
+<tr>
+<td class="org-left">Atizapan de Zaragoza\n</td>
+<td class="org-right">298761</td>
+<td class="org-right">70.3</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<ol class="org-ol">
+<li value="7">To omit the n-th row in a data frame, one can write <code>df[-n,]</code>, and
+to order a data frame with respect to a variable one can write
+<code>df[order(df$VAR),]</code>. Try to Order the previous data frame with
+respect to the percentages, but keeping the row "All" on top.</li>
+
+<li>Use <code>write.csv</code> to create a csv file with this information.</li>
+
+<li>Using the function <code>aggregate(x ~ y + z , data, sum)</code>,  where x,y,z are variables of a data frame data, obtain the follwoing summary table, and compare with a multi-dimensional tapply.</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">BP1_1</th>
+<th scope="col" class="org-right">SEXO</th>
+<th scope="col" class="org-right">FAC_SEL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">7758493</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">1</td>
+<td class="org-right">12114046</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">1</td>
+<td class="org-right">27814</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">6488810</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">2</td>
+<td class="org-right">17510246</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">2</td>
+<td class="org-right">30766</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgc244ad7" class="outline-2">
+<h2 id="orgc244ad7">Practice 3</h2>
+<div class="outline-text-2" id="text-orgc244ad7">
+<p>
+Using the data set Iris, perform a summary of all their variables and
+</p>
+
+<ol class="org-ol">
+<li>A histogram is an approximate representation of the distribution
+of numerical data. Its purpose is to roughly assess the
+probability distribution of a given variable by depicting the
+frequencies of observations occurring in certain ranges of
+values. Do a <b>histogram</b> of the variable <b>Sepal.Length</b> and analyse it.</li>
+
+<li>Do the boxplot of iris and identify graphically the elements from
+summary that appear. The interquartile range IQR = Q3 - Q1, is often
+use to find Outliers in the data. Outliers here are defined as
+observations that fall below Q1 − 1.5 IQR or above Q3 + 1.5 IQR. What are the Outlier values for the variable <b>Sepal Width</b>?</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-orgb37cc01" class="outline-2">
+<h2 id="orgb37cc01">Practice 4</h2>
+<div class="outline-text-2" id="text-orgb37cc01">
+<p>
+Generating factor levels
+The function gl (‘generate levels’) is useful when you want to encode long vectors of factor levels. The
+syntax for the three arguments is: ‘up to’, ‘with repeats of’, ‘to total length’. Here is the simplest case where
+we want factor levels up to 4 with repeats of 3 repeated only once (i.e. to total length 12):
+<code>gl(4,3)</code>.
+</p>
+
+<p>
+Create the following data frame:
+</p>
+
+<pre class="example">
+Temp &lt;- gl(2, 2, 24, labels = c("Low", "High"))
+Price &lt;- gl(3, 8, 24, labels = c("0010","0055","0005"))
+M.user &lt;- gl(2, 4, 24, labels = c("N", "Y"))
+Brand &lt;- gl(2, 1, 24, labels = c("X", "M"))
+
+df  &lt;-  data.frame(Temp,Price,M.user,Brand)
+</pre>
+
+<p>
+What class of variable is Price? 
+How can we perform <code>sum(df$Price)</code> assuming the values correspond to numbers?
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Daniel Ballesteros Chávez.</p>
+<p class="date">Created: 2022-10-17 Mon 08:38</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
