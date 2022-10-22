@@ -1,0 +1,1374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-10-22 Sat 14:55 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lecture 2</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Daniel Ballesteros-Chávez" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+<style>
+/* Daniel Ballesteros-Chavez */
+/* DBCh CSS for blog project */
+/* color schemes: #333745; #E63462 ; #C7EFCF ; #EEF5DB ; #909396; #262626;*/
+/* Modified version with responsive TOC
+/* usage: #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style01.css"/> */
+body {
+font-size: 18px;
+color: #404040;
+/* background-color: #333745; */
+font-family: Helvetica;
+line-height: 1.3;
+}
+#content {
+max-width: 50em;
+margin-left: auto;
+margin-right: auto;
+padding: 15px 50px 50px 15px;
+background-color: #E4F7FF;
+}
+p {
+text-align: justify;
+}
+/* this part is about the table of contents TOC */
+#table-of-contents a:link,
+#table-of-contents a:visited {
+color: #404040;
+background: transparent;
+}
+#table-of-contents a:hover {
+background-color: #ccc;
+color: #404040;
+}
+#table-of-contents {
+line-height: 1.2;
+}
+#table-of-contents h2 {
+background-color:  #ccc ;
+padding-left: 0.3em;
+color: #404040;
+border-bottom: 0;
+}
+#table-of-contents ul {
+list-style: none;
+padding-left: 0.3em;
+font-weight: normal;
+}
+#table-of-contents div>ul>li {
+margin-top: 1em;
+font-weight: bold;
+}
+#table-of-contents .tag {
+display: none;
+}
+#table-of-contents .todo,
+#table-of-contents .done {
+font-size: 80%;
+}
+#table-of-contents ol>li {
+margin-top: 1em;
+}
+@media screen {
+#table-of-contents {
+position: fixed;
+top: 0;
+left: 0;
+padding: 1em 0 1em 1em;
+width: 290px;
+height: 100vh;
+overlow-x: hidden;
+overlow-y: auto;
+overflow: auto;
+}
+#table-of-contents h2 {
+margin-top: 0;
+font-family: Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+#table-of-contents code {
+font-size: 12px;
+}
+}
+@media screen and (max-width: 95em) {
+#table-of-contents {
+display: none;
+}
+h1.title {
+margin-left: 0%;
+}
+div#content {
+margin-left: 5%;
+max-width: 90%;
+}
+}
+/*Html Boxes around THMs and Propositions */
+.abstract  {
+color:  #404040;
+border: 1px solid #404040;
+box-shadow: 3px 3px 3px ;
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.abstract:before {
+display: inline;
+position: absolute;
+background-color: white;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Abstract';
+}
+.mydef  {
+color:  #404040;
+border: 1px solid #404040;
+background-color: #FFD580;
+/* box-shadow: 3px 3px 3px orange; */
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.mydef:before {
+display: inline;
+position: absolute;
+/* background-color: white; */
+background-color: orange;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Definition';
+}
+.prop  {
+color:  #404040;
+border: 1px solid ;
+background-color: #F1FFC2;
+/* box-shadow: 3px 3px 3px green; */
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.prop:before {
+color:  white;
+display: inline;
+position: absolute;
+background-color: green;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Proposition';
+}
+.thm  {
+color:  #404040;
+border: 1px solid ;
+background-color: lightcyan;
+/* box-shadow: 3px 3px 3px brown; */
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.thm:before {
+color:  white;
+display: inline;
+position: absolute;
+background-color: darkblue;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Theorem';
+}
+.cor  {
+color:  #404040;
+border: 1px solid blue;
+box-shadow: 3px 3px 3px blue;
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.cor:before {
+display: inline;
+position: absolute;
+background-color: white;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Corollary';
+}
+/*defaults form org-mode export */
+.title  { text-align: center; }
+.todo   { font-family: monospace; color: red; }
+.done   { color: green; }
+.tag    { background-color: #eee; font-family: monospace;
+padding: 2px; font-size: 80%; font-weight: normal; }
+.timestamp { color: #bebebe; }
+.timestamp-kwd { color: #5f9ea0; }
+.right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+.center { margin-left: auto; margin-right: auto; text-align: center; }
+.underline { text-decoration: underline; }
+#postamble p, #preamble p { font-size: 90%; margin: .2em; text-align: center;}
+p.verse { margin-left: 3%; }
+pre {
+border: 1px solid #ccc;
+box-shadow: 3px 3px 3px #eee;
+padding: 8pt;
+font-family: monospace;
+overflow: auto;
+margin: 1.2em;
+}
+pre.src {
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+pre.src:before {
+display: none;
+position: absolute;
+background-color: white;
+top: -10px;
+right: 10px;
+padding: 3px;
+border: 1px solid black;
+}
+pre.src:hover:before { display: inline;}
+pre.src-sh:before    { content: 'sh'; }
+pre.src-bash:before  { content: 'sh'; }
+pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+pre.src-R:before     { content: 'R'; }
+pre.src-perl:before  { content: 'Perl'; }
+pre.src-java:before  { content: 'Java'; }
+pre.src-sql:before   { content: 'SQL'; }
+table { border-collapse:collapse; }
+caption.t-above { caption-side: top; }
+caption.t-bottom { caption-side: bottom; }
+td, th { vertical-align:top;  }
+th.right  { text-align: center;  }
+th.left   { text-align: center;   }
+th.center { text-align: center; }
+td.right  { text-align: right;  }
+td.left   { text-align: left;   }
+td.center { text-align: center; }
+dt { font-weight: bold; }
+.footpara:nth-child(2) { display: inline; }
+.footpara { display: block; }
+.footdef  { margin-bottom: 1em; }
+.figure { padding: 1em; }
+.figure p { text-align: center; }
+.inlinetask {
+padding: 10px;
+border: 2px solid gray;
+margin: 10px;
+background: #ffffcc;
+}
+#org-div-home-and-up
+{ text-align: right; font-size: 70%; white-space: nowrap; }
+textarea { overflow-x: auto; }
+.linenr { font-size: smaller }
+.code-highlighted { background-color: #ffff00; }
+.org-info-js_info-navigation { border-style: none; }
+#org-info-js_console-label
+{ font-size: 10px; font-weight: bold; white-space: nowrap; }
+.org-info-js_search-highlight
+{ background-color: #ffff00; color: #000000; font-weight: bold; }
+</style>
+<style>code {background-color: #ccc}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Lecture 2</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga0e6ec5">1. Introduction.</a></li>
+<li><a href="#org9f6c866">2. Arithmetic Mean (AM)</a></li>
+<li><a href="#orga850e45">3. Geometric Mean (GM)</a></li>
+<li><a href="#org35535f1">4. Harmonic mean (HM)</a>
+<ul>
+<li><a href="#orgaac3070">4.1. Implementing the harmonic mean in R</a></li>
+<li><a href="#org5af3511">4.2. <span class="todo TODO">TODO</span> : create the file <code>my_functions.R</code> and with the definition of the harmonic.mean function. You can keep this file to add the new functions you will be creating.</a></li>
+</ul>
+</li>
+<li><a href="#org4542f15">5. Weighted mean (WM)</a>
+<ul>
+<li><a href="#orgbfe80bd">5.1. Geometric Interpretation</a></li>
+</ul>
+</li>
+<li><a href="#org4aac21b">6. Mode</a></li>
+<li><a href="#org85a9a54">7. Median</a></li>
+<li><a href="#orgb899461">8. Minimum and maximum</a></li>
+<li><a href="#org9a5cf8f">9. Quartiles</a>
+<ul>
+<li><a href="#org14880d7">9.1. Interquartile range</a></li>
+<li><a href="#org9581fb9">9.2. Outliers</a></li>
+</ul>
+</li>
+<li><a href="#orga6830fe">10. Variance</a></li>
+<li><a href="#orgd64281e">11. Probability space</a></li>
+<li><a href="#org5dec832">12. Random Variables</a></li>
+<li><a href="#org391e0e6">13. Cumulative distribution function</a></li>
+<li><a href="#org37b4bf1">14. Probability density function</a></li>
+<li><a href="#org4aca25c">15. Probabilities</a></li>
+<li><a href="#orga9c4430">16. Mean and variance revisited.</a></li>
+<li><a href="#orgf004afd">17. The normal distribution</a></li>
+<li><a href="#org53e8145">18. The Bernoulli distribution</a></li>
+<li><a href="#org7b8976d">19. The binomial distribution</a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-orga0e6ec5" class="outline-2">
+<h2 id="orga0e6ec5"><span class="section-number-2">1</span> Introduction.</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+In this lecture we will recall some basic concepts from probability and statistics. These can be grouped as
+</p>
+
+
+<dl class="org-dl">
+<dt>Measures of central tendency</dt><dd>This is a real value that measures a
+"typical value" for a set of observations (more accurately for a
+probability distribution, see below). The most common measures of
+central tendency are the arithmetic mean, the median, and the mode.</dd>
+
+<dt>Measures of dispersion</dt><dd>Dispersion (also called variability,
+scatter, or spread) gives the deviation of the distribution of data
+around a central point or value. It shows the distance of values in
+a distribution from the central value. Common examples of measures
+of statistical dispersion are the variance, standard deviation, and
+interquartile range.</dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-org9f6c866" class="outline-2">
+<h2 id="org9f6c866"><span class="section-number-2">2</span> Arithmetic Mean (AM)</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+It is also known as (a.k.a) average, or mean.
+</p>
+
+<p>
+Given a set of real values, usually representing a set of observations,  \(\left(x_{1}, x_{2}, ... ,x_{n}\right)\) , the <i>aritmetic mean</i> is defined as
+</p>
+
+\begin{equation}
+\overline{x} = \frac{1}{n}\sum_{i=1}^n \, x_i
+\end{equation}
+
+<div class="org-src-container">
+<pre class="src src-R">X <span style="color: #00cdcd; font-weight: bold;">&lt;-</span> c(1,5,1,2,3,10,20)
+mymean <span style="color: #00cdcd; font-weight: bold;">&lt;-</span> sum(X) / length(X)
+mymean
+</pre>
+</div>
+
+<pre class="example">
+6
+</pre>
+
+
+<p>
+Note that <code>mean</code> is a built-in function so one can as well just write
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">X <span style="color: #00cdcd; font-weight: bold;">&lt;-</span> c(1,5,1,2,3,10,20)
+mean(X)
+</pre>
+</div>
+
+<pre class="example">
+6
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orga850e45" class="outline-2">
+<h2 id="orga850e45"><span class="section-number-2">3</span> Geometric Mean (GM)</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+For processes that change multiplicatively rather than additively, the appropriate measure is the geometric mean.
+</p>
+
+<p>
+Given a set of real values, usually representing a set of observations,  (x<sub>1</sub>, x<sub>2</sub>, &#x2026; ,x<sub>n</sub>) , the <i>geometric mean</i> is defined as
+</p>
+
+\begin{equation}
+\bar{x}_{\mbox{geo}}= \left( \Pi_{i=1}^n x_i \right)^{\frac{1}{n}} = \sqrt[n]{x_1\cdot x_2 \cdots x_n}
+\end{equation}
+
+<p>
+One can easily show the following identity:
+</p>
+
+\begin{equation}
+\bar{x}_{\mbox{geo}} = \exp\left( \frac{1}{n} \sum_{i=1}^n \ln(x_i) \right).
+\end{equation}
+</div>
+</div>
+
+
+<div id="outline-container-org35535f1" class="outline-2">
+<h2 id="org35535f1"><span class="section-number-2">4</span> Harmonic mean (HM)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Given a set of real values, usually representing a set of observations,  (x<sub>1</sub>, x<sub>2</sub>, &#x2026; ,x<sub>n</sub>) , the <i>harmonic mean</i> is defined as
+</p>
+
+\begin{equation}
+\bar{x}_{\mbox{hm}} = \frac{1}{\frac{1}{n} \sum_{i=1}^{n}\frac{1}{x_{i}}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}}
+\end{equation}
+</div>
+
+<div id="outline-container-orgaac3070" class="outline-3">
+<h3 id="orgaac3070"><span class="section-number-3">4.1</span> Implementing the harmonic mean in R</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+This is a example of how to define new functions in <code>R</code>, in this case, we will define the function <code>harmonic.mean</code> as follows:
+</p>
+
+<pre class="example">
+harmonic.mean &lt;- function(x) {
+NN &lt;- length(x)
+IX &lt;- 1/x
+NN/sum(IX)}
+</pre>
+
+<p>
+Of course it can be written in a single line: <code>harmonic.mean &lt;- function(x) { length(x)/sum(1/x) }</code>. Now you can test the function with any 
+vector variable.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5af3511" class="outline-3">
+<h3 id="org5af3511"><span class="section-number-3">4.2</span> <span class="todo TODO">TODO</span> : create the file <code>my_functions.R</code> and with the definition of the harmonic.mean function. You can keep this file to add the new functions you will be creating.</h3>
+</div>
+</div>
+
+<div id="outline-container-org4542f15" class="outline-2">
+<h2 id="org4542f15"><span class="section-number-2">5</span> Weighted mean (WM)</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Given a set of real values, usually representing a set of observations,  (x<sub>1</sub>, x<sub>2</sub>, &#x2026; ,x<sub>n</sub>) with assosiated weigths (w<sub>1</sub>, w<sub>2</sub>, &#x2026; ,w<sub>n</sub>), the <i>weighted mean</i> is defined as
+</p>
+
+\begin{equation}
+\overline{x}_{w}=\frac{\sum_{i=1}^n w_i x_i}{\sum_{i=1}^n w_i} = \frac{w_1 x_1 + w_2x_2 + \cdots + w_n x_n}{w_1 + w_2 + \cdots + w_n}
+\end{equation}
+</div>
+
+
+<div id="outline-container-orgbfe80bd" class="outline-3">
+<h3 id="orgbfe80bd"><span class="section-number-3">5.1</span> Geometric Interpretation</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+A well known inequality concerning arithmetic, geometric, and harmonic means for any set of positive numbers is
+</p>
+
+\begin{equation}
+    AM \geq GM \geq HM
+\end{equation} 
+
+<p>
+Geometric proof without words can be found here <a href="https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means#/media/File:AM_GM_inequality_visual_proof.svg">Link</a>.
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org4aac21b" class="outline-2">
+<h2 id="org4aac21b"><span class="section-number-2">6</span> Mode</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+The mode is the most frequently occurring value a in data set.
+</p>
+
+<p>
+It is possible to have more than one modal value.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org85a9a54" class="outline-2">
+<h2 id="org85a9a54"><span class="section-number-2">7</span> Median</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Middle value separating the greater and lesser halves of a data set 
+</p>
+
+<p>
+For example if one wants to get the median from the data set: 0, 20, 9, 1, 5:
+</p>
+<ol class="org-ol">
+<li>Sort the data: 0, 1, 5, 9, 20.</li>
+<li>Identify the element exactly in the middle: 0, 1, <b>5</b>, 9, 20.</li>
+<li>Then the median is 5.</li>
+</ol>
+
+<p>
+On the other hand if the data set is: 5, 11, 1, 3, 15, 20, then
+</p>
+<ol class="org-ol">
+<li>Sort the data: 1, 3, 5, 11, 15, 20.</li>
+<li>Identify the elements in the middle:  1, 3, <b>5</b>, <b>11</b>, 15, 20.</li>
+<li>Then the median is 8, which  is the average between 5 and 11: (5 + 11) /2 = 8.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb899461" class="outline-2">
+<h2 id="orgb899461"><span class="section-number-2">8</span> Minimum and maximum</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+The minumum and maximum value in a set of observed values and its comparison, is a first approach for the analysis of the dispersion of the data.
+Note also that teh Range of the data is defined as:
+</p>
+
+<p>
+Range = max - min.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org9a5cf8f" class="outline-2">
+<h2 id="org9a5cf8f"><span class="section-number-2">9</span> Quartiles</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+The quartiles are cut points which divides the number of data points into four parts, or quarters, of more-or-less equal size.
+</p>
+
+<ul class="org-ul">
+<li>The first quartile (Q1) is defined as the middle number between the smallest number (minimum) and the median of the data set. Then,  25% of the data is below this point.</li>
+
+<li>The second quartile (Q2) is the median of a data set; thus 50% of the data lies below this point.</li>
+
+<li>The third quartile (Q3) is the middle value between the median and the highest value (maximum) of the data set. Then, 75% of the data lies below this point.</li>
+</ul>
+
+<p>
+Example: Find the quarttiles for
+</p>
+
+<p>
+56, 60, 65, 65, 67, 69, 70, 72, 75, 75, 76, 77, 81, 82, 84, 90, 90, 95, 99
+</p>
+
+<ul class="org-ul">
+<li>First: Check that the set is increasingly ordered.</li>
+<li>Second: Since this data set contains even number of observations, we pick the 10th value: 75 as the median.</li>
+<li>Third: split the data into two halves including the median
+<ul class="org-ul">
+<li>56, 60, 65, 65, 67, 69, 70, 72, 75, 75</li>
+<li>75, 76, 77, 81, 82, 84, 90, 90, 95, 99</li>
+</ul></li>
+<li>Fourth: In each half compute the median and we will have: Q1 = 68 and Q3=83</li>
+</ul>
+
+<p>
+<i>Note</i>. There are other methods (algorithms) to compute the quartiles,
+although when the data sets are big, the difference between the
+outcomes is small. How does R computes the quartiles when using the
+function <code>summary</code>?
+</p>
+</div>
+
+<div id="outline-container-org14880d7" class="outline-3">
+<h3 id="org14880d7"><span class="section-number-3">9.1</span> Interquartile range</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+The interquartile range is the difference between the third and the first quartile
+</p>
+\begin{equation}
+IQR  = Q3 - Q1.
+\end{equation}
+
+<p>
+The corresponding function in R is: <code>IQR</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9581fb9" class="outline-3">
+<h3 id="org9581fb9"><span class="section-number-3">9.2</span> Outliers</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+It is common to define an outlier to be any observation outside the real interval 
+</p>
+\begin{equation}
+\left[ Q1 - \frac{3}{2} IQR \, , \, Q3 + \frac{3}{2} IQR \right].
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga6830fe" class="outline-2">
+<h2 id="orga6830fe"><span class="section-number-2">10</span> Variance</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Given a set of real values (x<sub>1</sub>, x<sub>2</sub>, &#x2026; ,x<sub>n</sub>), the "population" <i>variance</i> is defined as 
+</p>
+
+\begin{equation}
+\sigma_X^{2}={\frac{1}{n}}\sum_{i=1}^{n}\left(x_{i}-{\overline{x}}\right)^{2}.
+\end{equation}
+
+
+<p>
+When working with samples (subsets) of a given population, the "sample" variance/ is given as
+</p>
+
+\begin{equation}
+s_X^{2}={\frac{1}{n-1}}\sum_{i=1}^{n}\left(x_{i}-{\overline{x}}\right)^{2}.
+\end{equation}
+</div>
+</div>
+
+
+<div id="outline-container-orgd64281e" class="outline-2">
+<h2 id="orgd64281e"><span class="section-number-2">11</span> Probability space</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+A probability space is a special case of a measurable space. This concepts are beyond the scope of this course, but it is worth trying to understand the definition.
+</p>
+
+<p>
+Then probability space is a triplet \((\Omega, \mathcal{B}, P)\) consisting of:
+</p>
+
+<ul class="org-ul">
+<li>The sample space \(\Omega\) — an arbitrary non-empty set. Set of <i>outcomes</i> or <i>observations</i> of an experiment.</li>
+<li>Any subset of \(\Omega\) is called an <i>event</i>.</li>
+<li>The σ-algebra \(\mathcal{B} \subset 2^{\Omega}\) (also called σ-field), that is, \(\mathcal{B}\) is a collection of subsets of \(\Omega\), with the following properties:
+<ul class="org-ul">
+<li>\(\mathcal{B}\)  contains the sample space: \(\Omega \in \mathcal{B}\).</li>
+<li>\(\mathcal{B}\)  is closed under complements: if \(A \in \mathcal{B}\), then also \(( \Omega \setminus A ) \in \mathcal{B}\).</li>
+<li>\(\mathcal{B}\)  is closed under countable unions: if \(A_i \in \mathcal{B}\), for \(i = 1 , 2 ,\ldots\), then also \(( \cup^{\infty}_{i = 1} A_{i} ) \in \mathcal{B}\).</li>
+</ul></li>
+<li>The probability measure \(P : \mathcal{B} \to [ 0 , 1 ]\), is a function with the following properties:
+<ul class="org-ul">
+<li>\(P\) is countably additive (also called σ-additive): if \(A_{i} \cap A_{j} = \emptyset\), for \(i \neq j\), then \(P(\cup^{\infty}_{i = 1} A_{i}) = \Sigma^{\infty}_{i = 1} P(A_{i})\).</li>
+<li>The measure of entire sample space is equal to one: \(P ( \Omega ) = 1\).</li>
+</ul></li>
+</ul>
+
+<p>
+Example: Tossing a Coin
+</p>
+
+<p>
+Let \(\Omega\) the experiment of <b>tossing a coin three times</b>. Then
+</p>
+\begin{equation}
+\Omega := \{ HHH, HHT, HTH, THH, HTT, THT, TTH, TTT\}.
+\end{equation}
+
+<p>
+The &sigma;-algebra \(\mathcal{B}\) consist of a collection of \(2^8\) subsets of \(\Omega\):
+</p>
+\begin{equation}
+\mathcal{B} := \{ \emptyset, \Omega, \{HHH\}, \{ HHT\},\ldots, \{ HTH, HHH\}, \ldots \}
+\end{equation}
+
+<p>
+The event, <i>getting (exactly) two tails</i> when tossing a coin three times, is the subset \(A\subset \Omega\) consisting of
+</p>
+\begin{equation}
+A := \{  HTT, THT, TTH\}.
+\end{equation}
+
+<p>
+Define \(P: \mathcal{B} \to [0,1]\) as follows:
+</p>
+<ol class="org-ol">
+<li>\(P(\emptyset) = 0\).</li>
+<li>For any \(a \in \Omega\), note that \(\{a\} \in \mathcal{B}\). We define \(P(\{a\}) = \frac{1}{2^3}\).</li>
+<li>For any \(A \in \mathcal{B}\), \(A \neq \emptyset\), then we have \(A = \{a_1, a_2, \ldots, a_k\}\). Define \(P(A) = \sum_{j=1}^{k} P(\{a_j\})\).</li>
+</ol>
+<p>
+The function \(P\) is then a probability measure.
+</p>
+
+<p>
+Example: Lebesgue measure
+</p>
+
+<p>
+Let \(X = [0,1]\). Take \(\mathcal{B}\) to be the <b>Borel</b> &sigma;-algebra, which can be define as the <i>minimal</i> &sigma;-algebra generated by the events of the form \(\{[0,b) \,|\, 0\leq b \leq 1\}\).
+It is possible to define the <i>Lebesgue measure</i> of a set \(A\in \mathcal{B}\), denoted by \(\mu(A)\),  as the sum of the length of intervals contained in \(A\).
+This triplet \((X, \mathcal{B}, \mu)\) is an example of a probability space on subsets of the real line.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5dec832" class="outline-2">
+<h2 id="org5dec832"><span class="section-number-2">12</span> Random Variables</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+A random variable \(X\) is a function whose value is a numerical outcome of a random event.
+There are two types of random variables:
+</p>
+<ul class="org-ul">
+<li>Discrete: The sample space is discrete, e.g. \(\Omega = \{0, 1, 2, . . .\}\). In this case the range \(X(\Omega)\) is also a discrete set.</li>
+<li>Continuous: The sample space is not discrete, usually a subset of
+the real line. In this case it can happen that the range \(X(\Omega)\) is a discrete set or a non-discrete subset of the real line.</li>
+</ul>
+
+<p>
+Formally, a random variable \(X\) is a measurable function \(X : \Omega
+    \to \mathbb{R}\), from a set of possible outcomes \(\Omega\) to the real numbers or a subset of
+    it. Then, <b>the probability that \(X\) takes on a value in a measurable set \(S \subseteq \mathbb{R}\)</b> is written as 
+</p>
+
+\begin{equation}
+\label{eq:PS}
+P ⁡ ( X \in S ) = P ⁡ ( \{ \omega ∈ \Omega ∣ X ( \omega ) \in S    \} )
+\end{equation}
+
+<p>
+Examples:
+</p>
+
+<p>
+Discrete random variables: 
+</p>
+<ul class="org-ul">
+<li>Let \(X\) be the number of tails when tossing a coin three times.</li>
+</ul>
+
+
+<p>
+Continuous random variables: 
+</p>
+<ul class="org-ul">
+<li>The lifetime \(X\) of a light bulb component with \(X \in [0, \infty)\).</li>
+</ul>
+
+<p>
+Note that we can also write the expression \eqref{eq:PS} as
+</p>
+
+\begin{equation}
+P ⁡ ( X \in S ) = P ⁡ (X^{-1}(S))
+\end{equation}
+</div>
+</div>
+
+
+<div id="outline-container-org391e0e6" class="outline-2">
+<h2 id="org391e0e6"><span class="section-number-2">13</span> Cumulative distribution function</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+For any random variable \(X\), the <b>cumulative distribution</b> function \(F (x)\) is given by
+</p>
+\begin{equation}
+F (x) = P(X \leq x).
+\end{equation}
+
+
+<p>
+The following properties are easy to establish
+</p>
+
+<p>
+Properties:
+</p>
+<ol class="org-ol">
+<li>\(0 \leq F(x) \leq 1\) for all \(x\).</li>
+<li>\(F(x)\) is non-decreasing.</li>
+<li>\(\displaystyle \lim_{x\to - \infty} F(x) = 0\).</li>
+<li>\(\displaystyle \lim_{x\to + \infty} F(x) = 1\).</li>
+<li>\(F\) is right continuous: \(\displaystyle \lim_{x\to a^{+}} F(x) = F(a)\).</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org37b4bf1" class="outline-2">
+<h2 id="org37b4bf1"><span class="section-number-2">14</span> Probability density function</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+In the next sections we will consider \(\Omega = \mathbb{R}\), \(\mathcal{B}\) the Borel &sigma;-algebra, and \(P\) a probability measure.
+The following concepts can be adapted to the case when \(\Omega\) is discrete by defining the appropriate <i>sums</i> instead of the <i>integral</i>
+signs.
+</p>
+
+<p>
+The <b>probability density function</b> \(f(x)\) is the derivative of the cumulative distribution function
+</p>
+\begin{equation}
+ f(x) = \frac{dF}{dx}.
+\end{equation}
+
+<p>
+By the Fundamental Theorem of Calculus,
+</p>
+
+\begin{equation}
+F(x) =\int_{-\infty}^{x} f(t) dt.
+\end{equation}
+
+<div class="prop">
+<p>
+If \(f\) is a probability density function then
+</p>
+<ol class="org-ol">
+<li>\(f(x) \geq 0\).</li>
+<li>\(\int_{-\infty}^{\infty} f(t) dt = 1\).</li>
+</ol>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4aca25c" class="outline-2">
+<h2 id="org4aca25c"><span class="section-number-2">15</span> Probabilities</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+For any pair of real numbers such that \(a \leq b\), the probability that the random variable \(X\) lies between \(a\) and \(b\) is 
+</p>
+
+\begin{equation}
+P(a \leq X \leq b) = P(X \leq b) - P( X \leq a) = F(b) - F(a) =  \int_{a}^{b} f(t) dt
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orga9c4430" class="outline-2">
+<h2 id="orga9c4430"><span class="section-number-2">16</span> Mean and variance revisited.</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+Population mean or expectation of a continuous random variable X is defined as
+</p>
+
+\begin{equation}
+E[X] = \int_{-\infty}^{\infty} xf(x) dx.
+\end{equation}
+
+<p>
+The variance of the random variable X with mean &mu; = E[X], is given by
+</p>
+
+\begin{equation}
+\mbox{Var}[X] = E[(X-\mu)^2] = \int_{-\infty}^{\infty} (x-\mu)^2 f(x) dx.
+\end{equation}
+
+
+<p>
+The standard deviation is defined by the value 
+</p>
+
+\begin{equation}
+\mbox{s.d.}[X] = \sqrt{\mbox{Var}[X]}.
+\end{equation}
+
+
+<p>
+We say that two <b>random variables are independent</b> if the realisation of one does not affect the probability distribution of the other. 
+</p>
+
+<p>
+Proposition: Let \(a, b, c\) be constant real numbers, and \(X\), \(Y\) be random variables. Then the following identities hold:
+</p>
+
+<ol class="org-ol">
+<li>If \(f\) is the probability density function for \(X\), and \(g\) is any function from the real numbers to the real number, then \(E[g(X)] = \int_{-\infty}^{\infty} g(x) f (x) dx\).</li>
+<li>\(E[aX + bY + c] = aE[X] + b E[Y] + c\).</li>
+<li>\(\mbox{Var}[ aX + b] = a^{2} \mbox{Var}[X]\).</li>
+<li>If \(X\) and \(Y\) are two independent variables then \(E[XY] = E[X]E[Y]\).</li>
+<li>If \(X\) and \(Y\) are two independent variables then \(\mbox{Var}[X + Y] = \mbox{Var}[X] + \mbox{Var}[Y]\).</li>
+<li>\(\mbox{Var}[X] = E[X^{2}] - (E[X])^{2}\).</li>
+</ol>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgf004afd" class="outline-2">
+<h2 id="orgf004afd"><span class="section-number-2">17</span> The normal distribution</h2>
+<div class="outline-text-2" id="text-17">
+<p>
+For real values \(-\infty \leq x \leq \infty\), \(-\infty \leq \mu \leq \infty\) and  \(0 \leq \sigma \leq \infty\), the normal distribution has probability density function:
+</p>
+
+
+<p>
+In the special case that &sigma; = 1 and &mu; = 0, then we write the <b>standard normal distribution</b> as
+</p>
+
+<pre class="example">
+curve(dnorm(x),-3,3)
+
+curve(pnorm(x),-3,3)
+</pre>
+
+
+<p>
+<b>Theorem</b>. If \(X ∼ N (\mu, \sigma^{2} )\) and \(Y = aX + b\) for constants \(a, b\in \mathbb{R}\), then \(Y\) is also normally distributed and 
+</p>
+
+\begin{equation}
+Y \sim N( a \mu + b, a^{2} \sigma^{2})
+\end{equation}
+
+<p>
+In the particular case that \(a = 1/\sigma\) and \(b =  -\mu / \sigma\), then we actually have
+</p>
+
+\begin{equation}
+Y \sim N( 0, 1).
+\end{equation}
+
+<p>
+Example
+</p>
+
+<p>
+For \(X \sim N(2,9)\), find \(P( 2 < X < 5)\).
+</p>
+
+<p>
+<a href="https://en.wikipedia.org/wiki/Standard_normal_table">table of values may be found here</a>
+</p>
+
+<p>
+Solution: \(P( 2 < X < 5) =  0.34\).
+</p>
+
+
+<p>
+<b>Example</b>
+</p>
+
+<p>
+Suppose that \(Z ∼ N(0, 1)\). Using the probability density function and the definition, show that \(\mbox{Var}[Z] = 1\). 
+</p>
+
+
+<p>
+<b>Example</b> 
+</p>
+
+<p>
+This example is taken from "The R book" by Michael J. Crawley.
+Suppose we have measured the heights of 100 people. The mean height was 170 cm and the standard
+deviation was 8 cm. We can ask three sorts of questions about data like these: what is the probability that a
+randomly selected individual will be:
+</p>
+
+<ul class="org-ul">
+<li>shorter than a particular height?</li>
+<li>taller than a particular height?</li>
+<li>between one specified height and another?</li>
+</ul>
+
+<p>
+The area under the whole curve is exactly 1; everybody has a height between minus infinity and plus infinity.
+True, but not particularly helpful. Suppose we want to know the probability that one of our people, selected
+at random from the group, will be less than 160 cm tall. We need to convert this height into a value of z; that
+is to say, we need to convert 160 cm into a number of standard deviations from the mean. What do we know
+about the standard normal distribution? It has a mean of 0 and a standard deviation of 1. So we can convert
+any value \(y\), from a distribution with mean \(ȳ\) and standard deviation \(s\) very simply by calculating
+</p>
+
+\begin{equation}
+z = \frac{y − \overline{y}}{s}
+\end{equation}
+
+<p>
+So we convert \(160\) cm into a number of standard deviations. It is less than the mean height (\(170\) cm) so its
+value will be negative:
+</p>
+
+\begin{equation}
+z = −1.25.
+\end{equation}
+
+
+<p>
+Now we need to find the probability of a value of the standard normal taking a value of –1.25 or smaller.
+This is the area under the left-hand tail (the integral) of the density function. The function we need for this
+is pnorm: we provide it with a value of z (or, more generally, with a quantile) and it provides us with the
+probability we want:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">pnorm(-1.25)
+</pre>
+</div>
+
+<pre class="example">
+0.105649773666855
+</pre>
+
+
+<p>
+So the answer to our first question (the shaded area, top left) is just over 10%
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org53e8145" class="outline-2">
+<h2 id="org53e8145"><span class="section-number-2">18</span> The Bernoulli distribution</h2>
+<div class="outline-text-2" id="text-18">
+<p>
+This is the probability distribution  a binary random variable \(X\). The response takes one of only two
+values: it is 1 with probability p  and is 0 with probability \(1 – p\) (probability of success and failure respectively). The density function
+is given by:
+</p>
+
+\begin{equation}
+f(x) = p^{x}(1-p)^{1-x}.
+\end{equation}
+
+<p>
+Verify that
+</p>
+
+<ul class="org-ul">
+<li>\(E[X] = p\).</li>
+<li>\(\mbox{Var}[X] = pq\).</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org7b8976d" class="outline-2">
+<h2 id="org7b8976d"><span class="section-number-2">19</span> The binomial distribution</h2>
+<div class="outline-text-2" id="text-19">
+<p>
+The general form of the density of the  binomial distribution is given by
+</p>
+
+\begin{equation}
+f(k) =  \binom{n}{k} p^{k} (1 - p  )^{n-k}.
+\end{equation}
+
+
+<p>
+The mean of the binomial distribution is np and the variance is np(1 – p).
+</p>
+
+
+<pre class="example">
+dbinom(x, size, prob)
+</pre>
+
+<p>
+for example, in a barplot
+</p>
+
+<pre class="example">
+barplot(pbinom(0:4, 4, 0.1))
+barplot(dbinom(0:4, 4, 0.1))
+</pre>
+
+<p>
+Compare this plot with the one obtained for the normal distribution.
+</p>
+
+
+<p>
+Example:
+</p>
+
+<p>
+Suppose a biased coin comes up heads with probability 0.3 when tossed. The probability of seeing exactly 4 heads in 6 tosses is 
+<code>f(4) = 0.0595</code>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2022-10-12 Wed 00:00</p>
+<p class="author">Author: Daniel Ballesteros-Chávez</p>
+<p class="date">Created: 2022-10-22 Sat 14:55</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
