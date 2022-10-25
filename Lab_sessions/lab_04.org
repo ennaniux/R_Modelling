@@ -1,0 +1,77 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:nil title:t toc:nil todo:t |:t
+#+title: Computer lab 04
+#+date: <2021-10-20 Wed>
+#+author: daniel b
+#+email: daniel@linuxdeb.home
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 26.1 (Org mode 9.3.6)
+
+# Daniel Ballesteros-Chávez
+
+
+* Task 1
+
+Suppose we have collected the following information
+#+begin_src R
+AA <- c(
+33.62 ,37.80, 24.31, 34.97, 21.81, 27.36, 12.45, 34.20, 39.60, 39.47, 29.14, 38.11,
+42.26 , 6.86, 36.64, 55.42, 22.37, 15.66, 31.29, 30.81, 34.53, 28.56, 26.69, 40.48,
+22.34 ,33.56, 22.60, 18.48, 32.01, 33.22, 14.13, 24.02, 33.88, 32.07, 17.94, 28.51,
+29.11 ,41.72, 51.78, 38.59, 31.11, 31.30, 27.04, 28.37, 24.88, 39.63, 18.73, 34.48,
+29.73 ,11.47, 24.58, 28.14, 32.43, 10.85, 44.03, 26.83, 24.30, 19.60, 20.57, 40.13,
+37.04 ,31.42, 34.40, 35.09, 32.87, 32.78, 31.24, 19.80, 10.14, 35.69, 24.07, 23.12,
+35.25 ,26.85, 28.42, 26.53, 12.67, 23.82, 19.45, 22.21, 31.03, 44.85, 16.91, 41.76,
+27.94 ,22.51, 23.44, 35.41, 30.00, 47.13, 22.98, 38.17, 14.74, 40.43, 27.96, 26.06,
+26.35 ,33.74, 21.79, 35.61)
+#+end_src
+
+If we knew that the standard deviation of this parameter on the population is $\sigma=3$ compute
+a 95% Confidence interval (C.I), assuming the data is normally distributed.
+
+* Task 2
+
+Solve the problem in Task 1, but now consider that we do not know the value of the standard deviation.
+
+* Task 3
+
+A) Take a sample of size $n =10$ from the data in Task 1. Now we cannot longer assume the data is normally distributed.
+Compute the 90% CI.
+
+B) Compare your previous result with what you get using the function =t.test=.
+
+
+
+* Task 4
+
+Given a sample of size $n = 9$, suppose that your sample mean equals =3.12=. If your sample variance is =1.37=, find the 95% confidence interval for the population mean \mu.
+
+* Task 5
+
+A candidate is running for election. Her advisor team conduct a poll,
+to determine if she is likely to win. Out of 200 voters contacted, 105
+indicate that they will vote for her, and the other 95 indicate that
+they will vote for her opponent.
+
+a) Find a 95% confidence interval for the proportion of the population who intend to vote for her.
+b) What is the probability that she will win, based on this sample?
+c) How many voters should be included in the sample so that the margin of error is within 3%?
+
+      
+
+* Task 6
+
+Plot the chi-square probability density function for different degrees of freedom and obtain something similar to this image
+
+#+attr_html: :width 30%
+#+attr_latex:  :width 7cm
+file:./plot_chisq_nnn.png
+
+
+
+*

@@ -424,6 +424,8 @@ fivenum(iris$Sepal.Length)
 #+RESULTS:
 : [1] 4.3 5.1 5.8 6.4 7.9
 
+A simple table of frequencies can be obtained by
+
 #+begin_src R :results output :exports both
 data.frame(table(iris$Sepal.Length))
 #+end_src
@@ -562,7 +564,7 @@ Finally we can also add a *rug* representation of the data
 x <- iris$Sepal.Length
 hist(x, freq=FALSE, ylim=c(0,0.55),col="lightblue")  ## note that here I had to adjust the limits for the yaxis.
 lines(density(x,bw=0.1))
-rug(x)
+rug(x,col="red")
 #+end_example
  
 We can plot the *empirical cumulative distribution function* by using the function ~ecdf~
