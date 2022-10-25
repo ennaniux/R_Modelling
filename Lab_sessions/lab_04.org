@@ -2,76 +2,197 @@
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
 #+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
-#+options: timestamp:nil title:t toc:nil todo:t |:t
-#+title: Computer lab 04
-#+date: <2021-10-20 Wed>
-#+author: daniel b
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: R modelling. Lab session 04
+#+date:
+#+author: Daniel Ballesteros Chávez.
 #+email: daniel@linuxdeb.home
 #+language: en
 #+select_tags: export
 #+exclude_tags: noexport
-#+creator: Emacs 26.1 (Org mode 9.3.6)
+#+creator: Emacs 27.1 (Org mode 9.3.6)
+# +OPTIONS: html-style:nil
 
 # Daniel Ballesteros-Chávez
 
+#+HTML_HEAD: <style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+#+HTML_HEAD: <style> pre.src { overflow: auto; }</style>
+#+HTML_HEAD: <style> .mmbox {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
+#+HTML_HEAD_EXTRA: <style>code {background-color: #ccc}</style>
 
-* Task 1
+:results:
+#+HTML_HEAD:<style> /* Daniel Ballesteros-Chavez */
+#+HTML_HEAD:
+#+HTML_HEAD: :root {
+#+HTML_HEAD:   --col0: #2b2d42;		/*Top bar*/
+#+HTML_HEAD:   --col1: #8d99ae;		/* Section header bg*/
+#+HTML_HEAD:   --col2: #edf2f4;		/*body bg*/
+#+HTML_HEAD:   --col3: #ef233c;		/*Active top bar*/
+#+HTML_HEAD:   --col4: #d90429;		/*Home botton bg*/
+#+HTML_HEAD:   --col5: #173f5f;			/*H2 header*/
+#+HTML_HEAD:
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: body {
+#+HTML_HEAD:     /*    background-image: url('./Images/bgpic.jpg'); */
+#+HTML_HEAD:     background-size: cover;
+#+HTML_HEAD:     background-attachment: fixed;
+#+HTML_HEAD:	font-family: Helvetica;
+#+HTML_HEAD:     /* background-position: left top; */
+#+HTML_HEAD:     /* background-repeat: no-repeat; */
+#+HTML_HEAD:     background: var(--col2);
+#+HTML_HEAD:     margin: 20px auto; /* "auto" for centering */
+#+HTML_HEAD:     max-width: 768px;
+#+HTML_HEAD:     /* max-width: 800px; */
+#+HTML_HEAD:     /* font-family: monospace; */
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: h1 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1.5em;
+#+HTML_HEAD:     /* margin-top: 0.67em; */
+#+HTML_HEAD:     /* margin-bottom: 0.67em; */
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     padding: 5px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD:     /*text-align: center; */
+#+HTML_HEAD:     /*text-shadow: 3px 2px gray;*/
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: h2 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1em;
+#+HTML_HEAD:     margin-top: 0.67em;
+#+HTML_HEAD:     margin-bottom: 0.67em;
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     background-color: var(--col1);
+#+HTML_HEAD:     border-radius: 10px 10px;
+#+HTML_HEAD:     padding: 10px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-2 {
+#+HTML_HEAD:     background-color: var(--col2);
+#+HTML_HEAD:     /* border:3px solid #f2f6f9; */
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-2 h2 {
+#+HTML_HEAD:     color: var(--col5);
+#+HTML_HEAD:     font-size: 20px; /* arial, sans-serif; */
+#+HTML_HEAD:     /* font-family: 'Fredoka One', cursive; */
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-text-2 {
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-text-2 p {
+#+HTML_HEAD:     text-align: justify;
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: </style>
+:end:
 
-Suppose we have collected the following information
-#+begin_src R
-AA <- c(
-33.62 ,37.80, 24.31, 34.97, 21.81, 27.36, 12.45, 34.20, 39.60, 39.47, 29.14, 38.11,
-42.26 , 6.86, 36.64, 55.42, 22.37, 15.66, 31.29, 30.81, 34.53, 28.56, 26.69, 40.48,
-22.34 ,33.56, 22.60, 18.48, 32.01, 33.22, 14.13, 24.02, 33.88, 32.07, 17.94, 28.51,
-29.11 ,41.72, 51.78, 38.59, 31.11, 31.30, 27.04, 28.37, 24.88, 39.63, 18.73, 34.48,
-29.73 ,11.47, 24.58, 28.14, 32.43, 10.85, 44.03, 26.83, 24.30, 19.60, 20.57, 40.13,
-37.04 ,31.42, 34.40, 35.09, 32.87, 32.78, 31.24, 19.80, 10.14, 35.69, 24.07, 23.12,
-35.25 ,26.85, 28.42, 26.53, 12.67, 23.82, 19.45, 22.21, 31.03, 44.85, 16.91, 41.76,
-27.94 ,22.51, 23.44, 35.41, 30.00, 47.13, 22.98, 38.17, 14.74, 40.43, 27.96, 26.06,
-26.35 ,33.74, 21.79, 35.61)
-#+end_src
+* Introduction
 
-If we knew that the standard deviation of this parameter on the population is $\sigma=3$ compute
-a 95% Confidence interval (C.I), assuming the data is normally distributed.
+The main objective of this practice is that you feel comfortable writing code in 'Markdown' and to produce
+human readable documents.
 
-* Task 2
+We should be able to write simple mathematical expressions using syntax like
+#+begin_example
+This is an inline equation $f(x) = 2^3 + \frac{x}{\sqrt{x^2 +1}}$.
 
-Solve the problem in Task 1, but now consider that we do not know the value of the standard deviation.
+Also by declaring an equation like the following:
+\begin{equation}
+e^x = \lim_{x\to \infty} \left( 1  + \frac{x}{n}\right)^{n}
+\end{equation}
+#+end_example
 
-* Task 3
-
-A) Take a sample of size $n =10$ from the data in Task 1. Now we cannot longer assume the data is normally distributed.
-Compute the 90% CI.
-
-B) Compare your previous result with what you get using the function =t.test=.
+To obtain something like
+\begin{equation}
+e^x = \lim_{x\to \infty} \left( 1  + \frac{x}{n}\right)^{n}.
+\end{equation}
 
 
 
-* Task 4
+Make sure you can produce your html, pdf or doc file for it will be needed for the following session.
 
-Given a sample of size $n = 9$, suppose that your sample mean equals =3.12=. If your sample variance is =1.37=, find the 95% confidence interval for the population mean \mu.
+* Practice 1
 
-* Task 5
+Go to the following website
 
-A candidate is running for election. Her advisor team conduct a poll,
-to determine if she is likely to win. Out of 200 voters contacted, 105
-indicate that they will vote for her, and the other 95 indicate that
-they will vote for her opponent.
+ https://rmarkdown.rstudio.com/
 
-a) Find a 95% confidence interval for the proportion of the population who intend to vote for her.
-b) What is the probability that she will win, based on this sample?
-c) How many voters should be included in the sample so that the margin of error is within 3%?
+1) Install the package "rmarkdown"
 
-      
+2) Create the file ~lab_04_solutions.Rmd~, title: R lab 04 Solutions, author: your name, section 1: The hello world program.
 
-* Task 6
-
-Plot the chi-square probability density function for different degrees of freedom and obtain something similar to this image
-
-#+attr_html: :width 30%
-#+attr_latex:  :width 7cm
-file:./plot_chisq_nnn.png
+3) Export to html. Make sure that both the code and the results are shown in the output file.
 
 
+* Practice 2
 
-*
+Add in the section 2 of your ~Rmd~ file the definition of the arithmetic mean using ~latex~ syntax.
+and compute the (arithmetic) mean of the following sequence of numbers:
+
++  $\{6,9,4,3,4,9,4,2,7,3,5,4,7,1,3,5,1,7,3,4,7,9,7,2,9,1,8,2,7,4 \}$
+
+
+* Practice 3
+
+Add in the section 3 of your ~Rmd~ file the definition of both, population variance and sample variance.
+Use the function ~var()~ to the sequence
+
++ $\{ 5,3,3,2,4,4,8,9,6,1,10,8,5,2,5,2,4,10,6,3,1,9,3,4,1,9,10,7,1,7 \}$
+
++ What kind of variance the function ~var~ is performing? population variance or sample variance?
+
+
+* Practice 4
+
+Add section 4 to your ~Rmd~ file. Use the data set ~diamondsCSV.csv~ to print the table summarising
+the average prices of a diamond by cut type and colour. (see Practice 1 of previous lab).
+
++ Make sure that the table is shown accordingly in the exported html file.
+
+* Practice 5
+
+Add section 5 to your ~Rmd~ file. Explain what is an /outlier/. Run the following command:  ~plot(iris$Sepal.Width ~ iris$Species)~.  
+
++ Explain the output and make sure the plot appears in the html file.
+
+
+* Practice 6
+
+Read the output of the help command ~?Normal~. This is a description of the R functions related
+to the The Normal Distribution.
+
++ Copy form this documentation the mathematical expression for the the
+  normal distribution density function and add it to your document.
+
+Use the following sequence ~X <- seq(-3,3,by=0.2)~.
+
+From the plots
+
+#+begin_example R
+plot(X,dnorm(X),type="l")
+
+plot(X,pnorm(X),type="l")
+#+end_example
+
+ + Decide which function corresponds to a Probability Density
+   function, and which one corresponds to a Cummulative Distribution
+   Function. (See Lecture 2 for the definitions we are using).
+
++ Make sure the images are rendered correctly in the html file.
+
+
+
+

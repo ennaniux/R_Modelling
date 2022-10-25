@@ -3,11 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-10-25 Tue 11:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Computer lab 04</title>
+<title>R modelling. Lab session 04</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="daniel b" />
+<meta name="author" content="Daniel Ballesteros Chávez." />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -192,6 +193,76 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+<style> pre.src { overflow: auto; }</style>
+<style> .mmbox {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
+<style> /* Daniel Ballesteros-Chavez */
+:root {
+--col0: #2b2d42;		/*Top bar*/
+--col1: #8d99ae;		/* Section header bg*/
+--col2: #edf2f4;		/*body bg*/
+--col3: #ef233c;		/*Active top bar*/
+--col4: #d90429;		/*Home botton bg*/
+--col5: #173f5f;			/*H2 header*/
+}
+body {
+/*    background-image: url('./Images/bgpic.jpg'); */
+background-size: cover;
+background-attachment: fixed;
+font-family: Helvetica;
+/* background-position: left top; */
+/* background-repeat: no-repeat; */
+background: var(--col2);
+margin: 20px auto; /* "auto" for centering */
+max-width: 768px;
+/* max-width: 800px; */
+/* font-family: monospace; */
+}
+h1 {
+display: block;
+font-size: 1.5em;
+/* margin-top: 0.67em; */
+/* margin-bottom: 0.67em; */
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;
+color: var(--col0);
+padding: 5px 20px;
+/*    background-color:#092B39;*/
+/*text-align: center; */
+/*text-shadow: 3px 2px gray;*/
+}
+h2 {
+display: block;
+font-size: 1em;
+margin-top: 0.67em;
+margin-bottom: 0.67em;
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;
+color: var(--col0);
+background-color: var(--col1);
+border-radius: 10px 10px;
+padding: 10px 20px;
+/*    background-color:#092B39;*/
+}
+div.outline-2 {
+background-color: var(--col2);
+/* border:3px solid #f2f6f9; */
+color: var(--col0);
+}
+div.outline-2 h2 {
+color: var(--col5);
+font-size: 20px; /* arial, sans-serif; */
+/* font-family: 'Fredoka One', cursive; */
+}
+div.outline-text-2 {
+}
+div.outline-text-2 p {
+text-align: justify;
+}
+</style>
+<style>code {background-color: #ccc}</style>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -263,114 +334,180 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Computer lab 04</h1>
+<h1 class="title">R modelling. Lab session 04</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2f7a761">Introduction</a></li>
+<li><a href="#orgd5c56a9">Practice 1</a></li>
+<li><a href="#org4f3b4ef">Practice 2</a></li>
+<li><a href="#org2d5efcb">Practice 3</a></li>
+<li><a href="#orgae4c45d">Practice 4</a></li>
+<li><a href="#orgd82995a">Practice 5</a></li>
+<li><a href="#org16283c1">Practice 6</a></li>
+</ul>
+</div>
+</div>
 
-
-<div id="outline-container-orgedddefc" class="outline-2">
-<h2 id="orgedddefc">Task 1</h2>
-<div class="outline-text-2" id="text-orgedddefc">
+<div id="outline-container-org2f7a761" class="outline-2">
+<h2 id="org2f7a761">Introduction</h2>
+<div class="outline-text-2" id="text-org2f7a761">
 <p>
-Suppose we have collected the following information
+The main objective of this practice is that you feel comfortable writing code in 'Markdown' and to produce
+human readable documents.
 </p>
-<div class="org-src-container">
-<pre class="src src-R">AA <span style="color: #e5786d;">&lt;-</span> c(
-33.62 ,37.80, 24.31, 34.97, 21.81, 27.36, 12.45, 34.20, 39.60, 39.47, 29.14, 38.11,
-42.26 , 6.86, 36.64, 55.42, 22.37, 15.66, 31.29, 30.81, 34.53, 28.56, 26.69, 40.48,
-22.34 ,33.56, 22.60, 18.48, 32.01, 33.22, 14.13, 24.02, 33.88, 32.07, 17.94, 28.51,
-29.11 ,41.72, 51.78, 38.59, 31.11, 31.30, 27.04, 28.37, 24.88, 39.63, 18.73, 34.48,
-29.73 ,11.47, 24.58, 28.14, 32.43, 10.85, 44.03, 26.83, 24.30, 19.60, 20.57, 40.13,
-37.04 ,31.42, 34.40, 35.09, 32.87, 32.78, 31.24, 19.80, 10.14, 35.69, 24.07, 23.12,
-35.25 ,26.85, 28.42, 26.53, 12.67, 23.82, 19.45, 22.21, 31.03, 44.85, 16.91, 41.76,
-27.94 ,22.51, 23.44, 35.41, 30.00, 47.13, 22.98, 38.17, 14.74, 40.43, 27.96, 26.06,
-26.35 ,33.74, 21.79, 35.61)
+
+<p>
+We should be able to write simple mathematical expressions using syntax like
+</p>
+<pre class="example">
+This is an inline equation $f(x) = 2^3 + \frac{x}{\sqrt{x^2 +1}}$.
+
+Also by declaring an equation like the following:
+\begin{equation}
+e^x = \lim_{x\to \infty} \left( 1  + \frac{x}{n}\right)^{n}
+\end{equation}
 </pre>
-</div>
 
 <p>
-If we knew that the standard deviation of this parameter on the population is \(\sigma=3\) compute
-a 95% Confidence interval (C.I), assuming the data is normally distributed.
+To obtain something like
 </p>
-</div>
-</div>
-
-<div id="outline-container-org318943e" class="outline-2">
-<h2 id="org318943e">Task 2</h2>
-<div class="outline-text-2" id="text-org318943e">
-<p>
-Solve the problem in Task 1, but now consider that we do not know the value of the standard deviation.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org579042a" class="outline-2">
-<h2 id="org579042a">Task 3</h2>
-<div class="outline-text-2" id="text-org579042a">
-<p>
-A) Take a sample of size \(n =10\) from the data in Task 1. Now we cannot longer assume the data is normally distributed.
-Compute the 90% CI.
-</p>
-
-<p>
-B) Compare your previous result with what you get using the function <code>t.test</code>.
-</p>
-</div>
-</div>
-
-
-
-<div id="outline-container-org5ec8719" class="outline-2">
-<h2 id="org5ec8719">Task 4</h2>
-<div class="outline-text-2" id="text-org5ec8719">
-<p>
-Given a sample of size \(n = 9\), suppose that your sample mean equals <code>3.12</code>. If your sample variance is <code>1.37</code>, find the 95% confidence interval for the population mean &mu;.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org2e39b72" class="outline-2">
-<h2 id="org2e39b72">Task 5</h2>
-<div class="outline-text-2" id="text-org2e39b72">
-<p>
-A candidate is running for election. Her advisor team conduct a poll,
-to determine if she is likely to win. Out of 200 voters contacted, 105
-indicate that they will vote for her, and the other 95 indicate that
-they will vote for her opponent.
-</p>
-
-<p>
-a) Find a 95% confidence interval for the proportion of the population who intend to vote for her.
-b) What is the probability that she will win, based on this sample?
-c) How many voters should be included in the sample so that the margin of error is within 3%?
-</p>
-</div>
-</div>
-
-
-
-<div id="outline-container-org0be809f" class="outline-2">
-<h2 id="org0be809f">Task 6</h2>
-<div class="outline-text-2" id="text-org0be809f">
-<p>
-Plot the chi-square probability density function for different degrees of freedom and obtain something similar to this image
-</p>
-
-
-<div class="figure">
-<p><img src="./plot_chisq_nnn.png" alt="plot_chisq_nnn.png" width="30%" />
-</p>
-</div>
+\begin{equation}
+e^x = \lim_{x\to \infty} \left( 1  + \frac{x}{n}\right)^{n}.
+\end{equation}
 
 
 
 <p>
-*
+Make sure you can produce your html, pdf or doc file for it will be needed for the following session.
 </p>
+</div>
+</div>
+
+<div id="outline-container-orgd5c56a9" class="outline-2">
+<h2 id="orgd5c56a9">Practice 1</h2>
+<div class="outline-text-2" id="text-orgd5c56a9">
+<p>
+Go to the following website
+</p>
+
+<p>
+<a href="https://rmarkdown.rstudio.com/">https://rmarkdown.rstudio.com/</a>
+</p>
+
+<ol class="org-ol">
+<li>Install the package "rmarkdown"</li>
+
+<li>Create the file <code>lab_04_solutions.Rmd</code>, title: R lab 04 Solutions, author: your name, section 1: The hello world program.</li>
+
+<li>Export to html. Make sure that both the code and the results are shown in the output file.</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org4f3b4ef" class="outline-2">
+<h2 id="org4f3b4ef">Practice 2</h2>
+<div class="outline-text-2" id="text-org4f3b4ef">
+<p>
+Add in the section 2 of your <code>Rmd</code> file the definition of the arithmetic mean using <code>latex</code> syntax.
+and compute the (arithmetic) mean of the following sequence of numbers:
+</p>
+
+<ul class="org-ul">
+<li>\(\{6,9,4,3,4,9,4,2,7,3,5,4,7,1,3,5,1,7,3,4,7,9,7,2,9,1,8,2,7,4 \}\)</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org2d5efcb" class="outline-2">
+<h2 id="org2d5efcb">Practice 3</h2>
+<div class="outline-text-2" id="text-org2d5efcb">
+<p>
+Add in the section 3 of your <code>Rmd</code> file the definition of both, population variance and sample variance.
+Use the function <code>var()</code> to the sequence
+</p>
+
+<ul class="org-ul">
+<li>\(\{ 5,3,3,2,4,4,8,9,6,1,10,8,5,2,5,2,4,10,6,3,1,9,3,4,1,9,10,7,1,7 \}\)</li>
+
+<li>What kind of variance the function <code>var</code> is performing? population variance or sample variance?</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgae4c45d" class="outline-2">
+<h2 id="orgae4c45d">Practice 4</h2>
+<div class="outline-text-2" id="text-orgae4c45d">
+<p>
+Add section 4 to your <code>Rmd</code> file. Use the data set <code>diamondsCSV.csv</code> to print the table summarising
+the average prices of a diamond by cut type and colour. (see Practice 1 of previous lab).
+</p>
+
+<ul class="org-ul">
+<li>Make sure that the table is shown accordingly in the exported html file.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd82995a" class="outline-2">
+<h2 id="orgd82995a">Practice 5</h2>
+<div class="outline-text-2" id="text-orgd82995a">
+<p>
+Add section 5 to your <code>Rmd</code> file. Explain what is an <i>outlier</i>. Run the following command:  <code>plot(iris$Sepal.Width ~ iris$Species)</code>.  
+</p>
+
+<ul class="org-ul">
+<li>Explain the output and make sure the plot appears in the html file.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org16283c1" class="outline-2">
+<h2 id="org16283c1">Practice 6</h2>
+<div class="outline-text-2" id="text-org16283c1">
+<p>
+Read the output of the help command <code>?Normal</code>. This is a description of the R functions related
+to the The Normal Distribution.
+</p>
+
+<ul class="org-ul">
+<li>Copy form this documentation the mathematical expression for the the
+normal distribution density function and add it to your document.</li>
+</ul>
+
+<p>
+Use the following sequence <code>X &lt;- seq(-3,3,by=0.2)</code>.
+</p>
+
+<p>
+From the plots
+</p>
+
+<pre class="example">
+plot(X,dnorm(X),type="l")
+
+plot(X,pnorm(X),type="l")
+</pre>
+
+<ul class="org-ul">
+<li>Decide which function corresponds to a Probability Density
+function, and which one corresponds to a Cummulative Distribution
+Function. (See Lecture 2 for the definitions we are using).</li>
+</ul>
+<ul class="org-ul">
+<li>Make sure the images are rendered correctly in the html file.</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-10-20 Wed 00:00</p>
-<p class="author">Author: daniel b</p>
+<p class="author">Author: Daniel Ballesteros Chávez.</p>
+<p class="date">Created: 2022-10-25 Tue 11:02</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
