@@ -439,11 +439,50 @@ P(X \leq x) > q ,
 Prefix the name given here by ~d~ for the density, ~p~ for the CDF,
 ~q~ for the quantile function and ~r~ for simulation (random deviates)
 
-*Example* They look up P(X < 30) when $X$ is normal with mean $55$ and standard deviation $15$. 
+*Example 1* To compute $P(X < 30)$ when $X$ is normal with mean $55$ and standard deviation $15$. 
 
-#+begin_example R
+#+begin_src R :results output :exports both
 pnorm(30, mean=55, sd=15)
-#+end_example
+#+end_src
+
+#+RESULTS:
+: 0.0477903522728147
+
+*Example 2* To compute $P(X > 30)$ when $X$ is normal with mean $55$ and standard deviation $15$. 
+
+#+begin_src R :results output :exports both
+1 - pnorm(30, mean=55, sd=15)
+#+end_src
+
+#+RESULTS:
+: 0.952209647727185
+
+*Example 3* To compute 90 percentile  when $X$ is normal with mean $55$ and standard deviation $15$. 
+
+#+begin_src R :results output :exports both
+qnorm(.9, mean=55, sd = 15)
+#+end_src
+
+#+RESULTS:
+: 74.223273483169
+
+*Example 4* To *simulate* $n = 10$ observations normally with mean $55$ and standard deviation $15$. 
+
+#+begin_src R :results output :exports both
+rnorm(10, mean=55, sd = 15)
+#+end_src
+
+#+RESULTS:
+| 68.5486212969529 |
+| 69.4746985186583 |
+| 64.2088256057422 |
+| 30.4674174748002 |
+|  54.579843379504 |
+| 76.9585268208811 |
+| 24.2911211206573 |
+| 58.1964144995452 |
+| 64.1227403679861 |
+| 58.2984398234332 |
 
 * The Distribution of the data set.
 

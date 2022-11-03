@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-03 Thu 10:24 -->
+<!-- 2022-11-03 Thu 14:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lecture 3: Simple Plots</title>
@@ -553,22 +553,22 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge0df0dd">1. Probability distributions in R</a></li>
-<li><a href="#orgb02503c">2. The Distribution of the data set.</a></li>
-<li><a href="#org3d17941">3. Histograms</a></li>
-<li><a href="#orgb9d0092">4. Plotting in R</a>
+<li><a href="#org0320ec9">1. Probability distributions in R</a></li>
+<li><a href="#orgcffe133">2. The Distribution of the data set.</a></li>
+<li><a href="#orgd0fd73d">3. Histograms</a></li>
+<li><a href="#org0b80235">4. Plotting in R</a>
 <ul>
-<li><a href="#org90ba964">4.1. Plot a function</a></li>
+<li><a href="#org0ab30d8">4.1. Plot a function</a></li>
 </ul>
 </li>
-<li><a href="#org83ebf86">5. Plot from data frame (scatter plot)</a></li>
+<li><a href="#org2362d74">5. Plot from data frame (scatter plot)</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orge0df0dd" class="outline-2">
-<h2 id="orge0df0dd"><span class="section-number-2">1</span> Probability distributions in R</h2>
+<div id="outline-container-org0320ec9" class="outline-2">
+<h2 id="org0320ec9"><span class="section-number-2">1</span> Probability distributions in R</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 One convenient use of R is to provide a comprehensive set of
@@ -785,17 +785,109 @@ Prefix the name given here by <code>d</code> for the density, <code>p</code> for
 </p>
 
 <p>
-<b>Example</b> They look up P(X &lt; 30) when \(X\) is normal with mean \(55\) and standard deviation \(15\). 
+<b>Example 1</b> To compute \(P(X < 30)\) when \(X\) is normal with mean \(55\) and standard deviation \(15\). 
 </p>
 
-<pre class="example">
-pnorm(30, mean=55, sd=15)
+<div class="org-src-container">
+<pre class="src src-R">pnorm(30, mean=55, sd=15)
 </pre>
+</div>
+
+<pre class="example">
+0.0477903522728147
+</pre>
+
+
+<p>
+<b>Example 2</b> To compute \(P(X > 30)\) when \(X\) is normal with mean \(55\) and standard deviation \(15\). 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">1 - pnorm(30, mean=55, sd=15)
+</pre>
+</div>
+
+<pre class="example">
+0.952209647727185
+</pre>
+
+
+<p>
+<b>Example 3</b> To compute 90 percentile  when \(X\) is normal with mean \(55\) and standard deviation \(15\). 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">qnorm(.9, mean=55, sd = 15)
+</pre>
+</div>
+
+<pre class="example">
+74.223273483169
+</pre>
+
+
+<p>
+<b>Example 4</b> To <b>simulate</b> \(n = 10\) observations normally with mean \(55\) and standard deviation \(15\). 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">rnorm(10, mean=55, sd = 15)
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">68.5486212969529</td>
+</tr>
+
+<tr>
+<td class="org-right">69.4746985186583</td>
+</tr>
+
+<tr>
+<td class="org-right">64.2088256057422</td>
+</tr>
+
+<tr>
+<td class="org-right">30.4674174748002</td>
+</tr>
+
+<tr>
+<td class="org-right">54.579843379504</td>
+</tr>
+
+<tr>
+<td class="org-right">76.9585268208811</td>
+</tr>
+
+<tr>
+<td class="org-right">24.2911211206573</td>
+</tr>
+
+<tr>
+<td class="org-right">58.1964144995452</td>
+</tr>
+
+<tr>
+<td class="org-right">64.1227403679861</td>
+</tr>
+
+<tr>
+<td class="org-right">58.2984398234332</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
-<div id="outline-container-orgb02503c" class="outline-2">
-<h2 id="orgb02503c"><span class="section-number-2">2</span> The Distribution of the data set.</h2>
+<div id="outline-container-orgcffe133" class="outline-2">
+<h2 id="orgcffe133"><span class="section-number-2">2</span> The Distribution of the data set.</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 How to identify the distribution of your data? This is a common and important question when analysiing data. 
@@ -888,8 +980,8 @@ A simple table of frequencies can be obtained by
 
 
 
-<div id="outline-container-org3d17941" class="outline-2">
-<h2 id="org3d17941"><span class="section-number-2">3</span> Histograms</h2>
+<div id="outline-container-orgd0fd73d" class="outline-2">
+<h2 id="orgd0fd73d"><span class="section-number-2">3</span> Histograms</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 A stem-and-leaf plot is  also donne in R with the function <code>stem</code>
@@ -1016,12 +1108,12 @@ plot(ecdf(x), do.points=FALSE, verticals=TRUE)
 </div>
 
 
-<div id="outline-container-orgb9d0092" class="outline-2">
-<h2 id="orgb9d0092"><span class="section-number-2">4</span> Plotting in R</h2>
+<div id="outline-container-org0b80235" class="outline-2">
+<h2 id="org0b80235"><span class="section-number-2">4</span> Plotting in R</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org90ba964" class="outline-3">
-<h3 id="org90ba964"><span class="section-number-3">4.1</span> Plot a function</h3>
+<div id="outline-container-org0ab30d8" class="outline-3">
+<h3 id="org0ab30d8"><span class="section-number-3">4.1</span> Plot a function</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Now we will use the basic plot function oin R to plot graphs.
@@ -1085,8 +1177,8 @@ plot(F,X)
 </div>
 
 
-<div id="outline-container-org83ebf86" class="outline-2">
-<h2 id="org83ebf86"><span class="section-number-2">5</span> Plot from data frame (scatter plot)</h2>
+<div id="outline-container-org2362d74" class="outline-2">
+<h2 id="org2362d74"><span class="section-number-2">5</span> Plot from data frame (scatter plot)</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 It may happen that the function is not given, and instead we are given the corresponding values in a data frame:
@@ -1340,7 +1432,7 @@ the package and try to do some plots there too. Note that the syntax is way diff
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Daniel Ballesteros-Chávez</p>
-<p class="date">Created: 2022-11-03 Thu 10:24</p>
+<p class="date">Created: 2022-11-03 Thu 14:08</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
