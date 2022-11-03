@@ -5,7 +5,7 @@ In order to see the html files go to raw and then do right click "save page as".
 
 1) [[./Lecture_1.org][Lecture 1. Introduction to R]]
 2) [[./Lecture_2.html][Lecture 2. Recap of Statistics and Probability]]
-# 3) [[./Lecture_3.org][Lecture 3. Simple Plots]]
+3) [[./Lecture_3.html][Lecture 3. Simple Plots]]
 # 4) [[./Lecture_4.org][Lecture 4. Statistical inference]]
 
 

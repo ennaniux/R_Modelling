@@ -370,7 +370,7 @@
 # ** Geometric Interpretation
 
 # With all this considerations we are able to write the linear model as 
-# \begin{equatoin}
+# \begin{equation}
 #  \hat{Y}  = \hat{\beta}_0 + X^T \hat{\beta}.
 # \label{lm01}
 # \end{equation}
@@ -394,6 +394,56 @@
 #   - Assessing the Accuracy of the Coefficient Estimates 
 #   - Assessing the Accuracy of the Model
 #   - Comparison of Linear Regression with K-Nearest neighbours
+
+* Probability distributions in R
+
+One convenient use of R is to provide a comprehensive set of
+statistical tables. Functions are provided to evaluate the cumulative
+distribution function 
+\begin{equation}
+P(X \leq x), 
+\end{equation}
+
+the probability density function and
+the quantile function: given $q$, the smallest $x$ such that 
+\begin{equation}
+P(X \leq x) > q ,
+\end{equation}
+
+ and to simulate from the distribution.
+
+| Distribution                   | Functions |           |           |           |
+|--------------------------------+-----------+-----------+-----------+-----------|
+| /                              | <         |           |           | >         |
+| Beta                           | pbeta     | qbeta     | dbeta     | rbeta     |
+| Binomial                       | pbinom    | qbinom    | dbinom    | rbinom    |
+| Cauchy                         | pcauchy   | qcauchy   | dcauchy   | rcauchy   |
+| Chi-Square                     | pchisq    | qchisq    | dchisq    | rchisq    |
+| Exponential                    | pexp      | qexp      | dexp      | rexp      |
+| F                              | pf        | qf        | df        | rf        |
+| Gamma                          | pgamma    | qgamma    | dgamma    | rgamma    |
+| Geometric                      | pgeom     | qgeom     | dgeom     | rgeom     |
+| Hypergeometric                 | phyper    | qhyper    | dhyper    | rhyper    |
+| Logistic                       | plogis    | qlogis    | dlogis    | rlogis    |
+| Log Normal                     | plnorm    | qlnorm    | dlnorm    | rlnorm    |
+| Negative Binomial              | pnbinom   | qnbinom   | dnbinom   | rnbinom   |
+| Normal                         | pnorm     | qnorm     | dnorm     | rnorm     |
+| Poisson                        | ppois     | qpois     | dpois     | rpois     |
+| Student t                      | pt        | qt        | dt        | rt        |
+| Studentized Range              | ptukey    | qtukey    | dtukey    | rtukey    |
+| Uniform                        | punif     | qunif     | dunif     | runif     |
+| Weibull                        | pweibull  | qweibull  | dweibull  | rweibull  |
+| Wilcoxon Rank Sum Statistic    | pwilcox   | qwilcox   | dwilcox   | rwilcox   |
+| Wilcoxon Signed Rank Statistic | psignrank | qsignrank | dsignrank | rsignrank |
+
+Prefix the name given here by ~d~ for the density, ~p~ for the CDF,
+~q~ for the quantile function and ~r~ for simulation (random deviates)
+
+*Example* They look up P(X < 30) when $X$ is normal with mean $55$ and standard deviation $15$. 
+
+#+begin_example R
+pnorm(30, mean=55, sd=15)
+#+end_example
 
 * The Distribution of the data set.
 
