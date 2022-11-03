@@ -1,0 +1,1347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-11-03 Thu 10:24 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lecture 3: Simple Plots</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Daniel Ballesteros-Chávez" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+<style>
+/* Daniel Ballesteros-Chavez */
+/* DBCh CSS for blog project */
+/* color schemes: #333745; #E63462 ; #C7EFCF ; #EEF5DB ; #909396; #262626;*/
+/* Modified version with responsive TOC
+/* usage: #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style01.css"/> */
+body {
+font-size: 18px;
+color: #404040;
+/* background-color: #333745; */
+font-family: Helvetica;
+line-height: 1.3;
+}
+#content {
+max-width: 50em;
+margin-left: auto;
+margin-right: auto;
+padding: 15px 50px 50px 15px;
+background-color: #E4F7FF;
+}
+p {
+text-align: justify;
+}
+/* this part is about the table of contents TOC */
+#table-of-contents a:link,
+#table-of-contents a:visited {
+color: #404040;
+background: transparent;
+}
+#table-of-contents a:hover {
+background-color: #ccc;
+color: #404040;
+}
+#table-of-contents {
+line-height: 1.2;
+}
+#table-of-contents h2 {
+background-color:  #ccc ;
+padding-left: 0.3em;
+color: #404040;
+border-bottom: 0;
+}
+#table-of-contents ul {
+list-style: none;
+padding-left: 0.3em;
+font-weight: normal;
+}
+#table-of-contents div>ul>li {
+margin-top: 1em;
+font-weight: bold;
+}
+#table-of-contents .tag {
+display: none;
+}
+#table-of-contents .todo,
+#table-of-contents .done {
+font-size: 80%;
+}
+#table-of-contents ol>li {
+margin-top: 1em;
+}
+@media screen {
+#table-of-contents {
+position: fixed;
+top: 0;
+left: 0;
+padding: 1em 0 1em 1em;
+width: 290px;
+height: 100vh;
+overlow-x: hidden;
+overlow-y: auto;
+overflow: auto;
+}
+#table-of-contents h2 {
+margin-top: 0;
+font-family: Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+#table-of-contents code {
+font-size: 12px;
+}
+}
+@media screen and (max-width: 95em) {
+#table-of-contents {
+display: none;
+}
+h1.title {
+margin-left: 0%;
+}
+div#content {
+margin-left: 5%;
+max-width: 90%;
+}
+}
+/*Html Boxes around THMs and Propositions */
+.abstract  {
+color:  #404040;
+border: 1px solid #404040;
+box-shadow: 3px 3px 3px ;
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.abstract:before {
+display: inline;
+position: absolute;
+background-color: white;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Abstract';
+}
+.mydef  {
+color:  #404040;
+border: 1px solid #404040;
+background-color: #FFD580;
+/* box-shadow: 3px 3px 3px orange; */
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.mydef:before {
+display: inline;
+position: absolute;
+/* background-color: white; */
+background-color: orange;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Definition';
+}
+.prop  {
+color:  #404040;
+border: 1px solid ;
+background-color: #F1FFC2;
+/* box-shadow: 3px 3px 3px green; */
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.prop:before {
+color:  white;
+display: inline;
+position: absolute;
+background-color: green;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Proposition';
+}
+.thm  {
+color:  #404040;
+border: 1px solid ;
+background-color: lightcyan;
+/* box-shadow: 3px 3px 3px brown; */
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.thm:before {
+color:  white;
+display: inline;
+position: absolute;
+background-color: darkblue;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Theorem';
+}
+.cor  {
+color:  #404040;
+border: 1px solid blue;
+box-shadow: 3px 3px 3px blue;
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.cor:before {
+display: inline;
+position: absolute;
+background-color: white;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Corollary';
+}
+/*defaults form org-mode export */
+.title  { text-align: center; }
+.todo   { font-family: monospace; color: red; }
+.done   { color: green; }
+.tag    { background-color: #eee; font-family: monospace;
+padding: 2px; font-size: 80%; font-weight: normal; }
+.timestamp { color: #bebebe; }
+.timestamp-kwd { color: #5f9ea0; }
+.right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+.center { margin-left: auto; margin-right: auto; text-align: center; }
+.underline { text-decoration: underline; }
+#postamble p, #preamble p { font-size: 90%; margin: .2em; text-align: center;}
+p.verse { margin-left: 3%; }
+pre {
+border: 1px solid #ccc;
+box-shadow: 3px 3px 3px #eee;
+padding: 8pt;
+font-family: monospace;
+overflow: auto;
+margin: 1.2em;
+}
+pre.src {
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+pre.src:before {
+display: none;
+position: absolute;
+background-color: white;
+top: -10px;
+right: 10px;
+padding: 3px;
+border: 1px solid black;
+}
+pre.src:hover:before { display: inline;}
+pre.src-sh:before    { content: 'sh'; }
+pre.src-bash:before  { content: 'sh'; }
+pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+pre.src-R:before     { content: 'R'; }
+pre.src-perl:before  { content: 'Perl'; }
+pre.src-java:before  { content: 'Java'; }
+pre.src-sql:before   { content: 'SQL'; }
+table { border-collapse:collapse; }
+caption.t-above { caption-side: top; }
+caption.t-bottom { caption-side: bottom; }
+td, th { vertical-align:top;  }
+th.right  { text-align: center;  }
+th.left   { text-align: center;   }
+th.center { text-align: center; }
+td.right  { text-align: right;  }
+td.left   { text-align: left;   }
+td.center { text-align: center; }
+dt { font-weight: bold; }
+.footpara:nth-child(2) { display: inline; }
+.footpara { display: block; }
+.footdef  { margin-bottom: 1em; }
+.figure { padding: 1em; }
+.figure p { text-align: center; }
+.inlinetask {
+padding: 10px;
+border: 2px solid gray;
+margin: 10px;
+background: #ffffcc;
+}
+#org-div-home-and-up
+{ text-align: right; font-size: 70%; white-space: nowrap; }
+textarea { overflow-x: auto; }
+.linenr { font-size: smaller }
+.code-highlighted { background-color: #ffff00; }
+.org-info-js_info-navigation { border-style: none; }
+#org-info-js_console-label
+{ font-size: 10px; font-weight: bold; white-space: nowrap; }
+.org-info-js_search-highlight
+{ background-color: #ffff00; color: #000000; font-weight: bold; }
+</style>
+<style>code {background-color: #ccc}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Lecture 3: Simple Plots</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge0df0dd">1. Probability distributions in R</a></li>
+<li><a href="#orgb02503c">2. The Distribution of the data set.</a></li>
+<li><a href="#org3d17941">3. Histograms</a></li>
+<li><a href="#orgb9d0092">4. Plotting in R</a>
+<ul>
+<li><a href="#org90ba964">4.1. Plot a function</a></li>
+</ul>
+</li>
+<li><a href="#org83ebf86">5. Plot from data frame (scatter plot)</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orge0df0dd" class="outline-2">
+<h2 id="orge0df0dd"><span class="section-number-2">1</span> Probability distributions in R</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+One convenient use of R is to provide a comprehensive set of
+statistical tables. Functions are provided to evaluate the cumulative
+distribution function 
+</p>
+\begin{equation}
+P(X \leq x), 
+\end{equation}
+
+<p>
+the probability density function and
+the quantile function: given \(q\), the smallest \(x\) such that 
+</p>
+\begin{equation}
+P(X \leq x) > q ,
+\end{equation}
+
+<p>
+and to simulate from the distribution.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Distribution</th>
+<th scope="col" class="org-left">Functions</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Beta</td>
+<td class="org-left">pbeta</td>
+<td class="org-left">qbeta</td>
+<td class="org-left">dbeta</td>
+<td class="org-left">rbeta</td>
+</tr>
+
+<tr>
+<td class="org-left">Binomial</td>
+<td class="org-left">pbinom</td>
+<td class="org-left">qbinom</td>
+<td class="org-left">dbinom</td>
+<td class="org-left">rbinom</td>
+</tr>
+
+<tr>
+<td class="org-left">Cauchy</td>
+<td class="org-left">pcauchy</td>
+<td class="org-left">qcauchy</td>
+<td class="org-left">dcauchy</td>
+<td class="org-left">rcauchy</td>
+</tr>
+
+<tr>
+<td class="org-left">Chi-Square</td>
+<td class="org-left">pchisq</td>
+<td class="org-left">qchisq</td>
+<td class="org-left">dchisq</td>
+<td class="org-left">rchisq</td>
+</tr>
+
+<tr>
+<td class="org-left">Exponential</td>
+<td class="org-left">pexp</td>
+<td class="org-left">qexp</td>
+<td class="org-left">dexp</td>
+<td class="org-left">rexp</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-left">pf</td>
+<td class="org-left">qf</td>
+<td class="org-left">df</td>
+<td class="org-left">rf</td>
+</tr>
+
+<tr>
+<td class="org-left">Gamma</td>
+<td class="org-left">pgamma</td>
+<td class="org-left">qgamma</td>
+<td class="org-left">dgamma</td>
+<td class="org-left">rgamma</td>
+</tr>
+
+<tr>
+<td class="org-left">Geometric</td>
+<td class="org-left">pgeom</td>
+<td class="org-left">qgeom</td>
+<td class="org-left">dgeom</td>
+<td class="org-left">rgeom</td>
+</tr>
+
+<tr>
+<td class="org-left">Hypergeometric</td>
+<td class="org-left">phyper</td>
+<td class="org-left">qhyper</td>
+<td class="org-left">dhyper</td>
+<td class="org-left">rhyper</td>
+</tr>
+
+<tr>
+<td class="org-left">Logistic</td>
+<td class="org-left">plogis</td>
+<td class="org-left">qlogis</td>
+<td class="org-left">dlogis</td>
+<td class="org-left">rlogis</td>
+</tr>
+
+<tr>
+<td class="org-left">Log Normal</td>
+<td class="org-left">plnorm</td>
+<td class="org-left">qlnorm</td>
+<td class="org-left">dlnorm</td>
+<td class="org-left">rlnorm</td>
+</tr>
+
+<tr>
+<td class="org-left">Negative Binomial</td>
+<td class="org-left">pnbinom</td>
+<td class="org-left">qnbinom</td>
+<td class="org-left">dnbinom</td>
+<td class="org-left">rnbinom</td>
+</tr>
+
+<tr>
+<td class="org-left">Normal</td>
+<td class="org-left">pnorm</td>
+<td class="org-left">qnorm</td>
+<td class="org-left">dnorm</td>
+<td class="org-left">rnorm</td>
+</tr>
+
+<tr>
+<td class="org-left">Poisson</td>
+<td class="org-left">ppois</td>
+<td class="org-left">qpois</td>
+<td class="org-left">dpois</td>
+<td class="org-left">rpois</td>
+</tr>
+
+<tr>
+<td class="org-left">Student t</td>
+<td class="org-left">pt</td>
+<td class="org-left">qt</td>
+<td class="org-left">dt</td>
+<td class="org-left">rt</td>
+</tr>
+
+<tr>
+<td class="org-left">Studentized Range</td>
+<td class="org-left">ptukey</td>
+<td class="org-left">qtukey</td>
+<td class="org-left">dtukey</td>
+<td class="org-left">rtukey</td>
+</tr>
+
+<tr>
+<td class="org-left">Uniform</td>
+<td class="org-left">punif</td>
+<td class="org-left">qunif</td>
+<td class="org-left">dunif</td>
+<td class="org-left">runif</td>
+</tr>
+
+<tr>
+<td class="org-left">Weibull</td>
+<td class="org-left">pweibull</td>
+<td class="org-left">qweibull</td>
+<td class="org-left">dweibull</td>
+<td class="org-left">rweibull</td>
+</tr>
+
+<tr>
+<td class="org-left">Wilcoxon Rank Sum Statistic</td>
+<td class="org-left">pwilcox</td>
+<td class="org-left">qwilcox</td>
+<td class="org-left">dwilcox</td>
+<td class="org-left">rwilcox</td>
+</tr>
+
+<tr>
+<td class="org-left">Wilcoxon Signed Rank Statistic</td>
+<td class="org-left">psignrank</td>
+<td class="org-left">qsignrank</td>
+<td class="org-left">dsignrank</td>
+<td class="org-left">rsignrank</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Prefix the name given here by <code>d</code> for the density, <code>p</code> for the CDF,
+<code>q</code> for the quantile function and <code>r</code> for simulation (random deviates)
+</p>
+
+<p>
+<b>Example</b> They look up P(X &lt; 30) when \(X\) is normal with mean \(55\) and standard deviation \(15\). 
+</p>
+
+<pre class="example">
+pnorm(30, mean=55, sd=15)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb02503c" class="outline-2">
+<h2 id="orgb02503c"><span class="section-number-2">2</span> The Distribution of the data set.</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+How to identify the distribution of your data? This is a common and important question when analysiing data. 
+</p>
+
+
+<p>
+Examining the distribution of a set of data
+</p>
+
+<p>
+Given a (univariate) set of data we can examine its distribution in a
+large number of ways. The simplest is to examine the numbers. Two
+slightly different summaries are given by summary and fivenum and a
+display of the numbers by stem (a “stem and leaf” plot).
+</p>
+
+
+
+<div class="org-src-container">
+<pre class="src src-R">summary(iris$Sepal.Length)
+</pre>
+</div>
+
+<pre class="example">
+ Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+4.300   5.100   5.800   5.843   6.400   7.900
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">fivenum(iris$Sepal.Length)
+</pre>
+</div>
+
+<pre class="example">
+[1] 4.3 5.1 5.8 6.4 7.9
+</pre>
+
+
+<p>
+A simple table of frequencies can be obtained by
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">data.frame(table(iris$Sepal.Length))
+</pre>
+</div>
+
+<pre class="example">
+   Var1 Freq
+1   4.3    1
+2   4.4    3
+3   4.5    1
+4   4.6    4
+5   4.7    2
+6   4.8    5
+7   4.9    6
+8     5   10
+9   5.1    9
+10  5.2    4
+11  5.3    1
+12  5.4    6
+13  5.5    7
+14  5.6    6
+15  5.7    8
+16  5.8    7
+17  5.9    3
+18    6    6
+19  6.1    6
+20  6.2    4
+21  6.3    9
+22  6.4    7
+23  6.5    5
+24  6.6    2
+25  6.7    8
+26  6.8    3
+27  6.9    4
+28    7    1
+29  7.1    1
+30  7.2    3
+31  7.3    1
+32  7.4    1
+33  7.6    1
+34  7.7    4
+35  7.9    1
+</pre>
+</div>
+</div>
+
+
+
+<div id="outline-container-org3d17941" class="outline-2">
+<h2 id="org3d17941"><span class="section-number-2">3</span> Histograms</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+A stem-and-leaf plot is  also donne in R with the function <code>stem</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">stem(iris$Sepal.Length)
+</pre>
+</div>
+
+<pre class="example">
+
+The decimal point is 1 digit(s) to the left of the |
+
+42 | 0
+44 | 0000
+46 | 000000
+48 | 00000000000
+50 | 0000000000000000000
+52 | 00000
+54 | 0000000000000
+56 | 00000000000000
+58 | 0000000000
+60 | 000000000000
+62 | 0000000000000
+64 | 000000000000
+66 | 0000000000
+68 | 0000000
+70 | 00
+72 | 0000
+74 | 0
+76 | 00000
+78 | 0
+</pre>
+
+<p>
+Another simple example is the following
+</p>
+<div class="org-src-container">
+<pre class="src src-R">stem(c(1,1,2,2.3,4,5,6.7,6,6,7.3))
+</pre>
+</div>
+
+<pre class="example">
+
+The decimal point is at the |
+
+0 | 00
+2 | 03
+4 | 00
+6 | 0073
+</pre>
+
+
+
+<p>
+R has a function <code>hist</code> to plot <b>histograms</b>. 
+</p>
+
+<p>
+<code>hist(iris$Sepal.Length)</code>
+</p>
+
+<p>
+The parameter <code>freq</code> is a logical parameter.  If TRUE, the histogram graphic is a representation of
+frequencies, the counts component of the result; if FALSE, probability
+densities, component density, are plotted (so that the histogram has a
+total area of one). Defaults to TRUE if and only if breaks are
+equidistant (and probability is not specified).
+</p>
+
+<p>
+<code>hist(iris$Sepal.Length, freq=FALSE)</code>
+</p>
+
+<p>
+<b>Kernel Density Estimation</b>. Let \((x_1, x_2, ..., x_n)\) be independent and identically distributed
+samples drawn from some univariate distribution with an unknown
+density \(f\) at any given point \(x\). <b>We are interested in estimating theshape of this function</b> \(f\). 
+Its <b>kernel density estimator</b> is
+</p>
+
+\begin{equation}
+{f}_{h}(x)={\frac {1}{n}}\sum _{i=1}^{n}K_{h}(x-x_{i})={\frac {1}{nh}}\sum _{i=1}^{n}K{\Big (}{\frac {x-x_{i}}{h}}{\Big )}
+\end{equation}
+
+<p>
+The generic function <code>density</code> computes kernel density
+estimates. 
+The algorithm used disperses the mass of the
+empirical distribution function over a regular grid of at least
+512 points and then uses the fast Fourier transform to convolve
+this approximation with a discretized version of the kernel and
+then uses linear approximation to evaluate the density at the
+specified points.
+</p>
+
+
+<pre class="example">
+x &lt;- iris$Sepal.Length
+hist(x, freq=FALSE, ylim=c(0,0.6))  ## note that here I had to adjust the limits for the yaxis.
+lines(density(x,bw=0.1))
+</pre>
+
+<p>
+Finally we can also add a <b>rug</b> representation of the data
+</p>
+
+<pre class="example">
+x &lt;- iris$Sepal.Length
+hist(x, freq=FALSE, ylim=c(0,0.55),col="lightblue")  ## note that here I had to adjust the limits for the yaxis.
+lines(density(x,bw=0.1))
+rug(x,col="red")
+</pre>
+
+<p>
+We can plot the <b>empirical cumulative distribution function</b> by using the function <code>ecdf</code>
+</p>
+<pre class="example">
+x &lt;- iris$Sepal.Length
+plot(ecdf(x), do.points=FALSE, verticals=TRUE)
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgb9d0092" class="outline-2">
+<h2 id="orgb9d0092"><span class="section-number-2">4</span> Plotting in R</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org90ba964" class="outline-3">
+<h3 id="org90ba964"><span class="section-number-3">4.1</span> Plot a function</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Now we will use the basic plot function oin R to plot graphs.
+</p>
+
+<p>
+Lets plot the sine function.
+</p>
+
+<p>
+First we need to provide a range ov values for the domain of the function. In this case, we will plot the function from -2&pi; to 2&pi;.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">X <span style="color: #6b8e23;">&lt;-</span> seq(-2*pi, 2*pi, by = 0.2)
+</pre>
+</div>
+
+
+<p>
+Then we run the plot command as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">X <span style="color: #6b8e23;">&lt;-</span> seq(-2*pi, 2*pi, by = 0.2)
+plot(sin,X)
+</pre>
+</div>
+
+<p>
+Then the plot is shown in a different window.
+</p>
+
+
+<p>
+What if the function we want to plot is not a built in function?
+</p>
+
+<p>
+Suppose we want to plot the function
+</p>
+
+<p>
+f(x) = 2x<sup>2</sup> / (x<sup>2</sup> + 1),
+</p>
+
+<p>
+Then we have
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #6a5acd; font-weight: bold; font-style: italic;">F</span> <span style="color: #6b8e23;">&lt;-</span> <span style="color: #00008b;">function</span>(x){ 
+2*x^2 / (x^2 + 1)}
+
+X <span style="color: #6b8e23;">&lt;-</span> seq(-10, 10, by = 0.2)
+plot(F,X)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org83ebf86" class="outline-2">
+<h2 id="org83ebf86"><span class="section-number-2">5</span> Plot from data frame (scatter plot)</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+It may happen that the function is not given, and instead we are given the corresponding values in a data frame:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">df <span style="color: #6b8e23;">&lt;-</span> data.frame(
+<span style="color: #8b0000;">"x-axis"</span> = c(
+-5.0 ,-4.8, -4.6 ,-4.4 ,-4.2 ,-4.0 ,-3.8 ,-3.6 ,-3.4 ,-3.2 ,-3.0 ,-2.8 ,-2.6 ,-2.4 ,-2.2,
+-2.0 ,-1.8, -1.6 ,-1.4 ,-1.2 ,-1.0 ,-0.8 ,-0.6 ,-0.4 ,-0.2 , 0.0 , 0.2 , 0.4 , 0.6 , 0.8,
+ 1.0 , 1.2,  1.4 , 1.6 , 1.8 , 2.0 , 2.2 , 2.4 , 2.6 , 2.8 , 3.0 , 3.2 , 3.4 , 3.6 , 3.8,
+ 4.0 , 4.2,  4.4 , 4.6 , 4.8 , 5.0),
+<span style="color: #8b0000;">"f_x"</span> = c(
+-6.73076923 ,-6.51713810 ,-6.30216606 ,-6.08565815 ,-5.86738197 ,-5.64705882,
+-5.42435233 ,-5.19885387 ,-4.97006369 ,-4.73736655 ,-4.50000000 ,-4.25701357,
+-4.00721649 ,-3.74911243 ,-3.48082192 ,-3.20000000 ,-2.90377358 ,-2.58876404,
+-2.25135135 ,-1.88852459 ,-1.50000000 ,-1.09268293 ,-0.68823529 ,-0.33103448,
+-0.08461538 , 0.00000000 ,-0.06923077 ,-0.22068966 ,-0.37058824 ,-0.46829268,
+-0.50000000 ,-0.47213115 ,-0.39729730 ,-0.28764045 ,-0.15283019 , 0.00000000,
+ 0.16575342 , 0.34082840 , 0.52268041 , 0.70950226 , 0.90000000 , 1.09323843,
+ 1.28853503 , 1.48538682 , 1.68341969 , 1.88235294 , 2.08197425 , 2.28212181,
+ 2.48267148 , 2.68352745 , 2.88461538)
+)
+
+plot(df)
+</pre>
+</div>
+
+
+<p>
+In this case, a line is not drawn, in order to include the line and to modify it we can use the parameters <code>type</code> and <code>lwd</code>
+</p>
+
+<pre class="example">
+plot(df, type="l", lwd=4)
+</pre>
+
+
+<p>
+One can read a bit more of this on the help page for plot:
+</p>
+
+<pre class="example">
+‘type’ what type of plot should be drawn.  Possible types are
+
+              • ‘"p"’ for *p*oints,
+
+              • ‘"l"’ for *l*ines,
+
+              • ‘"b"’ for *b*oth,
+
+              • ‘"c"’ for the lines part alone of ‘"b"’,
+
+              • ‘"o"’ for both ‘*o*verplotted’,
+
+              • ‘"h"’ for ‘*h*istogram’ like (or ‘high-density’)
+                vertical lines,
+
+              • ‘"s"’ for stair *s*teps,
+
+              • ‘"S"’ for other *s*teps, see ‘Details’ below,
+
+              • ‘"n"’ for no plotting.
+
+            All other ‘type’s give a warning or an error; using,
+            e.g., ‘type = "punkte"’ being equivalent to ‘type = "p"’
+            for S compatibility.  Note that some methods, e.g.
+            ‘plot.factor’, do not accept this.
+
+        ‘main’ an overall title for the plot: see ‘title’.
+
+        ‘sub’ a sub title for the plot: see ‘title’.
+
+        ‘xlab’ a title for the x axis: see ‘title’.
+
+        ‘ylab’ a title for the y axis: see ‘title’.
+
+        ‘asp’ the y/x aspect ratio, see ‘plot.window’.
+</pre>
+
+
+
+
+<p>
+To add color we can use the following syntax
+</p>
+
+<pre class="example">
+plot(df, type="l", lwd=4, col="#3498db")
+</pre>
+
+<p>
+If we want to add a title then we write
+</p>
+
+<p>
+<code>plot(df, type ="l", lwd = 4, col = "#3498db", main = "Graph of the function from a table")</code>
+</p>
+
+
+
+<p>
+If we come back to the sine function, and take a look at the following commands
+</p>
+
+<pre class="example">
+X &lt;- seq(-pi, pi, by = 0.2)
+plot(sin,X)
+plot(X,sin(X))
+plot(sin(X),X)
+</pre>
+
+
+<p>
+Here and illustration of different types
+</p>
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #6b8e23;">par</span>(mfrow = c(1, 3))
+plot(X, sin(X), type = <span style="color: #8b0000;">"l"</span>, main = <span style="color: #8b0000;">"type = 'l'"</span>)
+plot(X, sin(X), type = <span style="color: #8b0000;">"s"</span>, main = <span style="color: #8b0000;">"type = 's'"</span>)
+plot(X, sin(X), type = <span style="color: #8b0000;">"p"</span>, main = <span style="color: #8b0000;">"type = 'p'"</span>)
+
+<span style="color: #6b8e23;">par</span>(mfrow = c(1, 1)) <span style="color: #8c8c8c;">## </span><span style="color: #8c8c8c;">set it back to the default value</span>
+</pre>
+</div>
+
+<p>
+And here we have an example of different <code>pch</code>. The pch argument
+allows to modify the symbol of the points in the plot. The main
+symbols can be selected passing numbers 1 to 25 as parameters. You can
+also change the symbols size with the cex argument and the line width
+of the symbols (except 15 to 18) with the lwd argument
+</p>
+
+<pre class="example">
+X &lt;- seq(-pi, pi, by = 0.2)
+plot(X,sin(X), pch=1:25, cex=2)
+</pre>
+
+<p>
+The symbols 21 to 25 allow you to set border width and
+background color with the lwd and bg arguments.
+</p>
+
+<pre class="example">
+X &lt;- seq(-pi, pi, by = 0.2)
+plot(X,sin(X), pch=21:25, cex=2, lwd=1:3,bg=c("blue","red","green"))
+</pre>
+
+<p>
+Now we can define the following plot function
+</p>
+<pre class="example">
+X &lt;- seq(-pi, pi, by = 0.2)
+plot(X,sin(X),
+main="The graph of Sine function",
+ylab = "sin(x)",
+xlab = "x",
+col="#3498db",
+type="l",
+lwd="3"
+)
+</pre>
+
+
+<p>
+Maybe a useful thing is to define the grid
+</p>
+
+<pre class="example">
+X &lt;- seq(-pi, pi, by = 0.2)
+plot(X,sin(X),
+main="The graph of Sine function",
+ylab = "sin(x)",
+xlab = "x",
+col="#3498db",
+type="l",
+lwd="3"
+)
+abline(v=X,col="grey80",lty=3)
+abline(h=seq(min(sin(X)),max(sin(X)),length.out=length(X)),col="grey80",lty=3)
+abline(v=0,h=0,col="grey10")
+</pre>
+
+<p>
+Can we go further?
+</p>
+
+
+<pre class="example">
+‘par’ can be used to set or query graphical parameters.
+Parameters can be set by specifying them as arguments to ‘par’ in
+‘tag = value’ form, or by passing them as a list of tagged values.
+</pre>
+
+
+<p>
+Yes, we can change for instance the default font
+</p>
+
+<pre class="example">
+X &lt;- seq(-pi, pi, by = 0.2)
+par(family="mono",fg="grey10")
+plot(X,sin(X),
+main="The graph of Sine function",
+ylab = "sin(x)",
+xlab = "x",
+col="#3498db",
+type="l",
+lwd="3"
+)
+abline(v=X,col="grey80",lty=3)
+abline(h=seq(min(sin(X)),max(sin(X)),length.out=length(X)),col="grey80",lty=3)
+abline(v=0,h=0,col="grey10")
+
+dev.off() ## this will reset the default values changed in par()
+</pre>
+
+
+<p>
+finally when we like one particular plot type we can save it as a personal function
+</p>
+
+<pre class="example">
+my_plot1 &lt;- function(x,y,color="#3498db",ylabel="f(x)",xlabel="x",my.title="Plot title",...){
+par(family="mono",fg="grey10") 
+plot(x,y,
+main=my.title,
+ylab = ylabel,
+xlab = xlabel,
+col= color,
+type= "l",
+lwd="3"
+)
+abline(v=x,col="grey80",lty=3)
+abline(h=seq(min(y),max(y),length.out=length(x)),col="grey80",lty=3)
+abline(v=0,h=0,col="grey10")
+}
+</pre>
+
+
+
+<ul class="org-ul">
+<li>Create the function my<sub>plot1</sub>, my<sub>plot2</sub>, my<sub>plot3</sub> for plot of functions, histograms and boxplots. Save them in to an R file called my<sub>Rtools.R</sub></li>
+<li>A good source of examples can be found here: <a href="https://r-coder.com/plot-r/">https://r-coder.com/plot-r/</a></li>
+<li>There is a popular package for nice plots named ggplot2. Download
+the package and try to do some plots there too. Note that the syntax is way different, for instance, you can try: <code>ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Daniel Ballesteros-Chávez</p>
+<p class="date">Created: 2022-11-03 Thu 10:24</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
