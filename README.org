@@ -1,7 +1,9 @@
 # NotesV01
 
 These are some notes for the course R Modelling.
-In order to see the html files go to raw and then do right click "save page as".
+
+*Instructions*:
+In order to see the *html* files *go to raw* and then do right click "*save page as*".
 
 1) [[./Lecture_1.org][Lecture 1. Introduction to R]]
 2) [[./Lecture_2.html][Lecture 2. Recap of Statistics and Probability]]
