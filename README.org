@@ -1,14 +1,17 @@
-# NotesV01
+# Readme file for R Modelling
+# Daniel Ballesteros Chávez.
 
 These are some notes for the course R Modelling.
 
 *Instructions*:
+
+Many lectures notes include mathematical symbols that won't display at all  when reading in github. Try the html files instead.
 In order to see the *html* files *go to raw* and then do right click "*save page as*".
 
-1) [[./Lecture_1.org][Lecture 1. Introduction to R]]
-2) [[./Lecture_2.html][Lecture 2. Recap of Statistics and Probability]]
-3) [[./Lecture_3.html][Lecture 3. Simple Plots]]
-4) [[./Lecture_4.html][Lecture 4. Statistical inference]]
-5) [[./Lecture_5.html][Lecture 5. Hypothesis Testing]]
++ [[./Lecture_1.org][Lecture 1. Introduction to R]]
++ [[./Lecture_2.html][Lecture 2. Recap of Statistics and Probability]]
++ [[./Lecture_3.html][Lecture 3. Simple Plots]]
++ [[./Lecture_4.html][Lecture 4. Statistical inference]]
++ [[./Lecture_5.html][Lecture 5. Hypothesis Testing]]
 
    

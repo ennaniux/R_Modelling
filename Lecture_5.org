@@ -1,37 +1,13 @@
-#+options: ':nil *:t -:t ::t <:t H:1 \n:nil ^:t arch:headline
-#+options: author:t broken-links:nil c:nil creator:nil
-#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
-#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
-#+options: timestamp:t title:t toc:nil todo:t |:t
 #+title:  Hypothesis Testing
-#+date: 
 #+author: Daniel Ballesteros-Chávez
-#+email: danielyho@yahoo.com
 #+language: en
 #+select_tags: export
 #+exclude_tags: noexport
 #+creator: Emacs 26.1 (Org mode 9.3.6)
-#+latex_class: beamer
-#+latex_class_options:
-#+latex_header:
-#+latex_header_extra:
-#+description:
-#+keywords:
-#+subtitle:
-
-#+columns: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
-#+beamer_theme:  madrid
-#+beamer_color_theme: structure
-#+beamer_font_theme:
-#+beamer_inner_theme:
-#+beamer_outer_theme:
-#+beamer_header: \usepackage{graphicx}
-#+beamer_header: \institute[SUT]{\includegraphics[width=4cm]{/home/daniel/Pictures/Logos/politechnika_sl_logo_poziom_pl_rgb.png} \\  Silesian University of Technology \\ (Politechnika Śląska)}
-#+beamer_header: \title{Hypotesis test.}
-#+beamer_header: \author[D. Ballesteros]{Daniel Ballesteros Ch\'avez}
-
-# \setbeamertemplate{background}[grid]
-
+#+PROPERTY: header-args :R+ :exports both
+#+PROPERTY: header-args :R+ :session *R*
+#+HTML_HEAD: <style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+#+HTML_HEAD_EXTRA: <style>code {background-color: #ccc}</style>
 :results:
 #+HTML_HEAD:<style>
 #+HTML_HEAD:/* Daniel Ballesteros-Chavez */
@@ -372,7 +348,7 @@ The first step of hypothesis testing is to formulate hypothesis statements - the
 alternative hypothesis.
 
 
-* Hypotesis
+* Hypothesis
 
 *The null hypothesis*, denoted $H_0$ , is a statement of no effect or no difference. When performing
 the hypothesis test, we assess the strength of evidence against the null hypothesis.
@@ -381,7 +357,6 @@ the hypothesis test, we assess the strength of evidence against the null hypothe
 there is evidence against $H_0$ , then we may conclude that there is evidence for H_1 as the statement
 explaining our parameter. $H_1$ is usually a statement of a difference.
 
-** 
 
 A *one-sided* or one-tailed test – the population parameter differs from its hypothesised value in
 a specific direction, that is the parameter is either larger or smaller than the hypothesised value.
@@ -434,6 +409,10 @@ statistics are commonly in the form
 \frac{\sigma_{\hat{\theta}}}{\hat{\theta}}
 \end{equation}
 
+For example: the *coefficient of variation* (CV) is the ratio of the standard
+deviation to the mean and shows the extent of variability in relation
+to the mean of the population. The higher the CV, the greater the
+dispersion.
 
 * p- Value
 
@@ -446,13 +425,13 @@ would obtain a value of our test statistic as extreme or more extreme than the o
 
 * Interpretation
 
-Extreme here means ‘far from what we expect’, assuming $H_0$ is true. The direction counting as ‘far
+Extreme here means /far from what we expect/, assuming $H_0$ is true. The direction counting as ‘far
 from what we expect’ is determined by $H_1$ .
-\vspace{1cm}
+
 
 The smaller the p-value we get, the stronger the evidence against $H_0$ we have, given by
 our data.
-\vspace{1cm}
+
 
 
 In many disciplines, the p-value is then compared to the significance level of the test.
@@ -461,7 +440,7 @@ The significance level, denoted by $\alpha$, can be thought of as an evidence th
 
 * General rules (for all hypothesis tests):
 
-+ If the p-value is less or equal to this threshold, that is p ≤ α,
++ If the p-value is less or equal to this threshold, that is $p \leq \alpha$,
   then we reject the null hypothesis $H_0$ at $\alpha$ and there is
   evidence to support the alternative hypothesis $H_1$ , based on our
   data.
@@ -481,12 +460,10 @@ The significance level, denoted by $\alpha$, can be thought of as an evidence th
 
 When we reject $H_0$, it does not mean that it is not true, it just means that based on our data, we
 found evidence against $H_0$ and so, in turn, we have evidence to support $H_1$.
-\vspace{0.5cm}
 
 
 Similarly, if we fail to reject $H_0$ , it does not make $H_0$ necessarily true, it just means that based on
 our data, we do not have enough evidence against $H_0$.
-\vspace{0.5cm}
 
 
 When interpreting results practically, we usually do so with respect to the alternative hypothesis.
@@ -501,7 +478,7 @@ A random sample of $n = 20$ people was taken and their sample mean was $185$.
 Perform a Z-test to determine whether there is evidence that the population mean has increased. Test at the 5%
 significance level.
 
-* Solution
+** Solution
 
 Since $p = 0.01255 < 0.05$, we reject $H_0$ at the 5% level. We can conclude that there is evidence that
 the mean cholesterol level has increased from $170$.
@@ -509,10 +486,11 @@ the mean cholesterol level has increased from $170$.
 
 * Strength of the evidence
 
-Even though in many disciplines, the significance level α is decided in advance, we do not really need
-to decide on α in advance. We can just look at the p-value and see how big it is. Then based on the
+Even though in many disciplines, the significance level $\alpha$ is decided in advance, we do not really need
+to have a priori this value. We can just look at the p-value and see how big it is. Then based on the
 following rules, we can determine the strength of evidence against $H_0$ and so in turn, the strength of
 evidence to support $H_1$ :
+
 + If $p > 0.10$, there is very little evidence against $H_0$ or we can say there is no evidence against $H_0$ .
 + If $0.05 < p \leq 0.10$, there is weak evidence against $H_0$ .
 + If $0.01 < p \leq 0.05$, there is evidence against $H_0$ .
@@ -523,7 +501,7 @@ evidence to support $H_1$ :
 * Using critical values for hypothesis testing
 
 There are methods which can be used to decide whether we can reject or not to
-reject $H_0$ at some $\alpha$ without finding the exact p-value. A traditional method of hypothesis testing
+reject they null hypothesis $H_0$ at some $\alpha$ without finding the exact p-value. A traditional method of hypothesis testing
 uses a table of known critical values.
 
 * 
@@ -646,14 +624,14 @@ that the cholesterol level is normally distributed.
 * More graphical example
 
 + Usually have a sample $X_1, X_2, \ldots, X_n$, of size $n$. 
-+ We want to perform an hypotesis test for the population mean. 
++ We want to perform an hypothesis test for the population mean. 
 + The estimate for the population mean will be denoted by $\hat{\theta}$ or $\hat{\mu}$,
 + The sample variance will be denoted by $\hat{S}^2$.
 + If the Central Limit Theorem applies, we use the $Z-test$, otherwise we use the $t-test$ with $n-1$ degrees of freedom.
 
 * 
-** One-sided Hypotesis test
-With an $\alpha$ level of confidence, perform the hypotesis test:
+** One-sided Hypothesis test
+With an $\alpha$ level of confidence, perform the hypothesis test:
 \begin{equation}
 \begin{split}
 H_0 : \mu = \mu_0,\\
@@ -732,7 +710,7 @@ abline(v=0,h=0,col="grey10")
 png("Image_name.png")  ## look aslo at pdf(), jpeg() and other file types. (?png)
 XX  <-  seq (-5,5, by= 0.05)
 YY  <- dnorm(XX)
-my_plot1(XX,YY ,my.title="Hypotesis Test Example", xlabel = " ", xaxt="n", yaxt = "n")
+my_plot1(XX,YY ,my.title="Hypothesis Test Example", xlabel = " ", xaxt="n", yaxt = "n")
 axis(1,labels=FALSE)
 abline(v=0, lty=3, col="red", lwd = 3)
 axis(1,0,"0",lwd = 3, col = "red")

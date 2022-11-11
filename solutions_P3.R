@@ -1,3 +1,0 @@
-## Daniel Ballesteros  Chavez
-
-

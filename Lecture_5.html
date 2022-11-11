@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:30 -->
+<!-- 2022-11-11 Fri 18:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hypothesis Testing</title>
@@ -193,6 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
 <style>
 /* Daniel Ballesteros-Chavez */
 /* DBCh CSS for blog project */
@@ -475,6 +476,7 @@ textarea { overflow-x: auto; }
 .org-info-js_search-highlight
 { background-color: #ffff00; color: #000000; font-weight: bold; }
 </style>
+<style>code {background-color: #ccc}</style>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -547,10 +549,58 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Hypothesis Testing</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6ddf5ec">1. Introduction</a></li>
+<li><a href="#orgb6b8355">2. Hypothesis</a></li>
+<li><a href="#orge1843f4">3. Example</a></li>
+<li><a href="#orgf00ca6a">4. Test statistic</a></li>
+<li><a href="#org625f22f">5. Z-test</a></li>
+<li><a href="#orga0cc925">6. Assessing our estimate</a></li>
+<li><a href="#orgea62e60">7. p- Value</a></li>
+<li><a href="#org94ff90a">8. Interpretation</a></li>
+<li><a href="#orgcd3c380">9. General rules (for all hypothesis tests):</a></li>
+<li><a href="#orgf8e2efa">10. Summary</a></li>
+<li><a href="#orgda88b91">11. Remarks</a></li>
+<li><a href="#org890dccc">12. Example</a>
+<ul>
+<li><a href="#org671780f">12.1. Solution</a></li>
+</ul>
+</li>
+<li><a href="#org88b595e">13. Strength of the evidence</a></li>
+<li><a href="#org0d714fe">14. Using critical values for hypothesis testing</a></li>
+<li><a href="#org8b91a19">15. </a></li>
+<li><a href="#org8658007">16. Error Types</a></li>
+<li><a href="#orga30b88d">17. Example</a></li>
+<li><a href="#org46cc7e1">18. &#x2026; Example</a></li>
+<li><a href="#org896897d">19. Test for a population mean</a></li>
+<li><a href="#orgeb94c45">20. Z-test</a></li>
+<li><a href="#orgee070c1">21. </a></li>
+<li><a href="#org5141515">22. Example</a></li>
+<li><a href="#orgd1be662">23. </a></li>
+<li><a href="#org014d35e">24. Exercise</a></li>
+<li><a href="#orge749178">25. More graphical example</a></li>
+<li><a href="#org48d8033">26. </a>
+<ul>
+<li><a href="#orgf92076d">26.1. One-sided Hypothesis test</a></li>
+</ul>
+</li>
+<li><a href="#orgb2c8ee1">27. </a></li>
+<li><a href="#org8c227a0">28. </a></li>
+<li><a href="#org35397ff">29. </a></li>
+<li><a href="#org7fe30d1">30. </a></li>
+<li><a href="#org7ff5185">31. </a></li>
+<li><a href="#orgc5cd6a2">32. Code for the graphs</a></li>
+<li><a href="#orgd19f901">33. References</a></li>
+</ul>
+</div>
+</div>
 
 
-<div id="outline-container-org1b98b76" class="outline-2">
-<h2 id="org1b98b76"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org6ddf5ec" class="outline-2">
+<h2 id="org6ddf5ec"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The goal of hypothesis testing is to assess the evidence provided by the data in favour of some claim
@@ -567,8 +617,8 @@ alternative hypothesis.
 </div>
 
 
-<div id="outline-container-org022a6c9" class="outline-2">
-<h2 id="org022a6c9"><span class="section-number-2">2</span> Hypotesis</h2>
+<div id="outline-container-orgb6b8355" class="outline-2">
+<h2 id="orgb6b8355"><span class="section-number-2">2</span> Hypothesis</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>The null hypothesis</b>, denoted \(H_0\) , is a statement of no effect or no difference. When performing
@@ -580,11 +630,8 @@ the hypothesis test, we assess the strength of evidence against the null hypothe
 there is evidence against \(H_0\) , then we may conclude that there is evidence for H<sub>1</sub> as the statement
 explaining our parameter. \(H_1\) is usually a statement of a difference.
 </p>
-</div>
 
-<ol class="org-ol">
-<li><a id="orgbea0ae8"></a><br />
-<div class="outline-text-3" id="text-2-1">
+
 <p>
 A <b>one-sided</b> or one-tailed test – the population parameter differs from its hypothesised value in
 a specific direction, that is the parameter is either larger or smaller than the hypothesised value.
@@ -596,12 +643,10 @@ A <b>two-sided</b> or two-tailed test – the population parameter is different 
 value; the direction is not specified.
 </p>
 </div>
-</li>
-</ol>
 </div>
 
-<div id="outline-container-org909c730" class="outline-2">
-<h2 id="org909c730"><span class="section-number-2">3</span> Example</h2>
+<div id="outline-container-orge1843f4" class="outline-2">
+<h2 id="orge1843f4"><span class="section-number-2">3</span> Example</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Formulate the null and alternative hypotheses for the following research question: Is the
@@ -621,8 +666,8 @@ H_0 : \mu = 600 , \qquad H_1 : \mu > 600
 </div>
 
 
-<div id="outline-container-org2de9129" class="outline-2">
-<h2 id="org2de9129"><span class="section-number-2">4</span> Test statistic</h2>
+<div id="outline-container-orgf00ca6a" class="outline-2">
+<h2 id="orgf00ca6a"><span class="section-number-2">4</span> Test statistic</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The test statistic is a random variable with a known distribution and will depend on the type of
@@ -637,8 +682,8 @@ using a formula.
 </div>
 </div>
 
-<div id="outline-container-orge44d605" class="outline-2">
-<h2 id="orge44d605"><span class="section-number-2">5</span> Z-test</h2>
+<div id="outline-container-org625f22f" class="outline-2">
+<h2 id="org625f22f"><span class="section-number-2">5</span> Z-test</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The test statistic for one of the most common tests, Z-test, is given by
@@ -659,8 +704,8 @@ E.g. in the example above \(\hat{\theta}\) estimates \(\mu_0\).
 </div>
 </div>
 
-<div id="outline-container-org6cac31e" class="outline-2">
-<h2 id="org6cac31e"><span class="section-number-2">6</span> Assessing our estimate</h2>
+<div id="outline-container-orga0cc925" class="outline-2">
+<h2 id="orga0cc925"><span class="section-number-2">6</span> Assessing our estimate</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 To assess how far the estimate is from the parameter, we standardise the estimate. So, the test
@@ -669,12 +714,18 @@ statistics are commonly in the form
 \begin{equation}
 \frac{\sigma_{\hat{\theta}}}{\hat{\theta}}
 \end{equation}
+
+<p>
+For example: the <b>coefficient of variation</b> (CV) is the ratio of the standard
+deviation to the mean and shows the extent of variability in relation
+to the mean of the population. The higher the CV, the greater the
+dispersion.
+</p>
 </div>
 </div>
 
-
-<div id="outline-container-org2be97ec" class="outline-2">
-<h2 id="org2be97ec"><span class="section-number-2">7</span> p- Value</h2>
+<div id="outline-container-orgea62e60" class="outline-2">
+<h2 id="orgea62e60"><span class="section-number-2">7</span> p- Value</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The test statistic is used for the probability calculation which indicates the strength of evidence
@@ -689,20 +740,20 @@ would obtain a value of our test statistic as extreme or more extreme than the o
 </div>
 </div>
 
-<div id="outline-container-org673502a" class="outline-2">
-<h2 id="org673502a"><span class="section-number-2">8</span> Interpretation</h2>
+<div id="outline-container-org94ff90a" class="outline-2">
+<h2 id="org94ff90a"><span class="section-number-2">8</span> Interpretation</h2>
 <div class="outline-text-2" id="text-8">
 <p>
-Extreme here means ‘far from what we expect’, assuming \(H_0\) is true. The direction counting as ‘far
+Extreme here means <i>far from what we expect</i>, assuming \(H_0\) is true. The direction counting as ‘far
 from what we expect’ is determined by \(H_1\) .
-\vspace{1cm}
 </p>
+
 
 <p>
 The smaller the p-value we get, the stronger the evidence against \(H_0\) we have, given by
 our data.
-\vspace{1cm}
 </p>
+
 
 
 <p>
@@ -713,11 +764,11 @@ The significance level, denoted by \(\alpha\), can be thought of as an evidence 
 </div>
 
 
-<div id="outline-container-org5f3630a" class="outline-2">
-<h2 id="org5f3630a"><span class="section-number-2">9</span> General rules (for all hypothesis tests):</h2>
+<div id="outline-container-orgcd3c380" class="outline-2">
+<h2 id="orgcd3c380"><span class="section-number-2">9</span> General rules (for all hypothesis tests):</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
-<li>If the p-value is less or equal to this threshold, that is p ≤ α,
+<li>If the p-value is less or equal to this threshold, that is \(p \leq \alpha\),
 then we reject the null hypothesis \(H_0\) at \(\alpha\) and there is
 evidence to support the alternative hypothesis \(H_1\) , based on our
 data.</li>
@@ -727,8 +778,8 @@ is not enough evidence to support \(H_1\) , based on our data.</li>
 </div>
 </div>
 
-<div id="outline-container-org54f62a4" class="outline-2">
-<h2 id="org54f62a4"><span class="section-number-2">10</span> Summary</h2>
+<div id="outline-container-orgf8e2efa" class="outline-2">
+<h2 id="orgf8e2efa"><span class="section-number-2">10</span> Summary</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>State the null and alternative hypotheses.</li>
@@ -740,20 +791,18 @@ is not enough evidence to support \(H_1\) , based on our data.</li>
 </div>
 
 
-<div id="outline-container-org1244bc4" class="outline-2">
-<h2 id="org1244bc4"><span class="section-number-2">11</span> Remarks</h2>
+<div id="outline-container-orgda88b91" class="outline-2">
+<h2 id="orgda88b91"><span class="section-number-2">11</span> Remarks</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 When we reject \(H_0\), it does not mean that it is not true, it just means that based on our data, we
 found evidence against \(H_0\) and so, in turn, we have evidence to support \(H_1\).
-\vspace{0.5cm}
 </p>
 
 
 <p>
 Similarly, if we fail to reject \(H_0\) , it does not make \(H_0\) necessarily true, it just means that based on
 our data, we do not have enough evidence against \(H_0\).
-\vspace{0.5cm}
 </p>
 
 
@@ -764,8 +813,8 @@ When interpreting results practically, we usually do so with respect to the alte
 </div>
 
 
-<div id="outline-container-orga8e9ef3" class="outline-2">
-<h2 id="orga8e9ef3"><span class="section-number-2">12</span> Example</h2>
+<div id="outline-container-org890dccc" class="outline-2">
+<h2 id="org890dccc"><span class="section-number-2">12</span> Example</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 Cholesterol level in a particular population was known to have a mean value \(\mu = 170\)
@@ -778,28 +827,29 @@ Perform a Z-test to determine whether there is evidence that the population mean
 significance level.
 </p>
 </div>
-</div>
 
-<div id="outline-container-org1446f18" class="outline-2">
-<h2 id="org1446f18"><span class="section-number-2">13</span> Solution</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-org671780f" class="outline-3">
+<h3 id="org671780f"><span class="section-number-3">12.1</span> Solution</h3>
+<div class="outline-text-3" id="text-12-1">
 <p>
 Since \(p = 0.01255 < 0.05\), we reject \(H_0\) at the 5% level. We can conclude that there is evidence that
 the mean cholesterol level has increased from \(170\).
 </p>
 </div>
 </div>
+</div>
 
 
-<div id="outline-container-org8dbd472" class="outline-2">
-<h2 id="org8dbd472"><span class="section-number-2">14</span> Strength of the evidence</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-org88b595e" class="outline-2">
+<h2 id="org88b595e"><span class="section-number-2">13</span> Strength of the evidence</h2>
+<div class="outline-text-2" id="text-13">
 <p>
-Even though in many disciplines, the significance level α is decided in advance, we do not really need
-to decide on α in advance. We can just look at the p-value and see how big it is. Then based on the
+Even though in many disciplines, the significance level \(\alpha\) is decided in advance, we do not really need
+to have a priori this value. We can just look at the p-value and see how big it is. Then based on the
 following rules, we can determine the strength of evidence against \(H_0\) and so in turn, the strength of
 evidence to support \(H_1\) :
 </p>
+
 <ul class="org-ul">
 <li>If \(p > 0.10\), there is very little evidence against \(H_0\) or we can say there is no evidence against \(H_0\) .</li>
 <li>If \(0.05 < p \leq 0.10\), there is weak evidence against \(H_0\) .</li>
@@ -811,20 +861,20 @@ evidence to support \(H_1\) :
 </div>
 
 
-<div id="outline-container-orgd8270ec" class="outline-2">
-<h2 id="orgd8270ec"><span class="section-number-2">15</span> Using critical values for hypothesis testing</h2>
-<div class="outline-text-2" id="text-15">
+<div id="outline-container-org0d714fe" class="outline-2">
+<h2 id="org0d714fe"><span class="section-number-2">14</span> Using critical values for hypothesis testing</h2>
+<div class="outline-text-2" id="text-14">
 <p>
 There are methods which can be used to decide whether we can reject or not to
-reject \(H_0\) at some \(\alpha\) without finding the exact p-value. A traditional method of hypothesis testing
+reject they null hypothesis \(H_0\) at some \(\alpha\) without finding the exact p-value. A traditional method of hypothesis testing
 uses a table of known critical values.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0dea759" class="outline-2">
-<h2 id="org0dea759"><span class="section-number-2">16</span> </h2>
-<div class="outline-text-2" id="text-16">
+<div id="outline-container-org8b91a19" class="outline-2">
+<h2 id="org8b91a19"><span class="section-number-2">15</span> </h2>
+<div class="outline-text-2" id="text-15">
 <p>
 We reject the null hypothesis \(H_0\) at the significance level α, depending on \(H_1\) , following these
 rules (for most parametric tests):
@@ -846,9 +896,9 @@ for the upper tail of the relevant distribution.</li>
 </div>
 </div>
 
-<div id="outline-container-org716a28a" class="outline-2">
-<h2 id="org716a28a"><span class="section-number-2">17</span> Error Types</h2>
-<div class="outline-text-2" id="text-17">
+<div id="outline-container-org8658007" class="outline-2">
+<h2 id="org8658007"><span class="section-number-2">16</span> Error Types</h2>
+<div class="outline-text-2" id="text-16">
 <p>
 Remember that we make an inference about population parameters, using a particular sample, and
 we do not know the population parameters. We usually do not know whether our inference is correct
@@ -862,9 +912,9 @@ or not. In reaching a decision, we may make two types of errors:
 </div>
 </div>
 
-<div id="outline-container-org437dcfc" class="outline-2">
-<h2 id="org437dcfc"><span class="section-number-2">18</span> Example</h2>
-<div class="outline-text-2" id="text-18">
+<div id="outline-container-orga30b88d" class="outline-2">
+<h2 id="orga30b88d"><span class="section-number-2">17</span> Example</h2>
+<div class="outline-text-2" id="text-17">
 <p>
 A new low cost diagnostic test has been developed that claims to diagnose a particular
 medical condition in its early stages. The patient is assumed not to have the condition unless there
@@ -878,9 +928,9 @@ and their consequences. First, we formulate the hypotheses:
 </div>
 </div>
 
-<div id="outline-container-orgd024a02" class="outline-2">
-<h2 id="orgd024a02"><span class="section-number-2">19</span> &#x2026; Example</h2>
-<div class="outline-text-2" id="text-19">
+<div id="outline-container-org46cc7e1" class="outline-2">
+<h2 id="org46cc7e1"><span class="section-number-2">18</span> &#x2026; Example</h2>
+<div class="outline-text-2" id="text-18">
 <p>
 A Type I error is when the condition is diagnosed in a patient that does not have the condition.
 This would result in an expensive treatment being administered, as well as any possible side effects
@@ -898,9 +948,9 @@ sometimes referred to as a false negative.
 </div>
 
 
-<div id="outline-container-orgac60d48" class="outline-2">
-<h2 id="orgac60d48"><span class="section-number-2">20</span> Test for a population mean</h2>
-<div class="outline-text-2" id="text-20">
+<div id="outline-container-org896897d" class="outline-2">
+<h2 id="org896897d"><span class="section-number-2">19</span> Test for a population mean</h2>
+<div class="outline-text-2" id="text-19">
 <p>
 The underlying assumption for these tests is that the population is normally distributed.
 There are two types of tests for a population mean, depending on whether the population variance
@@ -915,9 +965,9 @@ There are two types of tests for a population mean, depending on whether the pop
 </div>
 
 
-<div id="outline-container-org60b2351" class="outline-2">
-<h2 id="org60b2351"><span class="section-number-2">21</span> Z-test</h2>
-<div class="outline-text-2" id="text-21">
+<div id="outline-container-orgeb94c45" class="outline-2">
+<h2 id="orgeb94c45"><span class="section-number-2">20</span> Z-test</h2>
+<div class="outline-text-2" id="text-20">
 <ul class="org-ul">
 <li>State hypotheses, the null hypothesis \(H_0 : \mu = \mu_0\) and the
 alternative hypothesis \(H_1 : \mu < \mu_0\) for the lower tail,
@@ -939,9 +989,9 @@ test. Alternatively, compute the p-value.</li>
 </div>
 </div>
 
-<div id="outline-container-orgcd20941" class="outline-2">
-<h2 id="orgcd20941"><span class="section-number-2">22</span> </h2>
-<div class="outline-text-2" id="text-22">
+<div id="outline-container-orgee070c1" class="outline-2">
+<h2 id="orgee070c1"><span class="section-number-2">21</span> </h2>
+<div class="outline-text-2" id="text-21">
 <ul class="org-ul">
 <li>Decide whether to reject or not to reject the null hypothesis at \(\alpha\). Remember that \(Z \sim N (0, 1)\) and so we use critical values \(z_{\alpha}\) or \(z_{α/2}\) as following
 <ul class="org-ul">
@@ -957,9 +1007,9 @@ test. Alternatively, compute the p-value.</li>
 </div>
 
 
-<div id="outline-container-orgbcd8445" class="outline-2">
-<h2 id="orgbcd8445"><span class="section-number-2">23</span> Example</h2>
-<div class="outline-text-2" id="text-23">
+<div id="outline-container-org5141515" class="outline-2">
+<h2 id="org5141515"><span class="section-number-2">22</span> Example</h2>
+<div class="outline-text-2" id="text-22">
 <p>
 Cholesterol level in a particular population was known to have a mean value μ = 170
 in the past. We also know that the population standard deviation of the cholesterol is σ = 30.
@@ -978,9 +1028,9 @@ p-value; we use critical values.
 </div>
 
 
-<div id="outline-container-org57ccd34" class="outline-2">
-<h2 id="org57ccd34"><span class="section-number-2">24</span> </h2>
-<div class="outline-text-2" id="text-24">
+<div id="outline-container-orgd1be662" class="outline-2">
+<h2 id="orgd1be662"><span class="section-number-2">23</span> </h2>
+<div class="outline-text-2" id="text-23">
 <p>
 In the tables we look for the critical value at the 5% level, that is z(0.05) = 1.6449. We compare
 this with the value of test statistic 2.236. Since \(2.236 > 1.6449\), we reject \(H_0\) at the 5% level. Note
@@ -996,9 +1046,9 @@ There is evidence that mean cholesterol level has increased from 170.
 </div>
 </div>
 
-<div id="outline-container-org7587fbc" class="outline-2">
-<h2 id="org7587fbc"><span class="section-number-2">25</span> Exercise</h2>
-<div class="outline-text-2" id="text-25">
+<div id="outline-container-org014d35e" class="outline-2">
+<h2 id="org014d35e"><span class="section-number-2">24</span> Exercise</h2>
+<div class="outline-text-2" id="text-24">
 <p>
 Perform Z-test to
 determine whether there is evidence that the population mean differs from 170. You may assume
@@ -1008,12 +1058,12 @@ that the cholesterol level is normally distributed.
 </div>
 
 
-<div id="outline-container-orge47d51c" class="outline-2">
-<h2 id="orge47d51c"><span class="section-number-2">26</span> More graphical example</h2>
-<div class="outline-text-2" id="text-26">
+<div id="outline-container-orge749178" class="outline-2">
+<h2 id="orge749178"><span class="section-number-2">25</span> More graphical example</h2>
+<div class="outline-text-2" id="text-25">
 <ul class="org-ul">
 <li>Usually have a sample \(X_1, X_2, \ldots, X_n\), of size \(n\).</li>
-<li>We want to perform an hypotesis test for the population mean.</li>
+<li>We want to perform an hypothesis test for the population mean.</li>
 <li>The estimate for the population mean will be denoted by \(\hat{\theta}\) or \(\hat{\mu}\),</li>
 <li>The sample variance will be denoted by \(\hat{S}^2\).</li>
 <li>If the Central Limit Theorem applies, we use the \(Z-test\), otherwise we use the \(t-test\) with \(n-1\) degrees of freedom.</li>
@@ -1021,15 +1071,15 @@ that the cholesterol level is normally distributed.
 </div>
 </div>
 
-<div id="outline-container-orgc553025" class="outline-2">
-<h2 id="orgc553025"><span class="section-number-2">27</span> </h2>
-<div class="outline-text-2" id="text-27">
+<div id="outline-container-org48d8033" class="outline-2">
+<h2 id="org48d8033"><span class="section-number-2">26</span> </h2>
+<div class="outline-text-2" id="text-26">
 </div>
-<ol class="org-ol">
-<li><a id="orgbc285a3"></a>One-sided Hypotesis test<br />
-<div class="outline-text-3" id="text-27-1">
+<div id="outline-container-orgf92076d" class="outline-3">
+<h3 id="orgf92076d"><span class="section-number-3">26.1</span> One-sided Hypothesis test</h3>
+<div class="outline-text-3" id="text-26-1">
 <p>
-With an \(\alpha\) level of confidence, perform the hypotesis test:
+With an \(\alpha\) level of confidence, perform the hypothesis test:
 </p>
 \begin{equation}
 \begin{split}
@@ -1038,22 +1088,21 @@ H_1 : \mu > \mu_0,
 \end{split}
 \end{equation}
 </div>
-</li>
-</ol>
+</div>
 </div>
 
-<div id="outline-container-org1ef146b" class="outline-2">
-<h2 id="org1ef146b"><span class="section-number-2">28</span> </h2>
-<div class="outline-text-2" id="text-28">
+<div id="outline-container-orgb2c8ee1" class="outline-2">
+<h2 id="orgb2c8ee1"><span class="section-number-2">27</span> </h2>
+<div class="outline-text-2" id="text-27">
 <p>
 If we draw the Normal Distribution with \(N(\mu_0, \hat{S}/ \sqrt{n})\), and identify our estimate for the mean \(\hat{\theta}\):
 </p>
 </div>
 </div>
 
-<div id="outline-container-org11d0da5" class="outline-2">
-<h2 id="org11d0da5"><span class="section-number-2">29</span> </h2>
-<div class="outline-text-2" id="text-29">
+<div id="outline-container-org8c227a0" class="outline-2">
+<h2 id="org8c227a0"><span class="section-number-2">28</span> </h2>
+<div class="outline-text-2" id="text-28">
 <p>
 The formula : \(Z = (\hat{\theta} - \mu_0)/(S/\sqrt{n})\),
  transforms the previous drawing into an equivalent one for the Standard Normal Distribution \(N(0,1)\).
@@ -1062,9 +1111,9 @@ The formula : \(Z = (\hat{\theta} - \mu_0)/(S/\sqrt{n})\),
 </div>
 
 
-<div id="outline-container-org9201614" class="outline-2">
-<h2 id="org9201614"><span class="section-number-2">30</span> </h2>
-<div class="outline-text-2" id="text-30">
+<div id="outline-container-org35397ff" class="outline-2">
+<h2 id="org35397ff"><span class="section-number-2">29</span> </h2>
+<div class="outline-text-2" id="text-29">
 <p>
 The p-value is the shaded area under the curve (in this case) to the left of \(Z\) as shown below
 </p>
@@ -1072,9 +1121,9 @@ The p-value is the shaded area under the curve (in this case) to the left of \(Z
 </div>
 
 
-<div id="outline-container-org501d616" class="outline-2">
-<h2 id="org501d616"><span class="section-number-2">31</span> </h2>
-<div class="outline-text-2" id="text-31">
+<div id="outline-container-org7fe30d1" class="outline-2">
+<h2 id="org7fe30d1"><span class="section-number-2">30</span> </h2>
+<div class="outline-text-2" id="text-30">
 <p>
 When we are given the \(\alpha\) level (usually 5%), we use it to find the rejection area.
 An area equals to the \(\alpha\) value, corresponds a \(z_{\alpha}\) score
@@ -1082,9 +1131,9 @@ An area equals to the \(\alpha\) value, corresponds a \(z_{\alpha}\) score
 </div>
 </div>
 
-<div id="outline-container-org1b29bf5" class="outline-2">
-<h2 id="org1b29bf5"><span class="section-number-2">32</span> </h2>
-<div class="outline-text-2" id="text-32">
+<div id="outline-container-org7ff5185" class="outline-2">
+<h2 id="org7ff5185"><span class="section-number-2">31</span> </h2>
+<div class="outline-text-2" id="text-31">
 <p>
 Then, the following comparisons are related
 </p>
@@ -1130,9 +1179,9 @@ Then, the following comparisons are related
 </div>
 
 
-<div id="outline-container-org83673cb" class="outline-2">
-<h2 id="org83673cb"><span class="section-number-2">33</span> Code for the graphs</h2>
-<div class="outline-text-2" id="text-33">
+<div id="outline-container-orgc5cd6a2" class="outline-2">
+<h2 id="orgc5cd6a2"><span class="section-number-2">32</span> Code for the graphs</h2>
+<div class="outline-text-2" id="text-32">
 <pre class="example">
 my_plot1 &lt;- function(x,y,color="#3498db",ylabel="f(x)",xlabel="x",my.title="Plot title",...){
 par(family="mono",fg="grey10") 
@@ -1155,7 +1204,7 @@ abline(v=0,h=0,col="grey10")
 png("Image_name.png")  ## look aslo at pdf(), jpeg() and other file types. (?png)
 XX  &lt;-  seq (-5,5, by= 0.05)
 YY  &lt;- dnorm(XX)
-my_plot1(XX,YY ,my.title="Hypotesis Test Example", xlabel = " ", xaxt="n", yaxt = "n")
+my_plot1(XX,YY ,my.title="Hypothesis Test Example", xlabel = " ", xaxt="n", yaxt = "n")
 axis(1,labels=FALSE)
 abline(v=0, lty=3, col="red", lwd = 3)
 axis(1,0,"0",lwd = 3, col = "red")
@@ -1175,9 +1224,9 @@ dev.off()
 
 
 
-<div id="outline-container-orgf96aac6" class="outline-2">
-<h2 id="orgf96aac6"><span class="section-number-2">34</span> References</h2>
-<div class="outline-text-2" id="text-34">
+<div id="outline-container-orgd19f901" class="outline-2">
+<h2 id="orgd19f901"><span class="section-number-2">33</span> References</h2>
+<div class="outline-text-2" id="text-33">
 <p>
 [1] Slides based on Lecture Notes on "Statistical Theory and Methods 1" at Liverpool University.
 </p>
@@ -1190,7 +1239,7 @@ dev.off()
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Daniel Ballesteros-Chávez</p>
-<p class="date">Created: 2022-11-11 Fri 17:30</p>
+<p class="date">Created: 2022-11-11 Fri 18:51</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
