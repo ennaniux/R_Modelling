@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-11-11 Fri 17:22 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lecture 4: Statistical inference</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Daniel Ballesteros-Chávez" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+<style>
+/* Daniel Ballesteros-Chavez */
+/* DBCh CSS for blog project */
+/* color schemes: #333745; #E63462 ; #C7EFCF ; #EEF5DB ; #909396; #262626;*/
+/* Modified version with responsive TOC
+/* usage: #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style01.css"/> */
+body {
+font-size: 18px;
+color: #404040;
+/* background-color: #333745; */
+font-family: Helvetica;
+line-height: 1.3;
+}
+#content {
+max-width: 50em;
+margin-left: auto;
+margin-right: auto;
+padding: 15px 50px 50px 15px;
+background-color: #E4F7FF;
+}
+p {
+text-align: justify;
+}
+/* this part is about the table of contents TOC */
+#table-of-contents a:link,
+#table-of-contents a:visited {
+color: #404040;
+background: transparent;
+}
+#table-of-contents a:hover {
+background-color: #ccc;
+color: #404040;
+}
+#table-of-contents {
+line-height: 1.2;
+}
+#table-of-contents h2 {
+background-color:  #ccc ;
+padding-left: 0.3em;
+color: #404040;
+border-bottom: 0;
+}
+#table-of-contents ul {
+list-style: none;
+padding-left: 0.3em;
+font-weight: normal;
+}
+#table-of-contents div>ul>li {
+margin-top: 1em;
+font-weight: bold;
+}
+#table-of-contents .tag {
+display: none;
+}
+#table-of-contents .todo,
+#table-of-contents .done {
+font-size: 80%;
+}
+#table-of-contents ol>li {
+margin-top: 1em;
+}
+@media screen {
+#table-of-contents {
+position: fixed;
+top: 0;
+left: 0;
+padding: 1em 0 1em 1em;
+width: 290px;
+height: 100vh;
+overlow-x: hidden;
+overlow-y: auto;
+overflow: auto;
+}
+#table-of-contents h2 {
+margin-top: 0;
+font-family: Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+#table-of-contents code {
+font-size: 12px;
+}
+}
+@media screen and (max-width: 95em) {
+#table-of-contents {
+display: none;
+}
+h1.title {
+margin-left: 0%;
+}
+div#content {
+margin-left: 5%;
+max-width: 90%;
+}
+}
+/*Html Boxes around THMs and Propositions */
+.abstract  {
+color:  #404040;
+border: 1px solid #404040;
+box-shadow: 3px 3px 3px ;
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.abstract:before {
+display: inline;
+position: absolute;
+background-color: white;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Abstract';
+}
+.mydef  {
+color:  #404040;
+border: 1px solid #404040;
+background-color: #FFD580;
+/* box-shadow: 3px 3px 3px orange; */
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.mydef:before {
+display: inline;
+position: absolute;
+/* background-color: white; */
+background-color: orange;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Definition';
+}
+.prop  {
+color:  #404040;
+border: 1px solid ;
+background-color: #F1FFC2;
+/* box-shadow: 3px 3px 3px green; */
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.prop:before {
+color:  white;
+display: inline;
+position: absolute;
+background-color: green;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Proposition';
+}
+.thm  {
+color:  #404040;
+border: 1px solid ;
+background-color: lightcyan;
+/* box-shadow: 3px 3px 3px brown; */
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.thm:before {
+color:  white;
+display: inline;
+position: absolute;
+background-color: darkblue;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Theorem';
+}
+.cor  {
+color:  #404040;
+border: 1px solid blue;
+box-shadow: 3px 3px 3px blue;
+padding: 8pt;
+overflow: auto;
+margin: 1.2em;
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+.cor:before {
+display: inline;
+position: absolute;
+background-color: white;
+top: -5px;
+left: 10px;
+padding: 3px;
+border: 1px solid black;
+content: 'Corollary';
+}
+/*defaults form org-mode export */
+.title  { text-align: center; }
+.todo   { font-family: monospace; color: red; }
+.done   { color: green; }
+.tag    { background-color: #eee; font-family: monospace;
+padding: 2px; font-size: 80%; font-weight: normal; }
+.timestamp { color: #bebebe; }
+.timestamp-kwd { color: #5f9ea0; }
+.right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+.center { margin-left: auto; margin-right: auto; text-align: center; }
+.underline { text-decoration: underline; }
+#postamble p, #preamble p { font-size: 90%; margin: .2em; text-align: center;}
+p.verse { margin-left: 3%; }
+pre {
+border: 1px solid #ccc;
+box-shadow: 3px 3px 3px #eee;
+padding: 8pt;
+font-family: monospace;
+overflow: auto;
+margin: 1.2em;
+}
+pre.src {
+position: relative;
+overflow: auto;
+padding-top: 1.2em;
+}
+pre.src:before {
+display: none;
+position: absolute;
+background-color: white;
+top: -10px;
+right: 10px;
+padding: 3px;
+border: 1px solid black;
+}
+pre.src:hover:before { display: inline;}
+pre.src-sh:before    { content: 'sh'; }
+pre.src-bash:before  { content: 'sh'; }
+pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+pre.src-R:before     { content: 'R'; }
+pre.src-perl:before  { content: 'Perl'; }
+pre.src-java:before  { content: 'Java'; }
+pre.src-sql:before   { content: 'SQL'; }
+table { border-collapse:collapse; }
+caption.t-above { caption-side: top; }
+caption.t-bottom { caption-side: bottom; }
+td, th { vertical-align:top;  }
+th.right  { text-align: center;  }
+th.left   { text-align: center;   }
+th.center { text-align: center; }
+td.right  { text-align: right;  }
+td.left   { text-align: left;   }
+td.center { text-align: center; }
+dt { font-weight: bold; }
+.footpara:nth-child(2) { display: inline; }
+.footpara { display: block; }
+.footdef  { margin-bottom: 1em; }
+.figure { padding: 1em; }
+.figure p { text-align: center; }
+.inlinetask {
+padding: 10px;
+border: 2px solid gray;
+margin: 10px;
+background: #ffffcc;
+}
+#org-div-home-and-up
+{ text-align: right; font-size: 70%; white-space: nowrap; }
+textarea { overflow-x: auto; }
+.linenr { font-size: smaller }
+.code-highlighted { background-color: #ffff00; }
+.org-info-js_info-navigation { border-style: none; }
+#org-info-js_console-label
+{ font-size: 10px; font-weight: bold; white-space: nowrap; }
+.org-info-js_search-highlight
+{ background-color: #ffff00; color: #000000; font-weight: bold; }
+</style>
+<style>code {background-color: #ccc}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Lecture 4: Statistical inference</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga7470a4">1. Introduction.</a></li>
+<li><a href="#org5c33975">2. Sampling and measurement error models</a></li>
+<li><a href="#org33319df">3. Estimators and Sampling Distributions</a>
+<ul>
+<li><a href="#org14e294e">3.1. Sampling distribution of the sample mean</a></li>
+</ul>
+</li>
+<li><a href="#org6993706">4. The (Weak) Law of Large Numbers</a></li>
+<li><a href="#org5887ea9">5. The central limit theorem</a></li>
+<li><a href="#org1789757">6. Bias of an estimator</a></li>
+<li><a href="#org3ce3df7">7. Maximum Likelihood Estimation</a></li>
+<li><a href="#org9a6cd1f">8. Confidence intervals</a>
+<ul>
+<li><a href="#org1455310">8.1. Confidence intervals If we do not know the standard deviation &sigma;</a></li>
+<li><a href="#orgd2ad594">8.2. Confidence intervals if the sample size is small.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orga7470a4" class="outline-2">
+<h2 id="orga7470a4"><span class="section-number-2">1</span> Introduction.</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Statistical inference is the process of using data analysis to infer
+properties of an underlying distribution of probability. Inferential
+statistical analysis infers properties of a population, for example by
+testing hypotheses and deriving estimates. It is assumed that the
+observed data set is sampled from a larger population.
+</p>
+
+<p>
+We also discuss the Law of Large Numbers and the Central Limit theorem, 
+as well as the definition of Confidence Intervals for Mean estimators.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5c33975" class="outline-2">
+<h2 id="org5c33975"><span class="section-number-2">2</span> Sampling and measurement error models</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+There are two standard paradigms for inference:
+</p>
+
+<ul class="org-ul">
+<li>Sampling model</li>
+<li>Measurement error model.</li>
+</ul>
+
+
+<p>
+Two most common methods of statistical inference are:
+</p>
+
+<ul class="org-ul">
+<li>Confidence intervals</li>
+<li>Hypotesis testing
+<ul class="org-ul">
+<li>Paramtetric</li>
+<li>Non paramtetric</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-org33319df" class="outline-2">
+<h2 id="org33319df"><span class="section-number-2">3</span> Estimators and Sampling Distributions</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The collection of random variables \(X_{1}, X_{2}, X_{3}, ..., X_{n}\) is said to be a random sample of size \(n\)
+if they are independent and identically distributed (i.i.d.), i.e.,
+\(X_{1} , X_{2}, X_{3}, ..., X_{n}\) are independent random variables, and
+they have the same distribution, i.e,
+\(F_{X_1}(x)=F_{X_{2}}(x)=...=F_{X_{n}}(x)\), for all \(x\in \mathbb{R}\).
+</p>
+
+
+<p>
+A <b>parameters</b> is any value that describe properties of the whole population.    
+A function of the random sample \(\{X_{1} , . . . , X_{n} \}\) which is used to estimate the value of
+an unknown parameter is called an <b>estimator</b>. One can see estimators also as random variables with its own distribution called the <b>sampling distribution</b>, and this shows how an estimator would change if we draw repeatedly new samples
+</p>
+</div>
+
+
+<div id="outline-container-org14e294e" class="outline-3">
+<h3 id="org14e294e"><span class="section-number-3">3.1</span> Sampling distribution of the sample mean</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Let us select a random sample \(\{X_{1} , . . . , X_{n} \}\) from a population with mean \(\mu\) and variance \(\sigma^{2}\), in other words, let
+\(X_{1} , . . . , X_{n}\) are independent, identically distributed random variables with \(E[X_{i} ] = \mu\) and \(Var[X_{i} ] =\sigma^{2}\) .
+</p>
+
+
+<p>
+An estimator for the population mean \(\mu\) is given by 
+</p>
+
+
+\begin{equation}
+\hat{Y} = \frac{1}{n}\Sigma_{i =1}^{n} X_{i} 
+\end{equation}
+
+
+<p>
+Note that the expected value and the variance are
+</p>
+
+\begin{equation}
+E[\hat{Y}] = \mu,
+\end{equation}
+
+\begin{equation}
+Var[\hat{Y}]  = \sigma^{2} / n.
+\end{equation}
+
+
+<p>
+The <b>standard error</b> is the standard deviation of the estimator, i.e. 
+</p>
+\begin{equation}
+s.e. =  \sqrt{Var[\hat{Y}]} = \sigma / \sqrt{n}
+\end{equation}
+
+
+<p>
+If  \(X_{i} \sim N(\mu, \sigma^{2})\) for all \(i = 1, 2, \ldots,n\),  then 
+</p>
+\begin{equation}
+\hat{Y} \sim N\left(\mu , \frac{\sigma^{2}}{ n}\right).
+\end{equation}
+
+
+<p>
+Even if the X<sub>i</sub> have some other distribution, for large n, the distribution of Ŷ is
+approximately normal. This is known as the <b>Central Limit Theorem</b> and it is one of the
+most famous facts of probability theory.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6993706" class="outline-2">
+<h2 id="org6993706"><span class="section-number-2">4</span> The (Weak) Law of Large Numbers</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+It states that if you repeat an experiment independently a large number of times and average
+the result, what you obtain should be close to the expected value.
+</p>
+<div class="thm">
+<p>
+Let \(X_1, X_2, \ldots, X_{n}\) be i.i.d. random variables with finite expected value
+\(E[X_{i}] = \mu\). Then for any \(\epsilon >0\), then
+</p>
+\begin{equation}
+\lim_{n \to \infty}P \left(| \hat{Y} - \mu | \geq \epsilon \right) = 0.
+\end{equation}
+
+</div>
+
+<p>
+This result can be viewd as a special case of the Chebyshev's inequality.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5887ea9" class="outline-2">
+<h2 id="org5887ea9"><span class="section-number-2">5</span> The central limit theorem</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+The Central Limit Theorem of probability states that the sum of many
+small independent random variables will be a random variable with an
+approximate normal distribution.
+</p>
+
+
+<p>
+For example, the heights of women in the United States follow an approximate
+normal distribution. The Central Limit Theorem applies here because height is
+affected by many small additive factors. In contrast, the distribution of heights
+of all adults in the United States is not so close to normality. The Central Limit
+Theorem does not apply here because there is a single large factor—sex—that
+represents much of the total variation.
+</p>
+
+<p>
+Example 1. Uniform distribution. 
+</p>
+
+<p>
+A. Take five uniformly distributed random numbers between 0 and 10 and work out the
+average.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">mean(runif(5,0,10))
+</pre>
+</div>
+
+<p>
+Typically, of course, the average will be close to 5.
+</p>
+
+<p>
+B. Let us do this 10,000 times and look at the distribution of the 10,000
+means.
+</p>
+
+<pre class="example">
+
+#Distribution of the raw data
+runif(10000,0,10))
+
+#Distribution of the means
+means &lt;- numeric(10000)
+for (i in 1:10000){
+means[i] &lt;- mean(runif(5,0,10))
+}
+
+hist(means)
+</pre>
+
+<p>
+Now let's take a look at the normal distribution
+</p>
+
+<pre class="example">
+mm  &lt;- mean(means)
+ssdd &lt;-  sd(means)
+xx  &lt;-  seq(0,10,0.1)
+yy  &lt;-  dnorm(xx, mm, ssdd)
+
+plot(xx,yy)
+</pre>
+
+<p>
+The height that gives the right scale, depends on the chosen bin widths, note that if we doubled with width of the bin there would be (close to) twice
+as many numbers in the bin and the bar would be in principle twice as high too. Then get the height of the bars
+on our frequency scale we multiply the total frequency, 10 000 by the bin width, 0.5 to get 5000.
+</p>
+
+<pre class="example">
+hist(means)
+lines(xx,yy*5000)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1789757" class="outline-2">
+<h2 id="org1789757"><span class="section-number-2">6</span> Bias of an estimator</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+If \(\hat{Y}\) is an estimator of a parameter \(Y\), then \(\hat{Y}\) is called <b>unbiased</b> if \(E[\hat{Y}] = Y\). In general, the value
+\(E[\hat{Y}] - Y\) is called the bias of the estimator and if it is different from zero, the estimator is said to be <b>biased</b>.
+</p>
+
+
+<p>
+Example. For a random sample \(\{X_{1} , . . . , X_{n} \}\) from a population with \(E [X_{i} ] = \mu\) and \(\mbox{Var}[X_{i} ] =\sigma^{2}\) .
+</p>
+
+<p>
+Se have seen that the estimator
+</p>
+\begin{equation}
+\hat{Y} = \Sigma_{i =1}^{n} X_{i} / n,
+\end{equation}
+<p>
+is an unbiased estimator for the mean &mu;.
+</p>
+
+<p>
+Show that the sample variance
+</p>
+
+\begin{equation}
+\hat{s}^2 = \frac{1}{n-1} \Sigma_{i=1}^{n} (X_{i} - \hat{Y})^{2},
+\end{equation}
+
+<p>
+is an unbiased estimator of \(\sigma^{2}\).
+</p>
+
+<p>
+On the other hand, the sample standard deviation \(\hat{s}\), is biased.
+to see this, note that \(\hat{s}\)
+ is random (non-degenerate), so \(\mbox{Var}(\hat{s})>0\), and 
+\(\mbox{Var}(\hat{s}) = E[\hat{s}^{2}] - E[\hat{s}]^{2}\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org3ce3df7" class="outline-2">
+<h2 id="org3ce3df7"><span class="section-number-2">7</span> Maximum Likelihood Estimation</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Apart from the mean and variance estimators, it is not clear how we can estimate other parameters. 
+We now would like to talk about a systematic way of parameter estimation. 
+Specifically, we would like to introduce an estimation method, called maximum likelihood estimation (MLE). 
+</p>
+
+<p>
+Example
+</p>
+
+<p>
+I have a bag that contains 3 balls. Each ball is either red or blue,
+but I have no information in addition to this. Thus, the number of
+blue balls, call it \(\theta\), might be 0, 1, 2, or 3. I am allowed to choose
+4 balls at random from the bag with replacement. We define the random
+variables \(X_{1}, X_{2}, X_{3}\), and \(X_{4}\)
+as follows:
+\(X_{i}= 1\) if the i-th chosen ball is blue, and \(X_{i} = 0\) if it is red.
+Note that \(X{i}\)'s are i.i.d. and \(X_{i} \sim Bernoulli\left(\frac{\theta}{3}\right)\). Lets work out the most likely value for
+\(\theta\).
+</p>
+
+
+<p>
+If after the experiment I obtain the values \(X_{1} = 1, X_{2} = 0, X_{3}=1, X_{4} = 1\), i.e., three blues and two reds, then 
+</p>
+<ul class="org-ul">
+<li>For each possible value of \(\theta\), find the probability of the observed sample.</li>
+<li>For which value of &theta; is the probability of the sample the largest?</li>
+</ul>
+
+
+<p>
+Let \(X_{1}, X_{2}, X_{3}, ..., X_{n}\) be a random sample from a distribution with a
+parameter \(\theta\) (In general, \(\theta\) might be a vector, \(\theta=(\theta_{1},\theta_{2},\ldots,\theta_{k})\).)
+Suppose that \(x_{1}, x_{2}, x_{3}, \ldots, x_{n}\) are the observed values of \(X_{1}, X_{2}, X_{n}\). We define the
+likelihood function as the probability of the observed sample as a
+function of \(\theta\):
+</p>
+
+\begin{equation}
+L(x_{1},\ldots,x_{n} ; \theta ) = P(X_{1} = x_{1}, X_{2} = x_{2}, \ldots, X_{n} = x_{n};\theta )
+\end{equation}
+
+<p>
+A maximum likelihood estimate of \(\theta\), is a value of \(\theta\) that maximises the likelihood function.
+</p>
+
+<p>
+A maximum likelihood estimator (MLE) of the parameter \(\theta\) is a random variable whose value when
+\(X_{i} = x_{i}\), equals the maximum likelihood estimate of \(\theta\).
+</p>
+
+
+<p>
+Examples:
+</p>
+
+<p>
+For \(X_{i} \sim Binom(3,\theta)\), and observed values \((x_{1}, x_{2}, x_{3}, x_{4}) = (1, 3, 2, 2)\), find the likelihood function, find the maximum
+likelihood estimate of \(\theta\)
+</p>
+
+
+<p>
+For \(X_{i} \sim Exponential(\theta)\) and observed values \(x_{1}, x_{2}, ..., x_{n}\), find the maximum likelihood estimator (MLE) of \(\theta\)
+</p>
+
+
+<p>
+Generalised to several variables.
+</p>
+
+<p>
+Example 
+</p>
+
+<p>
+Suppose that we have observed the random sample \(X_{1}, X_{2}, X_{3}, X_{n}\), where \(X_{i} \sim N(θ_{1},θ_{2})\). Find the maximum likelihood
+estimators for \(θ_{1}\) and \(θ_{2}\).
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org9a6cd1f" class="outline-2">
+<h2 id="org9a6cd1f"><span class="section-number-2">8</span> Confidence intervals</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Let \(X_{1}, X_{2}, \ldots, X_{n}\) be a random sample from a distribution
+with a parameter \(\theta\) that is to be estimated. An interval estimator with
+confidence level \(1−\alpha\) consists of two estimators such that
+</p>
+
+\begin{equation}
+P\left(\hat{\theta}_l\leq\theta\leq\hat{\theta}_h\right)\geq 1-\alpha
+\end{equation}
+
+
+<p>
+Equivalently, we say that this is a \((1-\alpha)\) 100% confice interval for \(\theta\).
+</p>
+
+
+
+<p>
+Example
+</p>
+
+<p>
+Let \(Z\sim N(0,1)\), find \(x_{l}\) and \(x_{h}\) such that
+</p>
+
+\begin{equation}
+P(x_{l} \leq  Z \leq x_{h})=0.95
+\end{equation}
+
+
+<p>
+Solution: x<sub>l</sub> = -1.96, and x<sub>h</sub>  = 1.96
+</p>
+
+
+<p>
+Example
+</p>
+
+<p>
+Given a random sample \(X_1, X_2, \ldots, X_n\) from a normal distribution \(N(\theta, \sigma^2)\). Find the confidence interval for the parameter \(\theta\) (i,e, the mean) with a confidence level of \((1-\alpha)\).
+</p>
+
+\begin{equation}
+\left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right]
+\end{equation}
+</div>
+
+
+<div id="outline-container-org1455310" class="outline-3">
+<h3 id="org1455310"><span class="section-number-3">8.1</span> Confidence intervals If we do not know the standard deviation &sigma;</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+So far we  have discussed how to get the Confidence Interval with a confidence level of (1-&alpha;) when the parameter of the population we want to measure is the mean &theta; of certain characteristic, using \(\hat{\theta}\) as an estimator, assuming X<sub>i</sub> ~ N(&Theta;,&sigma;<sup>2</sup>), with a large sample size n.
+</p>
+
+<p>
+Usually the problem is that we do not know the real value of &sigma;. For this, we have two options:
+</p>
+
+<ul class="org-ul">
+<li>We can try to find and estimate for the maximum value of &sigma;:  0 &le; &sigma; &le; max &sigma;.</li>
+<li>Use the sample variance estimator for the standar deviation.</li>
+</ul>
+
+<p>
+In the first case, if we have 0 &le; &sigma; &le; max &sigma;, then it is clear that the interval
+</p>
+
+\begin{equation}
+\left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right] \subseteq \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} \right]
+\end{equation}
+
+<p>
+and hence the following inequality holds:
+</p>
+
+\begin{equation}
+P\left( \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} \right]\right ) \geq (1-\alpha)
+\end{equation}
+
+<p>
+In the second case, one can estimate the variance using
+</p>
+
+\begin{equation}
+S^2 = \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \hat{\theta}\right )^2 = \frac{1}{n-1} \left( \sum_{i=1}^{n} X_i^2 - n\hat{\theta} ^2 \right )
+\end{equation}
+
+<p>
+this is we can approximate the interval by solving
+</p>
+\begin{equation}
+P\left( \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{S}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{S}{\sqrt{n}} \right]\right ) \geq (1-\alpha)
+\end{equation}
+</div>
+</div>
+
+
+<div id="outline-container-orgd2ad594" class="outline-3">
+<h3 id="orgd2ad594"><span class="section-number-3">8.2</span> Confidence intervals if the sample size is small.</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+In this case, we cannot apply the Central Limit Theorem. 
+We then relay on the following properties. Recall that we are interested
+in estimating the population mean &mu; using our sample estimator \(\hat{\theta}\).
+</p>
+
+<p>
+Then
+</p>
+
+
+
+<ul class="org-ul">
+<li>\(\hat{\theta} \sim N(\mu, \sigma^2/n)\)</li>
+<li>\(\frac{n-1}{\sigma^2}S^2 \sim \chi^2_{n-1}\)</li>
+<li>\(\frac{\hat{\theta}- \mu}{\sigma/\sqrt{n}} \sim t_{n-1}\)</li>
+</ul>
+
+
+
+<p>
+Hence the confidence interval is 
+</p>
+
+\begin{equation}
+\left[ \hat{\theta} - t_{n-1}\left({\frac{\alpha}{2}} \right )\frac{S}{\sqrt{n}} , \hat{\theta} + t_{n-1}\left( {\frac{\alpha}{2}}\right )\frac{S}{\sqrt{n}} \right]
+\end{equation}
+
+
+<p>
+where \(t_{n-1}(\alpha/2)\) is defined in a similar way to \(z_{\alpha/2}\), using now the \(t_{n-1}\) distribution.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Daniel Ballesteros-Chávez</p>
+<p class="date">Created: 2022-11-11 Fri 17:22</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

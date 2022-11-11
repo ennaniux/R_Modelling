@@ -439,6 +439,8 @@ P(X \leq x) > q ,
 Prefix the name given here by ~d~ for the density, ~p~ for the CDF,
 ~q~ for the quantile function and ~r~ for simulation (random deviates)
 
+Re call that for the normal distribution with 
+
 *Example 1* To compute $P(X < 30)$ when $X$ is normal with mean $55$ and standard deviation $15$. 
 
 #+begin_src R :results output :exports both

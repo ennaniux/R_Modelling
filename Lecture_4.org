@@ -345,6 +345,10 @@ statistical analysis infers properties of a population, for example by
 testing hypotheses and deriving estimates. It is assumed that the
 observed data set is sampled from a larger population.
 
+We also discuss the Law of Large Numbers and the Central Limit theorem, 
+as well as the definition of Confidence Intervals for Mean estimators.
+
+
 * Sampling and measurement error models
 
 There are two standard paradigms for inference:
@@ -417,6 +421,21 @@ Even if the X_{i} have some other distribution, for large n, the distribution of
 approximately normal. This is known as the *Central Limit Theorem* and it is one of the
 most famous facts of probability theory.
 
+* The (Weak) Law of Large Numbers
+
+It states that if you repeat an experiment independently a large number of times and average
+the result, what you obtain should be close to the expected value.
+#+begin_thm
+Let $X_1, X_2, \ldots, X_{n}$ be i.i.d. random variables with finite expected value
+$E[X_{i}] = \mu$. Then for any $\epsilon >0$, then
+\begin{equation}
+\lim_{n \to \infty}P \left(| \hat{Y} - \mu | \geq \epsilon \right) = 0.
+\end{equation}
+#+end_thm
+
+This result can be viewd as a special case of the Chebyshev's inequality.
+
+
 * The central limit theorem
 
 The Central Limit Theorem of probability states that the sum of many
@@ -484,27 +503,30 @@ lines(xx,yy*5000)
 
 * Bias of an estimator
 
-If Ŷ is an estimator of a parameter Y, then Ŷ is called *unbiased* if E[Ŷ] = Y. In general, the value
-E[Ŷ] - Y is called the bias of the estimator and if it is different from zero, the estimator is said to be *biased*.
+If $\hat{Y}$ is an estimator of a parameter $Y$, then $\hat{Y}$ is called *unbiased* if $E[\hat{Y}] = Y$. In general, the value
+$E[\hat{Y}] - Y$ is called the bias of the estimator and if it is different from zero, the estimator is said to be *biased*.
 
 
-Example. For a random sample {X_{1} , . . . , X_{n} } from a population with E [X_{i} ] = μ and Var [X_{i} ] =σ^{2} .
+Example. For a random sample $\{X_{1} , . . . , X_{n} \}$ from a population with $E [X_{i} ] = \mu$ and $\mbox{Var}[X_{i} ] =\sigma^{2}$ .
 
 Se have seen that the estimator
-
-Ŷ = \Sigma_{i =1}^{n} X_{i} / n.
-
-Is an unbiased estimator for the mean \mu.
+\begin{equation}
+\hat{Y} = \Sigma_{i =1}^{n} X_{i} / n,
+\end{equation}
+is an unbiased estimator for the mean \mu.
 
 Show that the sample variance
 
-ŝ^2 = 1/(n-1) \Sigma_{i=1}^{n} (X_{i} - Ŷ)^{2},
+\begin{equation}
+\hat{s}^2 = \frac{1}{n-1} \Sigma_{i=1}^{n} (X_{i} - \hat{Y})^{2},
+\end{equation}
 
-is an unbiased estimator of \sigma^{2}.
+is an unbiased estimator of $\sigma^{2}$.
 
-On the other hand, the sample standard deviation ŝ, is biased.
-to see this, note that ŝ is random, so Var(ŝ)>0, and 
-Var(ŝ) = E[ŝ^{2}] - E[ŝ]^{2}.
+On the other hand, the sample standard deviation $\hat{s}$, is biased.
+to see this, note that $\hat{s}$
+ is random (non-degenerate), so $\mbox{Var}(\hat{s})>0$, and 
+$\mbox{Var}(\hat{s}) = E[\hat{s}^{2}] - E[\hat{s}]^{2}$.
 
 
 * Maximum Likelihood Estimation
@@ -517,72 +539,78 @@ Example
 
 I have a bag that contains 3 balls. Each ball is either red or blue,
 but I have no information in addition to this. Thus, the number of
-blue balls, call it θ, might be 0, 1, 2, or 3. I am allowed to choose
+blue balls, call it $\theta$, might be 0, 1, 2, or 3. I am allowed to choose
 4 balls at random from the bag with replacement. We define the random
-variables X_{1}, X_{2}, X_{3}, and X_{4}
-as follows
-X_{i}= 1 if the i-th chosen ball is blue, and X_{i} = 0 if it is red.
-Note that X{i}'s are i.i.d. and X_{i}∼Bernoulli(\theta / 3). Lets work out the most likely value for
-\theta.
+variables $X_{1}, X_{2}, X_{3}$, and $X_{4}$
+as follows:
+$X_{i}= 1$ if the i-th chosen ball is blue, and $X_{i} = 0$ if it is red.
+Note that $X{i}$'s are i.i.d. and $X_{i} \sim Bernoulli\left(\frac{\theta}{3}\right)$. Lets work out the most likely value for
+$\theta$.
 
 
-If after the experiment I obtain the values X_{1} = 1, X_{2} = 0, X_{3}=1, X_{4} = 1, i.e., three blues and 2 reds, then 
-+ For each possible value of \theta, find the probability of the observed sample.
+If after the experiment I obtain the values $X_{1} = 1, X_{2} = 0, X_{3}=1, X_{4} = 1$, i.e., three blues and two reds, then 
++ For each possible value of $\theta$, find the probability of the observed sample.
 + For which value of \theta is the probability of the sample the largest?
 
 
- Let X_{1}, X_{2}, X_{3}, ..., X_{n} be a random sample from a distribution with a
- parameter θ (In general, θ might be a vector, θ=(θ_{1},θ_{2},⋯,θ_{k}).)
- Suppose that x_{1}, x_{2}, x_{3}, ..., x_{n} are the observed values of X_{1}, X_{2},
-, X_{n}. We define the
+ Let $X_{1}, X_{2}, X_{3}, ..., X_{n}$ be a random sample from a distribution with a
+ parameter $\theta$ (In general, $\theta$ might be a vector, $\theta=(\theta_{1},\theta_{2},\ldots,\theta_{k})$.)
+ Suppose that $x_{1}, x_{2}, x_{3}, \ldots, x_{n}$ are the observed values of $X_{1}, X_{2}, X_{n}$. We define the
  likelihood function as the probability of the observed sample as a
- function of θ:
+ function of $\theta$:
 
-L(x_{1},...,x_{n} ; \theta ) = P(X_{1} = x_{1}, X_{2} = x_{2}, ..., X_{n} = x_{n};\theta )
+\begin{equation}
+L(x_{1},\ldots,x_{n} ; \theta ) = P(X_{1} = x_{1}, X_{2} = x_{2}, \ldots, X_{n} = x_{n};\theta )
+\end{equation}
 
-A maximum likelihood estimate of θ, is a value of θ that maximises the likelihood function.
+A maximum likelihood estimate of $\theta$, is a value of $\theta$ that maximises the likelihood function.
 
-A maximum likelihood estimator (MLE) of the parameter θ is a random variable whose value when
-X_{i} = x_{i}, equals the maximum likelihood estimate of \theta.
+A maximum likelihood estimator (MLE) of the parameter $\theta$ is a random variable whose value when
+$X_{i} = x_{i}$, equals the maximum likelihood estimate of $\theta$.
 
 
 Examples:
 
-For X_{i} ~ Binom(3,\theta), and observed values (x_{1}, x_{2}, x_{3},
-x_{4}) = (1, 3, 2, 2), find the likelihood function, find the maximum
-likelihood estimate of θ
+For $X_{i} \sim Binom(3,\theta)$, and observed values $(x_{1}, x_{2}, x_{3}, x_{4}) = (1, 3, 2, 2)$, find the likelihood function, find the maximum
+likelihood estimate of $\theta$
 
 
-For X_{i} ~ Exponential(\theta) and observed values x_{1}, x_{2}, ..., x_{n}, find the maximum likelihood estimator (MLE) of θ
+For $X_{i} \sim Exponential(\theta)$ and observed values $x_{1}, x_{2}, ..., x_{n}$, find the maximum likelihood estimator (MLE) of $\theta$
 
 
 Generalised to several variables.
 
 Example 
 
-Suppose that we have observed the random sample X_{1}, X_{2}, X_{3},
-..., X_{n}, where X_{i} ∼ N(θ_{1},θ_{2}). Find the maximum likelihood
-estimators for θ_{1} and θ_{2}.
+Suppose that we have observed the random sample $X_{1}, X_{2}, X_{3}, X_{n}$, where $X_{i} \sim N(θ_{1},θ_{2})$. Find the maximum likelihood
+estimators for $θ_{1}$ and $θ_{2}$.
 
 
 
 * Confidence intervals
 
-Let X_{1}, X_{2}, ..., X_{n} be a random sample from a distribution
-with a parameter θ that is to be estimated. An interval estimator with
-confidence level 1−α consists of two estimators such that
+Let $X_{1}, X_{2}, \ldots, X_{n}$ be a random sample from a distribution
+with a parameter $\theta$ that is to be estimated. An interval estimator with
+confidence level $1−\alpha$ consists of two estimators such that
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;P\left(\hat{\Theta}_l&space;\leq&space;\theta&space;\leq&space;\hat{\Theta}_h&space;\right&space;)&space;\geq&space;1&space;-&space;\alpha" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;P\left(\hat{\Theta}_l&space;\leq&space;\theta&space;\leq&space;\hat{\Theta}_h&space;\right&space;)&space;\geq&space;1&space;-&space;\alpha" title="\Large\color{DarkBlue} P\left(\hat{\Theta}_l \leq \theta \leq \hat{\Theta}_h \right ) \geq 1 - \alpha" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;P\left(\hat{\Theta}_l&space;\leq&space;\theta&space;\leq&space;\hat{\Theta}_h&space;\right&space;)&space;\geq&space;1&space;-&space;\alpha" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;P\left(\hat{\Theta}_l&space;\leq&space;\theta&space;\leq&space;\hat{\Theta}_h&space;\right&space;)&space;\geq&space;1&space;-&space;\alpha" title="\Large\color{DarkBlue} P\left(\hat{\Theta}_l \leq \theta \leq \hat{\Theta}_h \right ) \geq 1 - \alpha" /></a>
 
-Equivalently, we say that this is a (1-\alpha) 100% confice interval for \theta.
+\begin{equation}
+P\left(\hat{\theta}_l\leq\theta\leq\hat{\theta}_h\right)\geq 1-\alpha
+\end{equation}
+
+
+Equivalently, we say that this is a $(1-\alpha)$ 100% confice interval for $\theta$.
 
 
 
 Example
 
-Let Z∼N(0,1), find x_{l} and x_{h} such that
+Let $Z\sim N(0,1)$, find $x_{l}$ and $x_{h}$ such that
 
-P(x_{l}≤ Z ≤x_{h})=0.95
+\begin{equation}
+P(x_{l} \leq  Z \leq x_{h})=0.95
+\end{equation}
 
 
 Solution: x_{l} = -1.96, and x_{h}  = 1.96
@@ -590,9 +618,14 @@ Solution: x_{l} = -1.96, and x_{h}  = 1.96
 
 Example
 
-Given a random sample $X_1, X_2, \ldots, X_n$ from a normal distribution N(\theta, \sigma^2). Find the confidence interval for the parameter $\theta$ with a confidence level of (1-\alpha)%.
+Given a random sample $X_1, X_2, \ldots, X_n$ from a normal distribution $N(\theta, \sigma^2)$. Find the confidence interval for the parameter $\theta$ (i,e, the mean) with a confidence level of $(1-\alpha)$.
 
-no#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right]" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right]" /></a>
+
+\begin{equation}
+\left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right]
+\end{equation}
+
 
 ** Confidence intervals If we do not know the standard deviation \sigma 
 
@@ -605,34 +638,63 @@ Usually the problem is that we do not know the real value of \sigma. For this, w
 
 In the first case, if we have 0 \leq \sigma \leq max \sigma, then it is clear that the interval
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]&space;\subseteq&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]&space;\subseteq&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right] \subseteq \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} \right]" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]&space;\subseteq&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}&space;\right]&space;\subseteq&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right] \subseteq \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} \right]" /></a>
+
+\begin{equation}
+\left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \right] \subseteq \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} \right]
+\end{equation}
 
 and hence the following inequality holds:
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;P\left(&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;\right]\right&space;)&space;\geq&space;(1-\alpha)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;P\left(&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;\right]\right&space;)&space;\geq&space;(1-\alpha)" title="\Large\color{DarkBlue} P\left( \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} \right]\right ) \geq (1-\alpha)" /></a>
-
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;P\left(&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;\right]\right&space;)&space;\geq&space;(1-\alpha)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;P\left(&space;\left[&space;\hat{\theta}&space;-&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}}&space;\right]\right&space;)&space;\geq&space;(1-\alpha)" title="\Large\color{DarkBlue} P\left( \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} \right]\right ) \geq (1-\alpha)" /></a>
+\begin{equation}
+P\left( \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{\max\sigma}{\sqrt{n}} \right]\right ) \geq (1-\alpha)
+\end{equation}
 
 In the second case, one can estimate the variance using
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;S^2&space;=&space;\frac{1}{n-1}&space;\sum_{i=1}^{n}&space;\left(&space;X_i&space;-&space;\hat{\theta}\right&space;)^2&space;\\&space;=&space;\frac{1}{n-1}&space;\left(&space;\sum_{i=1}^{n}&space;X_i^2&space;-&space;n\hat{\theta}&space;^2&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;S^2&space;=&space;\frac{1}{n-1}&space;\sum_{i=1}^{n}&space;\left(&space;X_i&space;-&space;\hat{\theta}\right&space;)^2&space;\\&space;=&space;\frac{1}{n-1}&space;\left(&space;\sum_{i=1}^{n}&space;X_i^2&space;-&space;n\hat{\theta}&space;^2&space;\right&space;)" title="\Large\color{DarkBlue} S^2 = \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \hat{\theta}\right )^2 \\ = \frac{1}{n-1} \left( \sum_{i=1}^{n} X_i^2 - n\hat{\theta} ^2 \right )" /></a>
-equivalently 
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;S^2&space;=&space;\frac{1}{n-1}&space;\sum_{i=1}^{n}&space;\left(&space;X_i&space;-&space;\hat{\theta}\right&space;)^2&space;\\&space;=&space;\frac{1}{n-1}&space;\left(&space;\sum_{i=1}^{n}&space;X_i^2&space;-&space;n\hat{\theta}&space;^2&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;S^2&space;=&space;\frac{1}{n-1}&space;\sum_{i=1}^{n}&space;\left(&space;X_i&space;-&space;\hat{\theta}\right&space;)^2&space;\\&space;=&space;\frac{1}{n-1}&space;\left(&space;\sum_{i=1}^{n}&space;X_i^2&space;-&space;n\hat{\theta}&space;^2&space;\right&space;)" title="\Large\color{DarkBlue} S^2 = \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \hat{\theta}\right )^2 \\ = \frac{1}{n-1} \left( \sum_{i=1}^{n} X_i^2 - n\hat{\theta} ^2 \right )" /></a>
+
+\begin{equation}
+S^2 = \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \hat{\theta}\right )^2 = \frac{1}{n-1} \left( \sum_{i=1}^{n} X_i^2 - n\hat{\theta} ^2 \right )
+\end{equation}
+
+this is we can approximate the interval by solving
+\begin{equation}
+P\left( \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{S}{\sqrt{n}} , \hat{\theta} + z_{\frac{\alpha}{2}}\frac{S}{\sqrt{n}} \right]\right ) \geq (1-\alpha)
+\end{equation}
 
 
-** Confidence intervales if the sample size is small.
+** Confidence intervals if the sample size is small.
 
 In this case, we cannot apply the Central Limit Theorem. 
-We then relay on the follwoing properties. Recall that we are interested
+We then relay on the following properties. Recall that we are interested
 in estimating the population mean \mu using our sample estimator $\hat{\theta}$.
 
 Then
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\hat{\theta}&space;\sim&space;N(\mu,&space;\sigma^2/n),\\&space;\\&space;\frac{n-1}{\sigma^2}S^2&space;\sim&space;\chi^2_{n-1},\\&space;\\&space;\frac{\hat{\theta}-&space;\mu}{\sigma/\sqrt{n}}&space;\sim&space;t_{n-1}." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\hat{\theta}&space;\sim&space;N(\mu,&space;\sigma^2/n),\\&space;\\&space;\frac{n-1}{\sigma^2}S^2&space;\sim&space;\chi^2_{n-1},\\&space;\\&space;\frac{\hat{\theta}-&space;\mu}{\sigma/\sqrt{n}}&space;\sim&space;t_{n-1}." title="\Large\color{DarkBlue} \hat{\theta} \sim N(\mu, \sigma^2/n),\\ \\ \frac{n-1}{\sigma^2}S^2 \sim \chi^2_{n-1},\\ \\ \frac{\hat{\theta}- \mu}{\sigma/\sqrt{n}} \sim t_{n-1}." /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\hat{\theta}&space;\sim&space;N(\mu,&space;\sigma^2/n),\\&space;\\&space;\frac{n-1}{\sigma^2}S^2&space;\sim&space;\chi^2_{n-1},\\&space;\\&space;\frac{\hat{\theta}-&space;\mu}{\sigma/\sqrt{n}}&space;\sim&space;t_{n-1}." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\hat{\theta}&space;\sim&space;N(\mu,&space;\sigma^2/n),\\&space;\\&space;\frac{n-1}{\sigma^2}S^2&space;\sim&space;\chi^2_{n-1},\\&space;\\&space;\frac{\hat{\theta}-&space;\mu}{\sigma/\sqrt{n}}&space;\sim&space;t_{n-1}." title="\Large\color{DarkBlue} \hat{\theta} \sim N(\mu, \sigma^2/n),\\ \\ \frac{n-1}{\sigma^2}S^2 \sim \chi^2_{n-1},\\ \\ \frac{\hat{\theta}- \mu}{\sigma/\sqrt{n}} \sim t_{n-1}." /></a>
+
+
+
++ $\hat{\theta} \sim N(\mu, \sigma^2/n)$
++ $\frac{n-1}{\sigma^2}S^2 \sim \chi^2_{n-1}$
++ $\frac{\hat{\theta}- \mu}{\sigma/\sqrt{n}} \sim t_{n-1}$
+
 
 
 Hence the confidence interval is 
 
-#+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;t_{n-1}\left({\frac{\alpha}{2}}&space;\right&space;)\frac{S}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;t_{n-1}\left(&space;{\frac{\alpha}{2}}\right&space;)\frac{S}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;t_{n-1}\left({\frac{\alpha}{2}}&space;\right&space;)\frac{S}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;t_{n-1}\left(&space;{\frac{\alpha}{2}}\right&space;)\frac{S}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - t_{n-1}\left({\frac{\alpha}{2}} \right )\frac{S}{\sqrt{n}} , \hat{\theta} + t_{n-1}\left( {\frac{\alpha}{2}}\right )\frac{S}{\sqrt{n}} \right]" /></a>
+# #+html: <a href="https://www.codecogs.com/eqnedit.php?latex=\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;t_{n-1}\left({\frac{\alpha}{2}}&space;\right&space;)\frac{S}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;t_{n-1}\left(&space;{\frac{\alpha}{2}}\right&space;)\frac{S}{\sqrt{n}}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Large\color{DarkBlue}&space;\left[&space;\hat{\theta}&space;-&space;t_{n-1}\left({\frac{\alpha}{2}}&space;\right&space;)\frac{S}{\sqrt{n}}&space;,&space;\hat{\theta}&space;&plus;&space;t_{n-1}\left(&space;{\frac{\alpha}{2}}\right&space;)\frac{S}{\sqrt{n}}&space;\right]" title="\Large\color{DarkBlue} \left[ \hat{\theta} - t_{n-1}\left({\frac{\alpha}{2}} \right )\frac{S}{\sqrt{n}} , \hat{\theta} + t_{n-1}\left( {\frac{\alpha}{2}}\right )\frac{S}{\sqrt{n}} \right]" /></a>
 
-where t_{n-1}(\alpha/2) is defined in a simmilar way to z_{\alpha/2}, using now the t_{n-1} distribution.
+\begin{equation}
+\left[ \hat{\theta} - t_{n-1}\left({\frac{\alpha}{2}} \right )\frac{S}{\sqrt{n}} , \hat{\theta} + t_{n-1}\left( {\frac{\alpha}{2}}\right )\frac{S}{\sqrt{n}} \right]
+\end{equation}
+
+
+where $t_{n-1}(\alpha/2)$ is defined in a similar way to $z_{\alpha/2}$, using now the $t_{n-1}$ distribution.
+
+
+
 
 
