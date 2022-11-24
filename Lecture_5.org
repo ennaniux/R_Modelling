@@ -401,6 +401,15 @@ $Z \sim N(0,1)$.
 Note: The test statistic is based on the statistic that estimates the parameter that appears in the hypotheses.
 E.g. in the example above $\hat{\theta}$ estimates $\mu_0$.
 
+* Some remarks with the previous formula:
+ Recall that
+1) If $X_{i}$ 's are $n$ iid random variables with $X_{i}\sim N(\mu, \sigma^2)$ then
+\begin{equation}
+\hat{Y} = \frac{1}{n} \sum_{i=1}^n X_{i} \sim N\left(\mu,\frac{\sigma^2}{n} \right).
+\end{equation}
+
+2) [@2] Then the Z statistic is the change of variable that transforms $X \sim N\left(\mu_0,\frac{\sigma^2}{n} \right)$ into $Z \sim N(0,1)$.
+
 * Assessing our estimate
 
 To assess how far the estimate is from the parameter, we standardise the estimate. So, the test
@@ -421,18 +430,13 @@ against $H_0$ , so called p-value.
 
 
 Definition of p-value: The p-value of a test is the probability, assuming $H_0$ is true, that we
-would obtain a value of our test statistic as extreme or more extreme than the one we have observed.
+would obtain a value of our test statistic as extreme result or even more extreme than the one we have observed.
 
-* Interpretation
-
-Extreme here means /far from what we expect/, assuming $H_0$ is true. The direction counting as ‘far
-from what we expect’ is determined by $H_1$ .
-
+Extreme here means /far from what we expect/, assuming $H_0$ is true. 
+The direction counting as /far from what we expect/ is determined by $H_1$ .
 
 The smaller the p-value we get, the stronger the evidence against $H_0$ we have, given by
 our data.
-
-
 
 In many disciplines, the p-value is then compared to the significance level of the test.
 The significance level, denoted by $\alpha$, can be thought of as an evidence threshold.
@@ -450,7 +454,7 @@ The significance level, denoted by $\alpha$, can be thought of as an evidence th
 * Summary
 
 + State the null and alternative hypotheses.
-+ Calculate the value of the test statistic.
++ Calculate the value of the test statistic. (This will usually  be the Z statistic.)
 + Find a p-value for the test.
 + Decide whether to reject or not to reject the null hypothesis at the significance level $\alpha$.
 
@@ -482,7 +486,6 @@ significance level.
 
 Since $p = 0.01255 < 0.05$, we reject $H_0$ at the 5% level. We can conclude that there is evidence that
 the mean cholesterol level has increased from $170$.
-
 
 * Strength of the evidence
 
@@ -538,7 +541,6 @@ and their consequences. First, we formulate the hypotheses:
 + $H_0$ : The patient does not have the condition.
 + $H_1$ : The patient has the condition.
 
-* ... Example
 
 A Type I error is when the condition is diagnosed in a patient that does not have the condition.
 This would result in an expensive treatment being administered, as well as any possible side effects
@@ -555,10 +557,10 @@ sometimes referred to as a false negative.
 
 The underlying assumption for these tests is that the population is normally distributed.
 There are two types of tests for a population mean, depending on whether the population variance
-$\sigma$ 2 is known or not.
+$\sigma^2$  is known or not.
 
-+ If $\sigma$ 2 is known, then we use the Z-test.
-+ If $\sigma$ 2 is unknown, then we use the t-test.
++ If $\sigma^2$ is known, then we use the Z-test.
++ If $\sigma^2$ is unknown, then we use the t-test.
 
 
 * Z-test
@@ -578,7 +580,6 @@ Z = \frac{\hat{\theta}-\mu_0}{\sigma/\sqrt{n}}.
   level, remembering to half the significance level for a two- tailed
   test. Alternatively, compute the p-value.
 
-* 
 
 + Decide whether to reject or not to reject the null hypothesis at $\alpha$. Remember that $Z \sim N (0, 1)$ and so we use critical values $z_{\alpha}$ or $z_{α/2}$ as following
   + For the alternative $H_1 : \mu < \mu_0$ , we reject $H_0$ at $\alpha$ if $Z < −z_{\alpha}$.
@@ -591,28 +592,21 @@ Z = \frac{\hat{\theta}-\mu_0}{\sigma/\sqrt{n}}.
 
 * Example
 
-Cholesterol level in a particular population was known to have a mean value μ = 170
-in the past. We also know that the population standard deviation of the cholesterol is σ = 30.
-A random sample of n = 20 people was taken and their sample mean was 185. Perform Z-test
+Cholesterol level in a particular population was known to have a mean value $\mu = 170$
+in the past. We also know that the population standard deviation of the cholesterol is $\sigma = 30$.
+A random sample of $n = 20$ people was taken and their sample mean was $185$. Perform Z-test
 to determine whether there is evidence that the population mean has increased. Test at the 5%
 significance level. You may assume that the cholesterol level is normally distributed.
-\vspace{0.5cm}
-
 
 Note that we solved this problem before, but this time we solve it without calculating the exact
 p-value; we use critical values.
-
-
-* 
 
 In the tables we look for the critical value at the 5% level, that is z(0.05) = 1.6449. We compare
 this with the value of test statistic 2.236. Since $2.236 > 1.6449$, we reject $H_0$ at the 5% level. Note
 that since our alternative is $H_1 : \mu > 170$, we used the rejection rule for $H_1 : \mu > \mu_0$ , which is that
 we reject $H_0$ at $\alpha$ if $Z > z_{\alpha}$.
-\vspace{0.5cm}
 
-
-There is evidence that mean cholesterol level has increased from 170.
+There is evidence that mean cholesterol level has increased from $170$.
 
 * Exercise
 
@@ -639,38 +633,31 @@ H_1 : \mu > \mu_0,
 \end{split}
 \end{equation}
 
-* 
 
-If we draw the Normal Distribution with $N(\mu_0, \hat{S}/ \sqrt{n})$, and identify our estimate for the mean $\hat{\theta}$:
++ If we draw the Normal Distribution with $N(\mu_0, \hat{S}/ \sqrt{n})$, and identify our estimate for the mean $\hat{\theta}$:
 
 #+latex: \includegraphics[width = 7cm]{HT_s1.pdf}
 
-* 
-
-The formula : $Z = (\hat{\theta} - \mu_0)/(S/\sqrt{n})$,
- transforms the previous drawing into an equivalent one for the Standard Normal Distribution $N(0,1)$.
++ The formula : $Z = (\hat{\theta} - \mu_0)/(S/\sqrt{n})$, transforms
+  the previous drawing into an equivalent one for the Standard Normal
+  Distribution $N(0,1)$.
 
 #+latex: \includegraphics[width = 7cm]{HT_s2.pdf}
 
-
-* 
-
-The p-value is the shaded area under the curve (in this case) to the left of $Z$ as shown below
++ The p-value is the shaded area under the curve (in this case) to the left of $Z$ as shown below
 
 #+latex: \includegraphics[width = 7cm]{HT_s3.pdf}
 
 
-* 
-When we are given the $\alpha$ level (usually 5%), we use it to find the rejection area.
-An area equals to the $\alpha$ value, corresponds a $z_{\alpha}$ score
++ When we are given the $\alpha$ level (usually 5%), we use it to find
+  the rejection area. An area equals to the $\alpha$ value,
+  corresponds a $z_{\alpha}$ score
 
 #+latex: \includegraphics[width = 7cm]{HT_s4.pdf}
 
-* 
-
-Then, the following comparisons are related
-+ A comparison between the p-value with the $\alpha$ level (comparing areas).
-+ A comparison between the statistic $Z$ and the $z_{\alpha}$ (comparing scores).
++ Then, the following comparisons are related:
+  + A comparison between the p-value with the $\alpha$ level (comparing areas).
+  + A comparison between the statistic $Z$ and the $z_{\alpha}$ (comparing scores).
 
 
 #+ATTR_LATEX: :environment longtable :align |l|l|l|
@@ -681,6 +668,78 @@ Then, the following comparisons are related
 |-------------------+---------------------+-----------------------|
 | Z < $z_{\alpha}$  | p-value > $\alpha$  | we can't reject $H_0$ |
 |-------------------+---------------------+-----------------------|
+
+
+* Comparing two means
+
+We will work out the probability that two samples were indeed
+drawn from populations with the same mean. If this probability is very
+low (say, less than 5% or less than 1%) then we can be reasonably
+certain (95% or 99% in these two examples) than the means really are
+different from one another. Note, however, that we can never be 100%
+certain; the apparent difference might just be due to random sampling.
+
+There are two classical tests for comparing two sample means: 
+
++ Student’s t test when the samples are independent, the variances constant, and the errors are normally distributed; 
++ Wilcoxon’s rank-sum test when the samples are independent but the errors are not normally distributed (e.g. they are ranks or scores or some sort).  
+
+
+What to do when these assumptions are violated (e.g. when the variances are different) is discussed later on.
+
+* t-Student test
+The test statistic is the number of standard errors of the difference by which the two sample means are separated
+\begin{equation}
+t = \frac{\hat{Y}_1 - \hat{Y}_2}{ s_{\mbox{diff}}},
+\end{equation}
+
+Where
+\begin{equation}
+s_{\mbox{diff}} = \sqrt{\frac{s^2_{1}}{n_1} + \frac{s^2_{2}}{n_2}}
+\end{equation}
+
+In R we use the function
+#+begin_example R
+t.test(Sample_A, Sample_B)
+#+end_example
+
+* Binomial test to compare two proportions
+
+Suppose that only four females were promoted, compared to 196 men. Is this an example of blatant sexism,
+as it might appear at ﬁrst glance? Before we can judge, of course, we need to know the number of male
+and female candidates. It turns out that 196 men were promoted out of 3270 candidates, compared with 4
+promotions out of only 40 candidates for the women. Now, if anything, it looks like the females did better
+than males in the promotion round (10% success for women versus 6% success for men).
+The question then arises as to whether the apparent positive discrimination in favour of women is statisti-
+cally signiﬁcant, or whether this sort of difference could arise through chance alone. 
+
+In R the binomial proportions test is performed by the function  ~prop.test~ in which we specify two vectors, the ﬁrst containing the
+number of successes for females and males c(4,196) and second containing the total number of female
+and male candidates c(40,3270)
+
+
+#+begin_src R :results output :exports both
+prop.test(c(4,196), c(40,3270))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+	2-sample test for equality of proportions with continuity correction
+
+data:  c(4, 196) out of c(40, 3270)
+X-squared = 0.52289, df = 1, p-value = 0.4696
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ -0.06591631  0.14603864
+sample estimates:
+    prop 1     prop 2 
+0.10000000 0.05993884 
+
+Warning message:
+In prop.test(c(4, 196), c(40, 3270)) :
+  Chi-squared approximation may be incorrect
+#+end_example
 
 
 * Code for the graphs
@@ -734,4 +793,4 @@ dev.off()
 
 [2] Data Analysis Using Regression And Multilevel/Hierarchical Models. Andrew Gelman and Jennifer Hill. Cambridge University Press. 2007.
 
-
+[3] The R book. Michael J. Crawley. John Wiley & Sons, Ltd. 2013.

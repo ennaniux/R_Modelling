@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:22 -->
+<!-- 2022-11-17 Thu 20:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lecture 4: Statistical inference</title>
@@ -553,30 +553,31 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga7470a4">1. Introduction.</a></li>
-<li><a href="#org5c33975">2. Sampling and measurement error models</a></li>
-<li><a href="#org33319df">3. Estimators and Sampling Distributions</a>
+<li><a href="#orga7f1f9c">1. Introduction.</a></li>
+<li><a href="#org8ed8cd0">2. Sampling and measurement error models</a></li>
+<li><a href="#org61f2bc7">3. Estimators and Sampling Distributions</a>
 <ul>
-<li><a href="#org14e294e">3.1. Sampling distribution of the sample mean</a></li>
+<li><a href="#org31a6c64">3.1. Sampling distribution of the sample mean</a></li>
 </ul>
 </li>
-<li><a href="#org6993706">4. The (Weak) Law of Large Numbers</a></li>
-<li><a href="#org5887ea9">5. The central limit theorem</a></li>
-<li><a href="#org1789757">6. Bias of an estimator</a></li>
-<li><a href="#org3ce3df7">7. Maximum Likelihood Estimation</a></li>
-<li><a href="#org9a6cd1f">8. Confidence intervals</a>
+<li><a href="#orgc41d8c2">4. The (Weak) Law of Large Numbers</a></li>
+<li><a href="#org106afc1">5. The central limit theorem</a></li>
+<li><a href="#orgfcc801c">6. Bias of an estimator</a></li>
+<li><a href="#orge541471">7. Maximum Likelihood Estimation</a></li>
+<li><a href="#org968d123">8. Confidence intervals</a>
 <ul>
-<li><a href="#org1455310">8.1. Confidence intervals If we do not know the standard deviation &sigma;</a></li>
-<li><a href="#orgd2ad594">8.2. Confidence intervals if the sample size is small.</a></li>
+<li><a href="#orgb4df89a">8.1. Confidence intervals If we do not know the standard deviation &sigma;</a></li>
+<li><a href="#orgab9ead2">8.2. Confidence intervals if the sample size is small.</a></li>
 </ul>
 </li>
+<li><a href="#org54a0407">9. Quick note on the Normal Distribution</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orga7470a4" class="outline-2">
-<h2 id="orga7470a4"><span class="section-number-2">1</span> Introduction.</h2>
+<div id="outline-container-orga7f1f9c" class="outline-2">
+<h2 id="orga7f1f9c"><span class="section-number-2">1</span> Introduction.</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Statistical inference is the process of using data analysis to infer
@@ -594,8 +595,8 @@ as well as the definition of Confidence Intervals for Mean estimators.
 </div>
 
 
-<div id="outline-container-org5c33975" class="outline-2">
-<h2 id="org5c33975"><span class="section-number-2">2</span> Sampling and measurement error models</h2>
+<div id="outline-container-org8ed8cd0" class="outline-2">
+<h2 id="org8ed8cd0"><span class="section-number-2">2</span> Sampling and measurement error models</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 There are two standard paradigms for inference:
@@ -624,8 +625,8 @@ Two most common methods of statistical inference are:
 
 
 
-<div id="outline-container-org33319df" class="outline-2">
-<h2 id="org33319df"><span class="section-number-2">3</span> Estimators and Sampling Distributions</h2>
+<div id="outline-container-org61f2bc7" class="outline-2">
+<h2 id="org61f2bc7"><span class="section-number-2">3</span> Estimators and Sampling Distributions</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The collection of random variables \(X_{1}, X_{2}, X_{3}, ..., X_{n}\) is said to be a random sample of size \(n\)
@@ -644,8 +645,8 @@ an unknown parameter is called an <b>estimator</b>. One can see estimators also 
 </div>
 
 
-<div id="outline-container-org14e294e" class="outline-3">
-<h3 id="org14e294e"><span class="section-number-3">3.1</span> Sampling distribution of the sample mean</h3>
+<div id="outline-container-org31a6c64" class="outline-3">
+<h3 id="org31a6c64"><span class="section-number-3">3.1</span> Sampling distribution of the sample mean</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Let us select a random sample \(\{X_{1} , . . . , X_{n} \}\) from a population with mean \(\mu\) and variance \(\sigma^{2}\), in other words, let
@@ -701,8 +702,8 @@ most famous facts of probability theory.
 </div>
 </div>
 
-<div id="outline-container-org6993706" class="outline-2">
-<h2 id="org6993706"><span class="section-number-2">4</span> The (Weak) Law of Large Numbers</h2>
+<div id="outline-container-orgc41d8c2" class="outline-2">
+<h2 id="orgc41d8c2"><span class="section-number-2">4</span> The (Weak) Law of Large Numbers</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 It states that if you repeat an experiment independently a large number of times and average
@@ -726,8 +727,8 @@ This result can be viewd as a special case of the Chebyshev's inequality.
 </div>
 
 
-<div id="outline-container-org5887ea9" class="outline-2">
-<h2 id="org5887ea9"><span class="section-number-2">5</span> The central limit theorem</h2>
+<div id="outline-container-org106afc1" class="outline-2">
+<h2 id="org106afc1"><span class="section-number-2">5</span> The central limit theorem</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The Central Limit Theorem of probability states that the sum of many
@@ -808,8 +809,8 @@ lines(xx,yy*5000)
 </div>
 </div>
 
-<div id="outline-container-org1789757" class="outline-2">
-<h2 id="org1789757"><span class="section-number-2">6</span> Bias of an estimator</h2>
+<div id="outline-container-orgfcc801c" class="outline-2">
+<h2 id="orgfcc801c"><span class="section-number-2">6</span> Bias of an estimator</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 If \(\hat{Y}\) is an estimator of a parameter \(Y\), then \(\hat{Y}\) is called <b>unbiased</b> if \(E[\hat{Y}] = Y\). In general, the value
@@ -853,8 +854,8 @@ to see this, note that \(\hat{s}\)
 </div>
 
 
-<div id="outline-container-org3ce3df7" class="outline-2">
-<h2 id="org3ce3df7"><span class="section-number-2">7</span> Maximum Likelihood Estimation</h2>
+<div id="outline-container-orge541471" class="outline-2">
+<h2 id="orge541471"><span class="section-number-2">7</span> Maximum Likelihood Estimation</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Apart from the mean and variance estimators, it is not clear how we can estimate other parameters. 
@@ -942,8 +943,8 @@ estimators for \(θ_{1}\) and \(θ_{2}\).
 
 
 
-<div id="outline-container-org9a6cd1f" class="outline-2">
-<h2 id="org9a6cd1f"><span class="section-number-2">8</span> Confidence intervals</h2>
+<div id="outline-container-org968d123" class="outline-2">
+<h2 id="org968d123"><span class="section-number-2">8</span> Confidence intervals</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Let \(X_{1}, X_{2}, \ldots, X_{n}\) be a random sample from a distribution
@@ -994,8 +995,8 @@ Given a random sample \(X_1, X_2, \ldots, X_n\) from a normal distribution \(N(\
 </div>
 
 
-<div id="outline-container-org1455310" class="outline-3">
-<h3 id="org1455310"><span class="section-number-3">8.1</span> Confidence intervals If we do not know the standard deviation &sigma;</h3>
+<div id="outline-container-orgb4df89a" class="outline-3">
+<h3 id="orgb4df89a"><span class="section-number-3">8.1</span> Confidence intervals If we do not know the standard deviation &sigma;</h3>
 <div class="outline-text-3" id="text-8-1">
 <p>
 So far we  have discussed how to get the Confidence Interval with a confidence level of (1-&alpha;) when the parameter of the population we want to measure is the mean &theta; of certain characteristic, using \(\hat{\theta}\) as an estimator, assuming X<sub>i</sub> ~ N(&Theta;,&sigma;<sup>2</sup>), with a large sample size n.
@@ -1044,8 +1045,8 @@ P\left( \left[ \hat{\theta} - z_{\frac{\alpha}{2}}\frac{S}{\sqrt{n}} , \hat{\the
 </div>
 
 
-<div id="outline-container-orgd2ad594" class="outline-3">
-<h3 id="orgd2ad594"><span class="section-number-3">8.2</span> Confidence intervals if the sample size is small.</h3>
+<div id="outline-container-orgab9ead2" class="outline-3">
+<h3 id="orgab9ead2"><span class="section-number-3">8.2</span> Confidence intervals if the sample size is small.</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 In this case, we cannot apply the Central Limit Theorem. 
@@ -1082,10 +1083,151 @@ where \(t_{n-1}(\alpha/2)\) is defined in a similar way to \(z_{\alpha/2}\), usi
 </div>
 </div>
 </div>
+
+
+
+
+
+
+<div id="outline-container-org54a0407" class="outline-2">
+<h2 id="org54a0407"><span class="section-number-2">9</span> Quick note on the Normal Distribution</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Today we did the Following discussed the following points:
+</p>
+
+<ol class="org-ol">
+<li>we Showed that</li>
+</ol>
+\begin{equation}
+\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} dx = 1.
+\end{equation}
+<p>
+First noted that
+</p>
+\begin{equation}
+\int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} dx = 2\int_{0}^{\infty} e^{-\frac{x^2}{2}} dx.
+\end{equation}
+<p>
+Then we defined
+</p>
+\begin{equation}
+L =\int_{0}^{\infty} e^{-\frac{x^2}{2}} dx.
+\end{equation}
+<p>
+Then we wrote
+</p>
+\begin{equation}
+L^2 = \int_0^{\infty}\int_0^{\infty}e^{-\frac{x^2 + y^2}{2}} dxdy.
+\end{equation}
+<p>
+We changed to polar coordinates \(0\leq r <\infty\) and \(0\leq \theta \leq \frac{\pi}{2}\) given by \(r^2 = x^2 + y^2\),  \(x = r\cos\theta\) \(y = r\sin\theta\).
+Then by computing the Jacobian (using change of variable formula) we had
+</p>
+\begin{equation}
+L^2 = \int_0^{\infty}\int_0^{\infty}e^{-\frac{x^2 + y^2}{2}} dxdy = \int_{0}^{\pi/2}\int_{0}^{\infty}e^{-r^2/2}rdrd\theta.
+\end{equation}
+<p>
+From this follows immediately that 
+</p>
+\begin{equation}
+L^2 = \frac{\pi}{2}.
+\end{equation}
+<p>
+Then we have the value of \(L\) and tracing back the integrals we obtained our desired result.
+</p>
+
+<ol class="org-ol">
+<li value="2">We also showed that if \(X \sim N(0,1)\) then the expected value is
+indeed \(\mu = 0\). Just noticed the change of variable \(v = \frac{x^2}{2}\) imply that \(dv = x\,dx\) and then a direct
+computation gives</li>
+</ol>
+\begin{equation}
+\begin{split}
+E[X] & = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} x e^{-\frac{x^2}{2}} dx \\
+ & = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-v} dv  \\
+& =  - \left. \frac{1}{\sqrt{2\pi}} e^{-v} \right|^{\infty}_{-\infty}
+& =  - \left. \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}\right|^{\infty}_{-\infty} 
+&= \frac{1}{\sqrt{2\pi}} (0 - 0).
+&= 0.
+\end{split}
+\end{equation}
+
+<ol class="org-ol">
+<li value="3">We also gave some evidence that if \(X \sim N(\mu, \sigma^2)\) then the change of variable.</li>
+</ol>
+\begin{equation}
+Z = \frac{X - \mu}{\sigma}
+\end{equation}
+<p>
+makes \(Z \sim N(0,1)\).
+</p>
+
+
+<p>
+Be aware that this is not a proof and that the arguments we discussed in the lecture were very
+informal. For a rigorous proof one has to call the <b>Fundamental Theorem of Calculus</b> at some point.
+</p>
+
+<p>
+The ideas were as follows:
+If \(X \sim N(\mu,\sigma^2)\) then we can write the probability density function as
+</p>
+\begin{equation}
+f_{X}(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^2}.
+\end{equation}
+
+<p>
+We are trying to obtain an expression for \(f_{Z}(x)\), and for that we use the following interpretation
+</p>
+\begin{equation}
+P(Z = x) = P\left(\frac{X - \mu}{\sigma} = x \right) = P(X = \sigma x + \mu) = f_{X}(\sigma x + \mu).
+\end{equation}
+
+<p>
+The we want to write
+</p>
+\begin{equation}
+P(Z = x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{x^2}{2}}.
+\end{equation}
+
+<p>
+This is not the result yet, because recall that 
+</p>
+\begin{equation}
+f_{X}(x) = \frac{dF}{dx}.
+\end{equation}
+
+<p>
+To fix it we have to multiply by the right differential, 
+in this case, \(d(\sigma x + \mu) = \sigma\). Hence
+</p>
+
+<p>
+The probability density function of \(Z\) is given by
+</p>
+\begin{equation}
+f_{Z}(x) = P(Z = x) d(\sigma x + \mu) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}.
+\end{equation}
+
+<p>
+This is precisely the probability density function for the standard normal distribution \(N(0,1)\).
+</p>
+
+
+<p>
+In the next lecture we will be discussin the Hypothesis testing procedure, and it is important that this chance of variable 
+is clear (passing from \(N(\mu,\sigma^2)\) distribution to a \(N(0,1)\) distrubution by the so called "Z" statistic:
+</p>
+\begin{equation}
+Z = \frac{X - \mu}{\sigma}.
+\end{equation}
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Daniel Ballesteros-Chávez</p>
-<p class="date">Created: 2022-11-11 Fri 17:22</p>
+<p class="date">Created: 2022-11-17 Thu 20:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

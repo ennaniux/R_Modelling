@@ -698,3 +698,100 @@ where $t_{n-1}(\alpha/2)$ is defined in a similar way to $z_{\alpha/2}$, using n
 
 
 
+
+# * Quick note on the Normal Distribution
+
+# Today we did the Following discussed the following points.  Before
+# getting into maters I wish to thank Paulina Hałatek for her valuable
+# comments while discussing these ideas on the board.
+
+# 1) We showed that 
+# \begin{equation}
+# \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} dx = 1.
+# \end{equation}
+# First noted that
+# \begin{equation}
+# \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} dx = 2\int_{0}^{\infty} e^{-\frac{x^2}{2}} dx.
+# \end{equation}
+# Then we defined
+# \begin{equation}
+# L =\int_{0}^{\infty} e^{-\frac{x^2}{2}} dx.
+# \end{equation}
+# Then we wrote
+# \begin{equation}
+# L^2 = \int_0^{\infty}\int_0^{\infty}e^{-\frac{x^2 + y^2}{2}} dxdy.
+# \end{equation}
+# We changed to polar coordinates $0\leq r <\infty$ and $0\leq \theta \leq \frac{\pi}{2}$ given by $r^2 = x^2 + y^2$,  $x = r\cos\theta$ $y = r\sin\theta$.
+# Then by computing the Jacobian (using change of variable formula) we had
+# \begin{equation}
+# L^2 = \int_0^{\infty}\int_0^{\infty}e^{-\frac{x^2 + y^2}{2}} dxdy = \int_{0}^{\pi/2}\int_{0}^{\infty}e^{-r^2/2}rdrd\theta.
+# \end{equation}
+# From this follows immediately that 
+# \begin{equation}
+# L^2 = \frac{\pi}{2}.
+# \end{equation}
+# Then we have the value of $L$ and tracing back the integrals we obtained our desired result.
+
+# 2) [@2]  We also showed that if $X \sim N(0,1)$ then the expected value is
+#     indeed $\mu = 0$. Just noticed the change of variable $v = \frac{x^2}{2}$ imply that $dv = x\,dx$ and then a direct
+#     computation gives
+# \begin{equation}
+# \begin{split}
+# E[X] & = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} x e^{-\frac{x^2}{2}} dx \\
+#  & = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-v} dv  \\
+# & =  - \left. \frac{1}{\sqrt{2\pi}} e^{-v} \right|^{\infty}_{-\infty}
+# & =  - \left. \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}\right|^{\infty}_{-\infty} 
+# &= \frac{1}{\sqrt{2\pi}} (0 - 0).
+# &= 0.
+# \end{split}
+# \end{equation}
+
+# 3) [@3] We also gave some evidence that if $X \sim N(\mu, \sigma^2)$ then the change of variable.
+# \begin{equation}
+# Z = \frac{X - \mu}{\sigma}
+# \end{equation}
+# makes $Z \sim N(0,1)$.
+
+
+# Be aware that this is not a proof and that the arguments we discussed in the lecture were very
+# informal. For a rigorous proof one has to call the *Fundamental Theorem of Calculus* at some point.
+
+# The ideas were as follows:
+# If $X \sim N(\mu,\sigma^2)$ then we can write the probability density function as
+# \begin{equation}
+# f_{X}(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^2}.
+# \end{equation}
+
+# We are trying to obtain an expression for $f_{Z}(x)$, and for that we use the following interpretation
+# \begin{equation}
+# P(Z = x) = P\left(\frac{X - \mu}{\sigma} = x \right) = P(X = \sigma x + \mu) = f_{X}(\sigma x + \mu).
+# \end{equation}
+
+# The we want to write
+# \begin{equation}
+# P(Z = x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{x^2}{2}}.
+# \end{equation}
+
+# This is not the result yet, because recall that 
+# \begin{equation}
+# f_{X}(x) = \frac{dF}{dx}.
+# \end{equation}
+
+# To fix it we have to multiply by the right differential, 
+# in this case, $d(\sigma x + \mu) = \sigma$. Hence
+
+# The probability density function of $Z$ is given by
+# \begin{equation}
+# f_{Z}(x) = P(Z = x) d(\sigma x + \mu) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}.
+# \end{equation}
+
+# This is precisely the probability density function for the standard normal distribution $N(0,1)$.
+
+
+# In the next lecture we will be discussin the Hypothesis testing procedure, and it is important that this chance of variable 
+# is clear (passing from $N(\mu,\sigma^2)$ distribution to a $N(0,1)$ distrubution by the so called "Z" statistic:
+# \begin{equation}
+# Z = \frac{X - \mu}{\sigma}.
+# \end{equation}
+
+
