@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-11-28 Mon 23:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>R modelling. Lab session 06</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Daniel Ballesteros Chávez." />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+<style> pre.src { overflow: auto; }</style>
+<style> .mmbox {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
+<style> /* Daniel Ballesteros-Chavez */
+:root {
+--col0: #2b2d42;		/*Top bar*/
+--col1: #8d99ae;		/* Section header bg*/
+--col2: #edf2f4;		/*body bg*/
+--col3: #ef233c;		/*Active top bar*/
+--col4: #d90429;		/*Home botton bg*/
+--col5: #173f5f;			/*H2 header*/
+}
+body {
+/*    background-image: url('./Images/bgpic.jpg'); */
+background-size: cover;
+background-attachment: fixed;
+font-family: Helvetica;
+/* background-position: left top; */
+/* background-repeat: no-repeat; */
+background: var(--col2);
+margin: 20px auto; /* "auto" for centering */
+max-width: 768px;
+/* max-width: 800px; */
+/* font-family: monospace; */
+}
+h1 {
+display: block;
+font-size: 1.5em;
+/* margin-top: 0.67em; */
+/* margin-bottom: 0.67em; */
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;
+color: var(--col0);
+padding: 5px 20px;
+/*    background-color:#092B39;*/
+/*text-align: center; */
+/*text-shadow: 3px 2px gray;*/
+}
+h2 {
+display: block;
+font-size: 1em;
+margin-top: 0.67em;
+margin-bottom: 0.67em;
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;
+color: var(--col0);
+background-color: var(--col1);
+border-radius: 10px 10px;
+padding: 10px 20px;
+/*    background-color:#092B39;*/
+}
+div.outline-2 {
+background-color: var(--col2);
+/* border:3px solid #f2f6f9; */
+color: var(--col0);
+}
+div.outline-2 h2 {
+color: var(--col5);
+font-size: 20px; /* arial, sans-serif; */
+/* font-family: 'Fredoka One', cursive; */
+}
+div.outline-text-2 {
+}
+div.outline-text-2 p {
+text-align: justify;
+}
+</style>
+<style>code {background-color: #ccc}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">R modelling. Lab session 06</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd515fc0">Introduction</a></li>
+<li><a href="#orgd2289ab">Practice 1</a></li>
+<li><a href="#org1731105">Practice 2</a></li>
+<li><a href="#orgc88948f">Practice 3</a></li>
+<li><a href="#orga08c68b">Practice 4</a></li>
+<li><a href="#org3d07fac">Practice 5</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd515fc0" class="outline-2">
+<h2 id="orgd515fc0">Introduction</h2>
+<div class="outline-text-2" id="text-orgd515fc0">
+<ul class="org-ul">
+<li>Recall some concepts on Hypothesis testing.</li>
+<li>Merge</li>
+<li>Linear model</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd2289ab" class="outline-2">
+<h2 id="orgd2289ab">Practice 1</h2>
+<div class="outline-text-2" id="text-orgd2289ab">
+<p>
+We would like to estimate the parameter \(\mu\) in a population by drawing a sample 
+\(\{X_{1}, X_{2}, \ldots, X_{n}\}\) of size \(n\) using the estimator
+</p>
+\begin{equation}
+\hat{Y} = \frac{1}{n}\sum_{i=1}^{n} X_{i} = 733
+\end{equation}
+<p>
+If we can assume that \(X_{i}\sim N(\mu,\sigma^2)\), with \(\sigma^2 = 255\) are i.i.d., find the sample size for the 90%  Confidence Interval is such that
+\(\mu = \hat{Y} \pm 5\%\).
+</p>
+
+<p>
+Write the equation that you are using:
+</p>
+\begin{equation}
+n = 
+\end{equation}
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org1731105" class="outline-2">
+<h2 id="org1731105">Practice 2</h2>
+<div class="outline-text-2" id="text-org1731105">
+<p>
+From the polls, a candidate for presidential elections obtained 48.5%. The number of
+participants was \(n = 42\). One can treat this as a binomial distribution \(\mbox{Binom}(n,p)\).
+</p>
+
+<p>
+Using that the sample size if big enough, run a hypotesis test that the candidate will lose the election, with
+significant level \(\alpha = 0.05\).
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgc88948f" class="outline-2">
+<h2 id="orgc88948f">Practice 3</h2>
+<div class="outline-text-2" id="text-orgc88948f">
+<p>
+A factory makes kettles with 84% effectiveness. They implement a new
+system that they hope will improve the rate of effectiveness. They
+randomly select 50 kettles from a recent production run and find that
+46 of them are effective. Perform a binomial test to determine if the
+new system leads to 
+</p>
+
+<p>
+A) Different effectivenes
+B) Higher effectiveness.
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orga08c68b" class="outline-2">
+<h2 id="orga08c68b">Practice 4</h2>
+<div class="outline-text-2" id="text-orga08c68b">
+<p>
+In the table <code>TSDEM_incomplete.dbf</code> we have the identification of households
+in the variable <code>ID_HOG</code>. What is missing is the assigned weights <code>FAC_HOG</code>.
+These can be found in the table <code>THogar.dbf</code>.
+</p>
+
+<p>
+Once you have a table with variables <code>ID_HOG,ID_PER,FAC_HOG</code>. Save it as a csv file in 
+your local folder.
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org3d07fac" class="outline-2">
+<h2 id="org3d07fac">Practice 5</h2>
+<div class="outline-text-2" id="text-org3d07fac">
+<p>
+A) Write a description for the data set cars which is pre-loaded in R.
+</p>
+
+<p>
+B) Use the function <code>lm</code> (linear model) to find the best
+coefficients \(m\) and \(b\) for 
+</p>
+\begin{equation}
+Y = mX + b,
+\end{equation}
+<p>
+where we are considering the Stopping distance (D) as a function of the speed (S).
+</p>
+
+<p>
+C) In the same plot, present the paired points (scatter plot) D and S and the
+adjusted line \(Y\).
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Daniel Ballesteros Chávez.</p>
+<p class="date">Created: 2022-11-28 Mon 23:06</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

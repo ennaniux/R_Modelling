@@ -742,6 +742,49 @@ In prop.test(c(4, 196), c(40, 3270)) :
 #+end_example
 
 
+* Summary
+
+In hypothesis testing, there are certain steps one must follow. Below these are summarized into six such steps to conducting a test of a hypothesis.
+
+1. The null hypothesis, notated as, which is a statement of a particular parameter value. This hypothesis is assumed to be true until there is evidence to suggest otherwise. 
+
+2. The alternative hypothesis is a statement of a range of alternative values in which the parameter may fall. 
+
+3. One must also check that any conditions (assumptions) needed to run the test have been satisfied e.g. normality of data, independence, and number of success and failure outcomes.
+
+4. Decide on the significance level, this value is used as a
+   probability cutoff for making decisions about the null
+   hypothesis. This alpha value represents the probability we are
+   willing to place on our test for making an incorrect decision in
+   regards to rejecting the null hypothesis. The most common value is
+   0.05 or 5%. Other popular choices are 0.01 (1%) and 0.1 (10%).
+
+5) Calculate the test statistic: Gather sample data and calculate a
+   test statistic where the sample statistic is compared to the
+   parameter value. The test statistic is calculated under the
+   assumption the null hypothesis is true and incorporates a measure
+   of standard error and assumptions (conditions) related to the
+   sampling distribution.
+
+6) Calculate probability value (p-value), or find the rejection
+   region: A p-value is found by using the test statistic to calculate
+   the probability of the sample data producing such a test statistic
+   or one more extreme. The rejection region is found by using alpha
+   to find a critical value; the rejection region is the area that is
+   more extreme than the critical value. We discuss the p-value and
+   rejection region in more detail in the next section.
+
+7)  Make a decision about the null hypothesis: In this step, we decide
+   to either reject the null hypothesis or decide to fail to reject
+   the null hypothesis. Notice we do not make a decision where we will
+   accept the null hypothesis.
+
+8)  State an overall conclusion: Once we have found the p-value or
+   rejection region, and made a statistical decision about the null
+   hypothesis (i.e. we will reject the null or fail to reject the
+   null), we then want to summarize our results into an overall
+   conclusion for our test.
+
 * Code for the graphs
 :PROPERTIES:
 :BEAMER_OPT: shrink=50
@@ -794,3 +837,5 @@ dev.off()
 [2] Data Analysis Using Regression And Multilevel/Hierarchical Models. Andrew Gelman and Jennifer Hill. Cambridge University Press. 2007.
 
 [3] The R book. Michael J. Crawley. John Wiley & Sons, Ltd. 2013.
+
+[4] https://online.stat.psu.edu/stat500/lesson/6a/6a.2

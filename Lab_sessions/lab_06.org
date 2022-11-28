@@ -1,0 +1,175 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: R modelling. Lab session 06
+#+date:
+#+author: Daniel Ballesteros Chávez.
+#+email: daniel@linuxdeb.home
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.1 (Org mode 9.3.6)
+# +OPTIONS: html-style:nil
+
+# Daniel Ballesteros-Chávez
+
+#+HTML_HEAD: <style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+#+HTML_HEAD: <style> pre.src { overflow: auto; }</style>
+#+HTML_HEAD: <style> .mmbox {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
+#+HTML_HEAD_EXTRA: <style>code {background-color: #ccc}</style>
+
+:results:
+#+HTML_HEAD:<style> /* Daniel Ballesteros-Chavez */
+#+HTML_HEAD:
+#+HTML_HEAD: :root {
+#+HTML_HEAD:   --col0: #2b2d42;		/*Top bar*/
+#+HTML_HEAD:   --col1: #8d99ae;		/* Section header bg*/
+#+HTML_HEAD:   --col2: #edf2f4;		/*body bg*/
+#+HTML_HEAD:   --col3: #ef233c;		/*Active top bar*/
+#+HTML_HEAD:   --col4: #d90429;		/*Home botton bg*/
+#+HTML_HEAD:   --col5: #173f5f;			/*H2 header*/
+#+HTML_HEAD:
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: body {
+#+HTML_HEAD:     /*    background-image: url('./Images/bgpic.jpg'); */
+#+HTML_HEAD:     background-size: cover;
+#+HTML_HEAD:     background-attachment: fixed;
+#+HTML_HEAD:	font-family: Helvetica;
+#+HTML_HEAD:     /* background-position: left top; */
+#+HTML_HEAD:     /* background-repeat: no-repeat; */
+#+HTML_HEAD:     background: var(--col2);
+#+HTML_HEAD:     margin: 20px auto; /* "auto" for centering */
+#+HTML_HEAD:     max-width: 768px;
+#+HTML_HEAD:     /* max-width: 800px; */
+#+HTML_HEAD:     /* font-family: monospace; */
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: h1 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1.5em;
+#+HTML_HEAD:     /* margin-top: 0.67em; */
+#+HTML_HEAD:     /* margin-bottom: 0.67em; */
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     padding: 5px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD:     /*text-align: center; */
+#+HTML_HEAD:     /*text-shadow: 3px 2px gray;*/
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: h2 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1em;
+#+HTML_HEAD:     margin-top: 0.67em;
+#+HTML_HEAD:     margin-bottom: 0.67em;
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     background-color: var(--col1);
+#+HTML_HEAD:     border-radius: 10px 10px;
+#+HTML_HEAD:     padding: 10px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-2 {
+#+HTML_HEAD:     background-color: var(--col2);
+#+HTML_HEAD:     /* border:3px solid #f2f6f9; */
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-2 h2 {
+#+HTML_HEAD:     color: var(--col5);
+#+HTML_HEAD:     font-size: 20px; /* arial, sans-serif; */
+#+HTML_HEAD:     /* font-family: 'Fredoka One', cursive; */
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-text-2 {
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-text-2 p {
+#+HTML_HEAD:     text-align: justify;
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: </style>
+:end:
+
+* Introduction
+
++ Recall some concepts on Hypothesis testing.
++ Merge
++ Linear model
+
+* Practice 1
+
+We would like to estimate the parameter $\mu$ in a population by drawing a sample 
+$\{X_{1}, X_{2}, \ldots, X_{n}\}$ of size $n$ using the estimator
+\begin{equation}
+\hat{Y} = \frac{1}{n}\sum_{i=1}^{n} X_{i} = 733
+\end{equation}
+If we can assume that $X_{i}\sim N(\mu,\sigma^2)$, with $\sigma^2 = 255$ are i.i.d., find the sample size for the 90%  Confidence Interval is such that
+$\mu = \hat{Y} \pm 5\%$.
+
+Write the equation that you are using:
+\begin{equation}
+n = 
+\end{equation}
+
+
+
+
+* Practice 2
+
+From the polls, a candidate for presidential elections obtained 48.5%. The number of
+participants was $n = 42$. One can treat this as a binomial distribution $\mbox{Binom}(n,p)$.
+
+Using that the sample size if big enough, run a hypotesis test that the candidate will lose the election, with
+significant level $\alpha = 0.05$.
+
+
+
+* Practice 3
+
+A factory makes kettles with 84% effectiveness. They implement a new
+system that they hope will improve the rate of effectiveness. They
+randomly select 50 kettles from a recent production run and find that
+46 of them are effective. Perform a binomial test to determine if the
+new system leads to 
+
+A) Different effectivenes
+B) Higher effectiveness.
+
+
+
+* Practice 4
+
+In the table ~TSDEM_incomplete.dbf~ we have the identification of households
+in the variable ~ID_HOG~. What is missing is the assigned weights ~FAC_HOG~.
+These can be found in the table ~THogar.dbf~.
+
+Once you have a table with variables ~ID_HOG,ID_PER,FAC_HOG~. Save it as a csv file in 
+your local folder.
+
+
+
+* Practice 5
+
+A) Write a description for the data set cars which is pre-loaded in R.
+
+B) Use the function ~lm~ (linear model) to find the best
+coefficients $m$ and $b$ for 
+\begin{equation}
+Y = mX + b,
+\end{equation}
+where we are considering the Stopping distance (D) as a function of the speed (S).
+
+C) In the same plot, present the paired points (scatter plot) D and S and the
+adjusted line $Y$.
+
+
