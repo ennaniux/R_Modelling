@@ -13,5 +13,5 @@ In order to see the *html* files *go to raw* and then do right click "*save page
 + [[./Lecture_3.html][Lecture 3. Simple Plots]]
 + [[./Lecture_4.html][Lecture 4. Statistical inference]]
 + [[./Lecture_5.html][Lecture 5. Hypothesis Testing]]
-
++ [[./Lecture_6.html][Lecture 6. Linear Models]]
    
