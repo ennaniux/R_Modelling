@@ -778,4 +778,4 @@ from [[https://rpubs.com/lwaldron/iris_regression]]
 
 * References
 
-[1] Gareth James Daniela Witten Trevor Hastie Robert Tibshirani /An Introduction to Statistical Learning
+[1] Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani /An Introduction to Statistical Learning/

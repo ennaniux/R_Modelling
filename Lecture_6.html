@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-29 Tue 09:30 -->
+<!-- 2022-11-29 Tue 09:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear regression</title>
@@ -553,52 +553,52 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0aaccb0">1. Introduciton</a></li>
-<li><a href="#org8ad9e63">2. Estimating the Coefficients</a></li>
-<li><a href="#org38e1782">3. Least squares method</a></li>
-<li><a href="#org50816c1">4. Covariance</a>
+<li><a href="#org4e524b3">1. Introduciton</a></li>
+<li><a href="#orgeea4a6c">2. Estimating the Coefficients</a></li>
+<li><a href="#org9a5d320">3. Least squares method</a></li>
+<li><a href="#org379318a">4. Covariance</a>
 <ul>
-<li><a href="#orgb8d0a06">4.1. Definition</a></li>
+<li><a href="#orgfd33a60">4.1. Definition</a></li>
 </ul>
 </li>
-<li><a href="#orgd9abcc4">5. Second method to obtain the coefficients</a></li>
-<li><a href="#org2c0f700">6. Standard errors</a></li>
-<li><a href="#org2bd15ca">7. Assessing the Accuracy of the Model</a></li>
-<li><a href="#orgfdab0ee">8. Example</a>
+<li><a href="#org5deaa53">5. Second method to obtain the coefficients</a></li>
+<li><a href="#org9c33db9">6. Standard errors</a></li>
+<li><a href="#orgdedfa04">7. Assessing the Accuracy of the Model</a></li>
+<li><a href="#org508bbfd">8. Example</a>
 <ul>
-<li><a href="#org508c98b">8.1. </a></li>
+<li><a href="#orgb1c6a2f">8.1. </a></li>
 </ul>
 </li>
-<li><a href="#org6a24f62">9. \(R^2\) - statistic</a></li>
-<li><a href="#orge89b137">10. \(F\) - statistic</a></li>
-<li><a href="#org0cd2d81">11. Multiple linear regressions.</a></li>
-<li><a href="#org3f83ac6">12. Estimating the Regression Coefficients</a></li>
-<li><a href="#orgc74a41a">13. Important questions</a></li>
-<li><a href="#org9dc746a">14. Is at least one of the predictors useful?</a></li>
-<li><a href="#org6d40f6e">15. Deciding on Important Variables</a></li>
-<li><a href="#orgecf80c5">16. Deciding on Important Variables</a></li>
-<li><a href="#org9385c80">17. Deciding on Important Variables</a>
+<li><a href="#org183a564">9. \(R^2\) - statistic</a></li>
+<li><a href="#org8174d6f">10. \(F\) - statistic</a></li>
+<li><a href="#org621a415">11. Multiple linear regressions.</a></li>
+<li><a href="#org884a3b7">12. Estimating the Regression Coefficients</a></li>
+<li><a href="#org3871f3c">13. Important questions</a></li>
+<li><a href="#org0af2f8f">14. Is at least one of the predictors useful?</a></li>
+<li><a href="#orgd7d1f82">15. Deciding on Important Variables</a></li>
+<li><a href="#orgd65ca45">16. Deciding on Important Variables</a></li>
+<li><a href="#org152222e">17. Deciding on Important Variables</a>
 <ul>
-<li><a href="#org3e4c0f7">17.1. Forward selection</a></li>
+<li><a href="#org1e63cc9">17.1. Forward selection</a></li>
 </ul>
 </li>
-<li><a href="#orgf08ead2">18. </a>
+<li><a href="#org6c4f508">18. </a>
 <ul>
-<li><a href="#org18d1c14">18.1. Backward selection.</a></li>
-<li><a href="#orgec50740">18.2. Mixed selection</a></li>
+<li><a href="#org5f484e9">18.1. Backward selection.</a></li>
+<li><a href="#org9d952b3">18.2. Mixed selection</a></li>
 </ul>
 </li>
-<li><a href="#org158ea9f">19. Model Fit</a></li>
-<li><a href="#org69959f0">20. Predictions</a></li>
-<li><a href="#orga80a85c">21. Example</a></li>
-<li><a href="#orgaca4c6f">22. References</a></li>
+<li><a href="#orge7192f8">19. Model Fit</a></li>
+<li><a href="#org758c987">20. Predictions</a></li>
+<li><a href="#orge386197">21. Example</a></li>
+<li><a href="#org90bc5d0">22. References</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org0aaccb0" class="outline-2">
-<h2 id="org0aaccb0"><span class="section-number-2">1</span> Introduciton</h2>
+<div id="outline-container-org4e524b3" class="outline-2">
+<h2 id="org4e524b3"><span class="section-number-2">1</span> Introduciton</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>The idea behind the linear regression model is that we would like to
@@ -652,8 +652,8 @@ be estimated. In this case we write
 </div>
 
 
-<div id="outline-container-org8ad9e63" class="outline-2">
-<h2 id="org8ad9e63"><span class="section-number-2">2</span> Estimating the Coefficients</h2>
+<div id="outline-container-orgeea4a6c" class="outline-2">
+<h2 id="orgeea4a6c"><span class="section-number-2">2</span> Estimating the Coefficients</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In order to estimate the coefficitents \(\alpha\) and \(\beta\), we will
@@ -713,8 +713,8 @@ This function \(g\) is usually called  residual sum of squares (RSS).
 </div>
 
 
-<div id="outline-container-org38e1782" class="outline-2">
-<h2 id="org38e1782"><span class="section-number-2">3</span> Least squares method</h2>
+<div id="outline-container-org9a5d320" class="outline-2">
+<h2 id="org9a5d320"><span class="section-number-2">3</span> Least squares method</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 By solving \(\partial g/\partial \alpha = 0\) and \(\partial g/ \partial \beta = 0\) one gets the cirtical point
@@ -737,12 +737,12 @@ where
 </div>
 </div>
 
-<div id="outline-container-org50816c1" class="outline-2">
-<h2 id="org50816c1"><span class="section-number-2">4</span> Covariance</h2>
+<div id="outline-container-org379318a" class="outline-2">
+<h2 id="org379318a"><span class="section-number-2">4</span> Covariance</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgb8d0a06" class="outline-3">
-<h3 id="orgb8d0a06"><span class="section-number-3">4.1</span> Definition</h3>
+<div id="outline-container-orgfd33a60" class="outline-3">
+<h3 id="orgfd33a60"><span class="section-number-3">4.1</span> Definition</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 For two jointly distributed real-valued random variables \(X\) and \(Y\) ( both with finite variance), the covariance is defined as the expected value (or mean) of the product of their deviations from their individual expected values:
@@ -763,8 +763,8 @@ If the random variables are descrete, this can also be writte as
 </div>
 
 
-<div id="outline-container-orgd9abcc4" class="outline-2">
-<h2 id="orgd9abcc4"><span class="section-number-2">5</span> Second method to obtain the coefficients</h2>
+<div id="outline-container-org5deaa53" class="outline-2">
+<h2 id="org5deaa53"><span class="section-number-2">5</span> Second method to obtain the coefficients</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 By writing \(\overline{X} = E[X]\), and the last definition then it is possible to write
@@ -779,8 +779,8 @@ By writing \(\overline{X} = E[X]\), and the last definition then it is possible 
 </div>
 </div>
 
-<div id="outline-container-org2c0f700" class="outline-2">
-<h2 id="org2c0f700"><span class="section-number-2">6</span> Standard errors</h2>
+<div id="outline-container-org9c33db9" class="outline-2">
+<h2 id="org9c33db9"><span class="section-number-2">6</span> Standard errors</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Recall that by <i>standard error</i> (deviation), we mean the  square root of the variance of an estimator,
@@ -810,8 +810,8 @@ will deviate from the true regression line.
 </div>
 </div>
 
-<div id="outline-container-org2bd15ca" class="outline-2">
-<h2 id="org2bd15ca"><span class="section-number-2">7</span> Assessing the Accuracy of the Model</h2>
+<div id="outline-container-orgdedfa04" class="outline-2">
+<h2 id="orgdedfa04"><span class="section-number-2">7</span> Assessing the Accuracy of the Model</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Standard errors can also be used to perform hypothesis tests on the
@@ -858,8 +858,8 @@ to exist between X and Y — if the p-value is small enough.
 </div>
 </div>
 
-<div id="outline-container-orgfdab0ee" class="outline-2">
-<h2 id="orgfdab0ee"><span class="section-number-2">8</span> Example</h2>
+<div id="outline-container-org508bbfd" class="outline-2">
+<h2 id="org508bbfd"><span class="section-number-2">8</span> Example</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 The linear model is implemented in R via the function <code>lm</code>.
@@ -870,8 +870,8 @@ From the data set iris, contrast the columns for <i>Sepal length</i> and
 <i>Petal length</i> and fit a linear model:
 </p>
 </div>
-<div id="outline-container-org508c98b" class="outline-3">
-<h3 id="org508c98b"><span class="section-number-3">8.1</span> </h3>
+<div id="outline-container-orgb1c6a2f" class="outline-3">
+<h3 id="orgb1c6a2f"><span class="section-number-3">8.1</span> </h3>
 <div class="outline-text-3" id="text-8-1">
 <p>
 \tiny
@@ -904,8 +904,8 @@ F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16
 </div>
 </div>
 
-<div id="outline-container-org6a24f62" class="outline-2">
-<h2 id="org6a24f62"><span class="section-number-2">9</span> \(R^2\) - statistic</h2>
+<div id="outline-container-org183a564" class="outline-2">
+<h2 id="org183a564"><span class="section-number-2">9</span> \(R^2\) - statistic</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 The \(R^2\) statistic is a measure of the linear (sample) relationship between \(X\) and
@@ -937,8 +937,8 @@ or both.
 </div>
 
 
-<div id="outline-container-orge89b137" class="outline-2">
-<h2 id="orge89b137"><span class="section-number-2">10</span> \(F\) - statistic</h2>
+<div id="outline-container-org8174d6f" class="outline-2">
+<h2 id="org8174d6f"><span class="section-number-2">10</span> \(F\) - statistic</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 This is used in multiple linear regression when we want to fit 
@@ -964,8 +964,8 @@ different from zero have strong evidence.
 </div>
 
 
-<div id="outline-container-org0cd2d81" class="outline-2">
-<h2 id="org0cd2d81"><span class="section-number-2">11</span> Multiple linear regressions.</h2>
+<div id="outline-container-org621a415" class="outline-2">
+<h2 id="org621a415"><span class="section-number-2">11</span> Multiple linear regressions.</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 Simple linear regression is a useful approach for predicting a response on the
@@ -995,8 +995,8 @@ Y = \alpha + \sum_{j=1}^{p} \beta_{j} X_j + \epsilon.
 
 
 
-<div id="outline-container-org3f83ac6" class="outline-2">
-<h2 id="org3f83ac6"><span class="section-number-2">12</span> Estimating the Regression Coefficients</h2>
+<div id="outline-container-org884a3b7" class="outline-2">
+<h2 id="org884a3b7"><span class="section-number-2">12</span> Estimating the Regression Coefficients</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 As in the case of Simple linear regression, we look to minimise the residual sum squared:
@@ -1013,8 +1013,8 @@ And we proceed as in the  simple linear case.
 </div>
 </div>
 
-<div id="outline-container-orgc74a41a" class="outline-2">
-<h2 id="orgc74a41a"><span class="section-number-2">13</span> Important questions</h2>
+<div id="outline-container-org3871f3c" class="outline-2">
+<h2 id="org3871f3c"><span class="section-number-2">13</span> Important questions</h2>
 <div class="outline-text-2" id="text-13">
 <ol class="org-ol">
 <li>Is at least one of the predictors \(X_1 , X_2 , \dots , X_p\) useful in predicting the response?</li>
@@ -1026,8 +1026,8 @@ And we proceed as in the  simple linear case.
 </div>
 
 
-<div id="outline-container-org9dc746a" class="outline-2">
-<h2 id="org9dc746a"><span class="section-number-2">14</span> Is at least one of the predictors useful?</h2>
+<div id="outline-container-org0af2f8f" class="outline-2">
+<h2 id="org0af2f8f"><span class="section-number-2">14</span> Is at least one of the predictors useful?</h2>
 <div class="outline-text-2" id="text-14">
 <p>
 The approach of using an \(F\) -statistic to test for any association between
@@ -1043,8 +1043,8 @@ we have seen so far
 </div>
 
 
-<div id="outline-container-org6d40f6e" class="outline-2">
-<h2 id="org6d40f6e"><span class="section-number-2">15</span> Deciding on Important Variables</h2>
+<div id="outline-container-orgd7d1f82" class="outline-2">
+<h2 id="orgd7d1f82"><span class="section-number-2">15</span> Deciding on Important Variables</h2>
 <div class="outline-text-2" id="text-15">
 <p>
 Ideally, we would like to perform variable selection by trying out a lot of
@@ -1062,8 +1062,8 @@ instance, if \(p = 2\), then we can consider four models:
 </div>
 
 
-<div id="outline-container-orgecf80c5" class="outline-2">
-<h2 id="orgecf80c5"><span class="section-number-2">16</span> Deciding on Important Variables</h2>
+<div id="outline-container-orgd65ca45" class="outline-2">
+<h2 id="orgd65ca45"><span class="section-number-2">16</span> Deciding on Important Variables</h2>
 <div class="outline-text-2" id="text-16">
 <p>
 We can then select the best model out of all of the models that we have considered. How
@@ -1085,8 +1085,8 @@ These include
 </div>
 
 
-<div id="outline-container-org9385c80" class="outline-2">
-<h2 id="org9385c80"><span class="section-number-2">17</span> Deciding on Important Variables</h2>
+<div id="outline-container-org152222e" class="outline-2">
+<h2 id="org152222e"><span class="section-number-2">17</span> Deciding on Important Variables</h2>
 <div class="outline-text-2" id="text-17">
 <p>
 Unless p is very
@@ -1096,8 +1096,8 @@ are three classical approaches for this task:
 </p>
 </div>
 
-<div id="outline-container-org3e4c0f7" class="outline-3">
-<h3 id="org3e4c0f7"><span class="section-number-3">17.1</span> Forward selection</h3>
+<div id="outline-container-org1e63cc9" class="outline-3">
+<h3 id="org1e63cc9"><span class="section-number-3">17.1</span> Forward selection</h3>
 <div class="outline-text-3" id="text-17-1">
 <p>
 We begin with the null model—a model that con-
@@ -1111,12 +1111,12 @@ continued until some stopping rule is satisfied.
 </div>
 </div>
 
-<div id="outline-container-orgf08ead2" class="outline-2">
-<h2 id="orgf08ead2"><span class="section-number-2">18</span> </h2>
+<div id="outline-container-org6c4f508" class="outline-2">
+<h2 id="org6c4f508"><span class="section-number-2">18</span> </h2>
 <div class="outline-text-2" id="text-18">
 </div>
-<div id="outline-container-org18d1c14" class="outline-3">
-<h3 id="org18d1c14"><span class="section-number-3">18.1</span> Backward selection.</h3>
+<div id="outline-container-org5f484e9" class="outline-3">
+<h3 id="org5f484e9"><span class="section-number-3">18.1</span> Backward selection.</h3>
 <div class="outline-text-3" id="text-18-1">
 <p>
 We start with all variables in the model, and
@@ -1131,8 +1131,8 @@ Backward selection cannot be used if \(p > n\).
 </div>
 </div>
 
-<div id="outline-container-orgec50740" class="outline-3">
-<h3 id="orgec50740"><span class="section-number-3">18.2</span> Mixed selection</h3>
+<div id="outline-container-org9d952b3" class="outline-3">
+<h3 id="org9d952b3"><span class="section-number-3">18.2</span> Mixed selection</h3>
 <div class="outline-text-3" id="text-18-2">
 <p>
 This is a combination of forward and backward se-
@@ -1154,8 +1154,8 @@ the model would have a large p-value if added to the model.
 </div>
 
 
-<div id="outline-container-org158ea9f" class="outline-2">
-<h2 id="org158ea9f"><span class="section-number-2">19</span> Model Fit</h2>
+<div id="outline-container-orge7192f8" class="outline-2">
+<h2 id="orge7192f8"><span class="section-number-2">19</span> Model Fit</h2>
 <div class="outline-text-2" id="text-19">
 <p>
 Two of the most common numerical measures of model fit are the RSE and
@@ -1165,8 +1165,8 @@ interpreted in the same fashion as for simple linear regression.
 </div>
 </div>
 
-<div id="outline-container-org69959f0" class="outline-2">
-<h2 id="org69959f0"><span class="section-number-2">20</span> Predictions</h2>
+<div id="outline-container-org758c987" class="outline-2">
+<h2 id="org758c987"><span class="section-number-2">20</span> Predictions</h2>
 <div class="outline-text-2" id="text-20">
 <p>
 There are three sorts of uncertainty associated with the Linear Model 
@@ -1195,8 +1195,8 @@ I found this nice video.
 </div>
 
 
-<div id="outline-container-orga80a85c" class="outline-2">
-<h2 id="orga80a85c"><span class="section-number-2">21</span> Example</h2>
+<div id="outline-container-orge386197" class="outline-2">
+<h2 id="orge386197"><span class="section-number-2">21</span> Example</h2>
 <div class="outline-text-2" id="text-21">
 <pre class="example">
 fit &lt;- lm(Petal.Width ~ Petal.Length, data=iris)
@@ -1224,18 +1224,18 @@ from <a href="https://rpubs.com/lwaldron/iris_regression">https://rpubs.com/lwal
 </div>
 </div>
 
-<div id="outline-container-orgaca4c6f" class="outline-2">
-<h2 id="orgaca4c6f"><span class="section-number-2">22</span> References</h2>
+<div id="outline-container-org90bc5d0" class="outline-2">
+<h2 id="org90bc5d0"><span class="section-number-2">22</span> References</h2>
 <div class="outline-text-2" id="text-22">
 <p>
-[1] Gareth James Daniela Witten Trevor Hastie Robert Tibshirani /An Introduction to Statistical Learning
+[1] Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani <i>An Introduction to Statistical Learning</i>
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Daniel Ballesteros-Chávez</p>
-<p class="date">Created: 2022-11-29 Tue 09:30</p>
+<p class="date">Created: 2022-11-29 Tue 09:33</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
