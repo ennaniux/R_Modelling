@@ -113,7 +113,7 @@ $\{X_{1}, X_{2}, \ldots, X_{n}\}$ of size $n$ using the estimator
 \begin{equation}
 \hat{Y} = \frac{1}{n}\sum_{i=1}^{n} X_{i} = 733
 \end{equation}
-If we can assume that $X_{i}\sim N(\mu,\sigma^2)$, with $\sigma^2 = 255$ are i.i.d., find the sample size for the 90%  Confidence Interval is such that
+If we can assume that $X_{i}\sim N(\mu,\sigma^2)$, with $\sigma = 255$ are i.i.d., find the sample size for the 90%  Confidence Interval is such that
 $\mu = \hat{Y} \pm 5\%$.
 
 Write the equation that you are using:
@@ -126,8 +126,8 @@ n =
 
 * Practice 2
 
-From the polls, a candidate for presidential elections obtained 48.5%. The number of
-participants was $n = 42$. One can treat this as a binomial distribution $\mbox{Binom}(n,p)$.
+From the polls, a candidate for presidential elections obtained 49.7%. The number of
+participants was $n = 142$. One can treat this as a binomial distribution $\mbox{Binom}(n,p)$.
 
 Using that the sample size if big enough, run a hypotesis test that the candidate will lose the election, with
 significant level $\alpha = 0.05$.

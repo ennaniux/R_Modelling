@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-28 Mon 23:06 -->
+<!-- 2022-11-30 Wed 07:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>R modelling. Lab session 06</title>
@@ -339,19 +339,19 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd515fc0">Introduction</a></li>
-<li><a href="#orgd2289ab">Practice 1</a></li>
-<li><a href="#org1731105">Practice 2</a></li>
-<li><a href="#orgc88948f">Practice 3</a></li>
-<li><a href="#orga08c68b">Practice 4</a></li>
-<li><a href="#org3d07fac">Practice 5</a></li>
+<li><a href="#orgae10385">Introduction</a></li>
+<li><a href="#org97525bf">Practice 1</a></li>
+<li><a href="#org78ed48a">Practice 2</a></li>
+<li><a href="#org55a5a7f">Practice 3</a></li>
+<li><a href="#orge0c0dba">Practice 4</a></li>
+<li><a href="#org084f2e2">Practice 5</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd515fc0" class="outline-2">
-<h2 id="orgd515fc0">Introduction</h2>
-<div class="outline-text-2" id="text-orgd515fc0">
+<div id="outline-container-orgae10385" class="outline-2">
+<h2 id="orgae10385">Introduction</h2>
+<div class="outline-text-2" id="text-orgae10385">
 <ul class="org-ul">
 <li>Recall some concepts on Hypothesis testing.</li>
 <li>Merge</li>
@@ -360,9 +360,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgd2289ab" class="outline-2">
-<h2 id="orgd2289ab">Practice 1</h2>
-<div class="outline-text-2" id="text-orgd2289ab">
+<div id="outline-container-org97525bf" class="outline-2">
+<h2 id="org97525bf">Practice 1</h2>
+<div class="outline-text-2" id="text-org97525bf">
 <p>
 We would like to estimate the parameter \(\mu\) in a population by drawing a sample 
 \(\{X_{1}, X_{2}, \ldots, X_{n}\}\) of size \(n\) using the estimator
@@ -371,7 +371,7 @@ We would like to estimate the parameter \(\mu\) in a population by drawing a sam
 \hat{Y} = \frac{1}{n}\sum_{i=1}^{n} X_{i} = 733
 \end{equation}
 <p>
-If we can assume that \(X_{i}\sim N(\mu,\sigma^2)\), with \(\sigma^2 = 255\) are i.i.d., find the sample size for the 90%  Confidence Interval is such that
+If we can assume that \(X_{i}\sim N(\mu,\sigma^2)\), with \(\sigma = 255\) are i.i.d., find the sample size for the 90%  Confidence Interval is such that
 \(\mu = \hat{Y} \pm 5\%\).
 </p>
 
@@ -387,12 +387,12 @@ n =
 
 
 
-<div id="outline-container-org1731105" class="outline-2">
-<h2 id="org1731105">Practice 2</h2>
-<div class="outline-text-2" id="text-org1731105">
+<div id="outline-container-org78ed48a" class="outline-2">
+<h2 id="org78ed48a">Practice 2</h2>
+<div class="outline-text-2" id="text-org78ed48a">
 <p>
-From the polls, a candidate for presidential elections obtained 48.5%. The number of
-participants was \(n = 42\). One can treat this as a binomial distribution \(\mbox{Binom}(n,p)\).
+From the polls, a candidate for presidential elections obtained 49.7%. The number of
+participants was \(n = 142\). One can treat this as a binomial distribution \(\mbox{Binom}(n,p)\).
 </p>
 
 <p>
@@ -404,9 +404,9 @@ significant level \(\alpha = 0.05\).
 
 
 
-<div id="outline-container-orgc88948f" class="outline-2">
-<h2 id="orgc88948f">Practice 3</h2>
-<div class="outline-text-2" id="text-orgc88948f">
+<div id="outline-container-org55a5a7f" class="outline-2">
+<h2 id="org55a5a7f">Practice 3</h2>
+<div class="outline-text-2" id="text-org55a5a7f">
 <p>
 A factory makes kettles with 84% effectiveness. They implement a new
 system that they hope will improve the rate of effectiveness. They
@@ -424,9 +424,9 @@ B) Higher effectiveness.
 
 
 
-<div id="outline-container-orga08c68b" class="outline-2">
-<h2 id="orga08c68b">Practice 4</h2>
-<div class="outline-text-2" id="text-orga08c68b">
+<div id="outline-container-orge0c0dba" class="outline-2">
+<h2 id="orge0c0dba">Practice 4</h2>
+<div class="outline-text-2" id="text-orge0c0dba">
 <p>
 In the table <code>TSDEM_incomplete.dbf</code> we have the identification of households
 in the variable <code>ID_HOG</code>. What is missing is the assigned weights <code>FAC_HOG</code>.
@@ -442,9 +442,9 @@ your local folder.
 
 
 
-<div id="outline-container-org3d07fac" class="outline-2">
-<h2 id="org3d07fac">Practice 5</h2>
-<div class="outline-text-2" id="text-org3d07fac">
+<div id="outline-container-org084f2e2" class="outline-2">
+<h2 id="org084f2e2">Practice 5</h2>
+<div class="outline-text-2" id="text-org084f2e2">
 <p>
 A) Write a description for the data set cars which is pre-loaded in R.
 </p>
@@ -469,7 +469,7 @@ adjusted line \(Y\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Daniel Ballesteros Chávez.</p>
-<p class="date">Created: 2022-11-28 Mon 23:06</p>
+<p class="date">Created: 2022-11-30 Wed 07:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
