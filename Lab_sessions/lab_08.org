@@ -1,0 +1,124 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: R modelling. Lab session 08
+#+date:
+#+author: Daniel Ballesteros Chávez.
+#+email: daniel@linuxdeb.home
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.1 (Org mode 9.3.6)
+# +OPTIONS: html-style:nil
+
+# Daniel Ballesteros-Chávez
+
+#+HTML_HEAD: <style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+#+HTML_HEAD: <style> pre.src { overflow: auto; }</style>
+#+HTML_HEAD: <style> .mmbox {background-color: #BFF2FF; padding: 10px 20px 10px 20px; }</style>
+#+HTML_HEAD_EXTRA: <style>code {background-color: #ccc}</style>
+
+:results:
+#+HTML_HEAD:<style> /* Daniel Ballesteros-Chavez */
+#+HTML_HEAD:
+#+HTML_HEAD: :root {
+#+HTML_HEAD:   --col0: #2b2d42;		/*Top bar*/
+#+HTML_HEAD:   --col1: #8d99ae;		/* Section header bg*/
+#+HTML_HEAD:   --col2: #edf2f4;		/*body bg*/
+#+HTML_HEAD:   --col3: #ef233c;		/*Active top bar*/
+#+HTML_HEAD:   --col4: #d90429;		/*Home botton bg*/
+#+HTML_HEAD:   --col5: #173f5f;			/*H2 header*/
+#+HTML_HEAD:
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: body {
+#+HTML_HEAD:     /*    background-image: url('./Images/bgpic.jpg'); */
+#+HTML_HEAD:     background-size: cover;
+#+HTML_HEAD:     background-attachment: fixed;
+#+HTML_HEAD:	font-family: Helvetica;
+#+HTML_HEAD:     /* background-position: left top; */
+#+HTML_HEAD:     /* background-repeat: no-repeat; */
+#+HTML_HEAD:     background: var(--col2);
+#+HTML_HEAD:     margin: 20px auto; /* "auto" for centering */
+#+HTML_HEAD:     max-width: 768px;
+#+HTML_HEAD:     /* max-width: 800px; */
+#+HTML_HEAD:     /* font-family: monospace; */
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: h1 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1.5em;
+#+HTML_HEAD:     /* margin-top: 0.67em; */
+#+HTML_HEAD:     /* margin-bottom: 0.67em; */
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     padding: 5px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD:     /*text-align: center; */
+#+HTML_HEAD:     /*text-shadow: 3px 2px gray;*/
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: h2 {
+#+HTML_HEAD:     display: block;
+#+HTML_HEAD:     font-size: 1em;
+#+HTML_HEAD:     margin-top: 0.67em;
+#+HTML_HEAD:     margin-bottom: 0.67em;
+#+HTML_HEAD:     margin-left: 0;
+#+HTML_HEAD:     margin-right: 0;
+#+HTML_HEAD:     font-weight: bold;
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD:     background-color: var(--col1);
+#+HTML_HEAD:     border-radius: 10px 10px;
+#+HTML_HEAD:     padding: 10px 20px;
+#+HTML_HEAD:     /*    background-color:#092B39;*/
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-2 {
+#+HTML_HEAD:     background-color: var(--col2);
+#+HTML_HEAD:     /* border:3px solid #f2f6f9; */
+#+HTML_HEAD:     color: var(--col0);
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-2 h2 {
+#+HTML_HEAD:     color: var(--col5);
+#+HTML_HEAD:     font-size: 20px; /* arial, sans-serif; */
+#+HTML_HEAD:     /* font-family: 'Fredoka One', cursive; */
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-text-2 {
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: div.outline-text-2 p {
+#+HTML_HEAD:     text-align: justify;
+#+HTML_HEAD: }
+#+HTML_HEAD:
+#+HTML_HEAD: </style>
+:end:
+
+
+* Introduction
+
+Using the function ~lm~ in R it is possible to run different regression models.
+
++ Linear model: $Y = a_{0} + a_{1}X$.
++ Polynomial regressions: $Y = a_{0} + a_{1}X + a_{2} X^2 + \cdots + a_{n}X^n$.
++ Exponential models: $Y = a_{0} e^{a_{1}x}$.
+
+* Task
+
+From the data set ~Ideal_models.csv~
+
+a) Choose between the linear model, polynomial degree two and exponential model and 
+determine what is the best model for ~Y1, Y2~ and ~Y3~ each one as a function depending on ~X~.
+
+b) Plot the observations and the fitted model in each case.
+
+c) Plot the analysis of residues and discuss your observations.
+
+
+
