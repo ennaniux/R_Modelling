@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-21 Mon 12:08 -->
+<!-- 2023-01-11 Wed 15:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hypothesis Testing</title>
@@ -553,49 +553,49 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgca3896c">1. Introduction</a></li>
-<li><a href="#org7188038">2. Hypothesis</a></li>
-<li><a href="#org999a5e8">3. Example</a></li>
-<li><a href="#org3bedb4b">4. Test statistic</a></li>
-<li><a href="#org5016b39">5. Z-test</a></li>
-<li><a href="#org792384f">6. Some remarks with the previous formula:</a></li>
-<li><a href="#org90a615f">7. Assessing our estimate</a></li>
-<li><a href="#org70cfeb9">8. p- Value</a></li>
-<li><a href="#org8fffa13">9. General rules (for all hypothesis tests):</a></li>
-<li><a href="#org45c8d38">10. Summary</a></li>
-<li><a href="#orgdd11b6f">11. Remarks</a></li>
-<li><a href="#orge7848f5">12. Example</a>
+<li><a href="#orgc104a36">1. Introduction</a></li>
+<li><a href="#org08e140f">2. Hypothesis</a></li>
+<li><a href="#org309890a">3. Example</a></li>
+<li><a href="#orgef8262a">4. Test statistic</a></li>
+<li><a href="#org8bdd20d">5. Z-test</a></li>
+<li><a href="#orgb79f758">6. Some remarks with the previous formula:</a></li>
+<li><a href="#org32943de">7. Assessing our estimate</a></li>
+<li><a href="#org77479d7">8. p- Value</a></li>
+<li><a href="#orgcf465b0">9. General rules (for all hypothesis tests):</a></li>
+<li><a href="#orgb771ace">10. Summary</a></li>
+<li><a href="#org5bd4998">11. Remarks</a></li>
+<li><a href="#org3a98ebd">12. Example</a>
 <ul>
-<li><a href="#orgf44698e">12.1. Solution</a></li>
+<li><a href="#orgc9aeacd">12.1. Solution</a></li>
 </ul>
 </li>
-<li><a href="#org61f0a2c">13. Strength of the evidence</a></li>
-<li><a href="#org9a0d129">14. Using critical values for hypothesis testing</a></li>
-<li><a href="#org9bba3c5">15. </a></li>
-<li><a href="#org8a8d6d5">16. Error Types</a></li>
-<li><a href="#orgcbed0fc">17. Example</a></li>
-<li><a href="#orgb8a279a">18. Test for a population mean</a></li>
-<li><a href="#orgfcd5366">19. Z-test</a></li>
-<li><a href="#org2ec4c51">20. Example</a></li>
-<li><a href="#org06a5878">21. Exercise</a></li>
-<li><a href="#org3449c4c">22. More graphical example</a></li>
-<li><a href="#org8d9e2e7">23. </a>
+<li><a href="#org9b41e3d">13. Strength of the evidence</a></li>
+<li><a href="#org6da78fe">14. Using critical values for hypothesis testing</a></li>
+<li><a href="#orgab679ef">15. Error Types</a></li>
+<li><a href="#org0d53617">16. Example</a></li>
+<li><a href="#org0287427">17. t-Test (Student's Distribution)</a></li>
+<li><a href="#orgebb575c">18. Z-test</a></li>
+<li><a href="#orgd318b7e">19. Example</a></li>
+<li><a href="#org27470f9">20. Exercise</a></li>
+<li><a href="#orge68408b">21. More graphical example</a>
 <ul>
-<li><a href="#orge03a1c3">23.1. One-sided Hypothesis test</a></li>
+<li><a href="#orgacc2807">21.1. <span class="todo TODO">TODO</span> Insert a graph.</a></li>
+<li><a href="#org2947fb5">21.2. One-sided Hypothesis test</a></li>
 </ul>
 </li>
-<li><a href="#org613ddd7">24. Comparing two means</a></li>
-<li><a href="#org403c2ce">25. t-Student test</a></li>
-<li><a href="#org6d3cba3">26. Binomial test to compare two proportions</a></li>
-<li><a href="#orgf1dfc5f">27. Code for the graphs</a></li>
-<li><a href="#orgbdbf3a8">28. References</a></li>
+<li><a href="#org6dd6c81">22. Comparing two means</a></li>
+<li><a href="#org6feb9d5">23. t-Student test</a></li>
+<li><a href="#orgeb22869">24. Binomial test to compare two proportions</a></li>
+<li><a href="#org3f3df47">25. Summary</a></li>
+<li><a href="#orga13c5aa">26. Code for the graphs</a></li>
+<li><a href="#orgaadb57b">27. References</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgca3896c" class="outline-2">
-<h2 id="orgca3896c"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgc104a36" class="outline-2">
+<h2 id="orgc104a36"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The goal of hypothesis testing is to assess the evidence provided by the data in favour of some claim
@@ -612,8 +612,8 @@ alternative hypothesis.
 </div>
 
 
-<div id="outline-container-org7188038" class="outline-2">
-<h2 id="org7188038"><span class="section-number-2">2</span> Hypothesis</h2>
+<div id="outline-container-org08e140f" class="outline-2">
+<h2 id="org08e140f"><span class="section-number-2">2</span> Hypothesis</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>The null hypothesis</b>, denoted \(H_0\) , is a statement of no effect or no difference. When performing
@@ -640,8 +640,8 @@ value; the direction is not specified.
 </div>
 </div>
 
-<div id="outline-container-org999a5e8" class="outline-2">
-<h2 id="org999a5e8"><span class="section-number-2">3</span> Example</h2>
+<div id="outline-container-org309890a" class="outline-2">
+<h2 id="org309890a"><span class="section-number-2">3</span> Example</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Formulate the null and alternative hypotheses for the following research question: Is the
@@ -661,8 +661,8 @@ H_0 : \mu = 600 , \qquad H_1 : \mu > 600
 </div>
 
 
-<div id="outline-container-org3bedb4b" class="outline-2">
-<h2 id="org3bedb4b"><span class="section-number-2">4</span> Test statistic</h2>
+<div id="outline-container-orgef8262a" class="outline-2">
+<h2 id="orgef8262a"><span class="section-number-2">4</span> Test statistic</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The test statistic is a random variable with a known distribution and will depend on the type of
@@ -677,8 +677,8 @@ using a formula.
 </div>
 </div>
 
-<div id="outline-container-org5016b39" class="outline-2">
-<h2 id="org5016b39"><span class="section-number-2">5</span> Z-test</h2>
+<div id="outline-container-org8bdd20d" class="outline-2">
+<h2 id="org8bdd20d"><span class="section-number-2">5</span> Z-test</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The test statistic for one of the most common tests, Z-test, is given by
@@ -696,11 +696,15 @@ where \(\mu_0\) is the value of the hypothesised population mean. We have alread
 Note: The test statistic is based on the statistic that estimates the parameter that appears in the hypotheses.
 E.g. in the example above \(\hat{\theta}\) estimates \(\mu_0\).
 </p>
+
+<p>
+<b>Remark</b> Usually the estimator of the mean \(\hat{\theta}\) is given by the arithmetic average \(\hat{Y}\) (see next section).
+</p>
 </div>
 </div>
 
-<div id="outline-container-org792384f" class="outline-2">
-<h2 id="org792384f"><span class="section-number-2">6</span> Some remarks with the previous formula:</h2>
+<div id="outline-container-orgb79f758" class="outline-2">
+<h2 id="orgb79f758"><span class="section-number-2">6</span> Some remarks with the previous formula:</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Recall that
@@ -713,13 +717,13 @@ Recall that
 \end{equation}
 
 <ol class="org-ol">
-<li value="2">Then the Z statistic is the change of variable that transforms \(X \sim N\left(\mu_0,\frac{\sigma^2}{n} \right)\) into \(Z \sim N(0,1)\).</li>
+<li value="2">Then the Z statistic is the change of variable that transforms \(\hat{Y} \sim N\left(\mu_0,\frac{\sigma^2}{n} \right)\) into \(Z \sim N(0,1)\).</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org90a615f" class="outline-2">
-<h2 id="org90a615f"><span class="section-number-2">7</span> Assessing our estimate</h2>
+<div id="outline-container-org32943de" class="outline-2">
+<h2 id="org32943de"><span class="section-number-2">7</span> Assessing our estimate</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 To assess how far the estimate is from the parameter, we standardise the estimate. So, the test
@@ -738,8 +742,8 @@ dispersion.
 </div>
 </div>
 
-<div id="outline-container-org70cfeb9" class="outline-2">
-<h2 id="org70cfeb9"><span class="section-number-2">8</span> p- Value</h2>
+<div id="outline-container-org77479d7" class="outline-2">
+<h2 id="org77479d7"><span class="section-number-2">8</span> p- Value</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 The test statistic is used for the probability calculation which indicates the strength of evidence
@@ -770,8 +774,8 @@ The significance level, denoted by \(\alpha\), can be thought of as an evidence 
 </div>
 
 
-<div id="outline-container-org8fffa13" class="outline-2">
-<h2 id="org8fffa13"><span class="section-number-2">9</span> General rules (for all hypothesis tests):</h2>
+<div id="outline-container-orgcf465b0" class="outline-2">
+<h2 id="orgcf465b0"><span class="section-number-2">9</span> General rules (for all hypothesis tests):</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>If the p-value is less or equal to this threshold, that is \(p \leq \alpha\),
@@ -784,8 +788,8 @@ is not enough evidence to support \(H_1\) , based on our data.</li>
 </div>
 </div>
 
-<div id="outline-container-org45c8d38" class="outline-2">
-<h2 id="org45c8d38"><span class="section-number-2">10</span> Summary</h2>
+<div id="outline-container-orgb771ace" class="outline-2">
+<h2 id="orgb771ace"><span class="section-number-2">10</span> Summary</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>State the null and alternative hypotheses.</li>
@@ -797,8 +801,8 @@ is not enough evidence to support \(H_1\) , based on our data.</li>
 </div>
 
 
-<div id="outline-container-orgdd11b6f" class="outline-2">
-<h2 id="orgdd11b6f"><span class="section-number-2">11</span> Remarks</h2>
+<div id="outline-container-org5bd4998" class="outline-2">
+<h2 id="org5bd4998"><span class="section-number-2">11</span> Remarks</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 When we reject \(H_0\), it does not mean that it is not true, it just means that based on our data, we
@@ -819,8 +823,8 @@ When interpreting results practically, we usually do so with respect to the alte
 </div>
 
 
-<div id="outline-container-orge7848f5" class="outline-2">
-<h2 id="orge7848f5"><span class="section-number-2">12</span> Example</h2>
+<div id="outline-container-org3a98ebd" class="outline-2">
+<h2 id="org3a98ebd"><span class="section-number-2">12</span> Example</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 Cholesterol level in a particular population was known to have a mean value \(\mu = 170\)
@@ -834,8 +838,8 @@ significance level.
 </p>
 </div>
 
-<div id="outline-container-orgf44698e" class="outline-3">
-<h3 id="orgf44698e"><span class="section-number-3">12.1</span> Solution</h3>
+<div id="outline-container-orgc9aeacd" class="outline-3">
+<h3 id="orgc9aeacd"><span class="section-number-3">12.1</span> Solution</h3>
 <div class="outline-text-3" id="text-12-1">
 <p>
 Since \(p = 0.01255 < 0.05\), we reject \(H_0\) at the 5% level. We can conclude that there is evidence that
@@ -845,8 +849,8 @@ the mean cholesterol level has increased from \(170\).
 </div>
 </div>
 
-<div id="outline-container-org61f0a2c" class="outline-2">
-<h2 id="org61f0a2c"><span class="section-number-2">13</span> Strength of the evidence</h2>
+<div id="outline-container-org9b41e3d" class="outline-2">
+<h2 id="org9b41e3d"><span class="section-number-2">13</span> Strength of the evidence</h2>
 <div class="outline-text-2" id="text-13">
 <p>
 Even though in many disciplines, the significance level \(\alpha\) is decided in advance, we do not really need
@@ -866,20 +870,15 @@ evidence to support \(H_1\) :
 </div>
 
 
-<div id="outline-container-org9a0d129" class="outline-2">
-<h2 id="org9a0d129"><span class="section-number-2">14</span> Using critical values for hypothesis testing</h2>
+<div id="outline-container-org6da78fe" class="outline-2">
+<h2 id="org6da78fe"><span class="section-number-2">14</span> Using critical values for hypothesis testing</h2>
 <div class="outline-text-2" id="text-14">
 <p>
 There are methods which can be used to decide whether we can reject or not to
 reject they null hypothesis \(H_0\) at some \(\alpha\) without finding the exact p-value. A traditional method of hypothesis testing
 uses a table of known critical values.
 </p>
-</div>
-</div>
 
-<div id="outline-container-org9bba3c5" class="outline-2">
-<h2 id="org9bba3c5"><span class="section-number-2">15</span> </h2>
-<div class="outline-text-2" id="text-15">
 <p>
 We reject the null hypothesis \(H_0\) at the significance level α, depending on \(H_1\) , following these
 rules (for most parametric tests):
@@ -901,9 +900,9 @@ for the upper tail of the relevant distribution.</li>
 </div>
 </div>
 
-<div id="outline-container-org8a8d6d5" class="outline-2">
-<h2 id="org8a8d6d5"><span class="section-number-2">16</span> Error Types</h2>
-<div class="outline-text-2" id="text-16">
+<div id="outline-container-orgab679ef" class="outline-2">
+<h2 id="orgab679ef"><span class="section-number-2">15</span> Error Types</h2>
+<div class="outline-text-2" id="text-15">
 <p>
 Remember that we make an inference about population parameters, using a particular sample, and
 we do not know the population parameters. We usually do not know whether our inference is correct
@@ -917,9 +916,9 @@ or not. In reaching a decision, we may make two types of errors:
 </div>
 </div>
 
-<div id="outline-container-orgcbed0fc" class="outline-2">
-<h2 id="orgcbed0fc"><span class="section-number-2">17</span> Example</h2>
-<div class="outline-text-2" id="text-17">
+<div id="outline-container-org0d53617" class="outline-2">
+<h2 id="org0d53617"><span class="section-number-2">16</span> Example</h2>
+<div class="outline-text-2" id="text-16">
 <p>
 A new low cost diagnostic test has been developed that claims to diagnose a particular
 medical condition in its early stages. The patient is assumed not to have the condition unless there
@@ -936,7 +935,6 @@ and their consequences. First, we formulate the hypotheses:
 A Type I error is when the condition is diagnosed in a patient that does not have the condition.
 This would result in an expensive treatment being administered, as well as any possible side effects
 of such treatment. Note that a Type I error is sometimes referred to as a false positive.
-\vspace{0.5cm}
 </p>
 
 
@@ -949,9 +947,9 @@ sometimes referred to as a false negative.
 </div>
 
 
-<div id="outline-container-orgb8a279a" class="outline-2">
-<h2 id="orgb8a279a"><span class="section-number-2">18</span> Test for a population mean</h2>
-<div class="outline-text-2" id="text-18">
+<div id="outline-container-org0287427" class="outline-2">
+<h2 id="org0287427"><span class="section-number-2">17</span> t-Test (Student's Distribution)</h2>
+<div class="outline-text-2" id="text-17">
 <p>
 The underlying assumption for these tests is that the population is normally distributed.
 There are two types of tests for a population mean, depending on whether the population variance
@@ -960,15 +958,29 @@ There are two types of tests for a population mean, depending on whether the pop
 
 <ul class="org-ul">
 <li>If \(\sigma^2\) is known, then we use the Z-test.</li>
-<li>If \(\sigma^2\) is unknown, then we use the t-test.</li>
+<li>If \(\sigma^2\) is unknown, then we use the t-test (with \(n-1\) degrees of freedom).</li>
 </ul>
+
+<p>
+The corresponding formula is given by
+</p>
+\begin{equation}
+t = \frac{\hat{\theta} - \mu_0}{S/\sqrt{n}},
+\end{equation}
+<p>
+where \(S^2\) is the population variance.
+</p>
+
+<p>
+<b>Remark</b> Usually the estimator of the mean \(\hat{\theta}\) is given by the arithmetic average \(\hat{Y} = \frac{1}{n}\sum_{i+1}^n X_{i}\).
+</p>
 </div>
 </div>
 
 
-<div id="outline-container-orgfcd5366" class="outline-2">
-<h2 id="orgfcd5366"><span class="section-number-2">19</span> Z-test</h2>
-<div class="outline-text-2" id="text-19">
+<div id="outline-container-orgebb575c" class="outline-2">
+<h2 id="orgebb575c"><span class="section-number-2">18</span> Z-test</h2>
+<div class="outline-text-2" id="text-18">
 <ul class="org-ul">
 <li>State hypotheses, the null hypothesis \(H_0 : \mu = \mu_0\) and the
 alternative hypothesis \(H_1 : \mu < \mu_0\) for the lower tail,
@@ -1004,9 +1016,9 @@ test. Alternatively, compute the p-value.</li>
 </div>
 
 
-<div id="outline-container-org2ec4c51" class="outline-2">
-<h2 id="org2ec4c51"><span class="section-number-2">20</span> Example</h2>
-<div class="outline-text-2" id="text-20">
+<div id="outline-container-orgd318b7e" class="outline-2">
+<h2 id="orgd318b7e"><span class="section-number-2">19</span> Example</h2>
+<div class="outline-text-2" id="text-19">
 <p>
 Cholesterol level in a particular population was known to have a mean value \(\mu = 170\)
 in the past. We also know that the population standard deviation of the cholesterol is \(\sigma = 30\).
@@ -1033,9 +1045,9 @@ There is evidence that mean cholesterol level has increased from \(170\).
 </div>
 </div>
 
-<div id="outline-container-org06a5878" class="outline-2">
-<h2 id="org06a5878"><span class="section-number-2">21</span> Exercise</h2>
-<div class="outline-text-2" id="text-21">
+<div id="outline-container-org27470f9" class="outline-2">
+<h2 id="org27470f9"><span class="section-number-2">20</span> Exercise</h2>
+<div class="outline-text-2" id="text-20">
 <p>
 Perform Z-test to
 determine whether there is evidence that the population mean differs from 170. You may assume
@@ -1045,9 +1057,9 @@ that the cholesterol level is normally distributed.
 </div>
 
 
-<div id="outline-container-org3449c4c" class="outline-2">
-<h2 id="org3449c4c"><span class="section-number-2">22</span> More graphical example</h2>
-<div class="outline-text-2" id="text-22">
+<div id="outline-container-orge68408b" class="outline-2">
+<h2 id="orge68408b"><span class="section-number-2">21</span> More graphical example</h2>
+<div class="outline-text-2" id="text-21">
 <ul class="org-ul">
 <li>Usually have a sample \(X_1, X_2, \ldots, X_n\), of size \(n\).</li>
 <li>We want to perform an hypothesis test for the population mean.</li>
@@ -1056,15 +1068,14 @@ that the cholesterol level is normally distributed.
 <li>If the Central Limit Theorem applies, we use the \(Z-test\), otherwise we use the \(t-test\) with \(n-1\) degrees of freedom.</li>
 </ul>
 </div>
+
+<div id="outline-container-orgacc2807" class="outline-3">
+<h3 id="orgacc2807"><span class="section-number-3">21.1</span> <span class="todo TODO">TODO</span> Insert a graph.</h3>
 </div>
 
-<div id="outline-container-org8d9e2e7" class="outline-2">
-<h2 id="org8d9e2e7"><span class="section-number-2">23</span> </h2>
-<div class="outline-text-2" id="text-23">
-</div>
-<div id="outline-container-orge03a1c3" class="outline-3">
-<h3 id="orge03a1c3"><span class="section-number-3">23.1</span> One-sided Hypothesis test</h3>
-<div class="outline-text-3" id="text-23-1">
+<div id="outline-container-org2947fb5" class="outline-3">
+<h3 id="org2947fb5"><span class="section-number-3">21.2</span> One-sided Hypothesis test</h3>
+<div class="outline-text-3" id="text-21-2">
 <p>
 With an \(\alpha\) level of confidence, perform the hypothesis test:
 </p>
@@ -1142,9 +1153,9 @@ corresponds a \(z_{\alpha}\) score</li>
 </div>
 
 
-<div id="outline-container-org613ddd7" class="outline-2">
-<h2 id="org613ddd7"><span class="section-number-2">24</span> Comparing two means</h2>
-<div class="outline-text-2" id="text-24">
+<div id="outline-container-org6dd6c81" class="outline-2">
+<h2 id="org6dd6c81"><span class="section-number-2">22</span> Comparing two means</h2>
+<div class="outline-text-2" id="text-22">
 <p>
 We will work out the probability that two samples were indeed
 drawn from populations with the same mean. If this probability is very
@@ -1170,9 +1181,9 @@ What to do when these assumptions are violated (e.g. when the variances are diff
 </div>
 </div>
 
-<div id="outline-container-org403c2ce" class="outline-2">
-<h2 id="org403c2ce"><span class="section-number-2">25</span> t-Student test</h2>
-<div class="outline-text-2" id="text-25">
+<div id="outline-container-org6feb9d5" class="outline-2">
+<h2 id="org6feb9d5"><span class="section-number-2">23</span> t-Student test</h2>
+<div class="outline-text-2" id="text-23">
 <p>
 The test statistic is the number of standard errors of the difference by which the two sample means are separated
 </p>
@@ -1196,9 +1207,9 @@ t.test(Sample_A, Sample_B)
 </div>
 </div>
 
-<div id="outline-container-org6d3cba3" class="outline-2">
-<h2 id="org6d3cba3"><span class="section-number-2">26</span> Binomial test to compare two proportions</h2>
-<div class="outline-text-2" id="text-26">
+<div id="outline-container-orgeb22869" class="outline-2">
+<h2 id="orgeb22869"><span class="section-number-2">24</span> Binomial test to compare two proportions</h2>
+<div class="outline-text-2" id="text-24">
 <p>
 Suppose that only four females were promoted, compared to 196 men. Is this an example of blatant sexism,
 as it might appear at ﬁrst glance? Before we can judge, of course, we need to know the number of male
@@ -1242,9 +1253,55 @@ In prop.test(c(4, 196), c(40, 3270)) :
 </div>
 
 
-<div id="outline-container-orgf1dfc5f" class="outline-2">
-<h2 id="orgf1dfc5f"><span class="section-number-2">27</span> Code for the graphs</h2>
-<div class="outline-text-2" id="text-27">
+<div id="outline-container-org3f3df47" class="outline-2">
+<h2 id="org3f3df47"><span class="section-number-2">25</span> Summary</h2>
+<div class="outline-text-2" id="text-25">
+<p>
+In hypothesis testing, there are certain steps one must follow. Below these are summarized into six such steps to conducting a test of a hypothesis.
+</p>
+
+<ol class="org-ol">
+<li>The <b>null hypothesis</b>, notated as, which is a statement of a particular parameter value. This hypothesis is assumed to be true until there is evidence to suggest otherwise.</li>
+
+<li>The <b>alternative hypothesis</b> is a statement of a range of alternative values in which the parameter may fall.</li>
+
+<li>One must also check that any conditions (assumptions) needed to run the test have been satisfied e.g. <b>normality of data</b>, <b>independence</b>, and number of success and failure outcomes.</li>
+
+<li><b>Decide on the significance level</b>. This alpha value represents the
+probability we are willing to place on our test for making an
+incorrect decision in regards to rejecting the null hypothesis. The
+most common value is 0.05 or 5%. Other popular choices are 0.01
+(1%) and 0.1 (10%).</li>
+
+<li><b>Calculate the test statistic</b>. The test statistic is calculated under the
+assumption the null hypothesis is true and incorporates a measure
+of standard error and assumptions (conditions) related to the
+sampling distribution. Here we have used the Z-statistic and the t-statistic.</li>
+
+<li>Calculate probability value (<b>p-value</b>), or the rejection region: A
+p-value is found by using the test statistic to calculate the
+probability of the sample data producing such a test statistic or
+one more extreme. The rejection region is found by using alpha to
+find a critical value; the rejection region is the area that is
+more extreme than the critical value.</li>
+
+<li><b>Make a decision about the null hypothesis</b>: In this step, we decide
+to either <b>reject the null hypothesis</b> or decide to <b>fail to reject</b>
+<b>the null hypothesis</b>. Notice we do not make a decision where we will
+accept the null hypothesis.</li>
+
+<li><b>State an overall conclusion</b>: Once we have found the p-value or
+rejection region, and made a statistical decision about the null
+hypothesis (i.e. we will reject the null or fail to reject the
+null), we then want to summarise our results into an overall
+conclusion for our test.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orga13c5aa" class="outline-2">
+<h2 id="orga13c5aa"><span class="section-number-2">26</span> Code for the graphs</h2>
+<div class="outline-text-2" id="text-26">
 <pre class="example">
 my_plot1 &lt;- function(x,y,color="#3498db",ylabel="f(x)",xlabel="x",my.title="Plot title",...){
 par(family="mono",fg="grey10") 
@@ -1287,9 +1344,9 @@ dev.off()
 
 
 
-<div id="outline-container-orgbdbf3a8" class="outline-2">
-<h2 id="orgbdbf3a8"><span class="section-number-2">28</span> References</h2>
-<div class="outline-text-2" id="text-28">
+<div id="outline-container-orgaadb57b" class="outline-2">
+<h2 id="orgaadb57b"><span class="section-number-2">27</span> References</h2>
+<div class="outline-text-2" id="text-27">
 <p>
 [1] Slides based on Lecture Notes on "Statistical Theory and Methods 1" at Liverpool University.
 </p>
@@ -1301,12 +1358,16 @@ dev.off()
 <p>
 [3] The R book. Michael J. Crawley. John Wiley &amp; Sons, Ltd. 2013.
 </p>
+
+<p>
+[4] <a href="https://online.stat.psu.edu/stat500/lesson/6a/6a.2">https://online.stat.psu.edu/stat500/lesson/6a/6a.2</a>
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Daniel Ballesteros-Chávez</p>
-<p class="date">Created: 2022-11-21 Mon 12:08</p>
+<p class="date">Created: 2023-01-11 Wed 15:39</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

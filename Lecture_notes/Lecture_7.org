@@ -1,0 +1,667 @@
+#+title: Further examples of regressions
+#+author: Daniel Ballesteros-Chávez
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 26.1 (Org mode 9.3.6)
+#+PROPERTY: header-args :R+ :exports both
+#+PROPERTY: header-args :R+ :session *R*
+#+HTML_HEAD: <style type="text/css"> tr:nth-child(odd) {background-color: #e2e2e2;}  tr:first-child {font-weight: bold}  tr:hover {background-color: #d0c6e5;}</style>
+#+HTML_HEAD_EXTRA: <style>code {background-color: #ccc}</style>
+:results:
+#+HTML_HEAD:<style>
+#+HTML_HEAD:/* Daniel Ballesteros-Chavez */
+#+HTML_HEAD:/* DBCh CSS for blog project */
+#+HTML_HEAD:/* color schemes: #333745; #E63462 ; #C7EFCF ; #EEF5DB ; #909396; #262626;*/
+#+HTML_HEAD:/* Modified version with responsive TOC
+#+HTML_HEAD:
+#+HTML_HEAD:/* usage: #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style01.css"/> */
+#+HTML_HEAD:
+#+HTML_HEAD:body {
+#+HTML_HEAD:	font-size: 18px;
+#+HTML_HEAD:	color: #404040;
+#+HTML_HEAD:	/* background-color: #333745; */
+#+HTML_HEAD:	font-family: Helvetica;
+#+HTML_HEAD:	line-height: 1.3;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:#content {
+#+HTML_HEAD:	max-width: 50em;
+#+HTML_HEAD:	margin-left: auto;
+#+HTML_HEAD:	margin-right: auto;
+#+HTML_HEAD:    padding: 15px 50px 50px 15px;
+#+HTML_HEAD:    background-color: #E4F7FF;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:p {
+#+HTML_HEAD:		text-align: justify;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:
+#+HTML_HEAD:/* this part is about the table of contents TOC */
+#+HTML_HEAD:
+#+HTML_HEAD:#table-of-contents a:link,
+#+HTML_HEAD:#table-of-contents a:visited {
+#+HTML_HEAD:    color: #404040;
+#+HTML_HEAD:    background: transparent;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:#table-of-contents a:hover {
+#+HTML_HEAD:  background-color: #ccc;
+#+HTML_HEAD:  color: #404040;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:
+#+HTML_HEAD:#table-of-contents {
+#+HTML_HEAD:    line-height: 1.2;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:#table-of-contents h2 {
+#+HTML_HEAD:    background-color:  #ccc ;
+#+HTML_HEAD:    padding-left: 0.3em;
+#+HTML_HEAD:    color: #404040;
+#+HTML_HEAD:    border-bottom: 0;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:#table-of-contents ul {
+#+HTML_HEAD:    list-style: none;
+#+HTML_HEAD:    padding-left: 0.3em;
+#+HTML_HEAD:    font-weight: normal;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:
+#+HTML_HEAD:#table-of-contents div>ul>li {
+#+HTML_HEAD:    margin-top: 1em;
+#+HTML_HEAD:    font-weight: bold;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:#table-of-contents .tag {
+#+HTML_HEAD:    display: none;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:#table-of-contents .todo,
+#+HTML_HEAD:#table-of-contents .done {
+#+HTML_HEAD:    font-size: 80%;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:#table-of-contents ol>li {
+#+HTML_HEAD:    margin-top: 1em;
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:@media screen {
+#+HTML_HEAD:
+#+HTML_HEAD:    #table-of-contents {
+#+HTML_HEAD:        position: fixed;
+#+HTML_HEAD:        top: 0;
+#+HTML_HEAD:        left: 0;
+#+HTML_HEAD:        padding: 1em 0 1em 1em;
+#+HTML_HEAD:        width: 290px;
+#+HTML_HEAD:        height: 100vh;
+#+HTML_HEAD:        overlow-x: hidden;
+#+HTML_HEAD:        overlow-y: auto;
+#+HTML_HEAD:	overflow: auto;
+#+HTML_HEAD:    }
+#+HTML_HEAD:
+#+HTML_HEAD:    #table-of-contents h2 {
+#+HTML_HEAD:        margin-top: 0;
+#+HTML_HEAD:        font-family: Helvetica,Arial,"Lucida Grande",sans-serif;
+#+HTML_HEAD:    }
+#+HTML_HEAD:
+#+HTML_HEAD:    #table-of-contents code {
+#+HTML_HEAD:        font-size: 12px;
+#+HTML_HEAD:    }
+#+HTML_HEAD:    
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:@media screen and (max-width: 95em) {
+#+HTML_HEAD:
+#+HTML_HEAD:    #table-of-contents {
+#+HTML_HEAD:        display: none;
+#+HTML_HEAD:    }
+#+HTML_HEAD:
+#+HTML_HEAD:    h1.title {
+#+HTML_HEAD:        margin-left: 0%;
+#+HTML_HEAD:    }
+#+HTML_HEAD:    
+#+HTML_HEAD:    div#content {
+#+HTML_HEAD:        margin-left: 5%;
+#+HTML_HEAD:        max-width: 90%;
+#+HTML_HEAD:    }
+#+HTML_HEAD:}
+#+HTML_HEAD:
+#+HTML_HEAD:/*Html Boxes around THMs and Propositions */
+#+HTML_HEAD:.abstract  {
+#+HTML_HEAD:    	color:  #404040;
+#+HTML_HEAD:	border: 1px solid #404040;
+#+HTML_HEAD:    box-shadow: 3px 3px 3px ;
+#+HTML_HEAD:    padding: 8pt;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    margin: 1.2em;
+#+HTML_HEAD:    position: relative;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    padding-top: 1.2em;
+#+HTML_HEAD:	   }
+#+HTML_HEAD:
+#+HTML_HEAD:  .abstract:before {
+#+HTML_HEAD:    display: inline;
+#+HTML_HEAD:    position: absolute;
+#+HTML_HEAD:    background-color: white;
+#+HTML_HEAD:    top: -5px;
+#+HTML_HEAD:    left: 10px;
+#+HTML_HEAD:    padding: 3px;
+#+HTML_HEAD:    border: 1px solid black;
+#+HTML_HEAD:    content: 'Abstract';
+#+HTML_HEAD:  }
+#+HTML_HEAD:
+#+HTML_HEAD:.mydef  {
+#+HTML_HEAD:    	color:  #404040;
+#+HTML_HEAD:    border: 1px solid #404040;
+#+HTML_HEAD:    background-color: #FFD580;
+#+HTML_HEAD:    /* box-shadow: 3px 3px 3px orange; */
+#+HTML_HEAD:    padding: 8pt;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    margin: 1.2em;
+#+HTML_HEAD:    position: relative;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    padding-top: 1.2em;
+#+HTML_HEAD:	   }
+#+HTML_HEAD:
+#+HTML_HEAD:  .mydef:before {
+#+HTML_HEAD:    display: inline;
+#+HTML_HEAD:    position: absolute;
+#+HTML_HEAD:    /* background-color: white; */
+#+HTML_HEAD:    background-color: orange;
+#+HTML_HEAD:    top: -5px;
+#+HTML_HEAD:    left: 10px;
+#+HTML_HEAD:    padding: 3px;
+#+HTML_HEAD:    border: 1px solid black;
+#+HTML_HEAD:    content: 'Definition';
+#+HTML_HEAD:  }
+#+HTML_HEAD:
+#+HTML_HEAD:.prop  {
+#+HTML_HEAD:    	color:  #404040;
+#+HTML_HEAD:    border: 1px solid ;
+#+HTML_HEAD:    background-color: #F1FFC2;
+#+HTML_HEAD:    /* box-shadow: 3px 3px 3px green; */
+#+HTML_HEAD:    padding: 8pt;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    margin: 1.2em;
+#+HTML_HEAD:    position: relative;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    padding-top: 1.2em;
+#+HTML_HEAD:	   }
+#+HTML_HEAD:
+#+HTML_HEAD:  .prop:before {
+#+HTML_HEAD:    	color:  white;
+#+HTML_HEAD:    display: inline;
+#+HTML_HEAD:    position: absolute;
+#+HTML_HEAD:    background-color: green;
+#+HTML_HEAD:    top: -5px;
+#+HTML_HEAD:    left: 10px;
+#+HTML_HEAD:    padding: 3px;
+#+HTML_HEAD:    border: 1px solid black;
+#+HTML_HEAD:    content: 'Proposition';
+#+HTML_HEAD:  }
+#+HTML_HEAD:
+#+HTML_HEAD:.thm  {
+#+HTML_HEAD:    	color:  #404040;
+#+HTML_HEAD:    border: 1px solid ;
+#+HTML_HEAD:    background-color: lightcyan;
+#+HTML_HEAD:    /* box-shadow: 3px 3px 3px brown; */
+#+HTML_HEAD:    padding: 8pt;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    margin: 1.2em;
+#+HTML_HEAD:    position: relative;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    padding-top: 1.2em;
+#+HTML_HEAD:	   }
+#+HTML_HEAD:
+#+HTML_HEAD:  .thm:before {
+#+HTML_HEAD:    	color:  white;
+#+HTML_HEAD:    display: inline;
+#+HTML_HEAD:    position: absolute;
+#+HTML_HEAD:    background-color: darkblue;
+#+HTML_HEAD:    top: -5px;
+#+HTML_HEAD:    left: 10px;
+#+HTML_HEAD:    padding: 3px;
+#+HTML_HEAD:    border: 1px solid black;
+#+HTML_HEAD:    content: 'Theorem';
+#+HTML_HEAD:  }
+#+HTML_HEAD:
+#+HTML_HEAD:  .cor  {
+#+HTML_HEAD:    	color:  #404040;
+#+HTML_HEAD:    border: 1px solid blue;
+#+HTML_HEAD:    box-shadow: 3px 3px 3px blue;
+#+HTML_HEAD:    padding: 8pt;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    margin: 1.2em;
+#+HTML_HEAD:    position: relative;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    padding-top: 1.2em;
+#+HTML_HEAD:	   }
+#+HTML_HEAD:
+#+HTML_HEAD:  .cor:before {
+#+HTML_HEAD:    display: inline;
+#+HTML_HEAD:    position: absolute;
+#+HTML_HEAD:    background-color: white;
+#+HTML_HEAD:    top: -5px;
+#+HTML_HEAD:    left: 10px;
+#+HTML_HEAD:    padding: 3px;
+#+HTML_HEAD:    border: 1px solid black;
+#+HTML_HEAD:    content: 'Corollary';
+#+HTML_HEAD:  }
+#+HTML_HEAD:
+#+HTML_HEAD:
+#+HTML_HEAD:
+#+HTML_HEAD:/*defaults form org-mode export */
+#+HTML_HEAD:
+#+HTML_HEAD:
+#+HTML_HEAD:  .title  { text-align: center; }
+#+HTML_HEAD:  .todo   { font-family: monospace; color: red; }
+#+HTML_HEAD:  .done   { color: green; }
+#+HTML_HEAD:  .tag    { background-color: #eee; font-family: monospace;
+#+HTML_HEAD:            padding: 2px; font-size: 80%; font-weight: normal; }
+#+HTML_HEAD:  .timestamp { color: #bebebe; }
+#+HTML_HEAD:  .timestamp-kwd { color: #5f9ea0; }
+#+HTML_HEAD:  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+#+HTML_HEAD:  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+#+HTML_HEAD:  .center { margin-left: auto; margin-right: auto; text-align: center; }
+#+HTML_HEAD:  .underline { text-decoration: underline; }
+#+HTML_HEAD:  #postamble p, #preamble p { font-size: 90%; margin: .2em; text-align: center;}
+#+HTML_HEAD:  p.verse { margin-left: 3%; }
+#+HTML_HEAD:  pre {
+#+HTML_HEAD:    border: 1px solid #ccc;
+#+HTML_HEAD:    box-shadow: 3px 3px 3px #eee;
+#+HTML_HEAD:    padding: 8pt;
+#+HTML_HEAD:    font-family: monospace;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    margin: 1.2em;
+#+HTML_HEAD:  }
+#+HTML_HEAD:  pre.src {
+#+HTML_HEAD:    position: relative;
+#+HTML_HEAD:    overflow: auto;
+#+HTML_HEAD:    padding-top: 1.2em;
+#+HTML_HEAD:  }
+#+HTML_HEAD:  pre.src:before {
+#+HTML_HEAD:    display: none;
+#+HTML_HEAD:    position: absolute;
+#+HTML_HEAD:    background-color: white;
+#+HTML_HEAD:    top: -10px;
+#+HTML_HEAD:    right: 10px;
+#+HTML_HEAD:    padding: 3px;
+#+HTML_HEAD:    border: 1px solid black;
+#+HTML_HEAD:  }
+#+HTML_HEAD:  pre.src:hover:before { display: inline;}
+#+HTML_HEAD:  pre.src-sh:before    { content: 'sh'; }
+#+HTML_HEAD:  pre.src-bash:before  { content: 'sh'; }
+#+HTML_HEAD:  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+#+HTML_HEAD:  pre.src-R:before     { content: 'R'; }
+#+HTML_HEAD:  pre.src-perl:before  { content: 'Perl'; }
+#+HTML_HEAD:  pre.src-java:before  { content: 'Java'; }
+#+HTML_HEAD:  pre.src-sql:before   { content: 'SQL'; }
+#+HTML_HEAD:
+#+HTML_HEAD:  table { border-collapse:collapse; }
+#+HTML_HEAD:  caption.t-above { caption-side: top; }
+#+HTML_HEAD:  caption.t-bottom { caption-side: bottom; }
+#+HTML_HEAD:  td, th { vertical-align:top;  }
+#+HTML_HEAD:  th.right  { text-align: center;  }
+#+HTML_HEAD:  th.left   { text-align: center;   }
+#+HTML_HEAD:  th.center { text-align: center; }
+#+HTML_HEAD:  td.right  { text-align: right;  }
+#+HTML_HEAD:  td.left   { text-align: left;   }
+#+HTML_HEAD:  td.center { text-align: center; }
+#+HTML_HEAD:  dt { font-weight: bold; }
+#+HTML_HEAD:  .footpara:nth-child(2) { display: inline; }
+#+HTML_HEAD:  .footpara { display: block; }
+#+HTML_HEAD:  .footdef  { margin-bottom: 1em; }
+#+HTML_HEAD:  .figure { padding: 1em; }
+#+HTML_HEAD:  .figure p { text-align: center; }
+#+HTML_HEAD:  .inlinetask {
+#+HTML_HEAD:    padding: 10px;
+#+HTML_HEAD:    border: 2px solid gray;
+#+HTML_HEAD:    margin: 10px;
+#+HTML_HEAD:    background: #ffffcc;
+#+HTML_HEAD:  }
+#+HTML_HEAD:  #org-div-home-and-up
+#+HTML_HEAD:   { text-align: right; font-size: 70%; white-space: nowrap; }
+#+HTML_HEAD:  textarea { overflow-x: auto; }
+#+HTML_HEAD:  .linenr { font-size: smaller }
+#+HTML_HEAD:  .code-highlighted { background-color: #ffff00; }
+#+HTML_HEAD:  .org-info-js_info-navigation { border-style: none; }
+#+HTML_HEAD:  #org-info-js_console-label
+#+HTML_HEAD:    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+#+HTML_HEAD:  .org-info-js_search-highlight
+#+HTML_HEAD:    { background-color: #ffff00; color: #000000; font-weight: bold; }
+#+HTML_HEAD:
+#+HTML_HEAD:</style>
+:end:
+
+
+* The explicit calculation of the AIC
+
+The Akaike information criterion (AIC) is an estimator of prediction
+error of statistical models for a given data set.
+
+AIC estimates the relative amount of information lost by a given
+model: the less information a model loses, the higher the quality of
+that model.
+
+Given 2 models with $AIC_1$ and $AIC_2$, define $AIC_{min}$ to be the minimum between
+$AIC_1$ and $AIC_2$. Then the quantity:
+\begin{equation}
+\exp\left( \frac{AIC_{min} - AIC_{j}}{2}\right),
+\end{equation}
+
+can be interpreted as being proportional to the probability that the
+ model "j" minimizes the (estimated) information loss.
+
+#+begin_src R :exports both
+df <- data.frame(
+"Year" = c(
+2000, 2001, 2002, 2003, 2004, 2005,
+2006, 2007, 2008, 2009, 2010, 2011,
+2012, 2013, 2014, 2015, 2016, 2017,
+2018, 2019, 2020),
+"Expenditure" = c(
+125, 127, 118, 119, 135, 146,
+155, 175, 202, 238, 270, 303,
+372, 375, 420, 470, 467, 536,
+668, 789, 845),
+"PatentsApp" = c(
+2404, 2202, 2313, 2268, 2381, 2028,
+2157, 2392, 2488, 2883, 3203, 3880,
+4415, 4237, 3939, 4676, 4261, 3942,
+4207, 3887, 4010))
+
+myfit  <- lm(PatentsApp ~ Expenditure, data= df)
+
+## note that we can write
+
+
+mu <- myfit$fitted.values
+NN <- length(df$PatentsApp)
+rss <- sum((myfit$model$PatentsApp - mu)^2)  ## RSS  residue sums of squares
+ss2 <- rss/(NN) ## Here we use the Population variance definition.
+ssdd <- sqrt(ss2)
+
+my.log.like <- -NN/2 * log(2*pi) - NN*log(ssdd) - rss/(2*ss2)
+
+p <- 2 ## 
+
+my.aic <- -2*my.log.like + 2*(p+1)
+
+summary(myfit)
+print(c( AIC(myfit), my.aic))
+#+end_src
+
+#+RESULTS:
+| 331.409410702845 |
+| 331.409410702845 |
+
+
+
+
+* Forcing the intercept
+
+Hooke's law is a law of physics that states that the force $F$ needed
+to extend or compress a spring by some distance $x$ scales linearly
+with respect to that distance
+
+\begin{equation}
+F = kx, 
+\end{equation}
+
+where k is a constant
+factor characteristic of the spring (i.e., its stiffness), and $x$ is
+small compared to the total possible deformation of the spring.
+
+An experiment was draw and the following data was observed:
+
+#+begin_src R :exports both
+
+my_plotLM  <- function(x, ... ){
+    if(!class(x)%in%"lm") stop("We expect a linear model (lm) object")
+plot(x$model[,2], x$model[,1], 
+pch= 19, col="darkblue", ...,
+main=paste("Points with fitted line", 
+"\n Y = (", round(x$coefficients[2],2), 
+") * X + ", round(x$coefficients[1],2),
+"\n r^2 = ", round(summary(x)$r.squared,3)))
+#xlab ="zl per capita", ylab = "Patents applications")
+ifelse(length(x$coefficients = 1,
+abline(0,x$coefficients, col="lightblue", lwd=3)
+abline(x$coefficients, col="lightblue", lwd=3))
+    }
+
+my_plotLM2  <- function(x, ... ){
+    if(!class(x)%in%"lm") stop("We expect a linear model (lm) object")
+plot(x$model[,2], x$model[,1], 
+pch= 19, col="darkblue", ...,
+main=paste("Points with fitted line", 
+"\n Y = (", round(x$coefficients[2],2), 
+") * X + ", round(x$coefficients[1],2),
+"\n r^2 = ", round(summary(x)$r.squared,3)))
+#xlab ="zl per capita", ylab = "Patents applications")
+    matlines(x$model[,2],predict(x,int="c"),
+             col=c("light blue", "grey", "grey"),
+             lwd=c(2,2,2),
+             lty=c(1,2,2))
+    }
+
+df  <- data.frame(
+    "weight.gr" = c(20,40,50,70,100,300,350,400,450,500),
+    "deformation"= c(0.3 ,1 ,1.4 ,2.4 ,3.7 ,12.1 ,15.4 ,16.6 ,18.7 ,21))
+
+
+myfit  <- lm(deformation ~ weight.gr , data =df)
+my_plotLM(myfit)
+
+myfit2  <- lm(deformation  ~ weight.gr + 0  , data =df) ## forcing the intercept to be 0
+## myfit2.2  <- lm(deformation ~ weight.gr -1  , data =df) ## forcing the intercept to be 0 different syntax that does the same (force intercept to be 0)
+
+
+
+
+my_plotLM2(myfit2)
+
+###  
+###  R^2 how it is computed when forcing the intercept to 0? 
+###  
+#+end_src
+
+
+* Polynomial Regressions
+
+The relationship between $y$ and $x$ often turns out not to be a straight
+line.  how do we assess the significance of departures from linearity?
+One of the simplest ways is to use polynomial regression.
+
+We have just one continuous explanatory variable, $x$, but we can fit
+higher powers of $x$, such as $x^2$ and $x^3$ , to the model in
+addition to $x$ to explain *curvature* in the relationship between y
+and $x$. It is useful to experiment with the kinds of curves that can be
+generated with very simple models.
+
+
+
+#+begin_src R
+
+# source("my_Rtools.R")
+
+df <- data.frame(
+"Year" = c(
+2000, 2001, 2002, 2003, 2004, 2005,
+2006, 2007, 2008, 2009, 2010, 2011,
+2012, 2013, 2014, 2015, 2016, 2017,
+2018, 2019, 2020),
+"Expenditure" = c(
+125, 127, 118, 119, 135, 146,
+155, 175, 202, 238, 270, 303,
+372, 375, 420, 470, 467, 536,
+668, 789, 845),
+"PatentsApp" = c(
+2404, 2202, 2313, 2268, 2381, 2028,
+2157, 2392, 2488, 2883, 3203, 3880,
+4415, 4237, 3939, 4676, 4261, 3942,
+4207, 3887, 4010))
+
+
+myfit1 <- lm(PatentsApp ~ Expenditure, data= df)
+myfit2 <- lm(PatentsApp ~ Expenditure + I(Expenditure^2), data = df)
+myfit3 <- lm(PatentsApp ~ Expenditure + I(Expenditure^2) + I(Expenditure^3), data = df)
+#+end_src
+
+
+* Using ANOVA to choose the best fitted model.
+
+The ANOVA analysis performs an $F$ test that is similar to the $F$ test
+for a linear regression. The difference is that this test is between
+two models, whereas the regression $F$ test is between using the
+regression model and using no model.
+
+We can use anova to compare them, and the result is a p-value which we
+can compare. A small p-value indicates that the models are
+significantly different.
+
+#+begin_src R
+
+anova(myfit1,myfit2)
+anova(myfit2,myfit3)
+#+end_src
+
+
+* Logarithmic Regressions
+
+In this section we are insterested in models of the type
+
+\begin{equation}
+y = ae^{bx}
+\end{equation}
+
+
+As an example, these type of model appears in the decay of
+organic material in soil, and our mechanistic model is based on the assumption that the fraction of dry matter
+lost per year is a constant.
+
+\begin{equation}
+y = y_0 e^{-bt}
+\end{equation}	
+
+Here $y_0$ is the initial dry mass (at time $t = 0$) and $b$ is the decay rate (the parameter we want to estimate by
+linear regression). Taking logs of both sides, we get
+
+\begin{equation}
+\ln(y) = \ln(y_0) - bt.
+\end{equation}	
+
+consider the following data:
+| time |      amount |
+|------+-------------|
+|    0 |         125 |
+|    1 | 100.2488583 |
+|    2 |          70 |
+|    3 | 83.47079531 |
+|    4 |         100 |
+|    5 | 65.90786956 |
+|    6 | 66.53371457 |
+|    7 | 53.58808673 |
+|    8 | 61.33235104 |
+|    9 | 43.92743547 |
+|   10 | 40.29544843 |
+|   11 | 44.71345876 |
+|   12 | 32.53314287 |
+|   13 | 36.64033626 |
+|   14 | 40.15471123 |
+|   15 | 23.08029549 |
+|   16 | 39.86792844 |
+|   17 | 22.84978589 |
+|   18 | 35.01464535 |
+|   19 | 17.97726709 |
+|   20 |  21.1591801 |
+|   21 | 27.99827279 |
+|   22 | 21.88573499 |
+|   23 | 14.27396172 |
+|   24 | 13.66596918 |
+|   25 | 11.81643542 |
+|   26 | 25.18901636 |
+|   27 | 8.195643809 |
+|   28 | 17.19133663 |
+|   29 | 24.28335424 |
+|   30 | 17.72277625 |
+|------+-------------|
+
+* Power model
+
+Another related model is given by
+
+
+\begin{equation}
+y = ax^b,
+\end{equation}
+
+and when taking the logarithms we obtain
+
+\begin{equation}
+\ln(y) = \ln(a) + b\ln(x).
+\end{equation}
+
+Try to fit a linear model and exponential model to the following data set
+
+#+begin_src R
+area <-c(2.32155	, 2.525543, 2.627449, 2.195558, 1.088055, 2.044432, 1.79707	, 2.302335, 2.187373, 1.506705, 1.828855, 2.336525, 1.468181, 1.048413, 1.469381, 2.55183	, 1.618446, 1.543634, 1.707257, 1.854963, 2.59554	, 2.247533, 1.823993, 1.723572, 2.13321	, 1.586938, 1.073923, 1.193971, 1.932372, 1.089122)
+response <- c(2.367588, 2.881607, 2.641165, 2.592812, 2.15938	, 2.365786, 2.548956, 2.741471, 2.468152, 2.580795, 2.53684	, 2.41033	, 2.142693, 2.07412	, 2.517654, 2.833151, 2.377668, 2.409813, 2.227562, 2.49544	, 2.932836, 2.800229, 2.508883, 2.387154, 2.385757, 2.483149, 2.095175, 2.134681, 2.360977, 2.419167)
+
+myfit1 <- lm(response ~ area)
+myfit2 <- lm(log(response) ~ log(area))
+
+plot(area,response, pch=19, col="blue", xlim=c(0,5),ylim =c(0,5))
+xx <- exp(myfit2$model[,2])
+xx <-xx[order(xx)]
+abline(myfit1$coefficient,col="red")
+lines(xx, exp(myfit2$coefficients[1])*(xx)^(myfit2$coefficients[2]), col="green")
+
+
+
+plot(area,response, pch=19, col="blue", xlim=c(0,5),ylim =c(0,5))
+abline(myfit1$coefficient,col="red")
+# xx <- exp(myfit2$model[,2])
+# xx <-xx[order(xx)]
+xx <- seq(0,5, by=0.1)
+lines(xx, exp(myfit2$coefficients[1])*(xx)^(myfit2$coefficients[2]), col="green")
+#+end_src
+
+#+RESULTS:
+
+
+The moral: you need to extremely careful when using regression models for prediction. If you
+know that response must be zero when area is zero (the graph has to pass through the origin) then
+obviously the power function is likely to be better for extrapolation to the left of the data. But if we have no
+information on non-linearity other than that contained within the data, then parsimony suggests that errors
+will be smaller using the simpler, linear model for prediction
+
+
+
+* Multilinear Example
+
+The homeprice dataset contains information about homes that sold in a town of New Jersey
+in the year 2001. We wish to develop some rules of thumb in order to help us figure out what are
+appropriate prices for homes. First, we need to explore the data a little bit.
+
+
+We’ll begin with the regression on bedrooms and neighbourhood.
+
+#+begin_src R
+library("UseR")
+summary(lm(sale ~ bedrooms + nbd))
+#+end_src
+
+
+Next, we know that home buyers covet bathrooms. Hence, they should add value to a house. How
+much?
+
+
+This seems a little high, as the construction cost of a
+new bathroom is less than this. Could it possibly be $5 thousand?
+
+For the homeprice dataset, what does a half bathroom do for the sale price?
+

@@ -8,11 +8,12 @@ These are some notes for the course R Modelling.
 Many lectures notes include mathematical symbols that won't display at all  when reading in github. Try the html files instead.
 In order to see the *html* files *go to raw* and then do right click "*save page as*".
 
-+ [[./Lecture_1.org][Lecture 1. Introduction to R]]
-+ [[./Lecture_2.html][Lecture 2. Recap of Statistics and Probability]]
-+ [[./Lecture_3.html][Lecture 3. Simple Plots]]
-+ [[./Lecture_4.html][Lecture 4. Statistical inference]]
-+ [[./Lecture_5.html][Lecture 5. Hypothesis Testing]]
-+ [[./Lecture_6.html][Lecture 6. Linear Models]]
-+ [[./Lecture_7.html][Lecture 7. More regressions and Multi-linear models]]
++ [[./Lecture_notes/Lecture_1.org][Lecture 1. Introduction to R]]
++ [[./Lecture_notes/Lecture_2.html][Lecture 2. Recap of Statistics and Probability]]
++ [[./Lecture_notes/Lecture_3.html][Lecture 3. Simple Plots]]
++ [[./Lecture_notes/Lecture_4.html][Lecture 4. Statistical inference]]
++ [[./Lecture_notes/Lecture_5.html][Lecture 5. Hypothesis Testing]]
++ [[./Lecture_notes/Lecture_6.html][Lecture 6. Linear Models]]
++ [[./Lecture_notes/Lecture_7.html][Lecture 7. More regressions and Multi-linear models]]
++ [[./Lecture_notes/Lecture_8.html][Lecture 8. Logistic regression and the classification problem]]
    

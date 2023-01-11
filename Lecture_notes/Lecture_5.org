@@ -401,6 +401,8 @@ $Z \sim N(0,1)$.
 Note: The test statistic is based on the statistic that estimates the parameter that appears in the hypotheses.
 E.g. in the example above $\hat{\theta}$ estimates $\mu_0$.
 
+*Remark* Usually the estimator of the mean $\hat{\theta}$ is given by the arithmetic average $\hat{Y}$ (see next section).
+
 * Some remarks with the previous formula:
  Recall that
 1) If $X_{i}$ 's are $n$ iid random variables with $X_{i}\sim N(\mu, \sigma^2)$ then
@@ -408,7 +410,7 @@ E.g. in the example above $\hat{\theta}$ estimates $\mu_0$.
 \hat{Y} = \frac{1}{n} \sum_{i=1}^n X_{i} \sim N\left(\mu,\frac{\sigma^2}{n} \right).
 \end{equation}
 
-2) [@2] Then the Z statistic is the change of variable that transforms $X \sim N\left(\mu_0,\frac{\sigma^2}{n} \right)$ into $Z \sim N(0,1)$.
+2) [@2] Then the Z statistic is the change of variable that transforms $\hat{Y} \sim N\left(\mu_0,\frac{\sigma^2}{n} \right)$ into $Z \sim N(0,1)$.
 
 * Assessing our estimate
 
@@ -507,7 +509,6 @@ There are methods which can be used to decide whether we can reject or not to
 reject they null hypothesis $H_0$ at some $\alpha$ without finding the exact p-value. A traditional method of hypothesis testing
 uses a table of known critical values.
 
-* 
 We reject the null hypothesis $H_0$ at the significance level α, depending on $H_1$ , following these
 rules (for most parametric tests):
 
@@ -545,7 +546,6 @@ and their consequences. First, we formulate the hypotheses:
 A Type I error is when the condition is diagnosed in a patient that does not have the condition.
 This would result in an expensive treatment being administered, as well as any possible side effects
 of such treatment. Note that a Type I error is sometimes referred to as a false positive.
-\vspace{0.5cm}
 
 
 A Type II error is when the condition is not diagnosed in a patient that has the condition. This
@@ -553,14 +553,22 @@ could result in the condition progressing and possibly going unnoticed. Note tha
 sometimes referred to as a false negative.
 
 
-* Test for a population mean
+* t-Test (Student's Distribution)
 
 The underlying assumption for these tests is that the population is normally distributed.
 There are two types of tests for a population mean, depending on whether the population variance
 $\sigma^2$  is known or not.
 
 + If $\sigma^2$ is known, then we use the Z-test.
-+ If $\sigma^2$ is unknown, then we use the t-test.
++ If $\sigma^2$ is unknown, then we use the t-test (with $n-1$ degrees of freedom).
+
+The corresponding formula is given by
+\begin{equation}
+t = \frac{\hat{\theta} - \mu_0}{S/\sqrt{n}},
+\end{equation}
+where $S^2$ is the population variance.
+
+*Remark* Usually the estimator of the mean $\hat{\theta}$ is given by the arithmetic average $\hat{Y} = \frac{1}{n}\sum_{i+1}^n X_{i}$.
 
 
 * Z-test
@@ -623,7 +631,8 @@ that the cholesterol level is normally distributed.
 + The sample variance will be denoted by $\hat{S}^2$.
 + If the Central Limit Theorem applies, we use the $Z-test$, otherwise we use the $t-test$ with $n-1$ degrees of freedom.
 
-* 
+** TODO Insert a graph.
+
 ** One-sided Hypothesis test
 With an $\alpha$ level of confidence, perform the hypothesis test:
 \begin{equation}
